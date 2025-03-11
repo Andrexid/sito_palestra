@@ -13,7 +13,7 @@
     <h1>Benvenuto nel metodo di registrazione</h1>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, atque!</p>
 
-    <form action="../php/registrazione.php">
+    <form action="../php/registrazione.php" method="POST">
         <label for="Nome">Nome</label>
         <input type="text" name="nome">
 
@@ -34,7 +34,11 @@
         Donna<input type="radio" value="Donna" name="sesso">
         Altro<input type="radio" value="Altro" name="sesso">
 
-        <input type="submit" value="Invia">
+        <p>Hai già un account?<a href="./login.html" class="link"> Effettua il Login</a></p>
+
+        <input type="submit" value="Registrati">
+
+
 
     </form>
 </body>
