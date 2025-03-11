@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a40, #3b3b98);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #2a2a72;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00c6ff;
+}
+
+.btn {
+    background: #00c6ff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #009ec3;
+}
+
+.hero {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #1a1a40, #3b3b98);
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.5;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #2a2a72;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.faq {
+    padding: 60px 20px;
+    background: #2a2a72;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.faq h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 15px;
+    background: #3b3b98;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.cta-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #3b3b98, #0082a7);
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.cta-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
