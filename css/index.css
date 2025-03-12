@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #1a1a40, #3b3b98);
@@ -7,131 +14,215 @@ body {
     text-align: center;
 }
 
+/* ----- Navbar ----- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background: #2a2a72;
+    background-color: #1E1E3F; /* Colore scuro */
+    padding: 15px 30px;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 1px;
+.logo img {
+    height: 50px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    align-items: center;
 }
 
 .nav-links li {
-    display: inline;
+    margin: 0 15px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 3px;
+    background-color: #00C2FF; /* Azzurro brillante */
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: #00c6ff;
+    color: #00C2FF; /* Cambia colore al passaggio del mouse */
+    transform: scale(1.05);
 }
 
-.btn {
-    background: #00c6ff;
-    padding: 12px 24px;
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
+.nav-links a.selezionata {
+    font-size: 22px;
+    background-color: white;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 8px; /* Angoli arrotondati */
     font-weight: bold;
-    font-size: 18px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Effetto leggero */
+}
+
+.nav-links a.selezionata:hover {
+    background-color: #00C2FF; /* Azzurro brillante */
+    color: white;
+    transform: scale(1.05); /* Effetto leggero di ingrandimento */
+}
+
+#profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background: #009ec3;
+#profile-pic:hover {
+    transform: scale(1.1);
 }
+/* ----- Fine Navbar ----- */
 
+/* ----- HERO SECTION ----- */
 .hero {
-    padding: 120px 20px;
-    background: linear-gradient(135deg, #1a1a40, #3b3b98);
+    padding: 140px 20px;
+    background: linear-gradient(135deg, #1a1a40, #0082a7);
+    text-align: center;
+    color: white;
 }
 
 .hero h1 {
-    font-size: 42px;
+    font-size: 48px;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero p {
-    font-size: 20px;
-    max-width: 600px;
+    font-size: 22px;
+    max-width: 700px;
     margin: 0 auto 30px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: #ff8c00;
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #ff6000;
+    transform: scale(1.1);
+}
+
+/* ----- FEATURES SECTION ----- */
 .features {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 60px 20px;
+    gap: 25px;
+    padding: 70px 20px;
     flex-wrap: wrap;
+    background: #1a1a40;
 }
 
 .feature-card {
     background: #2a2a72;
-    padding: 30px;
-    border-radius: 12px;
-    width: 300px;
+    padding: 35px;
+    border-radius: 15px;
+    width: 320px;
     text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    background: #0082a7;
 }
 
 .feature-card h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
 .feature-card p {
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 19px;
+    line-height: 1.5;
 }
 
+/* ----- FAQ SECTION ----- */
 .faq {
-    padding: 60px 20px;
+    padding: 70px 20px;
     background: #2a2a72;
-    margin-top: 50px;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .faq h2 {
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
 }
 
 .faq-item {
     margin-bottom: 20px;
-    text-align: left;
-    padding: 15px;
+    padding: 18px;
     background: #3b3b98;
-    border-radius: 8px;
-    font-size: 18px;
-    line-height: 1.5;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
+.faq-item:hover {
+    transform: scale(1.03);
+}
+
+/* ----- CTA SECTION ----- */
 .cta-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #3b3b98, #0082a7);
-    margin-top: 50px;
-    border-radius: 10px;
+    padding: 90px 20px;
+    background: linear-gradient(135deg, #3b3b98, #003cff);
+    border-radius: 12px;
+    text-align: center;
+    color: white;
 }
 
 .cta-section h2 {
-    font-size: 32px;
+    font-size: 36px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cta-section p {
+    font-size: 22px;
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
 }
