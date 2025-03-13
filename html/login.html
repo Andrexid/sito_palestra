@@ -5,32 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../css/login-signup.css">
+    <link rel="stylesheet" href="../css/login.css">
+
 </head>
 
 <!-- manca lo stile completamente -->
 
 <body>
+    <div class="container-form">
+        <form action="../php/login.php" method="POST" id="loginForm">
 
-    <form action="../php/login.php" method="POST">
-        <div>
             <h1>Accedi al tuo account</h1>
-        </div>
 
-        <label for="Email">Email</label>
-        <input type="email" id="email" name="eamil" placeholder="Inserisci la tua Email">
+            <div class="labels">
+                <label for="Email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua Email" class="input">
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Inserisci la Password">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Inserisci la Password" class="input">
+            </div>
 
-        <p>Non hai un account?<a href="./registrazione.html" class="link"> Registrati</a></p>
+            <p>Password dimenticata?<a href="#" class="link"> Clicca qui</a></p>
 
-        <button type="submit" val>Accedi</button>
-    </form>
+            <input type="submit" value="Accedi" class="input-button">
 
+            <a href="./registrazione.html"><button type="button" class="input-button small-btn">Registrati</button></a>
 
-    <div id="footer"></div>
+        </form>
+    </div>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const emailInput = document.getElementById("email");
+            const form = document.getElementById("loginForm");
+    
+            // Log dell'email salvata nel sessionStorage
+            if (sessionStorage.getItem("email")) {
+                console.log("Email salvata nel sessionStorage:", sessionStorage.getItem("email"));
+                emailInput.value = sessionStorage.getItem("email"); // Precompila il campo email
+            } else {
+                console.log("Nessuna email salvata nel sessionStorage.");
+            }
+    
+            // Mostrare alert al submit e aggiornare sessionStorage
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Blocca l'invio per mostrare l'alert prima
+                
+                // Elimina l'email precedente e salva la nuova
+                sessionStorage.removeItem("email"); 
+                sessionStorage.setItem("email", emailInput.value);
+    
+                console.log("Nuova email salvata:", emailInput.value);
+    
+                alert("Stai accedendo con l'email: " + emailInput.value);
+    
+                form.submit(); // Ora invia effettivamente il form
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

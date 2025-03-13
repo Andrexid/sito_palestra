@@ -1,5 +1,4 @@
 <?php
-
 // Richiamo della connessione al database
 require_once('../database/connessione.php');
 
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result->num_rows == 1) {
             $row = $result->fetch_array(MYSQLI_ASSOC);
             // Verifica cella paassword
-            if (password_verify($password, $row['psw'])) {
+            if (password_verify($password, $row['password'])) {
 
                 // Inizializzazione della sessione
                 session_start();
@@ -33,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: $url");
             }
         } else {
-            $errore = 'Non esistono account con quello username';
+            $errore = 'Non esistono account con quella email';
             $url = "../utilites/errore-utente.php?errore=" . urlencode($errore);
             header("Location: $url");
         }

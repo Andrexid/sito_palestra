@@ -1,5 +1,4 @@
 <?php
-
 // Richiamo della connessione al database
 require_once('../database/connessione.php');
 
