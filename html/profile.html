@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo Utente</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/commonNavbar.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto Profilo">
+            <h2 id="username">Nome Utente</h2>
+            <p id="email">email@example.com</p>
+            <button onclick="modificaProfilo(), alert('modifica')">✏️ Modifica Profilo</button>
+        </div>
+
+        <div class="stats">
+            <h3>📊 Le Tue Statistiche</h3>
+            <p>Allenamenti completati: <span id="workouts">42</span></p>
+            <p>Peso massimo sollevato: <span id="max-weight">120kg</span></p>
+            <p>Tempo totale in palestra: <span id="total-time">35 ore</span></p>
+            <p>Obiettivo attuale: <span id="goal">Aumentare massa</span></p>
+        </div>
+
+        <div class="workout-history">
+            <h3>📅 Ultimi Allenamenti</h3>
+            <p>📅 10 Marzo - Panca Piana: 80kg x 8 reps</p>
+            <p>📅 8 Marzo - Squat: 100kg x 6 reps</p>
+            <p>📅 5 Marzo - Stacco: 120kg x 5 reps</p>
+        </div>
+
+        <div class="settings">
+            <h3>⚙️ Impostazioni</h3>
+            <button onclick="cambiaPassword()">🔑 Cambia Password</button>
+            <button onclick="toggleNotifiche()">🔔 Notifiche: Attive</button>
+            <button class="delete-account" onclick="eliminaAccount()">❌ Elimina Account</button>
+        </div>
+    </div>
+
+    <script src="../src/profile.js"></script>
+</body>
+</html>

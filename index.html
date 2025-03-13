@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palestra Tracker - Potenzia i tuoi progressi!</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/commonNavbar.css">
 </head>
 <body>
     <nav class="navbar">
@@ -12,14 +13,19 @@
             <img src="img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
-            <li><a href="#" onclick="controllaAccesso('index.html')" class = "selezionata">Home</a></li>
-            <li><a href="progressi.html">Progressi</a></li>
+            <li><a href="#" class = "selezionata">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contatti.html">Contatti</a></li>
-            <li>
-                <a href="profilo.html">
-                    <img id="profile-pic" src="img" alt="Profilo">
+            <li class = "profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
                 </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -27,7 +33,7 @@
     <section class="hero">
         <h1>Supera i tuoi limiti, <br>diventa una leggenda!</h1>
         <p>Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con <strong>Palestra Tracker</strong> hai tutto sotto controllo: progressi, allenamenti e nuove sfide da superare!</p>
-        <a href="html/login.html" class="btn">Inizia Ora</a>
+        <a href="#" class="btn" onclick="controllaAccesso('progressi.html')">Inizia Ora</a>
     </section>
     
     <section class="features" id="features">
@@ -76,7 +82,7 @@
     <section class="cta-section">
         <h2>Sei pronto a trasformarti?</h2>
         <p>Unisciti alla community di atleti che stanno già migliorando ogni giorno! Non perdere altro tempo.</p>
-        <a href="html/login.html" class="btn">Unisciti a Noi</a>
+        <a href="#" class="btn" onclick="controllaAccesso('progressi.html')">Unisciti a Noi</a>
     </section>    
 
     <script src="src/index.js"></script>

@@ -7,97 +7,12 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1a1a40, #3b3b98);
+    /* background: linear-gradient(135deg, #1a1a40, #3b3b98); */
     color: white;
     margin: 0;
     padding: 0;
     text-align: center;
 }
-
-/* ----- Navbar ----- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1E1E3F; /* Colore scuro */
-    padding: 15px 30px;
-}
-
-.logo img {
-    height: 50px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: "";
-    display: block;
-    width: 0%;
-    height: 3px;
-    background-color: #00C2FF; /* Azzurro brillante */
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease-in-out;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a:hover {
-    color: #00C2FF; /* Cambia colore al passaggio del mouse */
-    transform: scale(1.05);
-}
-
-.nav-links a.selezionata {
-    font-size: 22px;
-    background-color: white;
-    color: black;
-    padding: 8px 15px;
-    border-radius: 8px; /* Angoli arrotondati */
-    font-weight: bold;
-    transition: 0.3s ease-in-out;
-    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2); /* Effetto leggero */
-}
-
-.nav-links a.selezionata:hover {
-    background-color: #00C2FF; /* Azzurro brillante */
-    color: white;
-    transform: scale(1.05); /* Effetto leggero di ingrandimento */
-}
-
-#profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#profile-pic:hover {
-    transform: scale(1.1);
-}
-/* ----- Fine Navbar ----- */
 
 /* ----- HERO SECTION ----- */
 .hero {
