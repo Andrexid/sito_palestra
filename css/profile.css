@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #1a1a40, #3b3b98);
@@ -8,7 +13,8 @@ body {
 }
 
 .profile-container {
-    max-width: 600px;
+    max-width: 60%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
     background: #2a2a72;
@@ -16,26 +22,69 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.profile-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.profile-container img {
+    min-width: 100px;
+    min-height: 100px;
 }
 
-.btn {
-    background: #00C2FF;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+/* ----- Motivational quote ----- */
+.motivational-quote-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff4d00, #ff9100);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.btn:hover {
-    background: #0082a7;
+.motivational-quote-container::before {
+    content: "🔥";
+    font-size: 30px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
 }
+
+.motivational-quote-container::after {
+    content: "💪";
+    font-size: 30px;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+}
+
+.motivational-quote {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Arial Black", sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    line-height: 1.4;
+}
+
+.motivational-author {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fdd835;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Animazione per rendere più d'impatto la frase */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ----- Fine motivational quote ----- */
 
 .logout {
     background: red;

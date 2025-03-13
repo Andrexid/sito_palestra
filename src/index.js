@@ -31,7 +31,7 @@ function controllaAccesso(destination){
     if(sessionStorage.getItem("email")){
         alert("cc")
     }else{
-        alert(destination);
+        window.location.href = "html/login.html"
     }
 }
 
