@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione</title>
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/login-signup.css">
+</head>
+<body>
+    <div class="container-form">
+        <form action="../php/registrazione.php" method="POST" id="registrationForm">
+            <h1>Registrati</h1>
+            
+            <!-- Nome e Cognome -->
+            <div class="double-input">
+                <div class="input-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" class="input" placeholder="Inserisci il Nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="cognome">Cognome</label>
+                    <input type="text" name="cognome" class="input" placeholder="Inserisci il Cognome" required>
+                </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="input" id="email" placeholder="Inserisci la tua Email" required>
+            </div>
+            
+            <!-- Sesso -->
+            <div class="input-group">
+                <label>Sesso</label>
+                <div class="radio-container">
+                    <label class="radio-button">
+                        <input type="radio" name="sesso" value="Uomo" required>
+                        <span class="radio-checkmark"></span> Uomo
+                    </label>
+                    <label class="radio-button">
+                        <input type="radio" name="sesso" value="Donna" required>
+                        <span class="radio-checkmark"></span> Donna
+                    </label>
+                    <label class="radio-button">
+                        <input type="radio" name="sesso" value="Altro" required>
+                        <span class="radio-checkmark"></span> Altro
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Password -->
+            <div class="double-input">
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="input" placeholder="Crea una Password" required>
+                </div>
+                <div class="input-group">
+                    <label for="password-v">Conferma Password</label>
+                    <input type="password" name="password-v" class="input" placeholder="Conferma la Password" required>
+                </div>
+            </div>
+            
+            <!-- Login Link -->
+            <p>Hai già un account? <a href="./login.html" class="link">Effettua il Login</a></p>
+            
+            <!-- Bottone Registrati -->
+            <input type="submit" value="Registrati" class="input-button">
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const emailInput = document.getElementById("email");
+            const form = document.getElementById("registrationForm");
+
+            // Salva l'email nel sessionStorage e mostra un alert al submit
+            form.addEventListener("submit", function (event) {
+                sessionStorage.setItem("email", emailInput.value);
+                alert("Email salvata con successo: " + emailInput.value);
+            });
+
+            // Recupera l'email salvata se esiste
+            if (sessionStorage.getItem("email")) {
+                emailInput.value = sessionStorage.getItem("email");
+            }
+        });
+    </script>
+</body>
+</html>

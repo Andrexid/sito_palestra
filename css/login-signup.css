@@ -1,0 +1,85 @@
+/* Foglio di stile in comune per il login e il signup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a40, #0082a7); 
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* labels */
+
+.labels {
+    display: flex;
+    flex-direction: column;
+}
+
+/* titolo */
+
+.container-form h1 {
+    margin-bottom: 30px;
+}
+
+/* input */
+
+.container-form .input:hover {
+    box-shadow: 0 0 10px 2px #3b3b98;
+    border: none;
+}
+
+.container-form .input:focus {
+    box-shadow: 0 0 20px 4px #3b3b98;
+    border: none;
+}
+
+/* Paragrafo altra opzione */
+
+.container-form a {
+    color: #00c6ff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.container-form a:hover{
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Bottoni */
+
+.input-button {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff8c00;;
+    color: white;
+    transition: background 0.3s ease-in-out;
+  }
+
+.input-button:hover {
+    background: #ff6000;
+  }
+
+.secondary-button{
+    width: 70%;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+}
+
+

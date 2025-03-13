@@ -1,0 +1,40 @@
+.container-form {
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    height: 70%;
+    background-color: #6B6ECC;
+    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 10px 5px rgba(35, 35, 35, 0.87);
+}
+
+.container-form .input {
+    height: 35px;
+    width: 350px;
+    margin: 10px 0 0 0;
+    padding: 0 10px;
+    border: none;
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.small-btn{
+    width: 70%;
+        
+}
+
+.input-button {
+    margin-bottom: 20px;
+}
+
+.input:first-of-type{
+    margin-bottom: 20px;    
+}
+
+.container-form p {
+    text-align: center;
+    margin: 15% 0;
+}
