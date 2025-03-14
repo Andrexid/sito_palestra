@@ -1,0 +1,124 @@
+/* ------ Contenitore contatti -------- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(96, 145, 223, 0.621);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+/* ----- Info Contatti ------- */
+.contact-info {
+    flex: 1;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 20px;
+}
+
+.contact-info h2 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #ff8c00;
+}
+
+.social-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-link-a {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link-a p {
+    padding: 0 5px;
+}
+
+.social-links a {
+    margin-right: 10px;
+    color: #ff8c00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ------- Modulo Contatti --------- */
+.contact-form {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.contact-form h2 {
+    color: #ff8c00;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.input-button {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    background: #ff8c00;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.input-button:hover {
+    background: #ff6000;
+}
+
+
+/* --------- Mappa --------- */
+.map-container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,53 @@
+.faq-container {
+    max-width: 600px;
+    margin: 10% auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.faq {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.question:hover {
+    background-color: #e2e2e2;
+}
+
+.answer {
+    display: none;
+    padding: 10px;
+    color: #444;
+    font-size: 16px;
+}
+
+.question::after {
+    content: "➕"; /* Icona di default */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.question.active::after {
+    content: "➖"; /* Cambia icona quando aperto */
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="../css/commonNavbar.css">
+    <link rel="stylesheet" href="../css/faq.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html" class = "selezionata">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class = "profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="faq-container">
+        <h1>Domande Frequenti (FAQ)</h1>
+        
+        <div class="faq">
+            <div class="question">📌 Domanda</div>
+            <div class="answer">
+                📦 Risposta
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">💳 Domanda</div>
+            <div class="answer">
+                💰 Risposta
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">🔄 Domanda</div>
+            <div class="answer">
+                🔙 Risposta
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">📞 Domanda</div>
+            <div class="answer">
+                ☎️ Risposta
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll(".question");
+        
+            questions.forEach((question) => {
+                question.addEventListener("click", function () {
+                    // Chiude tutte le risposte
+                    const answers = document.querySelectorAll(".answer");
+                    answers.forEach((answer) => {
+                        if (answer !== this.nextElementSibling) {
+                            answer.style.display = "none";
+                        }
+                    });
+        
+                    // Alterna la visibilità della risposta selezionata
+                    const answer = this.nextElementSibling;
+                    const isOpen = answer.style.display === "block";
+        
+                    // Chiude tutte le risposte prima di aprirne un'altra
+                    questions.forEach((q) => q.classList.remove("open"));
+                    answers.forEach((a) => a.style.display = "none");
+        
+                    // Se non era aperta, aprila
+                    if (!isOpen) {
+                        answer.style.display = "block";
+                        this.classList.add("open");
+                    }
+                });
+            });
+        });
+        
+    </script>
+
+
+</body>
+</html>

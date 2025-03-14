@@ -10,9 +10,6 @@ body {
   background: linear-gradient(135deg, #1a1a40, #0082a7); 
   color: white;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Contenitore principale */
