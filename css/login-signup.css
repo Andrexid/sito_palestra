@@ -9,7 +9,8 @@
 body {
     background: linear-gradient(135deg, #1a1a40, #0082a7); 
     color: white;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
