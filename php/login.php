@@ -1,47 +1,55 @@
 <?php
-// Richiamo della connessione al database
 require_once('../database/connessione.php');
 
-// Recupero dei dati dal from
-$email = $conn->real_escape_string($_POST['email']);
-$password = trim(($_POST['password']));
+header('Content-Type: application/json');
 
-// Controllo che i dati siano inseriti tramite POST
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$response = ["success" => false, "message" => ""];
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+try {
+    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+        throw new Exception("Metodo di richiesta non valido.");
+    }
+
+    // Recupero dati dal form
+    $email = $conn->real_escape_string($_POST['email']);
+    $password = trim($_POST['password']);
 
     // Controllo se l'utente esiste
     $email_control = "SELECT * FROM utenti WHERE email = '$email'";
+    $result = $conn->query($email_control);
 
-    if ($result = $conn->query($email_control)) {
-        // Se è presente una riga si va avanti
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_array(MYSQLI_ASSOC);
-            // Verifica cella paassword
-            if (password_verify($password, $row['password'])) {
+    if (!$result) {
+        throw new Exception("Errore nella query di controllo: " . $conn->error);
+    }
 
-                // Inizializzazione della sessione
-                session_start();
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        if (password_verify($password, $row['password'])) {
+            session_start();
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['logged'] = true;
 
-                $_SESSION['id'] = $row['id_utente'];
-                $_SESSION['logged'] = true;
-
-                header("Location: account.php");
-            } else {
-                $errore = 'Password non corretta';
-                $url = "../utilites/errore-utente.php?errore=" . urlencode($errore);
-                header("Location: $url");
-            }
+            $response["success"] = true;
+            $response["message"] = "Login effettuato con successo.";
         } else {
-            $errore = 'Non esistono account con quella email';
-            $url = "../utilites/errore-utente.php?errore=" . urlencode($errore);
-            header("Location: $url");
+            throw new Exception("Password non corretta.");
         }
     } else {
-        $errore = 'Errore in fase di accesso';
-        $url = "../utilites/errore-utente.php?errore=" . urlencode($errore);
-        header("Location: $url");
+        throw new Exception("Non esistono account con questa email.");
     }
+} catch (Exception $e) {
+    $response["message"] = $e->getMessage();
+    $response["error_file"] = $e->getFile();
+    $response["error_line"] = $e->getLine();
+    $response["error_code"] = $e->getCode();
 }
 
-// Richiamo della chiusura della connessione al database
-require_once('../database/close-connessione.php');
+// Invio la risposta in JSON
+echo json_encode($response);
+$conn->close();
+?>

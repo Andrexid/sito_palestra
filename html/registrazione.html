@@ -16,11 +16,11 @@
             <div class="double-input">
                 <div class="input-group">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" class="input" placeholder="Inserisci il Nome" required>
+                    <input type="text" name="nome" id="nome" class="input" placeholder="Inserisci il Nome" required>
                 </div>
                 <div class="input-group">
                     <label for="cognome">Cognome</label>
-                    <input type="text" name="cognome" class="input" placeholder="Inserisci il Cognome" required>
+                    <input type="text" name="cognome" id="cognome" class="input" placeholder="Inserisci il Cognome" required>
                 </div>
             </div>
             
@@ -35,7 +35,7 @@
                 <label>Sesso</label>
                 <div class="radio-container">
                     <label class="radio-button">
-                        <input type="radio" name="sesso" value="Uomo" required>
+                        <input type="radio" name="sesso" value="Uomo" required checked="checked">
                         <span class="radio-checkmark"></span> Uomo
                     </label>
                     <label class="radio-button">
@@ -53,11 +53,11 @@
             <div class="double-input">
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" class="input" placeholder="Crea una Password" required>
+                    <input type="password" name="password" id="password" class="input" placeholder="Crea una Password" required>
                 </div>
                 <div class="input-group">
                     <label for="password-v">Conferma Password</label>
-                    <input type="password" name="password-v" class="input" placeholder="Conferma la Password" required>
+                    <input type="password" name="password-v" id="password-v" class="input" placeholder="Conferma la Password" required>
                 </div>
             </div>
             
@@ -69,22 +69,7 @@
         </form>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const emailInput = document.getElementById("email");
-            const form = document.getElementById("registrationForm");
-
-            // Salva l'email nel sessionStorage e mostra un alert al submit
-            form.addEventListener("submit", function (event) {
-                sessionStorage.setItem("email", emailInput.value);
-                alert("Email salvata con successo: " + emailInput.value);
-            });
-
-            // Recupera l'email salvata se esiste
-            if (sessionStorage.getItem("email")) {
-                emailInput.value = sessionStorage.getItem("email");
-            }
-        });
-    </script>
+    <script src = ../src/registrazione.js></script>
+    
 </body>
 </html>
