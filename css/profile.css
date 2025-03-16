@@ -1,5 +1,9 @@
-body {
+* {
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
+}
+
+body {
     background: linear-gradient(135deg, #1a1a40, #3b3b98);
     color: white;
     text-align: center;
@@ -8,7 +12,8 @@ body {
 }
 
 .profile-container {
-    max-width: 600px;
+    max-width: 60%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
     background: #2a2a72;
@@ -16,31 +21,93 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.profile-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+.profile-container img {
+    min-width: 100px;
+    min-height: 100px;
 }
 
-.btn {
-    background: #00C2FF;
+/* Motivational Quote */
+.motivational-quote-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff4d00, #ff9100);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.motivational-quote {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* SEZIONE GAMIFICATION */
+.gamification-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #0077ff, #00c3ff);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.gamification-text {
+    font-size: 22px;
+    font-weight: bold;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.btn:hover {
-    background: #0082a7;
+/* Badge */
+.badge-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.logout {
-    background: red;
+.badge {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100px;
+    transition: transform 0.2s ease-in-out;
 }
 
-.logout:hover {
-    background: darkred;
+.badge img {
+    width: 60px;
+    height: 60px;
+}
+
+.badge p {
+    font-weight: bold;
+    margin-top: 5px;
+    color: black;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+.badge.locked {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

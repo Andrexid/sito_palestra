@@ -1,11 +1,4 @@
 /* Stile generale */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
 body {
   background: linear-gradient(135deg, #1a1a40, #0082a7); 
   color: white;

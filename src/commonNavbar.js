@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileMenu = document.getElementById("profile-menu");
 
     if (sessionStorage.getItem("email")) {
-        profilePic.src = "img/utente_without_bg.png";  // Immagine normale se l'utente è loggato
+        profilePic.src = "../img/utente_without_bg.png";  // Immagine normale se l'utente è loggato
     } else {
-        profilePic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
+        profilePic.src = "../img/utente.png";  // Immagine grigia se l'utente non è loggato
     }
 
     // Mostra/nasconde il menu al click sull'immagine profilo
@@ -31,12 +31,12 @@ function controllaAccesso(destination){
     if(sessionStorage.getItem("email")){
         alert("cc")
     }else{
-        window.location.href = "html/login.html"
+        alert(destination);
     }
 }
 
 function logout() {
     alert("Logout effettuato!");
     sessionStorage.removeItem("email");
-    window.location.href = "html/login.html";
+    window.location.href = "../html/login.html";
 }

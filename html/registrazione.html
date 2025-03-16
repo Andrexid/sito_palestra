@@ -99,23 +99,8 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const emailInput = document.getElementById("email");
-            const form = document.getElementById("registrationForm");
-
-            // Salva l'email nel sessionStorage e mostra un alert al submit
-            form.addEventListener("submit", function (event) {
-                sessionStorage.setItem("email", emailInput.value);
-                alert("Email salvata con successo: " + emailInput.value);
-            });
-
-            // Recupera l'email salvata se esiste
-            if (sessionStorage.getItem("email")) {
-                emailInput.value = sessionStorage.getItem("email");
-            }
-        });
-    </script>
+    <script src = ../src/registrazione.js></script>
+    
 </body>
 
 </html>

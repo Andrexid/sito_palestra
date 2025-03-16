@@ -11,8 +11,6 @@
     // controllo della connessione
     if ($conn->connect_error) {
         die('Connection failed: ' . $conn->connect_error);
-    } else {
-        echo "<h1>Prova</h1>";
     }
 
 ?>
