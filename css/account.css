@@ -8,8 +8,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    /* background: linear-gradient(135deg, #1a1a40, #0082a7); */
-    background-color: #1B2B50;
+    background: linear-gradient(135deg, #1a1a40, #0082a7); 
     margin: 0;
     min-height: 100vh;
     height: 100%;
@@ -63,7 +62,7 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 40px;
+    top: 115px;
     left: 40px;
     font-size: 30px;
     color: white;
@@ -78,7 +77,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.278);
     display: none;
     z-index: 998;
 }
@@ -101,12 +100,20 @@ body {
     flex-direction: column;
 }
 
+/* Sezione Schede */
+.schede {
+    width: 100%;
+    border: 1px solid red;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
 
 /* Contenitore generale */
 .container-main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 30px;
     padding: 30px 20px;
     max-width: 90vw;
@@ -116,19 +123,17 @@ body {
 }
 
 .box {
-    background-color: #2C3E66;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.726);
     border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-height: 170px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;  
     color: white;
 }
 
 .box:hover {
     transform: scale(1.03);
-    background: #2A4D69;
-    box-shadow: 0px 0px 10px rgba(100, 182, 247, 0.5);
 }
 
 .large-box {
@@ -139,24 +144,31 @@ body {
     grid-row: span 1;
 }
 
-.double-box{
+.double-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.info {
-    transition: transform 0.3s ease-in-out;
-}
-
 
 
 /* ---------Scadenze e notifiche------------- */
+
+#notification-box{
+    margin-top: 10px;
+}
+
+.notification-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .notification-buttons {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 60%;
+    width: 70%;
 }
 
 .notification-buttons button {
@@ -170,8 +182,6 @@ body {
     background: #FF8C42;
     color: white;
     transition: background 0.3s ease-in-out;
-    margin-top: 30px;
-    margin-bottom: 5px;
 }
 
 .notification-buttons button:hover {
@@ -182,13 +192,25 @@ body {
     padding: 8px;
     font-weight: bold;
     color: rgb(63, 189, 63);
+    text-align: left;
 }
 
-/* ----------- Ovuettivi ------------ */
+.notification-button-and-settings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.notification-button-and-settings span {
+    padding: 0;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* ----------- Obiettivi ------------ */
 
 .temporary-graphic {
     background-color: rgb(255, 255, 255);
     height: 90%;
 }
-
-

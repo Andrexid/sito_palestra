@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico a torta - Obiettivi Fitness</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="../css/grafici.css">
+</head>
+<body>
+
+    <div id="goals"></div>
+
+    <script>
+        var options = {
+            series: [40, 30, 15, 15], // Percentuali degli obiettivi
+            chart: {
+                type: 'pie',
+                height: 400
+            },
+            labels: ["Allenamento Cardio", "Sollevamento Pesi", "Stretching e Mobilità", "Recupero e Riposo"],
+            colors: ["#FF4560", "#008FFB", "#FEB019", "#00E396"],
+            dataLabels: {
+                style: {
+                    colors: ['#fff']
+                }
+            },
+            legend: {
+                position: 'bottom',
+                horizontalAlign: 'center',
+                labels: {
+                    colors: '#fff', // Colore bianco per i testi della legenda
+                    useSeriesColors: false
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#goals"), options);
+        chart.render();
+    </script>
+
+</body>
+</html>
