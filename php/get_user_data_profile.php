@@ -7,7 +7,7 @@ require_once('../database/connessione.php');
 $user_id = $_SESSION['id']; // Prendi l'ID utente dalla sessione
 
 // Query per ottenere i dati dell'utente
-$sql = "SELECT nome, cognome, email FROM utenti WHERE id = ?";
+$sql = "SELECT nome, cognome, email, data_nascita, sesso FROM utenti WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

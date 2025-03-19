@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function controllaAccesso(destination){
     if(sessionStorage.getItem("email")){
-        alert("cc")
+        window.location.href = "html/"+destination;
     }else{
         window.location.href = "html/login.html"
     }
