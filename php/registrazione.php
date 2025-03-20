@@ -1,7 +1,9 @@
 <?php
-require_once('../database/connessione.php');
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
+
+require_once('../database/connessione.php');
 
 $response = ["success" => false, "message" => ""];
 
@@ -11,7 +13,6 @@ try {
     $surname = $conn->real_escape_string($_POST['cognome']);
     $email = $conn->real_escape_string($_POST['email']);
     $psw = $conn->real_escape_string($_POST['password']);
-    $vpsw = $conn->real_escape_string($_POST['password-v']);
     $sex = $conn->real_escape_string($_POST['sesso']);
 
     // Controllo se l'email è già registrata
@@ -43,7 +44,7 @@ try {
     $_SESSION['logged'] = true;
 
     $response["success"] = true;
-    $response["message"] = "Registrazione effettuata con successo.";
+    $response["message"] = "Registrazione effettuata con successo!";
 } catch (Exception $e) {
     $response["message"] = $e->getMessage();
 }

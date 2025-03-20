@@ -18,7 +18,36 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.success) {
                 sessionStorage.setItem("email", emailInput.value);
-                window.location.href = "login.html";
+        
+                // Mostra il messaggio di conferma
+                const confirmMessage = document.getElementById("confirmMessage");
+                confirmMessage.textContent = "Registrazione completata con successo! Reindirizzamento in corso...";
+                confirmMessage.style.color = "green";
+                confirmMessage.style.fontWeight = "bold";
+                confirmMessage.style.textAlign = "center";
+                confirmMessage.style.marginTop = "10px";
+        
+                // Avvia l'invio dell'email in background
+                fetch("../php/sendEmail.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text()) // Prima ottieni il testo della risposta
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text); // Prova a convertire in JSON
+                        console.log(data.message);
+                    } catch (error) {
+                        console.error("Risposta non valida da sendEmail.php:", text);
+                    }
+                })
+                .catch(error => console.error("Errore nell'invio dell'email:", error));                
+        
+                // Aspetta 2 secondi prima del redirect
+                setTimeout(() => {
+                    window.location.href = "login.html";
+                }, 5000);
+        
             } else {
                 addErrorMessage("server", data.message);
             }
@@ -27,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Errore di rete: ", error);
             addErrorMessage("server", "Errore di connessione al server. Riprova più tardi.");
         });
+        
     });
 
     if (sessionStorage.getItem("email")) {
