@@ -93,6 +93,64 @@ body {
     padding: 40px 0;
 }
 
+
+
+/* Sezione Schede */
+
+.training-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: white;
+    color: black;
+}
+
+.training-bar > div {
+    width: 100%;
+}
+
+.training-bar-left {
+    display: flex;
+    flex-direction: column;
+}
+.training-bar-left  button, .training-bar-right  button {
+    width: 40%;
+    margin: 5px auto;
+    padding: 7px 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: #FF8C42;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    transition: background 0.3s ease-in-out;
+    font-size: 13pt;
+}
+
+.training-bar-left  button:hover, .training-bar-right button:hover {
+    background: #ff6000;
+}
+
+.training-bar-center {
+    background-color: rgba(31, 37, 44);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
+
+.weakly-training {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+
+
+/* Contenitore generale */
+
 .container {
     display: flex;
     justify-content: center;
@@ -100,16 +158,6 @@ body {
     flex-direction: column;
 }
 
-/* Sezione Schede */
-.schede {
-    width: 100%;
-    border: 1px solid red;
-    height: 50px;
-    margin-bottom: 30px;
-}
-
-
-/* Contenitore generale */
 .container-main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -52,8 +52,29 @@
     </div>
 
     
-    <div class="schede">
-        
+    <div class="training-bar">
+        <div class="training-bar-left">
+            <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
+            <button>Visualizza Schede</button>
+        </div>
+        <div class="training-bar-center">
+            <h2>Questa Settimana</h2>
+            <div class="weakly-training">
+                <input type="checkbox">
+                <p>Allenamento 1</p>
+            </div>
+            <div class="weakly-training">
+                <input type="checkbox">
+                <p>Allenamento 1</p>
+            </div>
+            <div class="weakly-training">
+                <input type="checkbox">
+                <p>Allenamento 1</p>
+            </div>
+        </div>
+        <div class="training-bar-right">
+            <button>Inizia Allenamento</button>
+        </div>
     </div>
 
     <div class="container">
@@ -91,8 +112,6 @@
                     </div>
                 </div>
 
-
-
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
@@ -106,8 +125,6 @@
             <div class="box large-box tall-box"> <br>
                 <?php  require '../grafici/andamento_settimanale.html' ?>
             </div>
-            <div class="box"> <strong>Statistiche</strong> <br> (Grafico vuoto) </div>
-            <div class="box tall-box info"> <strong>Obiettivi</strong> <br> (Grafico vuoto) </div>
         </div>
     </div>
 

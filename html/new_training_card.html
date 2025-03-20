@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuova Scheda</title>
+    <link rel="stylesheet" href="../css/new_training_card.css">
+</head>
+
+<body>
+    <div class="title-container">
+        <h1 id="title">Inserisci la tua Scheda con pochi click</h1>
+    </div>
+
+    <form action="">
+        <div class="container">
+            <div class="container-main">
+                <div class="double-box">
+                    <div class="box">
+                        <h2>Durata</h2>
+                        <div class="input-durata">
+                            <p>Da</p>
+                            <input type="date" class="date">
+                            <p>a</p>
+                            <input type="date" class="date">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h2>Allenamenti a Settinama</h2>
+                        <select name="week-workout" id="week-workout">
+                            <option value="default">Inserisci</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="input-esercizi">
+                        <h2>Esercizi</h2>
+                        <label>Nome</label>
+                        <input type="text" placeholder="Nome Esercizio" id="insert-exercise">
+
+                        <label>Gruppo Muscolare</label>
+                        <select name="muscle-group" id="muscle-group">
+                            <option value="default">Inserisci</option>
+                            <option value="Spalle">Spalle</option>
+                            <option value="Bicipiti">Bicipiti</option>
+                            <option value="Tricipiti">Tricipiti</option>
+                            <option value="Petto">Petto</option>
+                            <option value="Schiena">Schiena</option>
+                            <option value="Addome">Addome</option>
+                            <option value="Quadricipiti">Quadricipiti</option>
+                            <option value="Polpacci">Polpacci</option>
+                        </select>
+                        <button type="button" onclick="getInputValue()">Aggiungi</button>
+                    </div>
+                </div>
+                <div class="box tall-box">
+                    <h2>Esercizi Inseriti</h2>
+                    <div class="data">
+                        <ul id="exercise"></ul>
+                    </div>
+                </div>
+
+                <input type="submit" id="send-data">
+
+            </div>
+        </div>
+    </form>
+
+    <script src="../src/insertNewTrainingCard.js"></script>
+
+</body>
+
+</html>
