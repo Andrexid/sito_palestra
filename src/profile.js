@@ -61,17 +61,36 @@ function modifyProfile() {
                                 element.id === "sex" ? "Sesso" : "";
             label.htmlFor = element.id; // Associa il label all'input
         
-            // Converte <h2> e <p> in <input>
-            let input = document.createElement("input");
-        
-            // Verifica se l'elemento ha l'attributo tag="date"
-            if (element.getAttribute("tag") === "date") {
-                input.type = "date"; // Imposta il tipo come "date"
+            let input;
+            if (element.getAttribute("tag") === "sex") {
+                // Se è il campo "sex", crea un <select>
+                input = document.createElement("select");
+                let options = ["Uomo", "Donna", "Altro"];
+                options.forEach(optionText => {
+                    let option = document.createElement("option");
+                    option.value = optionText;
+                    option.textContent = optionText;
+                    if (element.textContent === optionText) {
+                        option.selected = true;
+                    }
+                    input.appendChild(option);
+                });
             } else {
-                input.type = "text"; // Altrimenti, usa il tipo "text"
+                // Converte <h2> e <p> in <input>
+                input = document.createElement("input");
+                input.type = element.getAttribute("tag") === "date" ? "date" : "text";
+                input.value = element.textContent; // Imposta il valore iniziale
+
+                // Se il valore della data è "0000-00-00", imposta la data di oggi
+                if (element.getAttribute("tag") === "date" && element.textContent === "0000-00-00") {
+                    let today = new Date();
+                    let formattedDate = today.toISOString().split('T')[0]; // Formatta la data come YYYY-MM-DD
+                    input.value = formattedDate;
+                } else {
+                    input.value = element.textContent; // Imposta il valore iniziale
+                }
             }
         
-            input.value = element.textContent; // Imposta il valore iniziale
             input.dataset.editable = "true"; // Mantiene l'attributo
             input.id = element.id; // Mantiene l'ID
         
@@ -137,3 +156,14 @@ function modifyProfile() {
     // Cambia stato della modalità di modifica
     isEditing = !isEditing;
 }
+
+document.getElementById("upload-profile-pic").addEventListener("change", function(event) {
+    const file = event.target.files[0]; // Prende il file selezionato
+    if (file) {
+        const reader = new FileReader(); // Crea un reader per leggere il file
+        reader.onload = function(e) {
+            document.getElementById("profile-pic").src = e.target.result; // Cambia la foto del profilo
+        };
+        reader.readAsDataURL(file); // Converte il file in base64 per l'anteprima
+    }
+});

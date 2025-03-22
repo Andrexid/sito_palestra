@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo Utente</title>
-    <link rel="stylesheet" href="../css/profile.css?v=1.4">
+    <link rel="stylesheet" href="../css/profile.css?v=1.6">
     <link rel="stylesheet" href="../css/commonNavbar.css">
 </head>
 <body>
     <div class="profile-container">
         <div class="profile-header">
-            <img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto Profilo">
-            <h2 id="username" data-editable = "true"></h2>
+            <label for="upload-profile-pic">
+                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto Profilo">
+            </label>
+            <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
+            
+            <h2 id="username" data-editable="true"></h2>
             <p id="email"></p>
-            <p id="dateBirth" data-editable = "true" tag = "date"></p>
-            <p id="sex" data-editable = "true" tag = "sex"></p>
-            <button onclick="modifyProfile()" id = "btnModify">✏️ Modifica Profilo</button>
-            <p id = "confirmMessage"></p>
-        </div>
+            <p id="dateBirth" data-editable="true" tag="date"></p>
+            <p id="sex" data-editable="true" tag="sex"></p>
+            <button onclick="modifyProfile()" id="btnModify">✏️ Modifica Profilo</button>
+            <p id="confirmMessage"></p>
+        </div>        
 
         <div class="motivational-quote-container">
             <p id = "motivational-quote" class="motivational-quote"></p>
@@ -29,6 +33,8 @@
             <h3>🏆 Obiettivi & Livelli</h3>
             <p class="gamification-text">Sei al <strong>Livello 3</strong> 💪</p>
             <p>Hai completato <strong>42</strong> allenamenti! 🚀</p>
+            <br><br><label for = "progressGoals">Quanto manca al prossimo obiettivo:</label><br>
+            <progress id="progressGoals" max="100" value="70">70%</progress>
             
             <div class="badge-container">
                 <div class="badge">
@@ -63,6 +69,6 @@
         </div>
     </div>
 
-    <script src="../src/profile.js?v=1.992"></script>
+    <script src="../src/profile.js?v=1.994"></script>
 </body>
 </html>

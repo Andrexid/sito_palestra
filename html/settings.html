@@ -3,14 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Impostazioni</title>
+    <link rel="stylesheet" href="../css/settings.css">
 </head>
 <body>
     <div class="settings">
         <h3>⚙️ Impostazioni</h3>
-        <button onclick="cambiaPassword()">🔑 Cambia Password</button>
-        <button onclick="toggleNotifiche()">🔔 Notifiche: Attive</button>
-        <button class="delete-account" onclick="eliminaAccount()">❌ Elimina Account</button>
+
+        <!-- Sezione di navigazione -->
+        <div class="navigation">
+            <button onclick="vaiAlProfilo()">👤 Torna al Profilo</button>
+            <button onclick="vaiAiProgressi()">📊 Visualizza Progressi</button>
+        </div>
+
+        <!-- Tema Dark/Light -->
+        <div class="theme-section">
+            <p>🌗 Modalità Dark/Light:</p>
+            <label for="theme" class="theme">
+                <span class="theme__toggle-wrap">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+                    <span class="theme__fill"></span>
+                    <span class="theme__icon">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </label>
+        </div>
+
+        <!-- Notifiche -->
+        <div class="notifications-section">
+            <p>🔔 Notifiche:</p>
+            <label for="notifications">
+                <input id="notifications" type="checkbox" name="notifications" class = "checkNotification">
+                Attiva/Disattiva Notifiche
+            </label>
+        </div>
+
+        <div class="data-export-section">
+            <p>📄 Esporta Dati:</p>
+            <button onclick="exportDataAsJSON()">📥 Esporta come JSON</button>
+            <button onclick="exportDataAsCSV()">📥 Esporta come CSV</button>
+        </div>
+
+        <!-- Sicurezza -->
+        <div class="security-section">
+            <button onclick="cambiaPassword()">🔑 Cambia Password</button>
+            <button class="delete-account" onclick="eliminaAccount()">❌ Elimina Account</button>
+        </div>
     </div>
+
+    <script src = "../src/settings.js"></script>
 </body>
 </html>

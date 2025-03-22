@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
-    <link rel="stylesheet" href="../css/faq.css">
+    <link rel="stylesheet" href="../css/faq.css?v=1.2">
 </head>
 <body>
     <nav class="navbar">
@@ -13,11 +13,11 @@
             <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html" class = "selezionata">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="faq.html" class="selezionata">FAQ</a></li>
             <li><a href="contatti.html">Contatti</a></li>
-            <li class = "profile-container">
+            <li class="profile-container">
                 <a href="#">
                     <img id="profile-pic" src="" alt="Profilo">
                 </a>
@@ -30,64 +30,73 @@
         </ul>
     </nav>
 
+    <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()">
 
     <div class="faq-container">
         <h1>Domande Frequenti (FAQ)</h1>
-        
-        <div class="faq">
-            <div class="question">📌 Domanda</div>
-            <div class="answer">
-                📦 Risposta
+    
+        <!-- FAQ sulla piattaforma -->
+        <section>
+            <h2>📌 FAQ sulla Piattaforma</h2>
+            <div class="faq">
+                <div class="question">📌 Come posso registrarmi alla piattaforma?</div>
+                <div class="answer">Per registrarti, vai sulla homepage e clicca su "Registrati". Ti verrà richiesto di inserire il tuo nome, email e una password sicura. Dopo aver completato il modulo, potrai accedere a tutte le pagine che vuoi nel sito</div>
             </div>
-        </div>
-
-        <div class="faq">
-            <div class="question">💳 Domanda</div>
-            <div class="answer">
-                💰 Risposta
+            <div class="faq">
+                <div class="question">🔄 Ho dimenticato la password, come posso recuperarla?</div>
+                <div class="answer">Se hai dimenticato la password, vai alla pagina di login e clicca su "Password dimenticata?". Inserisci la tua email e riceverai un link per impostare una nuova password. Assicurati di controllare anche la cartella spam nel caso non trovassi l'email.</div>
             </div>
-        </div>
-
-        <div class="faq">
-            <div class="question">🔄 Domanda</div>
-            <div class="answer">
-                🔙 Risposta
+            <div class="faq">
+                <div class="question">📊 Come posso monitorare i miei progressi?</div>
+                <div class="answer">Nella sezione "Progressi" troverai un pannello dettagliato con grafici e statistiche sui tuoi allenamenti. Potrai vedere il numero di sessioni completate, l'incremento dei pesi sollevati e un'analisi delle tue prestazioni nel tempo.</div>
             </div>
-        </div>
-
-        <div class="faq">
-            <div class="question">📞 Domanda</div>
-            <div class="answer">
-                ☎️ Risposta
+            <div class="faq">
+                <div class="question">💳 Quali metodi di pagamento accettate?</div>
+                <div class="answer">Accettiamo pagamenti tramite carte di credito (Visa, Mastercard, American Express), PayPal e bonifico bancario. Puoi gestire il tuo metodo di pagamento dalla sezione "Abbonamento" nel tuo profilo.</div>
             </div>
-        </div>
+            <div class="faq">
+                <div class="question">💰 Quanto costa l'abbonamento alla piattaforma?</div>
+                <div class="answer">Offriamo diverse opzioni di abbonamento: un piano gratuito con funzioni limitate, un piano base a 9,99€/mese e un piano premium con funzioni avanzate a 19,99€/mese. Per maggiori dettagli, visita la sezione "Prezzi".</div>
+            </div>
+        </section>
+    
+        <!-- FAQ generali sulla palestra -->
+        <section><br><br>
+            <h2>💪 FAQ sulla Palestra</h2>
+            <div class="faq">
+                <div class="question">🏋️ Quali sono i migliori esercizi per aumentare la massa muscolare?</div>
+                <div class="answer">Gli esercizi multiarticolari come squat, panca piana, stacchi da terra e trazioni sono fondamentali per sviluppare la massa muscolare. Questi movimenti coinvolgono più gruppi muscolari contemporaneamente, permettendo un allenamento più efficace e completo.</div>
+            </div>
+            <div class="faq">
+                <div class="question">🔥 Come posso bruciare più calorie durante l’allenamento?</div>
+                <div class="answer">Per bruciare più calorie puoi optare per allenamenti ad alta intensità come HIIT (High-Intensity Interval Training) o circuiti combinati di esercizi con pesi e cardio. Mantenere un ritmo sostenuto e ridurre i tempi di recupero tra le serie aiuta a massimizzare il consumo calorico.</div>
+            </div>
+            <div class="faq">
+                <div class="question">🥗 Qual è la dieta migliore per chi si allena in palestra?</div>
+                <div class="answer">La dieta ideale dipende dal tuo obiettivo: se vuoi aumentare la massa muscolare, devi assumere più proteine (carne, pesce, uova, legumi) e mantenere un surplus calorico controllato. Se invece vuoi dimagrire, dovrai ridurre l'apporto calorico e bilanciare proteine, carboidrati e grassi per favorire il deficit calorico.</div>
+            </div>
+            <div class="faq">
+                <div class="question">⏳ Quanto tempo serve per vedere risultati in palestra?</div>
+                <div class="answer">I primi risultati possono vedersi dopo circa 4-6 settimane, ma dipende dalla costanza e dall'intensità dell'allenamento. L'aumento della forza è generalmente percepibile già dopo le prime settimane, mentre i cambiamenti estetici richiedono più tempo e una corretta alimentazione.</div>
+            </div>
+            <div class="faq">
+                <div class="question">🧘 È importante fare stretching dopo l’allenamento?</div>
+                <div class="answer">Sì, lo stretching post-allenamento aiuta a migliorare la flessibilità, ridurre la tensione muscolare e prevenire infortuni. Dedicare almeno 5-10 minuti a esercizi di allungamento migliora anche la circolazione e il recupero muscolare.</div>
+            </div>
+        </section>
+    </div>    
 
-    </div>
-
+    <button onclick="scrollToTop()" id="topBtn">⬆ Torna su</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const questions = document.querySelectorAll(".question");
-        
             questions.forEach((question) => {
                 question.addEventListener("click", function () {
-                    // Chiude tutte le risposte
-                    const answers = document.querySelectorAll(".answer");
-                    answers.forEach((answer) => {
-                        if (answer !== this.nextElementSibling) {
-                            answer.style.display = "none";
-                        }
-                    });
-        
-                    // Alterna la visibilità della risposta selezionata
                     const answer = this.nextElementSibling;
                     const isOpen = answer.style.display === "block";
-        
-                    // Chiude tutte le risposte prima di aprirne un'altra
+                    document.querySelectorAll(".answer").forEach((a) => a.style.display = "none");
                     questions.forEach((q) => q.classList.remove("open"));
-                    answers.forEach((a) => a.style.display = "none");
-        
-                    // Se non era aperta, aprila
                     if (!isOpen) {
                         answer.style.display = "block";
                         this.classList.add("open");
@@ -95,9 +104,9 @@
                 });
             });
         });
-        
     </script>
 
-
+    <script src="../src/faq.js"></script>
+    <script src="../src/index.js"></script>
 </body>
 </html>

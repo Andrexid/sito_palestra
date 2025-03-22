@@ -27,6 +27,18 @@ body {
 }
 
 /* ----- Info Utente ----- */
+#profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#profile-pic:hover {
+    opacity: 0.8;
+}
+
 button {
     background: linear-gradient(135deg, #ff4d00, #ff9100);
     color: white;
@@ -50,8 +62,8 @@ button:active {
     transform: scale(0.95);
 }
 
-input[type="text"], input[type="date"] {
-    width: 100%;
+input[type="text"], input[type="date"]{
+    max-width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: none;
@@ -71,6 +83,33 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 input[type="text"]::placeholder, input[type="date"]::placeholder {
     color: #aaa;
+}
+
+/* Stile per il select */
+.input-container select {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3b3b98;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.input-container select:focus {
+    background: #4a4ab2;
+    outline: none;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Stile per le option */
+.input-container select option {
+    background: #2a2a72;
+    color: white;
+    font-size: 16px;
 }
 
 /* Stile per i contenitori degli input */

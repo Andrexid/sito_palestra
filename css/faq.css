@@ -1,6 +1,6 @@
 .faq-container {
     max-width: 600px;
-    margin: 10% auto;
+    margin: 50px auto;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -46,8 +46,51 @@ h1 {
     content: "➕"; /* Icona di default */
     font-size: 18px;
     font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .question.active::after {
     content: "➖"; /* Cambia icona quando aperto */
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#topBtn:hover {
+    background: #555;
+}
+
+#search {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 15px;
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+    border: 2px solid #ff4500; /* Colore sportivo arancione acceso */
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+#search::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+#search:focus {
+    border-color: #ff2200;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
 }

@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("loginForm");
     const emailInput = document.getElementById("email");
 
-    if (sessionStorage.getItem("email")) {
-        emailInput.value = sessionStorage.getItem("email"); // Precompila il campo email
+    if (localStorage.getItem("email")) {
+        emailInput.value = localStorage.getItem("email"); // Precompila il campo email
     }
 
     form.addEventListener("submit", function (event) {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             
             if (json.success) {
-                sessionStorage.setItem("email", emailInput.value);
+                localStorage.setItem("email", emailInput.value);
                 window.location.href = "../index.html";
             } else {
                 addErrorMessage("server", json.message);
@@ -39,14 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         
     });
-
-    if (sessionStorage.getItem("email")) {
-        emailInput.value = sessionStorage.getItem("email");
-    }
-
-    function removeExistingErrors() {
-        document.querySelectorAll(".error-message").forEach(error => error.remove());
-    }
 
     function addErrorMessage(field, message) {
         let errorParagraph = document.createElement("p");
