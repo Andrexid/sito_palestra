@@ -21,15 +21,15 @@
                         <h2>Durata</h2>
                         <div class="input-durata">
                             <p>Da</p>
-                            <input type="date" class="date">
+                            <input type="date" class="date input-stile">
                             <p>a</p>
-                            <input type="date" class="date">
+                            <input type="date" class="date input-stile">
                         </div>
                     </div>
                     <div class="box">
                         <h2>Allenamenti a Settinama</h2>
-                        <select name="week-workout" id="week-workout">
-                            <option value="default">Inserisci</option>
+                        <select name="week-workout" id="week-workout" class="input-stile">
+                            <option value="default">Seleziona</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -44,11 +44,11 @@
                     <div class="input-esercizi">
                         <h2>Esercizi</h2>
                         <label>Nome</label>
-                        <input type="text" placeholder="Nome Esercizio" id="insert-exercise">
+                        <input type="text" placeholder="Nome Esercizio" id="insert-exercise" class="input-stile">
 
                         <label>Gruppo Muscolare</label>
-                        <select name="muscle-group" id="muscle-group">
-                            <option value="default">Inserisci</option>
+                        <select name="muscle-group" id="muscle-group" class="input-stile">
+                            <option value="default">Seleziona</option>
                             <option value="Spalle">Spalle</option>
                             <option value="Bicipiti">Bicipiti</option>
                             <option value="Tricipiti">Tricipiti</option>
@@ -58,7 +58,7 @@
                             <option value="Quadricipiti">Quadricipiti</option>
                             <option value="Polpacci">Polpacci</option>
                         </select>
-                        <button type="button" onclick="getInputValue()">Aggiungi</button>
+                        <button type="button" onclick="getInputValue()" class="def-button">Aggiungi</button>
                     </div>
                 </div>
                 <div class="box tall-box">

@@ -37,8 +37,7 @@ function addExercise(exercise, muscleGroup) {
     // creazione del bottone per eliminare un elemento sigolo
     var deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
-    deleteButton.style.marginLeft = "10px"; // Distanza dal testo
-    deleteButton.style.cursor = "pointer";
+    deleteButton.className = "delete-button";
     deleteButton.onclick = function () {
         deleteExercise(exercise, listItem)
     }
