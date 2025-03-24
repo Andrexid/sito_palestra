@@ -43,18 +43,18 @@
                 <div class="double-input">
                     <div class="input-group">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome" class="input" placeholder="Inserisci il Nome" required>
+                        <input type="text" name="nome" id = "nome" class="input" placeholder="Inserisci il Nome" required>
                     </div>
                     <div class="input-group">
                         <label for="cognome">Cognome</label>
-                        <input type="text" name="cognome" class="input" placeholder="Inserisci il Cognome" required>
+                        <input type="text" name="cognome" id = "cognome" class="input" placeholder="Inserisci il Cognome" required>
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email" class="input" id="email" placeholder="Inserisci la tua Email"
+                    <input type="email" name="email" id = "email" class="input" id="email" placeholder="Inserisci la tua Email"
                         required>
                 </div>
 
@@ -81,11 +81,11 @@
                 <div class="double-input">
                     <div class="input-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="input" placeholder="Crea una Password" required>
+                        <input type="password" name="password" id = "password" class="input" placeholder="Crea una Password" required>
                     </div>
                     <div class="input-group">
                         <label for="password-v">Conferma Password</label>
-                        <input type="password" name="password-v" class="input" placeholder="Conferma la Password"
+                        <input type="password" name="password-v" id = "password-v" class="input" placeholder="Conferma la Password"
                             required>
                     </div>
                 </div>
@@ -93,13 +93,15 @@
                 <!-- Login Link -->
                 <p>Hai già un account? <a href="./login.html" class="link">Effettua il Login</a></p>
 
+                <p id = "confirmMessage">C</p>
+
                 <!-- Bottone Registrati -->
                 <input type="submit" value="Registrati" class="input-button">
             </form>
         </div>
     </div>
 
-    <script src = ../src/registrazione.js?v=1.5></script>
+    <script src = ../src/registrazione.js?v=1.64></script>
     
 </body>
 

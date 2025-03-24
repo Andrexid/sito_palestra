@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                sessionStorage.setItem("email", emailInput.value);
+                localStorage.setItem("email", emailInput.value);
         
                 // Mostra il messaggio di conferma
                 const confirmMessage = document.getElementById("confirmMessage");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Aspetta 2 secondi prima del redirect
                 setTimeout(() => {
                     window.location.href = "login.html";
-                }, 5000);
+                }, 2500);
         
             } else {
                 addErrorMessage("server", data.message);
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
         
     });
 
-    if (sessionStorage.getItem("email")) {
-        emailInput.value = sessionStorage.getItem("email");
+    if (localStorage.getItem("email")) {
+        emailInput.value = localStorage.getItem("email");
     }
 
     function validateForm() {
@@ -100,15 +100,31 @@ document.addEventListener("DOMContentLoaded", function () {
         errorParagraph.className = "error-message";
         errorParagraph.style.color = "red";
         errorParagraph.textContent = message;
-
+    
         let whereAddError;
         switch (field) {
-            case "name": whereAddError = document.getElementById("nome").parentElement; break;
-            case "surname": whereAddError = document.getElementById("cognome").parentElement; break;
-            case "password": whereAddError = document.getElementById("password").parentElement; break;
-            case "equalPassword": whereAddError = document.getElementById("password-v").parentElement; break;
-            case "server": whereAddError = form; break;
+            case "name": 
+                whereAddError = document.getElementById("nome"); 
+                break;
+            case "surname": 
+                whereAddError = document.getElementById("cognome"); 
+                break;
+            case "password": 
+                whereAddError = document.getElementById("password"); 
+                break;
+            case "equalPassword": 
+                whereAddError = document.getElementById("password-v"); 
+                break;
+            case "server": 
+                whereAddError = form; 
+                break;
         }
-        whereAddError.appendChild(errorParagraph);
+        
+        if(whereAddError) {
+            // Aggiungi l'errore DOPO l'elemento input (non dentro)
+            whereAddError.parentNode.appendChild(errorParagraph);
+        } else {
+            console.error("Elemento padre non trovato per:", field);
+        }
     }
 });

@@ -11,8 +11,6 @@
 
 </head>
 
-<!-- manca lo stile completamente -->
-
 <body>
     <nav class="navbar">
         <div class="logo">
@@ -63,35 +61,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const emailInput = document.getElementById("email");
-            const form = document.getElementById("loginForm");
-
-            // Log dell'email salvata nel sessionStorage
-            if (sessionStorage.getItem("email")) {
-                console.log("Email salvata nel sessionStorage:", sessionStorage.getItem("email"));
-                emailInput.value = sessionStorage.getItem("email"); // Precompila il campo email
-            } else {
-                console.log("Nessuna email salvata nel sessionStorage.");
-            }
-
-            // Mostrare alert al submit e aggiornare sessionStorage
-            form.addEventListener("submit", function (event) {
-                event.preventDefault(); // Blocca l'invio per mostrare l'alert prima
-
-                // Elimina l'email precedente e salva la nuova
-                sessionStorage.removeItem("email");
-                sessionStorage.setItem("email", emailInput.value);
-
-                console.log("Nuova email salvata:", emailInput.value);
-
-                alert("Stai accedendo con l'email: " + emailInput.value);
-
-                form.submit(); // Ora invia effettivamente il form
-            });
-        });
-    </script>
+    <script src = "../src/login.js"></script>
 
 </body>
 

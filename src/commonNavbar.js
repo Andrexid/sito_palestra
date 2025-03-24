@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
 
-    if (sessionStorage.getItem("email")) {
+    if (localStorage.getItem("email")) {
         profilePic.src = "../img/utente_without_bg.png";  // Immagine normale se l'utente è loggato
     } else {
         profilePic.src = "../img/utente.png";  // Immagine grigia se l'utente non è loggato
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function controllaAccesso(destination){
-    if(sessionStorage.getItem("email")){
+    if(localStorage.getItem("email")){
         alert("cc")
     }else{
         alert(destination);
@@ -37,6 +37,6 @@ function controllaAccesso(destination){
 
 function logout() {
     alert("Logout effettuato!");
-    sessionStorage.removeItem("email");
+    localStorage.removeItem("email");
     window.location.href = "../html/login.html";
 }

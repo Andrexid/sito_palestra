@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="../css/commonNavbar.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="progress.html" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <div class="profile-container">
         <div class="profile-header">
             <label for="upload-profile-pic">
@@ -70,5 +92,6 @@
     </div>
 
     <script src="../src/profile.js?v=1.994"></script>
+    <script src="../src/commonNavbar.js"></script>
 </body>
 </html>

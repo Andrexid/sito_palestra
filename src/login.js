@@ -14,25 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData
         })
-        .then(response => response.text()) // Usa text() invece di json()
+        .then(response => response.json())
         .then(data => {
-            console.log("Risposta dal server:", data); // Stampa l'output ricevuto
-            let json;
-            try {
-                json = JSON.parse(data); // Prova a convertire in JSON
-            } catch (error) {
-                console.error("Errore nel parsing JSON:", error, "Risposta ricevuta:", data);
-                addErrorMessage("server", "Errore nel formato della risposta dal server.");
-                return;
-            }
-            
-            if (json.success) {
+            console.log("Risposta dal server:", data); // Stampa direttamente l'oggetto JSON ricevuto
+        
+            if (data.success) {
+                console.log("Login riuscito! Reindirizzamento in corso...");
                 localStorage.setItem("email", emailInput.value);
                 window.location.href = "../index.html";
             } else {
-                addErrorMessage("server", json.message);
+                console.log("Errore:", data.message);
+                addErrorMessage("server", data.message);
             }
-        })
+        })        
         .catch(error => {
             console.error("Errore di rete:", error);
             addErrorMessage("server", "Errore di connessione al server. Riprova più tardi.");

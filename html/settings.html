@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="../css/settings.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="progress.html" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                    <a href="#">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <div class="settings">
         <h3>⚙️ Impostazioni</h3>
 
