@@ -15,9 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $exercise_list = isset($_POST['exercise_list']) ? $_POST['exercise_list'] : null;
 
     // Se exercise_list è una stringa JSON, decodificala in un array
-    if ($exercise_list && is_string($exercise_list)) {
-        $exercise_list = json_decode($exercise_list, true); // Decodifica in array associativo
+    if (is_string($exercise_list)) {
+        $exercise_list = json_decode($exercise_list, true);
     }
+    if (!is_array($exercise_list)) {
+        die("Errore: Lista esercizi non valida. Ecco il valore ricevuto: " . var_export($exercise_list, true));
+    }
+
 
     // Validazione dei dati
     $errors = [];
@@ -44,11 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (is_array($exercise_list)) { // Verifica che sia un array
                         foreach ($exercise_list as $exercise) {
                             // Verifica se 'name' e 'muscle_group' sono validi
-                            if (isset($exercise['name']) && isset($exercise['muscle_group']) && !empty($exercise['muscle_group'])) {
+                            if (isset($exercise['name']) && isset($exercise['muscleGroup']) && !empty($exercise['muscleGroup'])) {
                                 // Inserisci solo se 'muscle_group' non è vuoto
-                                $stmt_exercise->bind_param("ss", $exercise['name'], $exercise['muscle_group']);
+                                $stmt_exercise->bind_param("ss", $exercise['name'], $exercise['muscleGroup']);
                                 if ($stmt_exercise->execute()) {
-                                    echo "Esercizio inserito con successo!<br>";
+                                    
+                                    header('../html/insert_exercise_in_traning_card.html');
+                                    
                                 } else {
                                     echo "Errore durante l'inserimento dell'esercizio: " . $stmt_exercise->error . "<br>";
                                 }
@@ -77,4 +83,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 require_once("../database/close-connessione.php");
-?>
