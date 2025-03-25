@@ -55,3 +55,15 @@ function deleteExercise(exercise, listItem) {
     delete objExercises[exercise];
     console.log(objExercises);
 }
+
+document.querySelector("form").addEventListener("submit", function (event) {
+    console.log("Funzione di invio del modulo chiamata!"); // Aggiungi questa linea
+    let exercises = [];
+    for (let exercise in objExercises) {
+        exercises.push({ name: exercise, muscleGroup: objExercises[exercise] });
+    }
+
+    console.log("Esercizi inviati:", exercises);
+    console.log("JSON inviato:", JSON.stringify(exercises));
+    document.getElementById("exercise_list").value = JSON.stringify(exercises);
+});
