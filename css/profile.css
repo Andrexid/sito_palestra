@@ -232,6 +232,48 @@ input[type="text"]::placeholder, input[type="date"]::placeholder {
 }
 /* ----- Fine Badge ----- */
 
+.bmi-container-big {
+    max-width: 60%;
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #2a2a72;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bmi-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.arrow {
+    position: absolute;
+    width: 6px;
+    height: 140px;
+    background-color: red;
+    transform-origin: bottom center;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 3px;
+}
+
+#bmiText {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
 
 @keyframes fadeIn {
     from {
