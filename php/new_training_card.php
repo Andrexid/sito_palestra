@@ -44,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (is_array($exercise_list)) { // Verifica che sia un array
                         foreach ($exercise_list as $exercise) {
                             // Verifica se 'name' e 'muscle_group' sono validi
-                            if (isset($exercise['name']) && isset($exercise['muscle_group']) && !empty($exercise['muscle_group'])) {
+                            if (isset($exercise['name']) && isset($exercise['muscleGroup']) && !empty($exercise['muscleGroup'])) {
                                 // Inserisci solo se 'muscle_group' non è vuoto
-                                $stmt_exercise->bind_param("ss", $exercise['name'], $exercise['muscle_group']);
+                                $stmt_exercise->bind_param("ss", $exercise['name'], $exercise['muscleGroup']);
                                 if ($stmt_exercise->execute()) {
                                     echo "Esercizio inserito con successo!<br>";
                                 } else {
