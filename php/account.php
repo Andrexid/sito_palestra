@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -12,7 +16,7 @@
 
 <body>
     <?php require '../database/connessione.php'; ?>
-
+    <?php echo $_SESSION['id']?>
 
     <nav class="navbar">
         <div class="logo">
