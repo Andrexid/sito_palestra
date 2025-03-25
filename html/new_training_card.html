@@ -13,7 +13,7 @@
         <h1 id="title">Inserisci la tua Scheda con pochi click</h1>
     </div>
 
-    <form action="">
+    <form action="../php/new_training_card.php" method="POST">
         <div class="container">
             <div class="container-main">
                 <div class="double-box">
@@ -21,9 +21,9 @@
                         <h2>Durata</h2>
                         <div class="input-durata">
                             <p>Da</p>
-                            <input type="date" class="date input-stile">
+                            <input type="date" class="date input-stile" name="duration_start">
                             <p>a</p>
-                            <input type="date" class="date input-stile">
+                            <input type="date" class="date input-stile" name="duration_end">
                         </div>
                     </div>
                     <div class="box">
@@ -45,7 +45,7 @@
                         <h2>Esercizi</h2>
                         <label>Nome</label>
                         <input type="text" placeholder="Nome Esercizio" id="insert-exercise" class="input-stile">
-
+    
                         <label>Gruppo Muscolare</label>
                         <select name="muscle-group" id="muscle-group" class="input-stile">
                             <option value="default">Seleziona</option>
@@ -65,11 +65,12 @@
                     <h2>Esercizi Inseriti</h2>
                     <div class="data">
                         <ul id="exercise"></ul>
+                        <input type="hidden" name="exercise_list" id="exercise_list">
                     </div>
                 </div>
-
+    
                 <input type="submit" id="send-data">
-
+    
             </div>
         </div>
     </form>
