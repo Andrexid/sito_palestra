@@ -41,6 +41,9 @@
             <p id="email"></p>
             <p id="dateBirth" data-editable="true" tag="date"></p>
             <p id="sex" data-editable="true" tag="sex"></p>
+            <p id = "weight" data-editable="true" tag="weight"></p>
+            <p id = "height" data-editable="true" tag="height"></p>
+
             <button onclick="modifyProfile()" id="btnModify">✏️ Modifica Profilo</button>
             <p id="confirmMessage"></p>
         </div>        
@@ -89,9 +92,22 @@
             <p>📅 8 Marzo - Squat: 100kg x 6 reps</p>
             <p>📅 5 Marzo - Stacco: 120kg x 5 reps</p>
         </div>
+
+        <div class="bmi-container-big">
+            <h2>Il Tuo Indice di Massa Corporea (BMI)</h2><br>
+            <div class="bmi-container">
+                <canvas id="bmiGaugeChart"></canvas><br>
+                <div class="arrow" id="arrow"></div>
+            </div>
+            <p id="bmiText"></p>
+            <p id = "bmiWarning"></p>
+        </div>
     </div>
 
     <script src="../src/profile.js?v=1.994"></script>
     <script src="../src/commonNavbar.js"></script>
+
+    <!-- Includo chart.js per poter creare il grafico del peso -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
