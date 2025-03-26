@@ -38,7 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Esegui il primo inserimento per il piano di allenamento
             $stmt_card->bind_param("issi", $_SESSION['id'], $duration_start, $duration_end, $week_workout);
             if ($stmt_card->execute()) {
-                echo "Piano di allenamento inserito con successo!<br>";
+                // Recupera l'ID dell'ultimo inserimento
+                $training_card_id = $conn->insert_id;
+
+                // Associa la varianile di sessione all'ID della scheda
+                $_SESSION['isEnded'][$training_card_id] = false;
+
                 // Ora inseriamo gli esercizi
                 $insert_exercises = "INSERT INTO exercises (name, muscle_group) VALUES (?, ?)";
                 $stmt_exercise = $conn->prepare($insert_exercises);
@@ -52,9 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 // Inserisci solo se 'muscle_group' non è vuoto
                                 $stmt_exercise->bind_param("ss", $exercise['name'], $exercise['muscleGroup']);
                                 if ($stmt_exercise->execute()) {
-                                    
-                                    header('../html/insert_exercise_in_traning_card.html');
-                                    
                                 } else {
                                     echo "Errore durante l'inserimento dell'esercizio: " . $stmt_exercise->error . "<br>";
                                 }
@@ -82,4 +84,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+?> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/new_training_card.css">
+    <style>
+        #container-results {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #container-results h1 {
+            margin-top: 40px;
+        }
+
+        .form-results {
+            font-size: 15pt;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            flex-direction: column;
+            margin: 20px;
+            padding: 20px;
+            background-color: #b5b1b1;
+            border-radius: 10px;
+            color: black;
+        }
+        .form-results label {
+            margin: 10px;
+        }
+
+        .form-results ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-results">
+        <h1>Visualizza e conferma</h1>
+        <form action="./all_training_card.php" class="form-results">
+            <label for="">Data inizio: <?php echo $duration_start; ?></label>
+            <label for="">Data fine: <?php echo $duration_end; ?> </label>
+            <label for="">Allenamenti a settimana: <?php echo $week_workout; ?> </label>
+            <label for="">Esercizi inseriti:
+                <?php
+                echo '<ul>';
+                foreach ($exercise_list as $exercise) {
+                    echo "<li>";
+                    echo $exercise['name'];
+                    echo "</li>";
+                }
+                echo '</ul>';
+                echo $_SESSION['isEnded'][$training_card_id];
+                ?>
+            </label>
+            <input type="submit" value="Conferma">
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
+<?php
 require_once("../database/close-connessione.php");
+?>
