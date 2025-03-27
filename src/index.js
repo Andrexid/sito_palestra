@@ -1,9 +1,15 @@
+let accountPic;
 document.addEventListener("DOMContentLoaded", function () {
-    checkAccess();
-    let profilePic = document.getElementById("profile-pic");
+    accountPic = document.getElementById("profile-pic");
 
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
+
+    if (localStorage.getItem("email")) {
+        getUserPicProfile(localStorage.getItem("imagePic"));
+    } else {
+        accountPic.src = "../img/utente.png";  // Immagine grigia se l'utente non è loggato
+    }
 
     // Mostra/nasconde il menu al click sull'immagine profilo
     profileBtn.addEventListener("click", function (event) {
@@ -33,14 +39,15 @@ function controllaAccesso(destination){
 function logout() {
     alert("Logout effettuato!");
     localStorage.removeItem("email");
-    window.location.href = "html/login.html";
+    window.location.href = "../html/login.html";
 }
 
-function checkAccess(){
-    let profilePic = document.getElementById("profile-pic");
-    if (localStorage.getItem("email")) {
-        profilePic.src = "img/utente_without_bg.png";  // Immagine normale se l'utente è loggato
-    } else {
-        profilePic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
-    }
+function getUserPicProfile(txt) {
+    localStorage.removeItem("imagePic");
+    localStorage.setItem("imagePic", txt);
+    accountPic.src = txt;
+}
+
+function getUserPicProfile(){
+    accountPic.src = localStorage.getItem("imagePic").replace("../", "");
 }

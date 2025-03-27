@@ -30,33 +30,38 @@ function getUserDataProfile() {
             sessionStorage.setItem("sex", data.sesso);
             sessionStorage.setItem("weight", data.peso);
             sessionStorage.setItem("height", data.altezza);
+            sessionStorage.setItem("EXP", data.puntiEXP);
 
             // Aggiorna il DOM con i dati
-            updateProfileUI();
+            updateProfileUI(data.fotoProfilo);
+            drawBadges(data.puntiEXP);
             calcolateBMI();
         })
         .catch(error => console.error("Errore nel recupero dati:", error));
 }
 
-function updateProfileUI() {
+function updateProfileUI(foto) {
     document.getElementById("username").textContent = sessionStorage.getItem("username") || "";
     document.getElementById("email").textContent = sessionStorage.getItem("email") || "";
     document.getElementById("dateBirth").textContent = "Data di nascita: " + (sessionStorage.getItem("dateBirth") + " (YYYY-MM-GG)" || "");
     document.getElementById("sex").textContent = "Sesso: " + (sessionStorage.getItem("sex") || "");
     document.getElementById("weight").textContent = "Peso: " + (sessionStorage.getItem("weight") + " kg" || "");
     document.getElementById("height").textContent = "Altezza: " + (sessionStorage.getItem("height") + " cm" || "");
+    document.getElementById("profile-pic-profile").src = foto;
+    getUserPicProfile(foto);
 }
 
 let isEditing = false;
 let btnModify = document.getElementById("btnModify");
 let originalElements = []; // Array per memorizzare gli elementi originali
+let formData = new FormData();
+let editableElements;
 
 function modifyProfile() {
     //Modifica il testo del btn
     btnModify.textContent = isEditing ? "✏️ Modifica Profilo" : "✅ Conferma Modifiche";
 
-    let editableElements = document.querySelectorAll("[data-editable]");
-    let formData = new FormData();
+    editableElements = document.querySelectorAll("[data-editable]");
 
     editableElements.forEach(element => {
         if (!isEditing) {
@@ -132,52 +137,95 @@ function modifyProfile() {
     });
 
     if (isEditing) {
-        // Invia i dati al server solo quando si sta uscendo dalla modalità modifica
-        fetch("../php/modify_user_data_profile.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text()) // Usa .text() per vedere esattamente la risposta
-        .then(text => {
-            console.log("Risposta ricevuta dal server:", text);
-            return JSON.parse(text); // Poi converti in JSON
-        })
-        .then(data => {
-            if (data.error) {
-                console.error("Errore dal server:", data.error);
-                return;
-            }
-            console.log("Dati salvati correttamente:", data);
-    
-            // Ripristina gli elementi originali
-            editableElements.forEach((element, index) => {
-                // Sostituisci il contenitore con l'elemento originale
-                element.closest(".input-container").replaceWith(originalElements[index]);
-            });
-    
-            // Svuota l'array degli elementi originali
-            originalElements = [];
-    
-            // Aggiorna i dati nella pagina
-            getUserDataProfile();
-            calcolateBMI();
-        })
-        .catch(error => console.error("Errore nel salvataggio:", error));
+        modifyDatabase();
     }
 
     // Cambia stato della modalità di modifica
     isEditing = !isEditing;
 }
 
+function modifyDatabase(){
+    let isPic = false;
+    // Invia i dati al server solo quando si sta uscendo dalla modalità modifica
+    fetch("../php/modify_user_data_profile.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text()) // Usa .text() per vedere esattamente la risposta
+    .then(text => {
+        return JSON.parse(text); // Poi converti in JSON
+    })
+    .then(data => {
+        if (data.error) {
+            console.error("Errore dal server:", data.error);
+            return;
+        }
+        console.log("Dati salvati correttamente:", data);
+
+        for(const key of formData.keys()){
+            if(key === "profilePic"){
+                isPic = true;
+            }
+        }
+
+        if(!isPic){
+            // Ripristina gli elementi originali
+            editableElements.forEach((element, index) => {
+                // Sostituisci il contenitore con l'elemento originale
+                element.closest(".input-container").replaceWith(originalElements[index]);
+            });
+        }
+
+        // Svuota l'array degli elementi originali
+        originalElements = [];
+
+        // Creare un array con tutte le chiavi e rimuoverle una per una
+        for (let key of formData.keys()) {
+            formData.delete(key);
+        }
+
+        // Aggiorna i dati nella pagina
+        getUserDataProfile();
+        calcolateBMI();
+    })
+    .catch(error => console.error("Errore nel salvataggio:", error));
+}
+
+let badges = [
+    "Il viaggio inizia", "Primo Passo", "Iniziato il Viaggio", 
+    "Fitness Warrior", "Resiliente", "Iron Man", 
+    "Fitness Machine", "Inarrestabile", "Bestia della Palestra", 
+    "Atleta d’élite", "Leggenda del Fitness"
+];
+
+// Soglie di esperienza per ogni badge
+let badgeThresholds = [0, 500, 1500, 3000, 7500, 15000, 30000, 50000, 100000, 200000, 500000];
+
+function drawBadges(exp) {
+    let badgeContainer = document.getElementById("badge-container");
+
+    for (let i = 0; i < badges.length; i++) {
+        let badge = document.createElement("div");
+        badge.classList.add("badge");
+        
+        // Se l'EXP è inferiore alla soglia, il badge è bloccato
+        if (exp < badgeThresholds[i]) {
+            badge.classList.add("locked"); // Classe CSS per visualizzare i badge bloccati
+            badge.innerHTML = `<img src="badge-locked.png" alt="Bloccato"><p>${badges[i]}</p>`;
+        } else {
+            badge.innerHTML = `<img src="badge-${i}.png" alt="${badges[i]}"><p>${badges[i]}</p>`;
+        }
+        
+        badgeContainer.appendChild(badge);
+    }
+}
 
 document.getElementById("upload-profile-pic").addEventListener("change", function(event) {
     const file = event.target.files[0]; // Prende il file selezionato
     if (file) {
-        const reader = new FileReader(); // Crea un reader per leggere il file
-        reader.onload = function(e) {
-            document.getElementById("profile-pic").src = e.target.result; // Cambia la foto del profilo
-        };
-        reader.readAsDataURL(file); // Converte il file in base64 per l'anteprima
+        document.getElementById("profile-pic-profile").src = URL.createObjectURL(file); // Mostra l'anteprima
+        formData.append("profilePic", file); // Aggiunge il file a FormData
+        modifyDatabase();
     }
 });
 

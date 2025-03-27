@@ -11,7 +11,7 @@ body {
     padding: 0;
 }
 
-.profile-container {
+.profile-container-header {
     max-width: 60%;
     width: 60%;
     margin: 50px auto;
@@ -21,13 +21,13 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.profile-container img {
+.profile-container-header img {
     min-width: 100px;
     min-height: 100px;
 }
 
 /* ----- Info Utente ----- */
-#profile-pic {
+#profile-pic-profile {
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -35,9 +35,15 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-#profile-pic:hover {
+#profile-pic-profile:hover {
     opacity: 0.8;
 }
+
+
+
+
+
+
 
 button {
     background: linear-gradient(135deg, #ff4d00, #ff9100);
@@ -104,6 +110,11 @@ input[type="text"]::placeholder, input[type="date"]::placeholder {
     outline: none;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
+
+
+
+
+
 
 /* Stile per le option */
 .input-container select option {
