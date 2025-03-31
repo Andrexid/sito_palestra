@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_status']) && is
         $_SESSION['isEnded'][$training_card_id] = !$_SESSION['isEnded'][$training_card_id];
 
         // Ricarica la pagina per mostrare i cambiamenti aggiornati
-        header("Location: ".$_SERVER['PHP_SELF']);
+        header("Location: " . $_SERVER['PHP_SELF']);
         exit;
     }
 }
@@ -30,21 +30,11 @@ if ($stm) {
         while ($row = $result->fetch_assoc()) {
             $training_card_id = $row['id'];
 
-            if (isset($_SESSION['isEnded'][$training_card_id])) {
-                $status = $_SESSION['isEnded'][$training_card_id] ? "Terminato" : "Da completare";
-                echo "<div class='training-card'>
+            echo "<div class='training-card'>
 
-                ID: " . $training_card_id . " - Stato: " . $status . "<br>
+                ID: " . $training_card_id . "<br>
                 
                 </div>";
-
-                if (!$status == "Terminato") {
-                }
-            } else {
-                echo "<div class='container-all-cards'>
-                ID: " . $training_card_id . " - Nessuna variabile di sessione trovata.<br>
-                </div>";
-            }
         }
         echo "</div>";
     } else {
@@ -58,15 +48,18 @@ if ($stm) {
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Schede</title>
     <link rel="stylesheet" href="../css/all_training_card.css">
 </head>
+
 <body>
 
 </body>
+
 </html>
 
 <?php
