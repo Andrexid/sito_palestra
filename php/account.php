@@ -59,7 +59,7 @@ session_start();
     <div class="training-bar">
         <div class="training-bar-left">
             <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
-            <button>Visualizza Schede</button>
+            <a href="./all_training_card.php"><button>Visualizza Schede</button></a> 
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>

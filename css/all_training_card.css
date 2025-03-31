@@ -1,0 +1,16 @@
+.all-training-cards {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.training-card {
+    background-color: lightblue;
+    border: 1px solid red;
+    height: 100px;
+    padding: 20px;
+    border-radius: 14px;
+}
