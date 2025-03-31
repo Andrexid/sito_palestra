@@ -25,8 +25,9 @@ session_start();
         <ul class="nav-links">
             <li><a href="../index.html" class="selezionata">Home</a></li>
             <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="../html/faq.html">FAQ</a></li>
+            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../html/contatti.html">Contatti</a></li>
             <li class="profile-container">
                 <a href="#">
                     <img id="profile-pic" src="" alt="Profilo">

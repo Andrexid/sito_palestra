@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo Utente</title>
-    <link rel="stylesheet" href="../css/profile.css?v=1.6">
+    <link rel="stylesheet" href="../css/profile.css?v=1.8">
     <link rel="stylesheet" href="../css/commonNavbar.css">
 </head>
 <body>
@@ -16,6 +16,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="progress.html" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
             <li><a href="faq.html">FAQ</a></li>
+            <li><a href="chisiamo.html">Chi siamo</a></li>
             <li><a href="contatti.html">Contatti</a></li>
             <li class="profile-container">
                 <a href="#">
@@ -23,17 +24,17 @@
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
                     <a href="#">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
                     <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
         </ul>
     </nav>
 
-    <div class="profile-container">
+    <div class="profile-container-header">
         <div class="profile-header">
             <label for="upload-profile-pic">
-                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto Profilo">
+                <img id="profile-pic-profile" src="../img/utente_without_bg.png" alt="Foto Profilo">
             </label>
             <input type="file" id="upload-profile-pic" accept="image/*" style="display: none;">
             
@@ -57,23 +58,15 @@
         <div class="gamification-container">
             <h3>🏆 Obiettivi & Livelli</h3>
             <p class="gamification-text">Sei al <strong>Livello 3</strong> 💪</p>
-            <p>Hai completato <strong>42</strong> allenamenti! 🚀</p>
-            <br><br><label for = "progressGoals">Quanto manca al prossimo obiettivo:</label><br>
-            <progress id="progressGoals" max="100" value="70">70%</progress>
+            <p id = "nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+            <br><br>
+            <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
+            <progress id="progressGoals" max="100" value="70">170%</progress>
             
-            <div class="badge-container">
-                <div class="badge">
-                    <img src="../img/badge_beginner.png" alt="Badge Beginner">
-                    <p>Principiante</p>
-                </div>
-                <div class="badge">
-                    <img src="../img/badge_ironman.png" alt="Badge Ironman">
-                    <p>Ironman</p>
-                </div>
-                <div class="badge locked">
-                    <img src="../img/badge_legend.png" alt="Badge Legend">
-                    <p>Leggenda 🔒</p>
-                </div>
+            <div id="badge-container" class="badge-container">
+                <img src = "" id = "firstImg">
+                <img src = "" id = "secondImg">
+                <img src = "" id = "thirdImg" class = "locked">
             </div>
         </div>
         <!-- FINE SEZIONE GAMIFICATION -->
@@ -104,8 +97,8 @@
         </div>
     </div>
 
-    <script src="../src/profile.js?v=1.994"></script>
-    <script src="../src/commonNavbar.js"></script>
+    <script src="../src/profile.js?v=1.999"></script>
+    <script src="../src/commonNavbar.js?v=1.3"></script>
 
     <!-- Includo chart.js per poter creare il grafico del peso -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

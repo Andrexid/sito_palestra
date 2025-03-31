@@ -3,60 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contatti - GymTrack</title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/contatti.css">
-
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo GymTrack">
+            </a>
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html" class="selezionata">Home</a></li>
             <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
             <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html" class = "selezionata">Contatti</a></li>
+<<<<<<< HEAD
+            <li><a href="#" class = "selezionata">Contatti</a></li>
             <li class = "profile-container">
+=======
+            <li><a href="chisiamo.html">Chi siamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+>>>>>>> a14c393e67cf3acd12b852655fb5c0679cee2984
                 <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
+                    <img id="profile-pic" src="" alt="Immagine profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
                     <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
         </ul>
     </nav>
 
-
-    <section class="contact-container">
-        <div class="contact-info">
+    <main class="contact-container">
+        <section class="contact-info">
             <h2>Contattaci</h2>
-            <p><strong>📍 Indirizzo:</strong> Via Roma, 10 - Milano</p>
-            <p><strong>📞 Telefono:</strong> <a href="tel:+390123456789">+39 0123 456789</a></p>
-            <p><strong>✉️ Email:</strong> <a href="mailto:info@iltuosito.com">info@iltuosito.com</a></p>
-            <p><strong>⏰ Orari:</strong> Lun-Ven: 9:00 - 18:00</p>
-
+            <p><strong>Email:</strong> <a href="mailto:gymtrack@gmail.com">gymtrack@gmail.com</a></p>
+            
+            
             <div class="social-links">
-                
-                <a href="#" target="_blank" class="social-link-a"> <img src="../img/logo_facebook.png" alt="" class="logo"> <p>Facebook</p></a>
-                <a href="#" target="_blank" class="social-link-a"> <img src="../img/logo_instagram.png" alt="" class="logo"> <p>Instagram</p></a>
-                <a href="#" target="_blank" class="social-link-a"> <img src="../img/logo_linkedin.png" alt="" class="logo"> <p>Linkedin</p></a>
+                <a href="https://www.instagram.com/rumen_bortoletto?igsh=MXczd3hnbTR5cHVwNA==" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Rumen Bortoletto</p>
+                </a>
+                <a href="https://www.instagram.com/sabe_andre?igsh=MTRpdDZmYXhhNHdv" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Andrea Sabetta</p>
+                </a>
+                <a href="https://www.instagram.com/brazz0_?igsh=MW9jeDcxc3V4MmtwMQ==" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Nicolas Brazzo</p>
+                </a> 
             </div>
-        </div>
+            
+                <a class="link-sito-andrea" href="https://andre-dev.com/">Andrea Web Developer</a>
+            
+            <div id="testo-faq">
+                <p>Se hai domande o perplessità clicca qui sotto per vedere le domande più frequenti e vedere chi siamo!</p>
+            </div>
+            <a href="faq.html" class="pulsante">
+                <button>
+                    FAQ
+                </button>
+            </a>
+            <a href="chisiamo.html" class="pulsante">
+                <button>
+                    CHI SIAMO
+                </button>
+            </a>
+            
+            
+        </section>
 
-        <div class="contact-form">
+        <section class="contact-form">
             <h2>Scrivici un messaggio</h2>
             <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Il tuo nome" required>
-                <input type="email" name="email" placeholder="La tua email" required>
-                <input type="text" name="subject" placeholder="Oggetto" required>
-                <textarea name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+                <input id="nome" type="text" name="name" placeholder="Il tuo nome" required>
+                <input id="cognome" type="text" name="surname" placeholder="Il tuo cognome" required>
+                <input id="email" type="email" name="email" placeholder="La tua email" required>
+                <textarea id="messaggio" name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
                 <button type="submit" class="input-button">Invia</button>
             </form>
+<<<<<<< HEAD
         </div>
     </section>
 
@@ -68,9 +99,12 @@
         </iframe>
     </div>
 
-    
-
+    <script src="../src/commonNavbar.js?v=1.2"></script>
+=======
+        </section>
+    </main>
 
     <script src="../src/index.js"></script>
+>>>>>>> a14c393e67cf3acd12b852655fb5c0679cee2984
 </body>
 </html>

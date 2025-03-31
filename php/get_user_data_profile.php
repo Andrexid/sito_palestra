@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 }
 
 $user_id = $_SESSION['id'];
-$sql = "SELECT nome, cognome, email, data_nascita, sesso, peso, altezza FROM utenti WHERE id = ?";
+$sql = "SELECT nome, cognome, email, data_nascita, sesso, peso, altezza, puntiEXP, nAllenamenti, fotoProfilo FROM utenti WHERE id = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
