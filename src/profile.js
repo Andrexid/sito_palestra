@@ -31,10 +31,10 @@ function getUserDataProfile() {
             sessionStorage.setItem("weight", data.peso);
             sessionStorage.setItem("height", data.altezza);
             sessionStorage.setItem("EXP", data.puntiEXP);
-
+            sessionStorage.setItem("nTrainings", data.nAllenamenti);
             // Aggiorna il DOM con i dati
             updateProfileUI(data.fotoProfilo);
-            drawBadges(data.puntiEXP);
+            drawBadges();
             calcolateBMI();
         })
         .catch(error => console.error("Errore nel recupero dati:", error));
@@ -201,23 +201,38 @@ let badges = [
 // Soglie di esperienza per ogni badge
 let badgeThresholds = [0, 500, 1500, 3000, 7500, 15000, 30000, 50000, 100000, 200000, 500000];
 
-function drawBadges(exp) {
-    let badgeContainer = document.getElementById("badge-container");
+function drawBadges() {
+    let nTrainings = document.querySelector("#nTrainings");
+    nTrainings.innerHTML = "Hai completato <strong>" + sessionStorage.getItem("nTrainings") + "</strong> allenamenti! 🚀";
 
-    for (let i = 0; i < badges.length; i++) {
-        let badge = document.createElement("div");
-        badge.classList.add("badge");
-        
-        // Se l'EXP è inferiore alla soglia, il badge è bloccato
-        if (exp < badgeThresholds[i]) {
-            badge.classList.add("locked"); // Classe CSS per visualizzare i badge bloccati
-            badge.innerHTML = `<img src="badge-locked.png" alt="Bloccato"><p>${badges[i]}</p>`;
-        } else {
-            badge.innerHTML = `<img src="badge-${i}.png" alt="${badges[i]}"><p>${badges[i]}</p>`;
-        }
-        
-        badgeContainer.appendChild(badge);
+    let firstImg = document.getElementById("firstImg");
+    let secondImg = document.getElementById("secondImg");
+    let thirdImg = document.getElementById("thirdImg");
+    let positionThresholds = 0;
+
+    for (let i = 0; i < badges.length && (sessionStorage.getItem("EXP") > badgeThresholds[i]); i++) {
+        positionThresholds = i;
     }
+    
+    firstImg.src = `badge-${(positionThresholds - 1)}`;
+    firstImg.alt = `${badges[(positionThresholds - 1)]}`;
+    firstImg.hidden = false;
+
+    secondImg.src = `badge-${(positionThresholds)}`;
+    secondImg.alt = `${badges[(positionThresholds)]}`;
+    secondImg.hidden = false;
+
+    thirdImg.src = `badge-${(positionThresholds + 1)}`;
+    thirdImg.alt = `${badges[(positionThresholds + 1)]}`;
+    thirdImg.hidden = false;
+    
+    if(positionThresholds == 0){
+        firstImg.hidden = true;
+    }else if (positionThresholds == badges.length - 1){
+        thirdImg.hidden = true;
+    }
+
+    let slider = document.querySelector("#progressGoals");
 }
 
 document.getElementById("upload-profile-pic").addEventListener("change", function(event) {
