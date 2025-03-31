@@ -26,24 +26,27 @@ if ($stm) {
     $result = $stm->get_result();
 
     if ($result->num_rows > 0) {
+        echo "<div class='all-training-cards'>";
         while ($row = $result->fetch_assoc()) {
             $training_card_id = $row['id'];
 
             if (isset($_SESSION['isEnded'][$training_card_id])) {
                 $status = $_SESSION['isEnded'][$training_card_id] ? "Terminato" : "Da completare";
-                echo "ID: " . $training_card_id . " - Stato: " . $status . "<br>";
+                echo "<div class='training-card'>
 
-                // Mostra il bottone solo se lo stato è "Da completare"
+                ID: " . $training_card_id . " - Stato: " . $status . "<br>
+                
+                </div>";
+
                 if (!$status == "Terminato") {
-                    echo '<form method="POST">
-                            <input type="hidden" name="training_card_id" value="' . $training_card_id . '">
-                            <input type="submit" name="change_status" value="Cambia Stato">
-                          </form>';
                 }
             } else {
-                echo "ID: " . $training_card_id . " - Nessuna variabile di sessione trovata.<br>";
+                echo "<div class='container-all-cards'>
+                ID: " . $training_card_id . " - Nessuna variabile di sessione trovata.<br>
+                </div>";
             }
         }
+        echo "</div>";
     } else {
         echo "Nessuna scheda trovata per questo utente.";
     }
@@ -59,6 +62,7 @@ if ($stm) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Schede</title>
+    <link rel="stylesheet" href="../css/all_training_card.css">
 </head>
 <body>
 
