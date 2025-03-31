@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function controllaAccesso(destination){
     if(localStorage.getItem("email")){
-        window.location.href = destination;
+        window.location.href = "html/" + destination;
     }else{
         window.location.href = "html/login.html"
     }
