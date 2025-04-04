@@ -73,6 +73,10 @@ body {
     grid-row: span 2;
 }
 
+.exercisesList{
+    background-color: blue !important;
+}
+
 .double-box {
     grid-row: span 1;
 }
