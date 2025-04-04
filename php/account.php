@@ -16,8 +16,6 @@ session_start();
 
 <body>
     <?php require '../database/connessione.php'; ?>
-    <?php echo $_SESSION['id']?>
-
     <nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
