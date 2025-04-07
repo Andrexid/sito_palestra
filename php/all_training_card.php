@@ -3,17 +3,8 @@ session_start();
 require_once("../database/connessione.php");
 
 // Controlla se il bottone è stato premuto per cambiare lo stato
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_status']) && isset($_POST['training_card_id'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['training_card_id'])) {
     $training_card_id = $_POST['training_card_id'];
-
-    // Cambia lo stato della variabile di sessione
-    if (isset($_SESSION['isEnded'][$training_card_id])) {
-        $_SESSION['isEnded'][$training_card_id] = !$_SESSION['isEnded'][$training_card_id];
-
-        // Ricarica la pagina per mostrare i cambiamenti aggiornati
-        header("Location: " . $_SERVER['PHP_SELF']);
-        exit;
-    }
 }
 
 $user_id = $_SESSION['id'];
@@ -40,8 +31,8 @@ $stm = $conn->prepare($select_training_cards);
             <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contatti.html">Contatti</a></li>
             <li class="profile-container">
@@ -82,6 +73,8 @@ $stm = $conn->prepare($select_training_cards);
                 <br>
                 <a href='./delete_training_card.php?id_card=" . $row['id'] . "'><button onclick='eliminazione()' type='button' class='input-button'>Elimina Scheda</button></a>
                 <a><button class='secondary-button' type='button'>Modifica Scheda</button></a>
+                <a href='./single_training_card.php?id=" . $row['id'] . "'><button class='secondary-button' type='button'>Visualizza scheda</button></a>
+    
                 </div>";
                 $counter += 1;
             }
