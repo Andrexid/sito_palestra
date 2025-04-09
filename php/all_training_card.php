@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_status']) && is
         $_SESSION['isEnded'][$training_card_id] = !$_SESSION['isEnded'][$training_card_id];
 
         // Ricarica la pagina per mostrare i cambiamenti aggiornati
-        header("Location: ".$_SERVER['PHP_SELF']);
+        header("Location: " . $_SERVER['PHP_SELF']);
         exit;
     }
 }
@@ -26,24 +26,17 @@ if ($stm) {
     $result = $stm->get_result();
 
     if ($result->num_rows > 0) {
+        echo "<div class='all-training-cards'>";
         while ($row = $result->fetch_assoc()) {
             $training_card_id = $row['id'];
 
-            if (isset($_SESSION['isEnded'][$training_card_id])) {
-                $status = $_SESSION['isEnded'][$training_card_id] ? "Terminato" : "Da completare";
-                echo "ID: " . $training_card_id . " - Stato: " . $status . "<br>";
+            echo "<div class='training-card'>
 
-                // Mostra il bottone solo se lo stato è "Da completare"
-                if (!$status == "Terminato") {
-                    echo '<form method="POST">
-                            <input type="hidden" name="training_card_id" value="' . $training_card_id . '">
-                            <input type="submit" name="change_status" value="Cambia Stato">
-                          </form>';
-                }
-            } else {
-                echo "ID: " . $training_card_id . " - Nessuna variabile di sessione trovata.<br>";
-            }
+                ID: " . $training_card_id . "<br>
+                
+                </div>";
         }
+        echo "</div>";
     } else {
         echo "Nessuna scheda trovata per questo utente.";
     }
@@ -55,14 +48,18 @@ if ($stm) {
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Schede</title>
+    <link rel="stylesheet" href="../css/all_training_card.css">
 </head>
+
 <body>
 
 </body>
+
 </html>
 
 <?php
