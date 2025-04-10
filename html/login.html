@@ -12,27 +12,18 @@
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav aria-label="Menu di navigazione principale">
+        <link rel="stylesheet" href="../css/commonNavbar.css">
+        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+            <a href="../index.html">
+                <img src="../img/utente_without_bg.png" alt="Logo Sabetta Andrea">
+            </a>
         </div>
-        <ul class="nav-links">
-            <li><a href="../index.html" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../php/account.php')">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            
-
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
+        <ul id="menu" class="menu">
+            <li><a href="../index.html" data-section="Home">Home</a></li> <!-- data-section è usato per determinare quale link è attivo, invece di basarsi sul contenuto del testo del link. Questo è utile se il testo del link cambia o viene tradotto.-->
+            <li><a href="login.html" data-section="Login">Login</a></li>
+            <li><a href="registrazione.html" data-section="Signup">Signup</a></li>
         </ul>
     </nav>
 

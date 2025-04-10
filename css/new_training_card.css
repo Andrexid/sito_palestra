@@ -73,8 +73,22 @@ body {
     grid-row: span 2;
 }
 
-.exercisesList{
-    background-color: blue !important;
+.exercise-day {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: black;
+}
+
+.exercise-day li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
 }
 
 .double-box {
