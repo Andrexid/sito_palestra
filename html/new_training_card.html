@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/new_training_card.css">
 </head>
 
-<body>
+<body onload="addExercises(), blurExercises()">
     <div class="title-container">
         <h1 id="title">Inserisci la tua Scheda con pochi click</h1>
     </div>
@@ -27,8 +27,8 @@
                         </div>
                     </div>
                     <div class="box">
-                        <h2>Allenamenti a Settinama</h2>
-                        <select name="week-workout" id="week-workout" class="input-stile">
+                        <h2>Allenamenti a Settimana</h2>
+                        <select name="week-workout" id="week-workout" class="input-stile" onchange="modifyDaysTraining(this.value)">
                             <option value="default">Seleziona</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -40,30 +40,27 @@
                         </select>
                     </div>
                 </div>
-                <div class="box">
+                <div id = "box" class="box">
                     <div class="input-esercizi">
                         <h2>Esercizi</h2>
-                        <label>Nome</label>
-                        <input type="text" placeholder="Nome Esercizio" id="insert-exercise" class="input-stile">
+                        <label for="exercise-search">Nome esercizio:</label>
+                        <input type="text" id="exercise-search" placeholder="Digita per cercare..." onkeyup="filterExercises()" onclick="openSelect()">
+                        <select name="insert-exercise" id="insert-exercise" size="7"></select>
+
+
     
-                        <label>Gruppo Muscolare</label>
+                        <label>Giorno dell'esercizio</label>
                         <select name="muscle-group" id="muscle-group" class="input-stile">
-                            <option value="default">Seleziona</option>
-                            <option value="Spalle">Spalle</option>
-                            <option value="Bicipiti">Bicipiti</option>
-                            <option value="Tricipiti">Tricipiti</option>
-                            <option value="Petto">Petto</option>
-                            <option value="Schiena">Schiena</option>
-                            <option value="Addome">Addome</option>
-                            <option value="Quadricipiti">Quadricipiti</option>
-                            <option value="Polpacci">Polpacci</option>
+                            <!-- <option value="default">Seleziona</option>
+                            <option value="Spalle">A</option> 
+                            <option value="Spalle">B</option> -->
                         </select>
                         <button type="button" onclick="getInputValue()" class="def-button">Aggiungi</button>
                     </div>
                 </div>
                 <div class="box tall-box">
                     <h2>Esercizi Inseriti</h2>
-                    <div class="data">
+                    <div id = "exercisesList" class="exercisesList">
                         <ul id="exercise"></ul>
                         <input type="hidden" name="exercise_list" id="exercise_list">
                     </div>
@@ -75,7 +72,7 @@
         </div>
     </form>
 
-    <script src="../src/insertNewTrainingCard.js"></script>
+    <script src="../src/insertNewTrainingCard.js?v=1.6"></script>
 
 </body>
 

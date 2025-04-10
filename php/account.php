@@ -24,8 +24,8 @@ session_start();
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../php/account.php" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="../html/faq.html" class="selezionata">FAQ</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
+            <li><a href="../html/faq.html">FAQ</a></li>
             <li><a href="../html/chisiamo.html">Chi siamo</a></li>
             <li><a href="../html/contatti.html">Contatti</a></li>
 
