@@ -262,12 +262,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
     })
     .then(response => {
         response.text();
-        console.log(response);
     })
     .then(data => {
         console.log(data);
         alert("Piano salvato con successo!");
         // Puoi fare un reset del form o redirect
+        window.location.href = "../php/account.php";
     })
     .catch(error => {
         console.error("Errore:", error);
