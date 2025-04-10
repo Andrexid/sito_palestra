@@ -186,17 +186,21 @@ function checkExercise() {
 
     // Crea l'elemento <li> per l'esercizio
     const li = document.createElement("li");
-    li.textContent = selectedExercise;
+    
+    const exerciseSpan = document.createElement("span");
+    exerciseSpan.className = "exercise-name";
+    exerciseSpan.textContent = selectedExercise;
 
     // creazione del bottone per eliminare un elemento singolo
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "";
+    deleteButton.textContent = "X";
     deleteButton.className = "delete-button";
     deleteButton.onclick = function () {
         li.remove();
     };
 
-    // Aggiungi il bottone all'interno dell'elemento <li>
+    // Aggiungi lo span e il bottone all'interno dell'elemento <li>
+    li.appendChild(exerciseSpan);
     li.appendChild(deleteButton);
 
     // Aggiungi il <li> al giorno selezionato
@@ -223,13 +227,15 @@ document.querySelector("form").addEventListener("submit", function (event) {
     daysContainer.forEach(dayDiv => {
         const exerciseItems = dayDiv.querySelectorAll("li");
         exerciseItems.forEach(li => {
-            const exerciseName = li.textContent.trim();
+            const span = li.querySelector(".exercise-name");
+            const exerciseName = span?.textContent.trim();
             if (exerciseName !== "") {
                 exercises.push({
                     name: exerciseName,
-                    // opzionale: potresti includere anche il giorno o il gruppo muscolare
-                    // day: parseInt(dayDiv.id.replace("divExercises", ""))
+                    day: parseInt(dayDiv.id.replace("divExercises", "")) + 1
                 });
+                console.log(exerciseName);
+                console.log(parseInt(dayDiv.id.replace("divExercises", "")) + 1);
             }
         });
     });
@@ -245,7 +251,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
         workouts_per_week: parseInt(workoutsPerWeek),
         exercise_list: JSON.stringify(exercises) // stringa JSON degli esercizi
     };
-    console.log("cc" + JSON.stringify(exercises));
 
     // Invia i dati al file PHP
     fetch("../php/save_workout_plan.php", {
