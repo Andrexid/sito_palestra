@@ -1,3 +1,17 @@
 :root {
-	--radius-10: 10px;
+  --radius-10: 10px;
+  --full: 100%;
+
+  --bg-color-grad: linear-gradient(135deg, #1a1a40, #3b3b98);
+  --color-base-one: #1a1a40;
+  --color-base-two: #3b3b98;
+  --color-base-three: #2a2a72;
+  --color-dark-blue: #1e1e3f;
+  --color-light-blue-one: #00c2ff;
+  --color-light-blue-two: #0082a7;
+  --color-black-one: rgb(31, 37, 44);
+  --color-light-green: rgb(63, 189, 63);
+  --color-gray-blue: #7086a0;
+  --color-orange-one: #ff8c00;
+  --color-orange-two: #ff6000;
 }

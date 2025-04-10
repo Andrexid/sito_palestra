@@ -1,43 +1,45 @@
+@import url("./_variables.css");
+
 /* Bottone principale */
 .principal_button,
 .principal_button-100w,
 .principal_button-sm,
-.principal_button-form  {
+.principal_button-form {
   display: inline-block;
   padding: 12px 25px;
   font-weight: bold;
   color: white;
-  background: #ff8c00;
+  background: var(--color-orange-one);
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   border: none;
   margin: 5px;
 }
-
-.principal_button-form {
-    height: 20%;
-    width: 30%;
-    font-size: 20px;
-}
-
-.principal_button {
-    font-size: 20px;
-}
-
+.principal_button-form,
+.principal_button,
 .principal_button-100w {
-  width: 100%;
   font-size: 20px;
 }
 
+.principal_button-form {
+  height: 20%;
+  width: 30%;
+}
+
+.secondary-button-100w, 
+.principal_button-100w {
+  width: var(--full);
+}
+
 .principal_button-sm {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .principal_button:hover,
 .principal_button-100w:hover,
 .principal_button-sm:hover,
-.principal_button-form:hover{
-  background: #ff6000;
+.principal_button-form:hover {
+  background: var(--color-orange-two);
   transform: scale(1.1);
 }
 
@@ -48,7 +50,6 @@
   border-radius: 5px;
   border: none;
   font-size: 15px;
-  
 }
 .secondary-button {
   width: 70%;
@@ -56,6 +57,5 @@
 }
 
 .secondary-button-100w {
-  width: 100%;  
   padding: 10px 70px;
 }

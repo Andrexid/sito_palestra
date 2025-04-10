@@ -1,71 +1,57 @@
-/* Foglio di stile in comune per il login e il signup */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: linear-gradient(90deg, #1a1a40, #0082a7); 
-    color: white;
-    min-height: 100vh;
-    height: 100%;
-    margin-bottom: 50px;
-}
-
-.container{
-    text-align: left;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  text-align: left;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* labels */
 
 .labels {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+#email {
+    color: black;
 }
 
 /* titolo */
 
 .container-form h1 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /* input */
 
 .container-form .input:hover {
-    box-shadow: 0 0 10px 2px #3b3b98;
-    border: none;
+  box-shadow: 0 0 10px 2px #3b3b98;
+  color: black;
+  border: none;
 }
 
 .container-form .input:focus {
-    box-shadow: 0 0 20px 4px #3b3b98;
-    border: none;
+  box-shadow: 0 0 20px 4px #3b3b98;
+  border: none;
 }
 
 /* Paragrafo altra opzione */
 
 .container-form a {
-    color: #00c6ff;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
+  color: #00c6ff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
-.container-form a:hover{
-    color: #007bff;
-    text-decoration: underline;
+.container-form a:hover {
+  color: #007bff;
+  text-decoration: underline;
 }
-
 
 .container-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
-
