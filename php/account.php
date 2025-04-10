@@ -9,14 +9,17 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/account.css">
     <link rel="stylesheet" href="../css/commonNavbar.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/_variables.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
 
 <body>
     <?php require '../database/connessione.php'; ?>
-    <?php echo $_SESSION['id']?>
+    <?php echo $_SESSION['id'] ?>
 
     <nav class="navbar">
         <div class="logo">
@@ -43,43 +46,32 @@ session_start();
     </nav>
 
     <div class="cover">
-        <div class="hamburger" id="hamburger">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" id="ham" viewBox="0 -960 960 960" width="24px"
-                fill="#e8eaed">
-                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-            </svg>
-        </div>
-        <div class="overlay" id="overlay"></div>
-        <div class="sidebar" id="sidebar">
-            <button class="close-btn" id="close-btn">&times;</button>
-
-        </div>
         <div id="title">Benvenuto, <span id="nomeUtente"></span></div>
     </div>
 
-    
+
     <div class="training-bar">
         <div class="training-bar-left">
-            <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
-            <a href="./all_training_card.php"><button>Visualizza Schede</button></a> 
+            <a href="../html/new_training_card.html"><button class="principal_button">Aggiungi Scheda</button></a>
+            <a href="./all_training_card.php"><button class="principal_button">Visualizza Schede</button></a>
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
-            <div class="weakly-training">
+            <div class="weekly-training">
                 <input type="checkbox">
                 <p>Allenamento 1</p>
             </div>
-            <div class="weakly-training">
+            <div class="weekly-training">
                 <input type="checkbox">
                 <p>Allenamento 1</p>
             </div>
-            <div class="weakly-training">
+            <div class="weekly-training">
                 <input type="checkbox">
                 <p>Allenamento 1</p>
             </div>
         </div>
         <div class="training-bar-right">
-            <button>Inizia Allenamento</button>
+            <button class="principal_button">Inizia Allenamento</button>
         </div>
     </div>
 
@@ -94,21 +86,21 @@ session_start();
                         <h2>Notifiche e scadenze</h2>
                         <div class="notification-buttons">
                             <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
+                                <button class="principal_button">Notifica 1</button>
                                 <span class="material-symbols-outlined">
                                     settings
                                 </span>
                             </div>
                             <p>scade il ??/??/???</p>
                             <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
+                                <button class="principal_button">Notifica 1</button>
                                 <span class="material-symbols-outlined">
                                     settings
                                 </span>
                             </div>
                             <p>scade il ??/??/???</p>
                             <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
+                                <button class="principal_button">Notifica 1</button>
                                 <span class="material-symbols-outlined">
                                     settings
                                 </span>
@@ -129,7 +121,7 @@ session_start();
             </div>
 
             <div class="box large-box tall-box"> <br>
-                <?php  require '../grafici/andamento_settimanale.html' ?>
+                <?php require '../grafici/andamento_settimanale.html' ?>
             </div>
         </div>
     </div>
