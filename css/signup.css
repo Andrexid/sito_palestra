@@ -1,13 +1,12 @@
-/* Stile generale */
-body {
-  background: linear-gradient(135deg, #1a1a40, #0082a7); 
-  color: white;
-  height: 100vh;
+.container-form,
+.input-group,
+.radio-container,
+.radio-button  {
+  display: flex;
 }
 
 /* Contenitore principale */
 .container-form {
-  display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 30%;
@@ -25,7 +24,6 @@ body {
 /* Gruppo di input */
 .input-group {
   width: 100%;
-  display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
@@ -35,7 +33,7 @@ body {
   font-weight: bold;
 }
 
-form{
+form {
   width: 90%;
 }
 
@@ -49,7 +47,7 @@ form{
   transition: box-shadow 0.3s ease-in-out, border 0.3s;
 }
 
-.container-form .input:hover, 
+.container-form .input:hover,
 .container-form .input:focus {
   box-shadow: 0 0 10px 2px #3b3b98;
   border: 2px solid #3b3b98;
@@ -57,15 +55,13 @@ form{
 
 /* Sezione Radio Button */
 .radio-container {
-  display: flex;
   flex-direction: column;
   margin-top: 1px;
-  padding: 8px ;
+  padding: 8px;
   border-radius: 10px;
 }
 
 .radio-button {
-  display: flex;
   align-items: center;
   margin-bottom: 8px;
   cursor: pointer;
@@ -93,8 +89,6 @@ form{
   font-size: 14px;
   font-weight: 600;
 }
-
-
 
 .container-form p {
   text-align: center;
