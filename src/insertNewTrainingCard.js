@@ -1,5 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
+const todayInput = document.querySelector('[name="duration_start"]');
+const tomorrowInput = document.querySelector('[name="duration_end"]');
 
+const today = new Date();
+const nextMonth = new Date(today);
+nextMonth.setMonth(today.getMonth() + 1); // Imposta al mese successivo
+
+function formatDateToInput(date) {
+    return date.toISOString().split('T')[0]; // Formato yyyy-mm-dd
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    todayInput.value = formatDateToInput(today);
+    tomorrowInput.value = formatDateToInput(nextMonth);
 });
 
 //Aggiunge dinamicamente i giorni possibili in cui un utente potrebbe mettere l'esercizio creato
@@ -28,7 +40,7 @@ function modifyDaysTraining(val){
         //aggiungo i div
         var div = document.createElement("div");
         div.id = "divExercises"+i;
-        div.className = "exercisesList";
+        div.className = "exercise-day";
         div.textContent = "Giorno " + (i + 1); // Testo per evitare collasso
 
         exercisesList.appendChild(div);
@@ -86,6 +98,17 @@ async function addExercises() {
                         option.value = exercise;
                         option.textContent = exercise;
                         optgroup.appendChild(option);
+
+                        // creazione del bottone per eliminare un elemento sigolo
+                        var deleteButton = document.createElement("button");
+                        deleteButton.textContent = "X";
+                        deleteButton.className = "delete-button";
+                        deleteButton.onclick = function () {
+                            deleteExercise(exercise, listItem)
+                        }
+
+                        // Aggiungo il bottone al listItem
+                        optgroup.appendChild(deleteButton);
                     });
 
                     select.appendChild(optgroup);
@@ -135,71 +158,119 @@ function openSelect() {
 // Array per definire gli esercizi inseriti
 var objExercises = {};
 
-function getInputValue() {
-    // Prende il valore dell'input e lo mette maiuscolo
-    var insertExercise = document.getElementById('insert-exercise').value.trim().toUpperCase();
-    var muscleGroup = document.getElementById('muscle-group').value;
+function checkExercise() {
+    const selectedExercise = document.querySelector("#insert-exercise").value.trim();
+    const selectedDay = document.querySelector("#muscle-group").value;
 
-    if (insertExercise !== "") { // Controlla che non sia vuoto
-        checkExerciseAndMuscleGroup(insertExercise, muscleGroup)
-        document.getElementById('insert-exercise').value = ""; // Pulisce
+    if (!selectedExercise || selectedDay === "default") {
+        alert("Seleziona un esercizio e un giorno valido!");
+        return;
     }
-}
 
-// Verifica se l'esercizio è già presente
-function checkExerciseAndMuscleGroup(insertExercise, muscleGroup) {
-    if (objExercises.hasOwnProperty(insertExercise)) {
-        alert("Esercizio già inserito");
-    } else if (muscleGroup === 'default') {
-        alert("Gruppo muscolare non inserito")
-    } else {
-        addExercise(insertExercise, muscleGroup)
+    const dayDivId = "divExercises" + (selectedDay - 1);
+    const dayDiv = document.getElementById(dayDivId);
+
+    if (!dayDiv) {
+        alert("Il giorno selezionato non è valido.");
+        return;
     }
-}
 
-function addExercise(exercise, muscleGroup) {
-    muscleGroup -= 1;
-    // Aggiunge l'esercizio all'array back-end
-    objExercises[exercise] = muscleGroup;
-    console.log(objExercises);
-    console.log(exercise);
+    // Controlla se l'esercizio è già presente in quel giorno
+    const existingExercises = dayDiv.querySelectorAll("li");
+    for (let li of existingExercises) {
+        if (li.textContent.trim().toLowerCase() === selectedExercise.toLowerCase()) {
+            alert("Questo esercizio è già stato inserito in questo giorno!");
+            return;
+        }
+    }
 
-    // Crea un nuovo elemento front-end
-    var listItem = document.createElement("li");
-    listItem.textContent = exercise;
+    // Crea l'elemento <li> per l'esercizio
+    const li = document.createElement("li");
+    
+    const exerciseSpan = document.createElement("span");
+    exerciseSpan.className = "exercise-name";
+    exerciseSpan.textContent = selectedExercise;
 
-    // creazione del bottone per eliminare un elemento sigolo
-    var deleteButton = document.createElement("button");
+    // creazione del bottone per eliminare un elemento singolo
+    const deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
     deleteButton.className = "delete-button";
     deleteButton.onclick = function () {
-        deleteExercise(exercise, listItem)
-    }
+        li.remove();
+    };
 
-    // Aggiungo il bottone al listItem
-    listItem.appendChild(deleteButton)
-    // document.getElementById("exercise").appendChild(listItem)
-    console.log(`divExercises${muscleGroup}`);
-    document.querySelector(`#divExercises${muscleGroup}`).appendChild(listItem);
-}
+    // Aggiungi lo span e il bottone all'interno dell'elemento <li>
+    li.appendChild(exerciseSpan);
+    li.appendChild(deleteButton);
 
-function deleteExercise(exercise, listItem) {
-    // Rimuove l'elemento dall'array
-    listItem.remove(exercise)
-
-    // RImuove l'elemento dal front-end
-    delete objExercises[exercise];
-    console.log(objExercises);
+    // Aggiungi il <li> al giorno selezionato
+    dayDiv.appendChild(li);
 }
 
 document.querySelector("form").addEventListener("submit", function (event) {
-    console.log("Funzione di invio del modulo chiamata!"); // Aggiungi questa linea
-    let exercises = [];
-    for (let exercise in objExercises) {
-        exercises.push({ name: exercise, muscleGroup: objExercises[exercise] });
+    event.preventDefault();
+
+    const workoutsPerWeek = document.querySelector("#week-workout").value;
+    console.log(todayInput.value);
+    console.log(tomorrowInput.value);
+    console.log(workoutsPerWeek);
+
+    if (!todayInput || !tomorrowInput || !workoutsPerWeek) {
+        alert("Compila tutti i campi prima di salvare!");
+        return;
     }
 
-    console.log("Esercizi inviati:", exercises);
-    console.log("JSON inviato:", JSON.stringify(exercises));
-    document.getElementById("exercise_list").value = JSON.stringify(exercises);
+    // Recupera tutti gli esercizi divisi per giorno
+    let exercises = [];
+    const daysContainer = document.querySelectorAll("[id^='divExercises']");
+
+    daysContainer.forEach(dayDiv => {
+        const exerciseItems = dayDiv.querySelectorAll("li");
+        exerciseItems.forEach(li => {
+            const span = li.querySelector(".exercise-name");
+            const exerciseName = span?.textContent.trim();
+            if (exerciseName !== "") {
+                exercises.push({
+                    name: exerciseName,
+                    day: parseInt(dayDiv.id.replace("divExercises", "")) + 1
+                });
+                console.log(exerciseName);
+                console.log(parseInt(dayDiv.id.replace("divExercises", "")) + 1);
+            }
+        });
+    });
+
+    if (exercises.length === 0) {
+        alert("Devi aggiungere almeno un esercizio!");
+        return;
+    }
+
+    const dataToSend = {
+        start_date: todayInput.value,
+        end_date: tomorrowInput.value,
+        workouts_per_week: parseInt(workoutsPerWeek),
+        exercise_list: JSON.stringify(exercises) // stringa JSON degli esercizi
+    };
+
+    // Invia i dati al file PHP
+    fetch("../php/save_workout_plan.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(dataToSend)
+    })
+    .then(response => {
+        response.text();
+    })
+    .then(data => {
+        console.log(data);
+        alert("Piano salvato con successo!");
+        // Puoi fare un reset del form o redirect
+        window.location.href = "../php/account.php";
+    })
+    .catch(error => {
+        console.error("Errore:", error);
+        alert("Errore durante il salvataggio. Riprova.");
+    });
 });

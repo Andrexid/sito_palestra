@@ -73,8 +73,22 @@ body {
     grid-row: span 2;
 }
 
-.exercisesList{
-    background-color: blue !important;
+.exercise-day {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: black;
+}
+
+.exercise-day li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
 }
 
 .double-box {
@@ -130,23 +144,6 @@ body {
     margin-bottom: 10px;
 }
 
-.def-button {
-    margin-top: 20px;
-    height: 30px;
-    width: 30%;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    background: #ff8c00;;
-    color: white;
-    transition: background 0.3s ease-in-out;
-}
-
-.def-button:hover {
-    background: #ff6000;
-}
 
 /* Esercizi Inseriti */
 #exercise {

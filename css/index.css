@@ -1,161 +1,130 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    /* background: linear-gradient(135deg, #1a1a40, #3b3b98); */
-    color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+@import url("./_variables.css");
 
 .material-symbols-outlined {
     color:black;
 }
 
-/* HERO SECTION */
-
-
-.hero {
-    position: relative;
-    padding: 140px 20px;
-    background-image: url(../img/parallasse.png);
-    height:90vh;
-    background-attachment: fixed; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    color: white;
-    
+.nav-links > li > a {
+  text-decoration:none;
 }
 
+/* HERO SECTION */
+.hero,
+.feature-card,
+.faq h2,
+.cta-section {
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  padding: 140px 20px;
+  background-image: url(../img/parallasse.png);
+  height: 90vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* Stili del testo */
+.hero h1,
+.hero p {
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
 .hero h1 {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .hero p {
-    font-size: 22px;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
-}
-
-/* Stili del pulsante */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background: #ff8c00;
-    border-radius: 8px;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-}
-
-.btn:hover {
-    background: #ff6000;
-    transform: scale(1.1);
+  font-size: 22px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
 }
 
 /* ----- FEATURES SECTION ----- */
 .features {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 70px 20px;
-    flex-wrap: wrap;
-    background: #1a1a40;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 70px 20px;
+  flex-wrap: wrap;
+  background: var(--color-base-one);
 }
 
 .feature-card {
-    background: #2a2a72;
-    padding: 35px;
-    border-radius: 15px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out;
+  background: var(--color-base-three);
+  padding: 35px;
+  border-radius: 15px;
+  width: 320px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
 }
-
 .feature-card:hover {
-    transform: scale(1.05);
-    background: #0082a7;
-    color:rgb(0, 0, 0);
+  transform: scale(1.05);
+  background: var(--color-light-blue-two);
+  color: rgb(0, 0, 0);
 }
 
 .feature-card h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
 .feature-card p {
-    font-size: 19px;
-    line-height: 1.5;
+  font-size: 19px;
+  line-height: 1.5;
 }
 
 /* ----- FAQ SECTION ----- */
 .faq {
-    padding: 70px 20px;
-    background: #2a2a72;
-    border-radius: 12px;
+  padding: 70px 20px;
+  background: var(--color-base-two);
+  border-radius: 12px;
 }
 
 .faq h2 {
-    margin-bottom: 30px;
-    font-size: 30px;
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
+  margin-bottom: 30px;
+  font-size: 30px;
+  text-transform: uppercase;
 }
 
 .faq-item {
-    margin-bottom: 20px;
-    padding: 18px;
-    background: #3b3b98;
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+  padding: 18px;
+  background: var(--color-base-two);
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
 .faq-item:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 /* ----- CTA SECTION ----- */
 .cta-section {
-    padding: 90px 20px;
-    background: linear-gradient(135deg, #3b3b98, #003cff);
-    border-radius: 12px;
-    text-align: center;
-    color: white;
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #3b3b98, #003cff);
+  border-radius: 12px;
 }
 
 .cta-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .cta-section p {
-    font-size: 22px;
-    max-width: 650px;
-    margin: 0 auto 30px;
-    line-height: 1.6;
+  font-size: 22px;
+  max-width: 650px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
 }

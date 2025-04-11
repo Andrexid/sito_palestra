@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi siamo</title>
     <link rel="stylesheet" href="css/contatti.css">
+    <link rel="stylesheet" href="../css/reset.css">
 </head>
 <body>
     <!DOCTYPE html>
@@ -18,23 +19,24 @@
 </head>
 <body>
     <nav class="navbar">
+        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
             <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../php/account.php" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="faq.html" class="selezionata">FAQ</a></li>
-            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html">Contatti</a></li>
-
-            <li class="profile-container">
+            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="chisiamo.html">Chi siamo</a></li>
+            <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
+            <li class = "profile-container" data-section="Profile">
                 <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
+                    <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
                     <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
                     <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>

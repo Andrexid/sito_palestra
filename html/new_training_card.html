@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuova Scheda</title>
     <link rel="stylesheet" href="../css/new_training_card.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/reset.css">
 </head>
 
 <body onload="addExercises(), blurExercises()">
@@ -46,8 +48,6 @@
                         <label for="exercise-search">Nome esercizio:</label>
                         <input type="text" id="exercise-search" placeholder="Digita per cercare..." onkeyup="filterExercises()" onclick="openSelect()">
                         <select name="insert-exercise" id="insert-exercise" size="7"></select>
-
-
     
                         <label>Giorno dell'esercizio</label>
                         <select name="muscle-group" id="muscle-group" class="input-stile">
@@ -55,24 +55,23 @@
                             <option value="Spalle">A</option> 
                             <option value="Spalle">B</option> -->
                         </select>
-                        <button type="button" onclick="getInputValue()" class="def-button">Aggiungi</button>
+                        <button type="button" onclick="checkExercise()" class="def-button">Aggiungi</button>
                     </div>
                 </div>
                 <div class="box tall-box">
                     <h2>Esercizi Inseriti</h2>
                     <div id = "exercisesList" class="exercisesList">
                         <ul id="exercise"></ul>
-                        <input type="hidden" name="exercise_list" id="exercise_list">
                     </div>
                 </div>
     
-                <input type="submit" id="send-data">
+                <input type="submit" class="principal_button-form">
     
             </div>
         </div>
     </form>
 
-    <script src="../src/insertNewTrainingCard.js?v=1.6"></script>
+    <script src="../src/insertNewTrainingCard.js?v=1.63"></script>
 
 </body>
 

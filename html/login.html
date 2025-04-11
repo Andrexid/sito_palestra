@@ -1,70 +1,72 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../css/commonNavbar.css">
-    <link rel="stylesheet" href="../css/login-signup.css">
-    <link rel="stylesheet" href="../css/login.css">
-
-</head>
+    <link rel="stylesheet" href="../css/commonNavbar.css" />
+    <link rel="stylesheet" href="../css/login-signup.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/reset.css">
+  </head>
 
 <body>
-    <nav class="navbar">
+    <nav aria-label="Menu di navigazione principale">
+        <link rel="stylesheet" href="../css/commonNavbar.css">
+        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+            <a href="../index.html">
+                <img src="../img/utente_without_bg.png" alt="Logo Sabetta Andrea">
+            </a>
         </div>
-        <ul class="nav-links">
-            <li><a href="../index.html" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../php/account.php')">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            
-
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
+        <ul id="menu" class="menu">
+            <li><a href="../index.html" data-section="Home">Home</a></li> <!-- data-section è usato per determinare quale link è attivo, invece di basarsi sul contenuto del testo del link. Questo è utile se il testo del link cambia o viene tradotto.-->
+            <li><a href="login.html" data-section="Login">Login</a></li>
+            <li><a href="registrazione.html" data-section="Signup">Signup</a></li>
         </ul>
     </nav>
 
-
     <div class="container">
-        <div class="container-form">
-            <form action="../php/login.php" method="POST" id="loginForm">
+      <div class="container-form">
+        <form action="../php/login.php" method="POST" id="loginForm">
+          <h1>Accedi al tuo account</h1>
 
-                <h1>Accedi al tuo account</h1>
+          <div class="labels">
+            <label for="Email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Inserisci la tua Email"
+              class="input"
+            />
 
-                <div class="labels">
-                    <label for="Email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Inserisci la tua Email" class="input">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Inserisci la Password"
+              class="input"
+            />
+          </div>
 
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Inserisci la Password"
-                        class="input">
-                </div>
+          <p>Password dimenticata?<a href="#" class="link"> Clicca qui</a></p>
 
-                <p>Password dimenticata?<a href="#" class="link"> Clicca qui</a></p>
+          <div class="container-buttons">
+            <input type="submit" value="Accedi" class="principal_button-100w" />
 
-                <input type="submit" value="Accedi" class="input-button">
-
-                <a href="./registrazione.html"><button type="button"
-                        class="input-button small-btn">Registrati</button></a>
-
-            </form>
-        </div>
+            <a href="./registrazione.html"
+              ><button type="button" class="secondary-button-100w">
+                Registrati
+              </button>
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <script src = "../src/login.js"></script>
-
-</body>
-
+    <script src="../src/login.js"></script>
+  </body>
 </html>
