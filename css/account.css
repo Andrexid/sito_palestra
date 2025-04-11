@@ -35,11 +35,11 @@
 .container,
 .double-box,
 .notification-content,
-.notification-buttons {
-  flex-direction: column;
+.notification-buttons  {
+    flex-direction: column;
 }
 
-/* ===================== SEZIONE SCHEDE ===================== */
+/* Sezione Schede */
 .training-bar {
   justify-content: space-between;
   margin-bottom: 30px;
@@ -104,7 +104,8 @@
   justify-content: space-between;
 }
 
-/* ===================== SCADENZE E NOTIFICHE ===================== */
+/* ---------Scadenze e notifiche------------- */
+
 #notification-box {
   margin-top: 10px;
 }
