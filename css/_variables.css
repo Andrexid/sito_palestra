@@ -1,17 +1,21 @@
 :root {
-  --radius-10: 10px;
-  --full: 100%;
+  --light-bg-main: #b3b3b3;
+  --light-bg-box: #ffffff;
+  --light-title: #1a1a1a;
+  --light-text: #333333;
+  --light-primary-btn: #ff8c00;
+  --light-primary-hover: #e07a00;
+  --light-secondary-btn: #dddddd;
+  --light-success: #4caf50;
+  --light-error: #f44336;
 
-  --bg-color-grad: linear-gradient(135deg, #1a1a40, #3b3b98);
-  --color-base-one: #1a1a40;
-  --color-base-two: #3b3b98;
-  --color-base-three: #2a2a72;
-  --color-dark-blue: #1e1e3f;
-  --color-light-blue-one: #00c2ff;
-  --color-light-blue-two: #0082a7;
-  --color-black-one: rgb(31, 37, 44);
-  --color-light-green: rgb(63, 189, 63);
-  --color-gray-blue: #7086a0;
-  --color-orange-one: #ff8c00;
-  --color-orange-two: #ff6000;
+  --dark-bg-main: #121212;
+  --dark-bg-box: #1f1f1f;
+  --dark-title: #ffffff;
+  --dark-text: #cccccc;
+  --dark-primary-btn: #ff8c00;
+  --dark-primary-hover: #ffa733;
+  --dark-secondary-btn: #444444;
+  --dark-success: #66bb6a;
+  --dark-error: #e57373;
 }

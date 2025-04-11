@@ -1,16 +1,20 @@
+@import url("./_variables.css");
+
 .all-training-cards {
-    border: 2px solid black;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    flex-wrap: wrap;
-    gap: 30px;
+  border: 2px solid var(--text-color);
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  flex-wrap: wrap;
+  gap: 30px;
+  background-color: var(--bg-main);
 }
 
 .training-card {
-    background-color: lightblue;
-    border: 1px solid red;
-    height: 100px;
-    padding: 20px;
-    border-radius: 14px;
+  background-color: var(--bg-box);
+  border: 1px solid var(--error-color);
+  color: var(--text-color);
+  height: 100px;
+  padding: 20px;
+  border-radius: 14px;
 }

@@ -39,7 +39,7 @@ function controllaAccesso(destination){
 function logout() {
     alert("Logout effettuato!");
     localStorage.removeItem("email");
-    window.location.href = "../html/login.html";
+    window.location.href = "html/login.html";
 }
 
 function getUserPicProfile(txt) {

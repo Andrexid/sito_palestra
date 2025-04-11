@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/account.css?v=1.1">
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/_variables.css">
@@ -27,7 +28,7 @@ session_start();
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
+            <li><a href="#" onclick="#" class="selezionata">Progressi</a></li>
             <li><a href="../html/faq.html">FAQ</a></li>
             <li><a href="../html/chisiamo.html">Chi siamo</a></li>
             <li><a href="../html/contatti.html">Contatti</a></li>
@@ -57,18 +58,25 @@ session_start();
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
-            <div class="weekly-training">
-                <input type="checkbox">
-                <p>Allenamento 1</p>
-            </div>
-            <div class="weekly-training">
-                <input type="checkbox">
-                <p>Allenamento 1</p>
-            </div>
-            <div class="weekly-training">
-                <input type="checkbox">
-                <p>Allenamento 1</p>
-            </div>
+            <?php
+                $sql = "SELECT workouts_per_week, workouts_done FROM workout_plans WHERE user_id = ? ORDER BY id DESC LIMIT 1";
+                $stm = $conn->prepare($sql);
+
+                if ($stm) {
+                    $stm->bind_param("i", $user_id);
+                    $stm->execute();
+                    $result = $stm->get_result();
+
+                    if ($result->num_rows > 0) {
+                        
+                    } else {
+                        echo "Nessuna scheda trovata per questo utente.";
+                    }
+                    $stm->close();
+                } else {
+                    echo "Errore nella preparazione della query: " . $conn->error;
+                }
+            ?>
         </div>
         <div class="training-bar-right">
             <button class="principal_button">Inizia Allenamento</button>

@@ -1,6 +1,21 @@
 @import url("./_variables.css");
 
-/* Bottone principale */
+/* ------------------ VARIABILI LOCALI ------------------ */
+:root {
+  --full: 100%;
+  --radius-8: 8px;
+  --radius-5: 5px;
+
+  /* Colori principali */
+  --color-orange-one: #F97316;
+  --color-orange-two: #FB923C;
+
+  /* Colori di fallback se non sono già in _variables.css */
+  --color-light-text: #ffffff;
+  --color-dark-text: #000000;
+}
+
+/* ------------------ BOTTONI PRINCIPALI ------------------ */
 .principal_button,
 .principal_button-100w,
 .principal_button-sm,
@@ -8,17 +23,22 @@
   display: inline-block;
   padding: 12px 25px;
   font-weight: bold;
-  color: white;
+  color: var(--color-light-text);
   background: var(--color-orange-one);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   transition: all 0.3s ease-in-out;
   border: none;
   margin: 5px;
 }
-.principal_button-form,
+
 .principal_button,
+.principal_button-form,
 .principal_button-100w {
   font-size: 20px;
+}
+
+.principal_button-sm {
+  font-size: 15px;
 }
 
 .principal_button-form {
@@ -26,13 +46,9 @@
   width: 30%;
 }
 
-.secondary-button-100w, 
-.principal_button-100w {
+.principal_button-100w,
+.secondary-button-100w {
   width: var(--full);
-}
-
-.principal_button-sm {
-  font-size: 15px;
 }
 
 .principal_button:hover,
@@ -43,14 +59,18 @@
   transform: scale(1.1);
 }
 
-/* Bottone secondario */
+/* ------------------ BOTTONI SECONDARI ------------------ */
 .secondary-button,
 .secondary-button-100w {
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--radius-5);
   border: none;
   font-size: 15px;
+  background-color: var(--color-gray-blue, #d3d3d3); /* fallback se variabile non esiste */
+  color: var(--color-dark-text);
+  transition: all 0.3s ease-in-out;
 }
+
 .secondary-button {
   width: 70%;
   padding: 10px;
@@ -58,4 +78,11 @@
 
 .secondary-button-100w {
   padding: 10px 70px;
+}
+
+/* Hover opzionale per secondari */
+.secondary-button:hover,
+.secondary-button-100w:hover {
+  background-color: var(--color-orange-two);
+  color: var(--color-light-text);
 }

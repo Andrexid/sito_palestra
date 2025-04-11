@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 require_once("../database/connessione.php");
 
 session_start();
-$user_id = $_SESSION['id']; // O da un controllo
+$user_id = $_SESSION['id'];
 
 $start_date = $_POST['start_date'];
 $end_date = $_POST['end_date'];
