@@ -53,11 +53,11 @@ session_start();
         <div id="title">Benvenuto, <span id="nomeUtente"></span></div>
     </div>
 
-    
+
     <div class="training-bar">
         <div class="training-bar-left">
             <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
-            <a href="./all_training_card.php"><button>Visualizza Schede</button></a> 
+            <a href="./all_training_card.php"><button>Visualizza Schede</button></a>
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
@@ -117,15 +117,16 @@ session_start();
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
-                <?php require '../grafici/obiettivi.html'; ?>
-                <br>
+                <a href="../html/new_goal.html"><button>Inserisci un nuovo obiettivo</button></a>
+                <?php require '../grafici/obiettivi.php'; ?>
+
             </div>
             <div class="box">
                 <?php require '../grafici/allenamenti_mensili.html'; ?>
             </div>
 
             <div class="box large-box tall-box"> <br>
-                <?php  require '../grafici/andamento_settimanale.html' ?>
+                <?php require '../grafici/andamento_settimanale.html' ?>
             </div>
         </div>
     </div>
