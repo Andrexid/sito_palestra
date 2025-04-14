@@ -68,7 +68,12 @@ $user_id = $_SESSION['id'];
                     $result = $stm->get_result();
 
                     if ($result->num_rows > 0) {
-                        
+                        $row = $result->fetch_assoc();
+                        $done = (int)$row['workouts_done'];
+                        $total = (int)$row['workouts_per_week'];
+                        $percent = $total > 0 ? round(($done / $total) * 100) : 0;
+
+                        echo "<p class='progress-text'>$done/$total <span class='percent-text'>($percent%)</span></p>";
                     } else {
                         echo "Nessuna scheda trovata per questo utente.";
                     }
@@ -79,7 +84,7 @@ $user_id = $_SESSION['id'];
             ?>
         </div>
         <div class="training-bar-right">
-            <button class="principal_button">Inizia Allenamento</button>
+            <a href = "start_training.php"><button class="principal_button">Inizia Allenamento</button></a>
         </div>
     </div>
 
