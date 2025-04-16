@@ -43,8 +43,8 @@
 .training-bar {
   justify-content: space-between;
   margin-bottom: 30px;
-  background-color: white;
-  color: black;
+  background-color: var(--color-white);
+  color: var(--color-text);
 }
 
 .training-bar > div {
@@ -84,13 +84,17 @@
   border-radius: var(--radius-10);
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-height: 170px;
   transition: transform 0.3s ease-in-out;
 }
 
 .box:hover {
   transform: scale(1.03);
 }
+
+#current.badge {
+  border-radius: 50%;
+}
+
 
 .large-box {
   grid-column: span 3;

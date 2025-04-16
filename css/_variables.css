@@ -3,15 +3,84 @@
   --full: 100%;
 
   --bg-color-grad: linear-gradient(135deg, #1a1a40, #3b3b98);
+  --bg-color-1: rgba(255, 255, 255, 0.1);
+  --bg-color-2: rgba(0, 0, 0, 0.2);
+  --bg-color-3: rgba(255, 255, 255, 0.3);
+  --bg-color-4: rgb(29, 88, 116);
+  --box-shadow-red:rgba(255, 69, 0, 0.5);
   --color-base-one: #1a1a40;
   --color-base-two: #3b3b98;
   --color-base-three: #2a2a72;
+  --color-base-four:#003cff;
   --color-dark-blue: #1e1e3f;
+  --color-dark-blue-2:#2d2d44;
   --color-light-blue-one: #00c2ff;
   --color-light-blue-two: #0082a7;
+  --color-primary-blue: #007bff;
+  --color-steel-blue: #7086a0;
+  --color-blue-pervinca:#4a4ab2;
   --color-black-one: rgb(31, 37, 44);
   --color-light-green: rgb(63, 189, 63);
   --color-gray-blue: #7086a0;
   --color-orange-one: #ff8c00;
   --color-orange-two: #ff6000;
+  --color-orange-strong:#ff4d00;
+  --color-orange-warm: #ff9100;
+  --color-kind-red:#cd6060; 
+  --color-red: #ff2200;
+  --color-red-30:#ff0000;
+  --color-red-dark:#b30000;
+  --color-red-soft: rgb(247, 110, 110);
+  --color-text: #000;
+  --color-white: #fff;
+  --color-gray-medium: #aaa; 
+  --color-gray-300:#ccc;
+  --color-gray-very-light:#ddd;
+  --color-white-soft:rgba(255, 255, 255, 0.7);
+  --color-gray-dark: #333;
+  --color-blue-transparent:rgba(0, 194, 255, 0.3);
+  --color-gold:#988414;
+  --color-cold-blue:rgba(0, 194, 255, 0.1);
+  --color-glass-white:rgba(255, 255, 255, 0.05);
+  --color-shadow-soft:rgba(0, 0, 0, 0.3) ;
+  --color-white-20:rgba(255, 255, 255, 0.2);
+  --color-primary-blue: #00c6ff;
+  --color-overlay-gray:rgba(35, 35, 35, 0.87);
+  --color-accent-blue-dark:#2b566e;
+  --color-accent-purple:#6b6ecc;
+  --color-gray-muted:#b5b1b1;
+  --color-indigo:#7373d8;
+
+
+}
+
+
+
+:root {
+  /* Light Mode Colors */
+  --bg-color: #F9F9F9;
+  --box-color: #EFEFEF;
+  --text-color: #444444;
+  --heading-color: #1F2E4D;
+  --primary-color: #E63946;
+  --primary-hover: #FF5722;
+  --secondary-color: #B0B0B0;
+  --success-color: #2ECC71;
+  --error-color: #C0392B;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Colors */
+    --bg-color: #1F2E4D;
+    --box-color: #2D3E60;
+    --text-color: #CCCCCC;
+    --heading-color: #FFFFFF;
+    --primary-color: #E63946;
+    --primary-hover: #FF7043;
+    --secondary-color: #888888;
+    --success-color: #27AE60;
+    --error-color: #C0392B;
+    
+  }
 }

@@ -22,28 +22,28 @@ session_start();
     <?php echo $_SESSION['id'] ?>
 
     <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
-            <li><a href="../html/faq.html">FAQ</a></li>
-            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html">Contatti</a></li>
-
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra">
+    </div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+        <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
+        <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+        <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+        <li class = "profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
 
     <div class="cover">
         <div id="title">Benvenuto, <span id="nomeUtente"></span></div>
@@ -79,7 +79,9 @@ session_start();
         <div class="container-main">
             <div class="double-box">
                 <div class="box">
-                    bedge
+                <img id="current-badge" src="<?php echo $; ?>" alt="Badge">
+
+                     
                 </div>
                 <div class="box info" id="notification-box">
                     <div class="notification-content">
@@ -91,21 +93,21 @@ session_start();
                                     settings
                                 </span>
                             </div>
-                            <p>scade il ??/??/???</p>
+                            <p>scade il ??/??/????</p>
                             <div class="notification-button-and-settings">
                                 <button class="principal_button">Notifica 1</button>
                                 <span class="material-symbols-outlined">
                                     settings
                                 </span>
                             </div>
-                            <p>scade il ??/??/???</p>
+                            <p>scade il ??/??/????</p>
                             <div class="notification-button-and-settings">
                                 <button class="principal_button">Notifica 1</button>
                                 <span class="material-symbols-outlined">
                                     settings
                                 </span>
                             </div>
-                            <p>scade il ??/??/???</p>
+                            <p>scade il ??/??/????</p>
                         </div>
                     </div>
                 </div>

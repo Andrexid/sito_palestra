@@ -4,8 +4,8 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1a1a40, #3b3b98);
-    color: white;
+    background: linear-gradient(135deg, var(--color-base-one), var(--color-base-two));
+    color: var(--color-white);
     text-align: center;
     margin: 0;
     padding: 0;
@@ -16,9 +16,9 @@ body {
     max-width: 60%;
     margin: 50px auto;
     padding: 20px;
-    background: #2a2a72;
+    background: var(--color-base-three);
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px var(--color-text);
 }
 
 /* Titolo Impostazioni */
@@ -30,8 +30,8 @@ body {
 
 /* Pulsanti generali */
 button {
-    background: linear-gradient(135deg, #ff4d00, #ff9100);
-    color: white;
+    background: linear-gradient(135deg, var(--color-orange-strong), var(--color-orange-warm));
+    color: var(--color-white);
     border: none;
     padding: 12px 20px;
     border-radius: 8px;
@@ -39,14 +39,14 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px var(--color-text);
     margin: 10px 0;
     width: 80%;
 }
 
 button:hover {
     transform: scale(1.05);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 6px 15px var(--color-text);
 }
 
 button:active {
@@ -55,7 +55,7 @@ button:active {
 
 /* Pulsante elimina account */
 .delete-account {
-    background: linear-gradient(135deg, #ff0000, #b30000);
+    background: linear-gradient(135deg, var(--color-red-30), var(--color-red-dark));
 }
 
 /* Sezioni delle impostazioni */
@@ -66,9 +66,9 @@ button:active {
 .navigation {
     margin-bottom: 20px;
     padding: 15px;
-    background: #3b3b98;
+    background: var(--color-base-two);
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px var(--color-shadow-soft);
 }
 
 /* Stile per i toggle switch */
@@ -87,7 +87,7 @@ button:active {
 .checkNotification {
     width: 20px;
     height: 20px;
-    accent-color: #ff9100;
+    accent-color: var(--color-orange-warm);
     cursor: pointer;
 }
 

@@ -13,24 +13,30 @@
 
 <body onload="getUserPicProfile()">
     <nav class="navbar">
+        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
-            <img src="img/logo.png" alt="Logo Palestra">
+            <img src="./img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('php/account.php')">Progressi</a></li>
-            <li><a href="html/faq.html">FAQ</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="html/faq.html"  data-section="FAQ">FAQ</a></li>
             <li><a href="html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="html/contatti.html">Contatti</a></li>
-
-            <li class="profile-container">
+            <li><a href="html/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li class = "profile-container" data-section="Profile">
                 <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
+                    <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('html/profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('html/settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">
+                        person
+                        </span> Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
+                        settings
+                        </span> Impostazioni</a>
+                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
+                        logout
+                        </span> Logout</a>
                 </div>
             </li>
         </ul>
@@ -98,7 +104,7 @@
             <h3><span class="material-symbols-outlined">
                 smartphone
                 </span> Il sito funziona su smartphone?</h3>
-            <p>Certo! L’esperienza è ottimizzata per qualsiasi dispositivo, così puoi monitorare i tuoi progressi ovunque.</p>
+            <p>Certo! L'esperienza è ottimizzata per qualsiasi dispositivo, così puoi monitorare i tuoi progressi ovunque.</p>
         </div>
     </section>
     

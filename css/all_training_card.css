@@ -1,5 +1,5 @@
 .all-training-cards {
-    border: 2px solid black;
+    border: 2px solid var(--color-text);
     display: flex;
     justify-content: center;
     height: 300px;
@@ -8,8 +8,8 @@
 }
 
 .training-card {
-    background-color: lightblue;
-    border: 1px solid red;
+    background-color: var(--color-light-blue-one);
+    border: 1px solid var(--error-color);
     height: 100px;
     padding: 20px;
     border-radius: 14px;

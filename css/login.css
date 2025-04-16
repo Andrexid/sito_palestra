@@ -3,11 +3,11 @@
     justify-content: center;
     max-width: 50%;
     height: 70%;
-    background-color: #6B6ECC;
-    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+    background-color: var(--accent-purple);
+    background: linear-gradient(45deg, var(--color-text) 0%, var(--color-accent-blue-dark) 100%);
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 0 10px 5px rgba(35, 35, 35, 0.87);
+    box-shadow: 0 0 10px 5px var(--color-overlay-gray);
 }
 
 .container-form .input {
@@ -18,7 +18,7 @@
     border: none;
     transition: box-shadow 0.3s ease-in-out;
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 .input:first-of-type{

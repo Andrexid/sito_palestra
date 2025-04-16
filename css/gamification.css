@@ -7,8 +7,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1a1a40, #3b3b98);
-  color: white;
+  background: linear-gradient(135deg, var(--color-base-one), var(--color-base-two));
+  color: var(--color-white);
   text-align: center;
   line-height: 1.6;
   display: flex;
@@ -22,9 +22,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e1e3f;
+  background-color: var(--color-dark-blue);
   padding: 15px 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 6px var(--color-text);
   width: 100%;
   margin: 0 auto;
 }
@@ -45,7 +45,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: white;
+  color: var(--color-white);
   font-size: 18px;
   padding: 6px 12px;
   border-radius: 6px;
@@ -58,7 +58,7 @@ body {
   display: block;
   width: 0%;
   height: 3px;
-  background-color: #00c2ff;
+  background-color: var(--color-light-blue-one);
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -71,23 +71,23 @@ body {
 }
 
 .nav-links a:hover {
-  color: #00c2ff;
+  color: var(--color-light-blue-one);
   transform: scale(1.05);
 }
 
 .nav-links a.selezionata {
   font-size: 22px;
-  background-color: white;
-  color: black;
+  background-color: var(--color-white);
+  color: var(--color-text);
   padding: 8px 15px;
   border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 6px var( --color-white-20);
 }
 
 .nav-links a.selezionata:hover {
-  background-color: #00c2ff;
-  color: white;
+  background-color: var(--color-light-blue-one);
+  color: var(--color-white);
   transform: scale(1.05);
 }
 
@@ -112,8 +112,8 @@ body {
   position: absolute;
   right: 0;
   top: 50px;
-  background: white;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background: var(--color-white);
+  box-shadow: 0px 4px 10px var(--color-shadow-soft);
   border-radius: 8px;
   display: none;
   flex-direction: column;
@@ -124,14 +124,14 @@ body {
 .dropdown-menu a {
   display: block;
   padding: 10px;
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
   font-size: 16px;
   transition: 0.3s;
 }
 
 .dropdown-menu a:hover {
-  background: #ededed;
+  background: var(--color-white);
 }
 
 /* Main */
@@ -146,25 +146,25 @@ body {
 .regole-gamification h1 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #00c2ff;
+  color: var(--color-light-blue-one);
 }
 
 .testo-colorato {
-  color: black;
+  color: var(--color-text);
 }
 .sotto-sezione {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--color-glass-white);
   padding: 25px;
   border-radius: 12px;
   margin-top: 30px;
-  box-shadow: 0 4px 8px rgba(0, 194, 255, 0.1);
+  box-shadow: 0 4px 8px var(--color-cold-blue);
   text-align: left;
 }
 
 .sotto-sezione h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #ffd700;
+  color: var(--color-gold);
 }
 
 .sotto-sezione ul {
@@ -174,14 +174,14 @@ body {
 
 .sotto-sezione li {
   margin-bottom: 10px;
-  color: #f0f0f0;
+  color: var(--color-white);
 }
 
 /* Badge Section */
 .badge-section h1 {
   font-size: 36px;
   margin: 50px 0 30px;
-  color: #00c2ff;
+  color: var(--color-light-blue-one);
 }
 
 .badge-container {
@@ -193,13 +193,13 @@ body {
 }
 
 .badge {
-  background-color: #ffffff;
-  color: #1a1a40;
+  background-color: var(--color-white);
+  color: var(--color-base-one);
   padding: 15px 10px;
   border-radius: 12px;
   font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px var(--bg-color-1);
   transition: transform 0.3s;
   width: 150px;
   height: 190px;
@@ -222,5 +222,5 @@ body {
 .badge span {
   margin-top: 8px;
   font-size: 14px;
-  color: #333;
+  color: var(--color-gray-dark);
 }

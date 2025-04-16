@@ -13,7 +13,7 @@
   flex-direction: column;
 }
 #email {
-    color: black;
+    color: var(--color-text);
 }
 
 /* titolo */
@@ -25,26 +25,26 @@
 /* input */
 
 .container-form .input:hover {
-  box-shadow: 0 0 10px 2px #3b3b98;
-  color: black;
+  box-shadow: 0 0 10px 2px var( --color-base-two);
+  color: var(--color-text);
   border: none;
 }
 
 .container-form .input:focus {
-  box-shadow: 0 0 20px 4px #3b3b98;
+  box-shadow: 0 0 20px 4px var(--color-base-two)8;
   border: none;
 }
 
 /* Paragrafo altra opzione */
 
 .container-form a {
-  color: #00c6ff;
+  color: var(--color-primary-blu);
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .container-form a:hover {
-  color: #007bff;
+  color: var(--color-primary-blue);
   text-decoration: underline;
 }
 

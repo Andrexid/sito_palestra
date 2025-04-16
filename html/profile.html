@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/profile.css?v=1.8">
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar">
@@ -16,7 +18,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
             <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
             <li><a href="chisiamo.html">Chi siamo</a></li>
             <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
@@ -25,14 +27,19 @@
                     <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">
+                        person
+                        </span> Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
+                        settings
+                        </span> Impostazioni</a>
+                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
+                        logout
+                        </span> Logout</a>
                 </div>
             </li>
         </ul>
     </nav>
-
     <div class="profile-container-header">
         <div class="profile-header">
             <label for="upload-profile-pic">
@@ -47,7 +54,9 @@
             <p id = "weight" data-editable="true" tag="weight"></p>
             <p id = "height" data-editable="true" tag="height"></p>
 
-            <button onclick="modifyProfile()" id="btnModify">✏️ Modifica Profilo</button>
+            <button onclick="modifyProfile()" id="btnModify"><span class="material-symbols-outlined">
+                edit
+                </span> Modifica Profilo</button>
             <p id="confirmMessage"></p>
         </div>        
 
@@ -58,9 +67,15 @@
 
         <!-- NUOVA SEZIONE GAMIFICATION -->
         <div class="gamification-container">
-            <h3>🏆 Obiettivi & Livelli</h3>
-            <p class="gamification-text">Sei al <strong>Livello 3</strong> 💪</p>
-            <p id = "nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+            <h3><span class="material-symbols-outlined">
+                flag_2
+                </span> Obiettivi & Livelli</h3>
+            <p class="gamification-text">Sei al <strong>Livello 3</strong> <span class="material-symbols-outlined">
+                exercise
+                </span></p>
+            <p id = "nTrainings">Hai completato <strong>42</strong> allenamenti! <span class="material-symbols-outlined">
+                task_alt
+                </span></p>
             <br><br>
             <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
             <progress id="progressGoals" max="100" value="70">170%</progress>
@@ -74,7 +89,9 @@
         <!-- FINE SEZIONE GAMIFICATION -->
 
         <div class="stats">
-            <h3>📊 Le Tue Statistiche</h3>
+            <h3><span class="material-symbols-outlined">
+                bar_chart
+                </span> Le Tue Statistiche</h3>
             <p>Allenamenti completati: <span id="workouts">42</span></p>
             <p>Peso massimo sollevato: <span id="max-weight">120kg</span></p>
             <p>Tempo totale in palestra: <span id="total-time">35 ore</span></p>
@@ -82,10 +99,18 @@
         </div>
 
         <div class="workout-history">
-            <h3>📅 Ultimi Allenamenti</h3>
-            <p>📅 10 Marzo - Panca Piana: 80kg x 8 reps</p>
-            <p>📅 8 Marzo - Squat: 100kg x 6 reps</p>
-            <p>📅 5 Marzo - Stacco: 120kg x 5 reps</p>
+            <h3><span class="material-symbols-outlined">
+                calendar_month
+                </span> Ultimi Allenamenti</h3>
+            <p><span class="material-symbols-outlined">
+                calendar_month
+                </span> 10 Marzo - Panca Piana: 80kg x 8 reps</p>
+            <p><span class="material-symbols-outlined">
+                calendar_month
+                </span> 8 Marzo - Squat: 100kg x 6 reps</p>
+            <p><span class="material-symbols-outlined">
+                calendar_month
+                </span> 5 Marzo - Stacco: 120kg x 5 reps</p>
         </div>
 
         <div class="bmi-container-big">

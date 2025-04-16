@@ -8,7 +8,7 @@
   display: inline-block;
   padding: 12px 25px;
   font-weight: bold;
-  color: white;
+  color: var(--color-white);
   background: var(--color-orange-one);
   border-radius: 8px;
   transition: all 0.3s ease-in-out;

@@ -6,6 +6,7 @@
     <title>Chi siamo</title>
     <link rel="stylesheet" href="css/contatti.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <!DOCTYPE html>
@@ -16,28 +17,34 @@
     <title>Chi Siamo - GymTrack</title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/chiSiamo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <nav class="navbar">
         <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
-            <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
-            <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
-            <li><a href="chisiamo.html">Chi siamo</a></li>
-            <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
+            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
             <li class = "profile-container" data-section="Profile">
                 <a href="#">
                     <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">
+                        person
+                        </span> Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
+                        settings
+                        </span> Impostazioni</a>
+                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
+                        logout
+                        </span> Logout</a>
                 </div>
             </li>
         </ul>
