@@ -69,25 +69,57 @@ $conn->close();
             padding: 0.5rem 0;
             border-bottom: 1px solid #ccc;
         }
+
+        .day-card {
+            background-color:rgb(41, 41, 41);
+            padding: 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .day-card:hover {
+            transform: scale(1.03);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #005bb5;
+        }
+
     </style>
 </head>
 <body>
-
     <h1>Allenamento suddiviso per giorno</h1>
 
     <?php if (empty($giorni)) : ?>
         <p>Nessun esercizio trovato.</p>
     <?php else : ?>
-        <?php foreach ($giorni as $giorno => $esercizi): ?>
-            <div class="day-container">
-                <div class="day-title">Giorno <?php echo $giorno; ?></div>
-                <ul class="exercise-list">
-                    <?php foreach ($esercizi as $esercizio): ?>
-                        <li><?php echo htmlspecialchars($esercizio); ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endforeach; ?>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+            <?php foreach ($giorni as $giorno => $esercizi): ?>
+                <div class="day-card">
+                    <div class="day-title">Giorno <?php echo $giorno; ?></div>
+                    <ul class="exercise-list">
+                        <?php foreach ($esercizi as $esercizio): ?>
+                            <li><?php echo htmlspecialchars($esercizio); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <form action="exercise_start_day.php" method="GET">
+                        <input type="hidden" name="day" value="<?php echo $giorno; ?>">
+                        <button class="btn-primary" type="submit">Inizia questo giorno</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 
 </body>
