@@ -1,11 +1,17 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuovo obiettivo</title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="logo">
@@ -29,64 +35,99 @@
         </ul>
     </nav>
 
+    <?php
+    require '../database/connessione.php';
+
+    $select_exercises_goals = "SELECT DISTINCT e.name, e.id
+    FROM workout_exercises AS we
+    INNER JOIN exercises AS e ON we.exercise_id = e.id
+    INNER JOIN workout_plans AS wp ON we.workout_plan_id = wp.id
+    WHERE wp.user_id = '$_SESSION[id]'";
+
+    ?>
+
+
 
     <main>
-        <h1>Inserisci un nuovo obettivo</h1>
+        <h1>Inserisci un nuovo obiettivo</h1>
         <form action="../php/set_goal.php" method="POST">
-            <fieldset>
+            <div>
                 <legend>Seleziona uno o più obiettivi</legend>
-                
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Aumento della forza muscolare">
                     Aumento della forza muscolare
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Incremento della massa muscolare (ipertrofia)">
                     Incremento della massa muscolare (ipertrofia)
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Perdita di peso o dimagrimento">
                     Perdita di peso o dimagrimento
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Miglioramento della resistenza cardiovascolare">
                     Miglioramento della resistenza cardiovascolare
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Miglioramento della mobilità e flessibilità">
                     Miglioramento della mobilità e flessibilità
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Miglioramento della postura e della stabilità">
                     Miglioramento della postura e della stabilità
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Aumento della potenza o performance atletica">
                     Aumento della potenza o performance atletica
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Benessere generale e salute mentale">
                     Benessere generale e salute mentale
                 </label><br>
-    
+
                 <label>
                     <input type="checkbox" name="obiettivi[]" value="Preparazione per competizioni o sport specifici">
                     Preparazione per competizioni o sport specifici
                 </label><br>
-    
-            </fieldset>
-    
+
+            </div>
+
+
+            <div>
+                <?php
+                $result = $conn->query($select_exercises_goals);
+
+                if ($row = $result->fetch_assoc()) {
+                    echo "<div>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div>
+                            <label>
+                                <input type='checkbox' name='exercise_goals[" . $row['id'] . "]' value='" . $row['name'] . "'>
+                                " . htmlspecialchars($row['name']) . "
+                            </label>
+                        </div>";
+                    }
+                    echo "</div>";
+                } else {
+                    echo "Errore";
+                }
+                ?>
+            </div>
+
             <button type="submit">Invia Obiettivi</button>
         </form>
     </main>
 
 
 </body>
+
 </html>

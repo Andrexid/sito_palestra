@@ -117,9 +117,8 @@ session_start();
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
-                <a href="../html/new_goal.html"><button>Inserisci un nuovo obiettivo</button></a>
+                <a href="../php/new_goal.php"><button>Inserisci un nuovo obiettivo</button></a>
                 <?php require '../grafici/obiettivi.php'; ?>
-
             </div>
             <div class="box">
                 <?php require '../grafici/allenamenti_mensili.html'; ?>
