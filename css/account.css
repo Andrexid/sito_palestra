@@ -160,7 +160,7 @@ body {
 
 .container-main {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 30px;
     padding: 30px 20px;
@@ -186,6 +186,7 @@ body {
 
 .large-box {
     grid-column: span 3;
+    grid-row: 1;
 }
 
 .tall-box {
@@ -194,8 +195,6 @@ body {
 
 .double-box {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 

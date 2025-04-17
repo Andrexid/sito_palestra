@@ -81,52 +81,50 @@ session_start();
 
     <div class="container">
         <div class="container-main">
-            <div class="double-box">
-                <div class="box">
-                    bedge
-                </div>
-                <div class="box info" id="notification-box">
-                    <div class="notification-content">
-                        <h2>Notifiche e scadenze</h2>
-                        <div class="notification-buttons">
-                            <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
-                            <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
-                            <div class="notification-button-and-settings">
-                                <button>Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
+            <div class="box large-box">
+                bedge
+            </div>
+            <!-- <div class="box info" id="notification-box"> -->
+            <!-- <div class="notification-content">
+                    <h2>Notifiche e scadenze</h2>
+                    <div class="notification-buttons">
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
                         </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
                     </div>
-                </div>
-
+                </div> -->
+            <!-- </div> -->
+            <div class="box large-box tall-box"> <br>
+                <?php require_once '../grafici/andamento_settimanale.html' ?>
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
                 <a href="../php/new_goal.php"><button>Inserisci un nuovo obiettivo</button></a>
-                <?php require '../grafici/obiettivi.php'; ?>
+                <?php require_once '../grafici/obiettivi.php'; ?>
             </div>
             <div class="box">
-                <?php require '../grafici/allenamenti_mensili.html'; ?>
+                <?php require_once '../grafici/allenamenti_mensili.html'; ?>
             </div>
 
-            <div class="box large-box tall-box"> <br>
-                <?php require '../grafici/andamento_settimanale.html' ?>
-            </div>
+           
         </div>
     </div>
 
