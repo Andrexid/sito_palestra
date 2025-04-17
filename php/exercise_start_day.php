@@ -111,15 +111,22 @@ $stmt->close();
                 </label>
 
                 <div id="reps-container-<?php echo $esercizio['id']; ?>">
-                    <div class="set-container">Set 1: <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required></div>
-                    <div class="set-container">Set 2: <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required></div>
-                    <div class="set-container">Set 3: <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required></div>
+                    <div class="set-container">
+                        Set 1: 
+                        <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required> 
+                        <input type="number" name="weights[<?php echo $esercizio['id']; ?>][]" placeholder="Peso (kg)" step="0.5" min="0">
+                    </div>
+                    <div class="set-container">
+                        Set 2: 
+                        <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required> 
+                        <input type="number" name="weights[<?php echo $esercizio['id']; ?>][]" placeholder="Peso (kg)" step="0.5" min="0">
+                    </div>
+                    <div class="set-container">
+                        Set 3: 
+                        <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required> 
+                        <input type="number" name="weights[<?php echo $esercizio['id']; ?>][]" placeholder="Peso (kg)" step="0.5" min="0">
+                    </div>
                 </div>
-
-                <label>
-                    <input type="checkbox" name="completed[<?php echo $esercizio['id']; ?>]">
-                    Completato ✅
-                </label>
 
                 <br>
                 <label>Note:<br>
@@ -141,13 +148,20 @@ $stmt->close();
         const container = document.getElementById(`reps-container-${id}`);
         container.innerHTML = "";
         for (let i = 1; i <= setCount; i++) {
-            container.innerHTML += `<div class="set-container">Set ${i}: <input type="number" name="reps[${id}][]" placeholder="Reps" min="1" required></div>`;
+            container.innerHTML += `
+                <div class="set-container">
+                    Set ${i}: 
+                    <input type="number" name="reps[${id}][]" placeholder="Reps" min="1" required> 
+                    <input type="number" name="weights[${id}][]" placeholder="Peso (kg)" step="0.5" min="0">
+                </div>
+            `;
         }
     }
 
     document.getElementById("training-form").addEventListener("submit", function (e) {
         e.preventDefault();
         const formData = new FormData(this);
+        console.log(formData);
 
         fetch("save_training_ajax.php", {
             method: "POST",

@@ -11,7 +11,7 @@ $user_id = $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/account.css?v=1.1">
+    <link rel="stylesheet" href="../css/account.css?v=1.2">
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/_variables.css">
@@ -128,9 +128,9 @@ $user_id = $_SESSION['id'];
                 <h2>Obiettivi</h2>
                 <?php require '../grafici/obiettivi.html'; ?>
                 <br>
-            </div>
+            </div><br>
             <div class="box">
-                <?php require '../grafici/allenamenti_mensili.html'; ?>
+                <?php require 'grafici/allenamenti_mensili.php'; ?>
             </div>
 
             <div class="box large-box tall-box"> <br>
