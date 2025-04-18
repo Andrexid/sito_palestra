@@ -113,7 +113,7 @@ session_start();
                 </div> -->
             <!-- </div> -->
             <div class="box large-box tall-box"> <br>
-                <?php require_once '../grafici/andamento_settimanale.html' ?>
+                <?php require_once '../grafici/grafco_exp_settimanale.php' ?>
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
