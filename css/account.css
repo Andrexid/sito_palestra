@@ -68,15 +68,15 @@
 }
 
 .container-main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 30px;
-  padding: 30px 20px;
-  max-width: 90vw;
-  width: 100%;
-  background-color: var(--color-gray-blue);
-  border-radius: var(--radius-10);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 90vw;
+    width: 100%;
+    background-color: #7086A0;
+    border-radius: 10px;
 }
 
 .box {
@@ -93,7 +93,8 @@
 }
 
 .large-box {
-  grid-column: span 3;
+    grid-column: span 3;
+    grid-row: 1;
 }
 
 .tall-box {
@@ -101,7 +102,7 @@
 }
 
 .double-box {
-  justify-content: space-between;
+    display: flex;
 }
 
 /* ---------Scadenze e notifiche------------- */

@@ -20,8 +20,6 @@ $user_id = $_SESSION['id'];
 
 <body>
     <?php require '../database/connessione.php'; ?>
-    <?php echo $_SESSION['id'] ?>
-
     <nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
@@ -53,8 +51,8 @@ $user_id = $_SESSION['id'];
 
     <div class="training-bar">
         <div class="training-bar-left">
-            <a href="../html/new_training_card.html"><button class="principal_button">Aggiungi Scheda</button></a>
-            <a href="./all_training_card.php"><button class="principal_button">Visualizza Schede</button></a>
+            <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
+            <a href="./all_training_card.php"><button>Visualizza Schede</button></a>
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
@@ -85,52 +83,50 @@ $user_id = $_SESSION['id'];
 
     <div class="container">
         <div class="container-main">
-            <div class="double-box">
-                <div class="box">
-                    bedge
-                </div>
-                <div class="box info" id="notification-box">
-                    <div class="notification-content">
-                        <h2>Notifiche e scadenze</h2>
-                        <div class="notification-buttons">
-                            <div class="notification-button-and-settings">
-                                <button class="principal_button">Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
-                            <div class="notification-button-and-settings">
-                                <button class="principal_button">Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
-                            <div class="notification-button-and-settings">
-                                <button class="principal_button">Notifica 1</button>
-                                <span class="material-symbols-outlined">
-                                    settings
-                                </span>
-                            </div>
-                            <p>scade il ??/??/???</p>
+            <div class="box large-box">
+                bedge
+            </div>
+            <!-- <div class="box info" id="notification-box"> -->
+            <!-- <div class="notification-content">
+                    <h2>Notifiche e scadenze</h2>
+                    <div class="notification-buttons">
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
                         </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
                     </div>
-                </div>
-
+                </div> -->
+            <!-- </div> -->
+            <div class="box large-box tall-box"> <br>
+                <?php require_once '../grafici/grafco_exp_settimanale.php' ?>
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
-                <?php require '../grafici/obiettivi.html'; ?>
-                <br>
+                <a href="../php/new_goal.php"><button>Inserisci un nuovo obiettivo</button></a>
+                <?php require_once '../grafici/obiettivi.php'; ?>
             </div>
             <div class="box">
-                <?php require '../grafici/allenamenti_mensili.html'; ?>
+                <?php require_once '../grafici/allenamenti_mensili.html'; ?>
             </div>
 
-            <div class="box large-box tall-box"> <br>
-                <?php require '../grafici/andamento_settimanale.html' ?>
-            </div>
+           
         </div>
     </div>
 

@@ -1,0 +1,14 @@
+.card_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid red;
+    width: 30%;
+}
+
+.insert {
+    border: 1px solid blue;
+}
