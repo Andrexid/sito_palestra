@@ -82,7 +82,21 @@ session_start();
     <div class="container">
         <div class="container-main">
             <div class="box large-box">
-                bedge
+
+                <div class="gamification-container-account">
+                    <p class="gamification-text-account">Sei al <strong>Livello 3</strong> 💪</p>
+                    <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+                    <br><br>
+                    <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
+                    <progress id="progressGoals" max="100" value="70">170%</progress>
+
+                    <div id="badge-container" class="badge-container">
+                        <img src="" id="firstImg">
+                        <img src="" id="secondImg">
+                        <img src="" id="thirdImg" class="locked">
+                    </div>
+                </div>
+
             </div>
             <!-- <div class="box info" id="notification-box"> -->
             <!-- <div class="notification-content">
@@ -124,7 +138,7 @@ session_start();
                 <?php require_once '../grafici/allenamenti_mensili.html'; ?>
             </div>
 
-           
+
         </div>
     </div>
 

@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+    getUserDataProfile();
+    fetchMotivationalQuote();
+    calcolateBMI();
+});
+
+function fetchMotivationalQuote() {
+    fetch("../json/motivational_quotes.json")
+    .then(response => response.json())
+    .then(quotes => {
+        let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById("motivational-quote").textContent = `"${randomQuote.quote}"`;
+        document.getElementById("motivational-author").textContent = `- ${randomQuote.author}`;
+    });
+}
+
+function getUserDataProfile() {
     fetch("../php/get_user_data_profile.php")
         .then(response => response.json())
         .then(data => {
@@ -7,61 +23,68 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Inserisce i dati nella pagina
-            document.getElementById("username").textContent = data.nome + " " + data.cognome;
-            document.getElementById("email").textContent = data.email;
-            document.getElementById("dateBirth").textContent = data.data_nascita;
-            document.getElementById("sex").textContent = data.sesso;
+            // Salva i dati in sessionStorage
+            sessionStorage.setItem("username", `${data.nome} ${data.cognome}`);
+            sessionStorage.setItem("email", data.email);
+            sessionStorage.setItem("dateBirth", data.data_nascita);
+            sessionStorage.setItem("sex", data.sesso);
+            sessionStorage.setItem("weight", data.peso);
+            sessionStorage.setItem("height", data.altezza);
+            sessionStorage.setItem("EXP", data.puntiEXP);
+            sessionStorage.setItem("nTrainings", data.nAllenamenti);
+            // Aggiorna il DOM con i dati
+            updateProfileUI(data.fotoProfilo);
+            drawBadges();
+            calcolateBMI();
         })
         .catch(error => console.error("Errore nel recupero dati:", error));
-    
-    fetch("../json/motivational_quotes.json")
-    .then(response => response.json())
-    .then(quotes => {
-        let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        document.getElementById("motivational-quote").textContent = `"${randomQuote.quote}"`;
-        document.getElementById("motivational-author").textContent = `- ${randomQuote.author}`;
-    });
-      
-});
+}
 
-let username = document.getElementById("username");
-let userEmail = document.getElementById("email");
-let dateBirth = document.getElementById("dateBirth");
-let sex = document.getElementById("sex");
-let btnModify = document.getElementById("btnModify");
+function updateProfileUI(foto) {
+    document.getElementById("username").textContent = sessionStorage.getItem("username") || "";
+    document.getElementById("email").textContent = sessionStorage.getItem("email") || "";
+    document.getElementById("dateBirth").textContent = "Data di nascita: " + (sessionStorage.getItem("dateBirth") + " (YYYY-MM-GG)" || "");
+    document.getElementById("sex").textContent = "Sesso: " + (sessionStorage.getItem("sex") || "");
+    document.getElementById("weight").textContent = "Peso: " + (sessionStorage.getItem("weight") + " kg" || "");
+    document.getElementById("height").textContent = "Altezza: " + (sessionStorage.getItem("height") + " cm" || "");
+    document.getElementById("profile-pic-profile").src = foto;
+    getUserPicProfile(foto);
+}
 
 let isEditing = false;
+let btnModify = document.getElementById("btnModify");
 let originalElements = []; // Array per memorizzare gli elementi originali
+let formData = new FormData();
+let editableElements;
 
 function modifyProfile() {
     //Modifica il testo del btn
-    if (btnModify.textContent === "✏️ Modifica Profilo") {
-        btnModify.textContent = "✅ Conferma Modifiche"; // Cambia testo ed emoji
-    } else {
-        btnModify.textContent = "✏️ Modifica Profilo"; // Torna al testo originale
-    }
+    btnModify.textContent = isEditing ? "✏️ Modifica Profilo" : "✅ Conferma Modifiche";
 
-    let editableElements = document.querySelectorAll("[data-editable]");
-    let formData = new FormData();
+    editableElements = document.querySelectorAll("[data-editable]");
 
     editableElements.forEach(element => {
         if (!isEditing) {
             // Memorizza l'elemento originale prima di sostituirlo
             originalElements.push(element.cloneNode(true));
-        
+    
             // Crea un contenitore per l'input e il label
             let container = document.createElement("div");
             container.className = "input-container";
-        
+    
             // Crea il label
             let label = document.createElement("label");
             label.textContent = element.id === "username" ? "Nome" :
                                 element.id === "dateBirth" ? "Data di Nascita" :
-                                element.id === "sex" ? "Sesso" : "";
+                                element.id === "sex" ? "Sesso" :
+                                element.id === "weight" ? "Peso (kg)" :
+                                element.id === "height" ? "Altezza (cm)" : "";
             label.htmlFor = element.id; // Associa il label all'input
-        
+    
             let input;
+            // Prendi il valore dalla sessionStorage invece che dal textContent
+            let previousValue = sessionStorage.getItem(element.id) || "";
+    
             if (element.getAttribute("tag") === "sex") {
                 // Se è il campo "sex", crea un <select>
                 input = document.createElement("select");
@@ -70,100 +93,235 @@ function modifyProfile() {
                     let option = document.createElement("option");
                     option.value = optionText;
                     option.textContent = optionText;
-                    if (element.textContent === optionText) {
+                    if (previousValue === optionText) {
                         option.selected = true;
                     }
                     input.appendChild(option);
                 });
-            } else {
-                // Converte <h2> e <p> in <input>
+            } else if (element.getAttribute("tag") === "date") {
+                // Se è un campo data
                 input = document.createElement("input");
-                input.type = element.getAttribute("tag") === "date" ? "date" : "text";
-                input.value = element.textContent; // Imposta il valore iniziale
-
-                // Se il valore della data è "0000-00-00", imposta la data di oggi
-                if (element.getAttribute("tag") === "date" && element.textContent === "0000-00-00") {
-                    let today = new Date();
-                    let formattedDate = today.toISOString().split('T')[0]; // Formatta la data come YYYY-MM-DD
-                    input.value = formattedDate;
-                } else {
-                    input.value = element.textContent; // Imposta il valore iniziale
-                }
+                input.type = "date";
+                input.value = previousValue === "0000-00-00" || previousValue === "" ? 
+                    new Date().toISOString().split('T')[0] : previousValue;
+            } else if (element.getAttribute("tag") === "weight" || element.getAttribute("tag") === "height") {
+                // Se è peso o altezza, crea un input numerico
+                input = document.createElement("input");
+                input.type = "number";
+                input.min = "1";
+                input.value = previousValue && parseInt(previousValue) > 0 ? previousValue : "";
+            } else {
+                // Per tutti gli altri campi (testo generico)
+                input = document.createElement("input");
+                input.type = "text";
+                input.value = previousValue;
             }
-        
-            input.dataset.editable = "true"; // Mantiene l'attributo
-            input.id = element.id; // Mantiene l'ID
-        
+    
+            input.dataset.editable = "true";
+            input.id = element.id;
+    
             // Aggiungi il label e l'input al contenitore
             container.appendChild(label);
             container.appendChild(input);
-        
+    
             // Sostituisce l'elemento con il contenitore
             element.replaceWith(container);
         } else {
             // Recupera il valore dell'input e lo salva in FormData
-            formData.append(element.id, element.value);
+            let input = document.getElementById(element.id);
+            formData.append(element.id, input.value);
+            
+            // Aggiorna anche la sessionStorage con il nuovo valore
+            sessionStorage.setItem(element.id, input.value);
         }
     });
 
     if (isEditing) {
-        // Invia i dati al server solo quando si sta uscendo dalla modalità modifica
-        fetch("../php/modify_user_data_profile.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.text()) // Usa .text() per vedere esattamente la risposta
-        .then(text => {
-            console.log("Risposta ricevuta dal server:", text);
-            return JSON.parse(text); // Poi converti in JSON
-        })
-        .then(data => {
-            if (data.error) {
-                console.error("Errore dal server:", data.error);
-                return;
-            }
-            console.log("Dati salvati correttamente:", data);
-    
-            // Ripristina gli elementi originali
-            editableElements.forEach((element, index) => {
-                // Sostituisci il contenitore con l'elemento originale
-                element.closest(".input-container").replaceWith(originalElements[index]);
-            });
-    
-            // Svuota l'array degli elementi originali
-            originalElements = [];
-    
-            // Aggiorna i dati nella pagina
-            fetch("../php/get_user_data_profile.php")
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error(data.error);
-                    return;
-                }
-    
-                // Inserisce i dati nella pagina
-                document.getElementById("username").textContent = data.nome + " " + data.cognome;
-                document.getElementById("email").textContent = data.email;
-                document.getElementById("dateBirth").textContent = data.data_nascita;
-                document.getElementById("sex").textContent = data.sesso;
-            })
-            .catch(error => console.error("Errore nel recupero dati:", error));
-        })
-        .catch(error => console.error("Errore nel salvataggio:", error));
+        modifyDatabase();
     }
 
     // Cambia stato della modalità di modifica
     isEditing = !isEditing;
 }
 
+function modifyDatabase(){
+    let isPic = false;
+    // Invia i dati al server solo quando si sta uscendo dalla modalità modifica
+    fetch("../php/modify_user_data_profile.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text()) // Usa .text() per vedere esattamente la risposta
+    .then(text => {
+        return JSON.parse(text); // Poi converti in JSON
+    })
+    .then(data => {
+        if (data.error) {
+            console.error("Errore dal server:", data.error);
+            return;
+        }
+        console.log("Dati salvati correttamente:", data);
+
+        for(const key of formData.keys()){
+            if(key === "profilePic"){
+                isPic = true;
+            }
+        }
+
+        if(!isPic){
+            // Ripristina gli elementi originali
+            editableElements.forEach((element, index) => {
+                // Sostituisci il contenitore con l'elemento originale
+                element.closest(".input-container").replaceWith(originalElements[index]);
+            });
+        }
+
+        // Svuota l'array degli elementi originali
+        originalElements = [];
+
+        // Creare un array con tutte le chiavi e rimuoverle una per una
+        for (let key of formData.keys()) {
+            formData.delete(key);
+        }
+
+        // Aggiorna i dati nella pagina
+        getUserDataProfile();
+        calcolateBMI();
+    })
+    .catch(error => console.error("Errore nel salvataggio:", error));
+}
+
+let badges = [
+    "Il viaggio inizia", "Primo Passo", "Iniziato il Viaggio", 
+    "Fitness Warrior", "Resiliente", "Iron Man", 
+    "Fitness Machine", "Inarrestabile", "Bestia della Palestra", 
+    "Atleta d’élite", "Leggenda del Fitness"
+];
+
+// Soglie di esperienza per ogni badge
+let badgeThresholds = [0, 500, 1500, 3000, 7500, 15000, 30000, 50000, 100000, 200000, 500000];
+
+function drawBadges() {
+    let nTrainings = document.querySelector("#nTrainings");
+    nTrainings.innerHTML = "Hai completato <strong>" + sessionStorage.getItem("nTrainings") + "</strong> allenamenti! 🚀";
+
+    let firstImg = document.getElementById("firstImg");
+    let secondImg = document.getElementById("secondImg");
+    let thirdImg = document.getElementById("thirdImg");
+    let positionThresholds = 0;
+
+    for (let i = 0; i < badges.length && (sessionStorage.getItem("EXP") > badgeThresholds[i]); i++) {
+        positionThresholds = i;
+    }
+    
+    firstImg.src = `badge-${(positionThresholds - 1)}`;
+    firstImg.alt = `${badges[(positionThresholds - 1)]}`;
+    firstImg.hidden = false;
+
+    secondImg.src = `badge-${(positionThresholds)}`;
+    secondImg.alt = `${badges[(positionThresholds)]}`;
+    secondImg.hidden = false;
+
+    thirdImg.src = `badge-${(positionThresholds + 1)}`;
+    thirdImg.alt = `${badges[(positionThresholds + 1)]}`;
+    thirdImg.hidden = false;
+    
+    if(positionThresholds == 0){
+        firstImg.hidden = true;
+    }else if (positionThresholds == badges.length - 1){
+        thirdImg.hidden = true;
+    }
+
+    let slider = document.querySelector("#progressGoals");
+}
+
 document.getElementById("upload-profile-pic").addEventListener("change", function(event) {
     const file = event.target.files[0]; // Prende il file selezionato
     if (file) {
-        const reader = new FileReader(); // Crea un reader per leggere il file
-        reader.onload = function(e) {
-            document.getElementById("profile-pic").src = e.target.result; // Cambia la foto del profilo
-        };
-        reader.readAsDataURL(file); // Converte il file in base64 per l'anteprima
+        document.getElementById("profile-pic-profile").src = URL.createObjectURL(file); // Mostra l'anteprima
+        formData.append("profilePic", file); // Aggiunge il file a FormData
+        modifyDatabase();
     }
 });
+
+let bmiChartInstance = null; // Variabile globale per conservare l'istanza del grafico
+
+function calcolateBMI() {
+    let ctx = document.getElementById('bmiGaugeChart').getContext('2d');
+
+    // Se esiste già un grafico, distruggilo prima di crearne uno nuovo
+    if (bmiChartInstance !== null) {
+        bmiChartInstance.destroy();
+    }
+
+    let weight = parseFloat(sessionStorage.getItem("weight")) || 0; // kg
+    let height = parseFloat(sessionStorage.getItem("height")) || 0; // cm
+    let age = 0;
+    let gender = "male";
+    let bmiValue = 0;
+
+    if (sessionStorage.getItem("dateBirth")) {
+        age = sessionStorage.getItem("dateBirth");
+    }
+
+    if (sessionStorage.getItem("sex") === "donna") {
+        gender = "female";
+    }
+
+    if (height > 0) {
+        height /= 100; // Converti cm in metri
+        bmiValue = (weight / (height * height)).toFixed(1);
+    }
+
+    // Aggiustamenti in base a sesso ed età
+    if (gender === "female") {
+        bmiValue *= 1.02;
+    }
+    if (age >= 50) {
+        bmiValue *= 1.05;
+    }
+
+    let minBMI = 10;
+    let maxBMI = 40;
+    bmiValue = Math.min(Math.max(bmiValue, minBMI), maxBMI).toFixed(1); 
+
+    // Creazione del grafico
+    bmiChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Sottopeso", "Normopeso", "Sovrappeso", "Obesità"],
+            datasets: [{
+                data: [18.5 - minBMI, 24.9 - 18.5, 29.9 - 24.9, maxBMI - 29.9],
+                backgroundColor: ["#42a5f5", "#66bb6a", "#ffa726", "#ef5350"],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            rotation: -90,
+            circumference: 180,
+            cutout: "70%",
+            responsive: true,
+            plugins: {
+                tooltip: { enabled: false },
+                legend: { display: false }
+            }
+        }
+    });
+
+    // Posizionamento dinamico della freccia
+    let arrow = document.getElementById("arrow");
+    let angle = ((bmiValue - minBMI) / (maxBMI - minBMI)) * 180 - 90;
+    arrow.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+
+    // Testo BMI
+    let bmiText = document.getElementById("bmiText");
+    let status = bmiValue < 18.5 ? "Sottopeso" :
+                 bmiValue < 24.9 ? "Normopeso" :
+                 bmiValue < 29.9 ? "Sovrappeso" : "Obesità";
+
+    bmiText.innerHTML = `Il tuo BMI è <strong>${bmiValue}</strong> (${status})`;
+
+    // Messaggio aggiuntivo
+    let warningText = document.getElementById("bmiWarning");
+    warningText.innerHTML = "<small>Nota: Il BMI è un valore indicativo e può variare in base a fattori come età, sesso e composizione corporea.</small>";
+}
