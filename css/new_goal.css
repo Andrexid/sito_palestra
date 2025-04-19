@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: white;
+}
+
+h1 {
+    margin: 10px;
+}
+
+.grassetto {
+  font-weight: bold;
+}
+
+.ext-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}   
+
+.container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgb(89, 89, 89);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 10px rgb(135, 135, 135); 
+}
+
+.ext-container h2 {
+  margin-bottom: 20px;
+}
