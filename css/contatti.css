@@ -1,19 +1,5 @@
 
 
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: linear-gradient(135deg, #121212, #1f1f1f);
-    color: white;
-    text-align: center;
-}
-
 /* Contact Container */
 .contact-container {
     display: flex;
