@@ -36,24 +36,23 @@ if ($user_id) {
 </head>
 
 <body>
-    <nav class="navbar">
+<nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="#" class="selezionata">Progressi</a></li>
-            <li><a href="../html/faq.html">FAQ</a></li>
+            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi"  class="selezionata">Progressi</a></li>
+            <li><a href="../html/faq.html" data-section="FAQ">FAQ</a></li>
             <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html">Contatti</a></li>
-
-            <li class="profile-container">
+            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li class = "profile-container" data-section="Profile">
                 <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
+                    <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="controllaAccesso('profile.html', false)">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('settings.html', false)">⚙️ Impostazioni</a>
                     <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
@@ -149,9 +148,9 @@ if ($user_id) {
         </div>
     </div>
 
-
+    <script src="../src/commonNavbar.js?v=1.1"></script>
     <!-- <script src="../src/callAjaxAccount.js"></script> -->
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", () => {
             const hamburger = document.getElementById('hamburger');
             const sidebar = document.getElementById('sidebar');
@@ -173,7 +172,8 @@ if ($user_id) {
                 overlay.style.display = 'none';
             });
         });
-    </script>
+    </script> -->
+
 
 </body>
 

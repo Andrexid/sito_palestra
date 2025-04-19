@@ -28,12 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function controllaAccesso(destination){
-    if(localStorage.getItem("email")){
-        window.location.href = destination;
-    }else{
-        window.location.href = "login.html"
-    }
+function controllaAccesso(destination, isHTML = true) {
+    const basePath = isHTML ? "" : "../html/";
+    const redirectPath = localStorage.getItem("email") 
+        ? `${basePath}${destination}`
+        : `${basePath}login.html`;
+    
+    window.location.href = redirectPath;
 }
 
 function logout() {
