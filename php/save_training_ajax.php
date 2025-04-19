@@ -87,6 +87,15 @@ $insert_session->bind_param("iii", $user_id, $workout_plan_id, $total_xp);
 $insert_session->execute();
 $insert_session->close();
 
+// ➕ INSERISCI XP NELLA TABELLA exp_points
+$insert_exp = $conn->prepare("
+    INSERT INTO exp_points (id_utente, punti_exp, giorno)
+    VALUES (?, ?, CURRENT_DATE)
+");
+$insert_exp->bind_param("ii", $user_id, $total_xp);
+$insert_exp->execute();
+$insert_exp->close();
+
 $conn->close();
 
 echo json_encode([
