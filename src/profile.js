@@ -16,8 +16,13 @@ function fetchMotivationalQuote() {
 
 function getUserDataProfile() {
     fetch("../php/get_user_data_profile.php")
-        .then(response => response.json())
-        .then(data => {
+        .then(response => response.text())
+        .then(text => {
+            console.log("📦 Risposta grezza dal server:", text);
+            const data = JSON.parse(text); // 👈 parsing corretto
+
+            console.log("✅ JSON parsato:", data);
+
             if (data.error) {
                 console.error(data.error);
                 return;
@@ -32,24 +37,58 @@ function getUserDataProfile() {
             sessionStorage.setItem("height", data.altezza);
             sessionStorage.setItem("EXP", data.puntiEXP);
             sessionStorage.setItem("nTrainings", data.nAllenamenti);
+
+            // Nuovi dati
+            sessionStorage.setItem("xpTotale", data.xpTotale);
+            sessionStorage.setItem("numeroObiettiviAttivi", data.numeroObiettiviAttivi);
+            sessionStorage.setItem("totaleSetCompletati", data.totaleSetCompletati);
+            sessionStorage.setItem("totaleRepsCompletate", data.totaleRepsCompletate);
+            sessionStorage.setItem("esercizioPiuFrequente", data.esercizioPiuFrequente);
+
             // Aggiorna il DOM con i dati
             updateProfileUI(data.fotoProfilo);
             drawBadges();
             calcolateBMI();
         })
-        .catch(error => console.error("Errore nel recupero dati:", error));
+        .catch(error => console.error("❌ Errore nel recupero dati:", error));
 }
 
 function updateProfileUI(foto) {
     document.getElementById("username").textContent = sessionStorage.getItem("username") || "";
     document.getElementById("email").textContent = sessionStorage.getItem("email") || "";
-    document.getElementById("dateBirth").textContent = "Data di nascita: " + (sessionStorage.getItem("dateBirth") + " (YYYY-MM-GG)" || "");
-    document.getElementById("sex").textContent = "Sesso: " + (sessionStorage.getItem("sex") || "");
-    document.getElementById("weight").textContent = "Peso: " + (sessionStorage.getItem("weight") + " kg" || "");
-    document.getElementById("height").textContent = "Altezza: " + (sessionStorage.getItem("height") + " cm" || "");
+
+    const dateBirth = sessionStorage.getItem("dateBirth");
+    document.getElementById("dateBirth").textContent = dateBirth ? "Data di nascita: " + dateBirth + " (YYYY-MM-GG)" : "";
+
+    const sex = sessionStorage.getItem("sex");
+    document.getElementById("sex").textContent = sex ? "Sesso: " + sex : "";
+
+    const weight = sessionStorage.getItem("weight");
+    document.getElementById("weight").textContent = weight ? "Peso: " + weight + " kg" : "";
+
+    const height = sessionStorage.getItem("height");
+    document.getElementById("height").textContent = height ? "Altezza: " + height + " cm" : "";
+
     document.getElementById("profile-pic-profile").src = foto;
     getUserPicProfile(foto);
+
+    // Aggiornamento delle statistiche
+    document.getElementById("most-xp").textContent = sessionStorage.getItem("xpTotale") || 0;
+    document.getElementById("goals-active").textContent = sessionStorage.getItem("numeroObiettiviAttivi") || 0;
+    document.getElementById("sets-completed").textContent = sessionStorage.getItem("totaleSetCompletati") || 0;
+    document.getElementById("reps-completed").textContent = sessionStorage.getItem("totaleRepsCompletate") || 0;
+    document.getElementById("top-exercise").textContent = sessionStorage.getItem("esercizioPiuFrequente") || "-";
 }
+
+function updateStats() {
+    document.getElementById("total-xp").textContent = sessionStorage.getItem("EXP") || 0;
+    document.getElementById("weekly-xp").textContent = sessionStorage.getItem("weeklyXP") || 0;
+    document.getElementById("most-frequent-exercise").textContent = sessionStorage.getItem("mostFrequentExercise") || "-";
+    document.getElementById("active-goals").textContent = sessionStorage.getItem("activeGoals") || 0;
+    document.getElementById("total-sets").textContent = sessionStorage.getItem("totalSets") || 0;
+    document.getElementById("total-reps").textContent = sessionStorage.getItem("totalReps") || 0;
+}
+
 
 let isEditing = false;
 let btnModify = document.getElementById("btnModify");

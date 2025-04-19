@@ -1,6 +1,23 @@
 <?php
 session_start();
-$user_id = $_SESSION['id'];
+require_once '../database/connessione.php';
+
+$user_id = $_SESSION['id'] ?? null;
+$nome_utente = "";
+
+if ($user_id) {
+    $sql = "SELECT nome, cognome FROM utenti WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result && $row = $result->fetch_assoc()) {
+            $nome_utente = htmlspecialchars($row['nome'] . ' ' . $row['cognome']);
+        }        
+        $stmt->close();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +28,7 @@ $user_id = $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/account.css?v=1.1">
+    <link rel="stylesheet" href="../css/account.css?v=1.2">
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/buttons.css">
     <link rel="stylesheet" href="../css/_variables.css">
@@ -19,7 +36,6 @@ $user_id = $_SESSION['id'];
 </head>
 
 <body>
-    <?php require '../database/connessione.php'; ?>
     <nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
@@ -45,7 +61,7 @@ $user_id = $_SESSION['id'];
     </nav>
 
     <div class="cover">
-        <div id="title">Benvenuto, <span id="nomeUtente"></span></div>
+        <div id="title">Benvenuto, <span id="nomeUtente"><?= $nome_utente ?></span></div>
     </div>
 
 
@@ -66,7 +82,12 @@ $user_id = $_SESSION['id'];
                     $result = $stm->get_result();
 
                     if ($result->num_rows > 0) {
-                        
+                        $row = $result->fetch_assoc();
+                        $done = (int)$row['workouts_done'];
+                        $total = (int)$row['workouts_per_week'];
+                        $percent = $total > 0 ? round(($done / $total) * 100) : 0;
+
+                        echo "<p class='progress-text'>$done/$total <span class='percent-text'>($percent%)</span></p>";
                     } else {
                         echo "Nessuna scheda trovata per questo utente.";
                     }
@@ -77,7 +98,7 @@ $user_id = $_SESSION['id'];
             ?>
         </div>
         <div class="training-bar-right">
-            <button class="principal_button">Inizia Allenamento</button>
+            <a href = "start_training.php"><button class="principal_button">Inizia Allenamento</button></a>
         </div>
     </div>
 
@@ -123,15 +144,13 @@ $user_id = $_SESSION['id'];
                 <?php require_once '../grafici/obiettivi.php'; ?>
             </div>
             <div class="box">
-                <?php require_once '../grafici/allenamenti_mensili.html'; ?>
+                <?php require_once '../grafici/allenamenti_mensili.php'; ?>
             </div>
-
-           
         </div>
     </div>
 
 
-    <script src="../src/callAjaxAccount.js"></script>
+    <!-- <script src="../src/callAjaxAccount.js"></script> -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const hamburger = document.getElementById('hamburger');

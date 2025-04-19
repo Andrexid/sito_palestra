@@ -57,6 +57,20 @@
   border-radius: 5px;
 }
 
+.progress-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+.percent-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--success-color);
+  margin-left: 8px;
+}
+
 .weekly-training {
   justify-content: center;
   margin: 5px;
@@ -86,6 +100,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   min-height: 170px;
   transition: transform 0.3s ease-in-out;
+  /* min-width: 80vw; */
 }
 
 .box:hover {
