@@ -1,107 +1,95 @@
-.container-form,
-.input-group,
-.radio-container,
-.radio-button  {
-  display: flex;
-}
+body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Contenitore principale */
-.container-form {
-  flex-direction: column;
-  align-items: center;
-  min-width: 30%;
-  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(35, 35, 35, 0.9);
-}
+        .settings {
+            max-width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background: var(--box-color);
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Titolo */
-.container-form h1 {
-  margin-bottom: 20px;
-}
+        .settings h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--heading-color);
+        }
 
-/* Gruppo di input */
-.input-group {
-  width: 100%;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
+        button {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            width: 80%;
+        }
 
-.input-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+        button:hover {
+            transform: scale(1.05);
+            background: var(--primary-hover);
+        }
 
-form {
-  width: 90%;
-}
+        button:active {
+            transform: scale(0.95);
+        }
 
-.container-form .input {
-  height: 35px;
-  width: 100%;
-  padding: 10px;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  background-color: white;
-  transition: box-shadow 0.3s ease-in-out, border 0.3s;
-}
+        .delete-account {
+            background: var(--error-color);
+        }
 
-.container-form .input:hover,
-.container-form .input:focus {
-  box-shadow: 0 0 10px 2px #3b3b98;
-  border: 2px solid #3b3b98;
-}
+        .navigation,
+        .theme-section,
+        .notifications-section,
+        .data-export-section,
+        .security-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+        }
 
-/* Sezione Radio Button */
-.radio-container {
-  flex-direction: column;
-  margin-top: 1px;
-  padding: 8px;
-  border-radius: 10px;
-}
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
 
-.radio-button {
-  align-items: center;
-  margin-bottom: 8px;
-  cursor: pointer;
-}
+        .checkNotification {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
 
-.radio-button input[type="radio"] {
-  display: none;
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.radio-checkmark {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: relative;
-  margin-right: 10px;
-}
-
-.radio-button input[type="radio"]:checked + .radio-checkmark {
-  background-color: white;
-}
-
-.radio-label {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.container-form p {
-  text-align: center;
-  margin: 25px 0 10px 0;
-}
-
-.container-form a {
-  color: #00c6ff;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-.container-form a:hover {
-  color: #007bff;
-  text-decoration: underline;
-}
+        .settings {
+            animation: fadeIn 1s ease-in-out;
+        }

@@ -10,12 +10,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-dark-blue);
   padding: 15px 30px;
+  background-color: var(--secondary-color);
 }
 
 .logo img {
   height: 50px;
+  
 }
 
 .nav-links {

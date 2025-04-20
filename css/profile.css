@@ -1,32 +1,24 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+@import url("./_variables.css");
 
 body {
-    background: linear-gradient(135deg, var(--color-base-one), var(--color-light-blue-two));
-    color: var(--color-white);
-    text-align: center;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .profile-container-header {
     max-width: 60%;
-    width: 60%;
     margin: 50px auto;
     padding: 20px;
-    background: var(--color-base-three);
+    background: var(--box-color);
     border-radius: 12px;
-    box-shadow: 0px 4px 10px var(--bg-color-2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.profile-container-header img {
-    min-width: 100px;
-    min-height: 100px;
-}
-
-/* ----- Info Utente ----- */
+/* Profilo */
 #profile-pic-profile {
     width: 120px;
     height: 120px;
@@ -39,10 +31,10 @@ body {
     opacity: 0.8;
 }
 
-
+/* Bottone modifica */
 button {
-    background: linear-gradient(135deg, var(--color-orange-strong), var(--color-orange-warm));
-    color: var(--bg-color-2);
+    background: var(--primary-color);
+    color: var(--bg-color);
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -50,157 +42,79 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    box-shadow: 0px 4px 10px var(--bg-color-2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     margin-bottom: 30px;
 }
 
 button:hover {
     transform: scale(1.05);
-    box-shadow: 0px 6px 15px var(--color-text);
+    background: var(--primary-hover);
 }
 
 button:active {
     transform: scale(0.95);
 }
 
-input[type="text"], input[type="date"]{
-    max-width: 80%;
+/* Input */
+input[type="text"],
+input[type="date"] {
+    width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: none;
     border-radius: 8px;
-    background: var(--color-indigo);
-    color: var(--color-white);
+    background: var(--bg-color);
+    color: var(--text-color);
     font-size: 16px;
-    box-shadow: 0px 4px 10px var(--bg-color-2);
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-input[type="text"]:focus, input[type="date"]:focus {
-    background: var(--color-blue-pervinca);
+input[type="text"]:focus,
+input[type="date"]:focus {
     outline: none;
-    box-shadow: 0px 6px 15px var(--color-text);
+    border: 2px solid var(--primary-color);
+    background: #ffffff;
 }
 
-input[type="text"]::placeholder, input[type="date"]::placeholder {
-    color: var(--color-gray-medium);
-}
-
-/* Stile per il select */
-.input-container select {
-    width: 80%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: var( --color-base-two);
-    color: var(--color-white);
-    font-size: 16px;
-    box-shadow: 0px 4px 10px var(--color-text);
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-.input-container select:focus {
-    background: var( --color-blue-pervinca);
-    outline: none;
-    box-shadow: 0px 6px 15px var(--color-text);
-}
-
-
-
-
-
-
-/* Stile per le option */
-.input-container select option {
-    background: var( --color-base-three);
-    color: var(--color-white);
-    font-size: 16px;
-}
-
-/* Stile per i contenitori degli input */
-.input-container {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-/* Stile per i label */
-.input-container label {
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--color-orange-warm);
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 3px var(--bg-color-2);
-}
-
-/* Stile per gli input */
-.input-container input[type="text"], .input-container input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: var(--color-base-two);
-    color: var(--color-white);
-    font-size: 16px;
-    box-shadow: 0px 4px 10px var(--bg-color-2);
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.input-container input[type="text"]:focus, .input-container input[type="date"]:focus {
-    background: var( --color-blue-pervinca);
-    outline: none;
-    box-shadow: 0px 6px 15px var(--color-text);
-}
-
-.input-container input[type="text"]::placeholder, .input-container input[type="date"]::placeholder {
-    color: var(--color-gray-medium);
-}
-/* ----- Fine Info Utente ----- */
-
-
-/* ----- Motivational Quote ----- */
+/* Motivational */
 .motivational-quote-container {
     max-width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(135deg, var( --color-orange-strong), var(--color-orange-warm));
+    background: var(--primary-color);
     border-radius: 15px;
-    box-shadow: 0px 4px 15px var(--color-shadow-soft);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
+    color: white;
 }
 
 .motivational-quote {
     font-size: 24px;
     font-weight: bold;
-    color: var(--color-white);
-    text-shadow: 2px 2px 5px var(--color-shadow-soft);
 }
-/* ----- Fine Motivational Quote ----- */
 
-/* ----- SEZIONE GAMIFICATION ----- */
+.motivational-author {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Gamification */
 .gamification-container {
     max-width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(135deg, var(--color-primary-blue), var( --color-base-four));
+    background: var(--secondary-color);
     border-radius: 15px;
-    box-shadow: 0px 4px 15px var(--color-shadow-soft);
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    color: var(--text-color);
 }
 
 .gamification-text {
     font-size: 22px;
     font-weight: bold;
-    color: var(--color-white);
-    text-shadow: 1px 1px 4px var(--color-shadow-soft);
 }
-/* ----- Fine SEZIONE GAMIFICATION ----- */
 
-
-/* ----- Badge ----- */
+/* Badge */
 .badge-container {
     display: flex;
     justify-content: center;
@@ -209,12 +123,16 @@ input[type="text"]::placeholder, input[type="date"]::placeholder {
 }
 
 .badge {
-    background: var(--color-white);
+    background: #fff;
     padding: 10px;
     border-radius: 10px;
-    text-align: center;
     width: 100px;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.badge:hover {
+    transform: scale(1.1);
 }
 
 .badge img {
@@ -224,29 +142,38 @@ input[type="text"]::placeholder, input[type="date"]::placeholder {
 
 .badge p {
     font-weight: bold;
-    margin-top: 5px;
-    color: var(--color-text);
-}
-
-.badge:hover {
-    transform: scale(1.1);
+    color: var(--text-color);
 }
 
 .badge.locked {
     opacity: 0.5;
     filter: grayscale(100%);
 }
-/* ----- Fine Badge ----- */
 
+/* Statistiche e Allenamenti */
+.stats, .workout-history {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    color: var(--text-color);
+}
+
+.stats h3, .workout-history h3 {
+    color: var(--heading-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* BMI */
 .bmi-container-big {
     max-width: 60%;
-    width: 60%;
     margin: 50px auto;
     padding: 20px;
-    background: var(--color-base-three);
+    background: var(--bg-color);
     border-radius: 12px;
-    box-shadow: 0px 4px 10px var(--color-shadow-soft);
-   
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bmi-container {
@@ -257,16 +184,11 @@ input[type="text"]::placeholder, input[type="date"]::placeholder {
     height: 250px;
 }
 
-canvas {
-    width: 100% !important;
-    height: auto !important;
-}
-
 .arrow {
     position: absolute;
     width: 6px;
     height: 140px;
-    background-color: var(--color-red);
+    background-color: var(--primary-color);
     transform-origin: bottom center;
     bottom: 15px;
     left: 50%;
@@ -278,17 +200,5 @@ canvas {
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
-}
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    color: var(--text-color);
 }

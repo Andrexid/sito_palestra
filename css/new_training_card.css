@@ -2,191 +2,301 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, var( --color-base-one), var(--color-light-blue-two));
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     min-height: 100vh;
-    height: 100%;
     overflow-x: hidden;
+  }
+
+
+  @import url("./_variables.css");
+
+  @import url("./_variables.css");
+
+  @import url("./_variables.css");
+
+
+/* ----- Navbar ----- */
+.nav-links a,
+.nav-links a.selezionata:hover {
+  color: var(--color-white);
 }
 
-.title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 0;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--secondary-color);
 }
 
-#title {
-    color: var(--color-white);
+.logo img {
+  height: 50px;
+  
 }
 
-.input-stile {
-    border: none;
-    background-color: var(--color-white);
-    background-color: var(--color-gray-300);
-    border-radius: 3px;
-    padding: 5px;
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 
+.nav-links li {
+  margin: 0 15px;
+}
 
-/* Contenitore generale */
-.container {
+.nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: var(--color-light-blue-one);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--color-light-blue-one);
+  transform: scale(1.05);
+}
+
+.nav-links a.selezionata {
+  font-size: 22px;
+  background-color: var( --color-white);
+  color: var( --color-text);
+  padding: 8px 15px;
+  border-radius: var(--radius-10);
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a.selezionata:hover {
+  background-color: var(--color-light-blue-one);
+  transform: scale(1.05);
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+#profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: var(--color-white);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: var(--color-white);
+}
+
+  
+  
+  /* Contenitore generale */
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.container-main {
+  }
+  
+  .container-main {
+    margin:50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 30px;
     padding: 20px;
-    max-width: 90vw;
     width: 100%;
-    background-color: var(--color-steel-blue);
+    max-width: 90vw;
+    background-color: var(--box-color);
     border-radius: 10px;
     margin-bottom: 30px;
-}
-
-.box {
-    background-color: var(--color-text);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-height: 70vh;
+  }
+  
+  .box {
+    background-color: white;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 8px var(--color-white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     min-height: 100px;
-    transition: transform 0.3s ease-in-out;  
-    color: var(--color-white);
-}
-
-.box:hover {
+    color: var(--text-color);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .box:hover {
     transform: scale(1.03);
-}
-
-.tall-box {
+  }
+  
+  .tall-box {
     grid-row: span 2;
-}
-
-.exercise-day {
-    border: 1px solid var(--color-gray-300);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    background-color: var(--color-white);
-    color: var(--color-text);
-}
-
-.exercise-day li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    padding: 5px;
-    border-bottom: 1px solid var(--color-gray-very-light);
-}
-
-.double-box {
-    grid-row: span 1;
-}
-
-.double-box > div {
+  }
+  
+  .double-box > div {
     margin-bottom: 10px;
-}
-
-/* Box data */
-.input-durata{
+  }
+  
+  /* Durata */
+  .input-durata {
     margin-top: 10px;
     display: flex;
-    justify-content: left;
     align-items: center;
-}
-
-.input-durata * {
-    margin: 5px;
-}
-
-.date {
-    border: none;
+    gap: 10px;
+  }
+  
+  .date {
     padding: 5px;
-}
-
-/* Box allenamenti a settimana */
-#week-workout {
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background: white;
+    color: var(--text-color);
+  }
+  
+  /* Selezione allenamenti a settimana */
+  #week-workout {
     margin-top: 10px;
-}
-
-
-/* Box Esercizi */
-.input-esercizi {
+    padding: 8px;
+  }
+  
+  /* Esercizi */
+  .input-esercizi {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
     align-items: center;
-}
-
-.input-esercizi * {
+    width: 100%;
+  }
+  
+  .input-esercizi * {
     margin: 5px 0;
     text-align: center;
-}
-
-.input-esercizi input, .input-esercizi select {
-    width: 50%;
-}
-
-.input-esercizi input {
-    margin-bottom: 10px;
-}
-
-
-/* Esercizi Inseriti */
-#exercise {
+  }
+  
+  .input-esercizi input,
+  .input-esercizi select {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+  }
+  
+  #exercise {
     margin-top: 15px;
-}
-
-#exercise > li {
-    padding-top: 10px;
+  }
+  
+  #exercise > li {
     list-style: none;
-}
-
-.data {
-    margin: 0 auto;
-    max-width: 100%;
-    background-color: var(--color-gray-muted);
-    height: 94%;
-    border-radius: 10px;
-    text-align: center;
-    color: var(--color-text);
-}
-
-.delete-button {
+    padding: 8px 0;
+  }
+  
+  /* Lista esercizi inseriti */
+  .exercisesList {
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Giorni esercizio */
+  .exercise-day {
+    background-color: white;
+    border: 1px solid var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+  
+  .exercise-day li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  
+  /* Pulsante elimina esercizio */
+  .delete-button {
     height: 20px;
     width: 20px;
-    text-align: center;
-    line-height: 1;
-    padding: 4px;
-    border: 1px solid var(--color-text);
-    background-color: var(--color-red-soft);
-    margin-left: 10px;
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
     cursor: pointer;
-    color: var(--color-white);
-    transition: background 0.3s ease-in-out;    
-}
-
-.delete-button:hover {
-    background-color: var(--color-red);
-}
-
-/* Invio dei dati */
-#send-data {
-    width: 50px;
-    height: 30px;
-}
-
-/* Risultati */
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .delete-button:hover {
+    background-color: #a52b2b;
+  }
+  
+  /* Pulsante invia */
+  .secondary_button-form {
+    width: 10%;
+    max-width: 400px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+    display: block;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  .secondary_button-form:hover {
+    background-color: var(--primary-hover);
+  }
+  

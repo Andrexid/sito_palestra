@@ -1,5 +1,3 @@
-
-
 /* Global Styles */
 * {
     margin: 0;
@@ -9,139 +7,255 @@
 }
 
 body {
-   background-image: url(../img/sfondo-contattaci.jpg);
-   background-size: cover;
-    color: var(--color-white);
+    background-color: var(--bg-color);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-color);
     text-align: center;
 }
 
-/* Contact Container */
+
+
+@import url("./_variables.css");
+
+/* ----- Navbar ----- */
+.nav-links a,
+.nav-links a.selezionata:hover {
+  color: var(--color-white);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 15px 30px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: var(--color-light-blue-one);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--color-light-blue-one);
+  transform: scale(1.05);
+}
+
+.nav-links a.selezionata {
+  font-size: 22px;
+  background-color: var( --color-white);
+  color: var( --color-text);
+  padding: 8px 15px;
+  border-radius: var(--radius-10);
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a.selezionata:hover {
+  background-color: var(--color-light-blue-one);
+  transform: scale(1.05);
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+#profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: var(--color-white);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: var(--color-white);
+}
+
+/* Container principale */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 40px;
-    background: linear-gradient(135deg, #1e1e2f, #2d2d44);
+    background-color: var(--box-color);
     border-radius: 15px;
-    box-shadow: 0 4px 10px var(--color-text);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin: 40px auto;
     max-width: 1000px;
+    gap: 40px;
 }
 
 /* Contact Info */
-
-
 .contact-info {
     flex: 1;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     max-width: 45%;
+    text-align: left;
 }
 
 .contact-info h2 {
-    font-size: 35px;
-    color: var(--color-orange-one);
-    margin-bottom: 15px;
+    font-size: 30px;
+    color: var(--primary-color);
 }
 
 .contact-info p {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 10px;
 }
 
 .contact-info a {
-    color: var(--color-orange-one);
-    font-weight: 550;
-    transition: color 0.3s;
+    color: var(--primary-color);
+    font-weight: 500;
     text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: var(--color-orange-two);
+    
+    text-decoration: none;
+    
 }
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
-    margin-top: 30px;
 }
 
 .social-link-a {
-
-    gap: 8px;  /* Distanza tra immagine e testo */
-    background: var(--bg-color-1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-color);
     padding: 10px 15px;
     border-radius: 8px;
-    max-width:115px;
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.3s, transform 0.2s;
+    max-width: 180px;
 }
-
-.social-links img {
-    width: 15px; /* Assicura che le immagini abbiano una dimensione uniforme */
-}
-
-
-
 
 .social-link-a:hover {
-    background: var(----bg-color-2);
+    background: var(--secondary-color);
     transform: scale(1.05);
-    
+   
 }
 
 .social-links img {
     width: 25px;
-
 }
 
-#testo-faq > p{
-    margin-top:50px;
-    color: var(--orange-one);
-    font-weight:bold;
-    font-size:18px;
+/* Link sito personale */
+.link-sito-andrea {
+    background: var(--bg-color);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    text-align: center;
 }
 
-
-.link-sito-andrea{
-
-    background: var(--bg-color-3);
-    border-radius:10px;
-    height:120px;
-    width:110px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:15px;
-    margin: 15px auto;
-    padding: 10px 15px;
-}
-
-.link-sito-andrea:hover{
-    background: var(--bg-color-2);
+.link-sito-andrea:hover {
+    background: var(--secondary-color);
     transform: scale(1.05);
+    text-decoration:none;
 }
-.pulsante > button {
-    background: var(--orange-one);
-    height:40px;
-    width:100px;
-    border-radius: 7px;
-    border:none;
-    margin-top:30px;
+
+/* FAQ/Chi siamo */
+#testo-faq > p {
+    margin-top: 30px;
+    color: var(--text-color);
     font-weight: bold;
-    transition: 0.3s, transform 0.2s;
-    color: var(--color-white);
-    margin:20px;
-    
+    font-size: 18px;
 }
 
-
-
+.pulsante > button {
+    background-color: var(--primary-color);
+    height: 40px;
+    width: 120px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    color: white;
+    margin: 10px;
+}
 
 .pulsante > button:hover {
-    
-    background: var(--color-orange-two);
+    background-color: var(--primary-hover);
     transform: scale(1.05);
 }
 
@@ -150,14 +264,14 @@ body {
     flex: 1;
     padding: 20px;
     max-width: 45%;
-    background: var(--bg-color-1) ;
+    background-color: var(--bg-color);
     border-radius: 10px;
-    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form h2 {
-    color: var(--color-orange-one);
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
 }
 
 .contact-form input,
@@ -165,57 +279,73 @@ body {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid var(----bg-color-2);
-    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
     font-size: 16px;
-    background: var(----bg-color-2);
-    color: var(--color-white);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--color-white-soft);
+    background: white;
+    color: var(--text-color);
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    background: var(--bg-color-3);
-    border-color: var( --color-orange-one);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-color);
 }
 
 #messaggio {
-    resize:none;
+    resize: none;
 }
+
+/* Pulsante Invia */
 .input-button {
     width: 100%;
     height: 45px;
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    background: var( --color-orange-one);
-    color: var(--color-white);
+    background: var(--primary-color);
+    color: white;
     transition: 0.3s, transform 0.2s;
+    margin-top: 15px;
 }
 
 .input-button:hover {
-    background: var( --color-orange-two);
+    background: var(--primary-hover);
     transform: scale(1.05);
 }
 
-/* Responsiveness */
+
+.info{
+
+    display:flex;
+
+}
+
+
+/* Responsive */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
-        text-align: center;
         padding: 20px;
     }
 
-    .contact-info, .contact-form {
+    .contact-info,
+    .contact-form {
         max-width: 100%;
-        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .contact-info {
+        align-items: center;
     }
 
     .social-links {
