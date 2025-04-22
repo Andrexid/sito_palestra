@@ -1,97 +1,146 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Palestra Tracker - Potenzia i tuoi progressi!</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/commonNavbar.css">
-    <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/reset.css">
-</head>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/commonNavbar.css" />
+    <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+  </head>
 
-<body onload="getUserPicProfile()">
+  <body onload="getUserPicProfile()">
     <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('php/account.php')">Progressi</a></li>
-            <li><a href="html/faq.html">FAQ</a></li>
-            <li><a href="html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="html/contatti.html">Contatti</a></li>
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo Palestra" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="selezionata">Home</a></li>
+        <li>
+          <a href="#" onclick="controllaAccesso('php/account.php')"
+            >Progressi</a
+          >
+        </li>
+        <li><a href="html/faq.html">FAQ</a></li>
+        <li><a href="html/chisiamo.html">Chi siamo</a></li>
+        <li><a href="html/contatti.html">Contatti</a></li>
 
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('html/profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('html/settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
+        <li class="profile-container">
+          <a href="#">
+            <img id="profile-pic" src="" alt="Profilo" />
+          </a>
+          <div class="dropdown-menu" id="profile-menu">
+            <a href="#" onclick="controllaAccesso('html/profile.html')"
+              >👤 Profilo</a
+            >
+            <a href="#" onclick="controllaAccesso('html/settings.html')"
+              >⚙️ Impostazioni</a
+            >
+            <a href="#" onclick="logout()">🚪 Logout</a>
+          </div>
+        </li>
+      </ul>
     </nav>
-    
+
     <section class="hero">
-        <h1>Supera i tuoi limiti, <br>diventa una leggenda!</h1>
-        <p>Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con <strong>Palestra Tracker</strong> hai tutto sotto controllo: progressi, allenamenti e nuove sfide da superare!</p>
-        <a href="#" class="btn" onclick="controllaAccesso('php/account.php')">Inizia Ora</a>
-        <a href="#features" class="btn secondary">Scopri di più</a>
+      <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
+      <p>
+        Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
+        <strong>Palestra Tracker</strong> hai tutto sotto controllo: progressi,
+        allenamenti e nuove sfide da superare!
+      </p>
+      <div style="display: flex; justify-content: center; align-items: center">
+        <a
+          href="#"
+          class="principal_button"
+          onclick="controllaAccesso('php/account.php')"
+          >Inizia Ora</a
+        >
+        <a href="#features"
+          ><button class="secondary-button-fit">Scopri di più</button></a
+        >
+      </div>
     </section>
-    
-    
+
     <section class="features" id="features">
-        <div class="feature-card">
-            <h2>📊 Traccia ogni Allenamento</h2>
-            <p>Registra ogni esercizio e scopri quanto stai migliorando. I numeri non mentono!</p>
-        </div>
-        <div class="feature-card">
-            <h2>📈 Grafici Ultra Dettagliati</h2>
-            <p>Analizza i tuoi progressi con visualizzazioni chiare e personalizzabili.</p>
-        </div>
-        <div class="feature-card">
-            <h2>🏆 Guadagna Punti e Sfide</h2>
-            <p>Ogni allenamento ti fa guadagnare punti. Sblocca premi e spingiti oltre i tuoi limiti!</p>
-        </div>
-        <div class="feature-card">
-            <h2>🤖 AI Coach (Prossimamente)</h2>
-            <p>Allenati come un pro con suggerimenti personalizzati basati sui tuoi dati.</p>
-        </div>
+      <div class="feature-card">
+        <h2>📊 Traccia ogni Allenamento</h2>
+        <p>
+          Registra ogni esercizio e scopri quanto stai migliorando. I numeri non
+          mentono!
+        </p>
+      </div>
+      <div class="feature-card">
+        <h2>📈 Grafici Ultra Dettagliati</h2>
+        <p>
+          Analizza i tuoi progressi con visualizzazioni chiare e
+          personalizzabili.
+        </p>
+      </div>
+      <div class="feature-card">
+        <h2>🏆 Guadagna Punti e Sfide</h2>
+        <p>
+          Ogni allenamento ti fa guadagnare punti. Sblocca premi e spingiti
+          oltre i tuoi limiti!
+        </p>
+      </div>
+      <div class="feature-card">
+        <h2>🤖 AI Coach (Prossimamente)</h2>
+        <p>
+          Allenati come un pro con suggerimenti personalizzati basati sui tuoi
+          dati.
+        </p>
+      </div>
     </section>
-    
+
     <section class="faq" id="faq">
-        <h2>Domande Frequenti</h2>
-        
-        <div class="faq-item">
-            <h3>💡 Come posso registrarmi?</h3>
-            <p>Clicca su "Registrati" e segui le semplici istruzioni. In pochi secondi sarai pronto a partire!</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>📊 Posso vedere i miei miglioramenti nel tempo?</h3>
-            <p>Assolutamente sì! I nostri grafici ti mostrano ogni progresso, giorno dopo giorno.</p>
-        </div>
-        
-        <div class="faq-item">
-            <h3>🏆 Come funziona il sistema a punti?</h3>
-            <p>Ogni allenamento e accesso giornaliero ti fa guadagnare punti. Usa i punti per sbloccare premi e vantaggi esclusivi!</p>
-        </div>
-    
-        <div class="faq-item">
-            <h3>📱 Il sito funziona su smartphone?</h3>
-            <p>Certo! L’esperienza è ottimizzata per qualsiasi dispositivo, così puoi monitorare i tuoi progressi ovunque.</p>
-        </div>
+      <h2>Domande Frequenti</h2>
+
+      <div class="faq-item">
+        <h3>💡 Come posso registrarmi?</h3>
+        <p>
+          Clicca su "Registrati" e segui le semplici istruzioni. In pochi
+          secondi sarai pronto a partire!
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>📊 Posso vedere i miei miglioramenti nel tempo?</h3>
+        <p>
+          Assolutamente sì! I nostri grafici ti mostrano ogni progresso, giorno
+          dopo giorno.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>🏆 Come funziona il sistema a punti?</h3>
+        <p>
+          Ogni allenamento e accesso giornaliero ti fa guadagnare punti. Usa i
+          punti per sbloccare premi e vantaggi esclusivi!
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>📱 Il sito funziona su smartphone?</h3>
+        <p>
+          Certo! L’esperienza è ottimizzata per qualsiasi dispositivo, così puoi
+          monitorare i tuoi progressi ovunque.
+        </p>
+      </div>
     </section>
-    
+
     <section class="cta-section">
-        <h2>Sei pronto a trasformarti?</h2>
-        <p>Unisciti alla community di atleti che stanno già migliorando ogni giorno! Non perdere altro tempo.</p>
-        <a href="#" class="btn" onclick="controllaAccesso('php/account.php')">Unisciti a Noi</a>
-    </section>    
+      <h2>Sei pronto a trasformarti?</h2>
+      <p>
+        Unisciti alla community di atleti che stanno già migliorando ogni
+        giorno! Non perdere altro tempo.
+      </p>
+      <a href="#" onclick="controllaAccesso('php/account.php')"
+        ><button class="principal_button">Unisciti a Noi</button></a
+      >
+    </section>
 
     <script src="src/index.js?v=1.65"></script>
-</body>
+  </body>
 </html>
