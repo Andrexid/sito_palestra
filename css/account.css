@@ -152,3 +152,18 @@
   margin: 0 10px;
   cursor: pointer;
 }
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.container-img {
+  border: 1px solid red;
+}
+
+.container-img > img {
+  width: 300px;
+}

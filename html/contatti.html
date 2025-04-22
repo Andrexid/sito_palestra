@@ -6,7 +6,9 @@
     <title>Contatti - GymTrack</title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/contatti.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/buttons.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+
 </head>
 <body>
     <nav class="navbar">
@@ -15,21 +17,18 @@
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
-            <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
-            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="chisiamo.html">Chi siamo</a></li>
+            <li><a href="contatti.html" data-section="Contatti" class="selezionata">Contatti</a></li>
             <li class = "profile-container" data-section="Profile">
                 <a href="#">
                     <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="../html/profile.html" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">   
-                        </span> Profilo</a>
-                    <a href="../html/settings.html" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
-                        </span> Impostazioni</a>
-                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
-                        </span> Logout</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
         </ul>
@@ -61,19 +60,17 @@
             <div id="testo-faq">
                 <p>Se hai domande o perplessità clicca qui sotto per vedere le domande più frequenti e vedere chi siamo!</p>
             </div>
-
-            <div class="info">
-                <a href="faq.html" class="pulsante">
-                    <button>
+            <a href="faq.html">
+                <button class="principal_button">
                     FAQ
-                    </button>
-                </a>
-                <a href="chisiamo.html" class="pulsante">
-                    <button>
-                     CHI SIAMO
-                    </button>
-                </a>
-            </div>
+                </button>
+            </a>
+            <a href="chisiamo.html">
+                <button class="principal_button">
+                    CHI SIAMO
+                </button>
+            </a>
+            
             
         </section>
 

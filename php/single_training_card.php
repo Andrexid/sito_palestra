@@ -35,6 +35,9 @@ if (isset($_GET['id'])) {
     <title>Scheda numero: <?php echo $card_id; ?></title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/single_training_card.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/_variables.css">
 </head>
 
 <body>
@@ -101,7 +104,7 @@ if (isset($_GET['id'])) {
 
             echo "</tbody>
                 </table>
-                <input type='submit' disabled value='Aggiorna i dati'>
+                <input type='submit' disabled value='Aggiorna i dati' class='principal_button-sm'>
             </form>";
         } else {
             echo "<h1>Errore: Nessuna scheda trovata</h1>";
@@ -114,29 +117,29 @@ if (isset($_GET['id'])) {
     }
     ?>
 
-    <button class="unLockButton" onclick="unLockInputs()">Sblocca</button>
+    <button class="unLockButton secondary-button" onclick="unLockInputs()">Sblocca</button>
 
     <script>
-    const inputs = document.querySelectorAll(".input-text-dis");
-    const unLockButton = document.querySelector(".unLockButton");
-    const submitButton = document.querySelector("input[type='submit']");
+        const inputs = document.querySelectorAll(".input-text-dis");
+        const unLockButton = document.querySelector(".unLockButton");
+        const submitButton = document.querySelector("input[type='submit']");
 
-    let isDisabled = true;
+        let isDisabled = true;
 
-    function unLockInputs() {
-        inputs.forEach(input => {
-            input.disabled = !input.disabled;
-        });
+        function unLockInputs() {
+            inputs.forEach(input => {
+                input.disabled = !input.disabled;
+            });
 
-        isDisabled = !isDisabled;
+            isDisabled = !isDisabled;
 
-        // Attiva/disattiva il bottone submit
-        submitButton.disabled = !submitButton.disabled;
+            // Attiva/disattiva il bottone submit
+            submitButton.disabled = !submitButton.disabled;
 
-        // Cambia testo del bottone
-        unLockButton.textContent = isDisabled ? "Abilita" : "Disabilita";
-    }
-</script>
+            // Cambia testo del bottone
+            unLockButton.textContent = isDisabled ? "Abilita" : "Disabilita";
+        }
+    </script>
 
 
 </body>

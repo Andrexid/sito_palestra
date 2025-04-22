@@ -253,15 +253,15 @@ function drawBadges() {
         positionThresholds = i;
     }
     
-    firstImg.src = `badge-${(positionThresholds - 1)}`;
+    firstImg.src = `../img/badge-${(positionThresholds - 1)}.jpg`;
     firstImg.alt = `${badges[(positionThresholds - 1)]}`;
     firstImg.hidden = false;
 
-    secondImg.src = `badge-${(positionThresholds)}`;
+    secondImg.src = `../img/badge-${(positionThresholds)}.jpg`;
     secondImg.alt = `${badges[(positionThresholds)]}`;
     secondImg.hidden = false;
 
-    thirdImg.src = `badge-${(positionThresholds + 1)}`;
+    thirdImg.src = `../img/badge-${(positionThresholds + 1)}.jpg`;
     thirdImg.alt = `${badges[(positionThresholds + 1)]}`;
     thirdImg.hidden = false;
     

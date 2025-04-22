@@ -1,276 +1,57 @@
-@import url("./_variables.css");
-
-/* Layout generale */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-
-
-/* ----- Navbar ----- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--secondary-color);
-  padding: 15px 30px;
-}
-
-.logo img {
-  height: 50px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 18px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  color: var(--text-color);
-  font-weight: 500;
-}
-
-.nav-links a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 3px;
-  background-color: var(--primary-color);
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover {
-  color: var(--primary-color);
-  transform: scale(1.05);
-}
-
-.nav-links a.selezionata {
-  font-size: 20px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 8px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links a.selezionata:hover {
-  background-color: var(--primary-hover);
-  color: var(--bg-color);
-}
-
-/* Profilo */
-.profile-container {
-  position: relative;
-  display: inline-block;
-}
-
-#profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#profile-pic:hover {
-  transform: scale(1.1);
-}
-
-/* Dropdown */
-.dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: var(--bg-color);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  width: 150px;
-  z-index: 100;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-  background: var(--box-color);
-  color: var(--primary-color);
-}
-
-/* Contenitore form */
 .container {
-  background-color: var(--bg-color);
+  text-align: left;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  min-height: 100vh;
 }
 
-.container-form {
+/* labels */
+
+.labels {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 30%;
-  background: var(--box-color);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+#email {
+    color: black;
 }
 
-/* Titolo */
+/* titolo */
+
 .container-form h1 {
-  margin-bottom: 20px;
-  color: var(--heading-color);
+  margin-bottom: 30px;
 }
 
-/* Gruppo input */
-.input-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+/* input */
+
+.container-form .input:hover {
+  box-shadow: 0 0 10px 2px #3b3b98;
+  color: black;
+  border: none;
 }
 
-.input-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: var(--heading-color);
+.container-form .input:focus {
+  box-shadow: 0 0 20px 4px #3b3b98;
+  border: none;
 }
 
-/* Doppio input */
-.double-input {
-  display: flex;
-  gap: 20px;
-}
-
-form {
-  width: 90%;
-}
-
-/* Campi input */
-.input {
-  height: 35px;
-  width: 100%;
-  padding: 10px;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  background-color: white;
-  color: var(--text-color);
-  transition: box-shadow 0.3s ease-in-out, border 0.3s;
-}
-
-.input:hover,
-.input:focus {
-  box-shadow: 0 0 8px var(--primary-color);
-  border: 2px solid var(--primary-color);
-  outline: none;
-}
-
-/* Radio */
-.radio-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1px;
-  padding: 8px;
-  border-radius: 10px;
-  background-color: var(--bg-color);
-}
-
-.radio-button {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  cursor: pointer;
-  color: var(--text-color);
-}
-
-.radio-button input[type="radio"] {
-  display: none;
-}
-
-.radio-checkmark {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--text-color);
-  border-radius: 50%;
-  position: relative;
-  margin-right: 10px;
-}
-
-.radio-button input[type="radio"]:checked + .radio-checkmark {
-  background-color: var(--primary-color);
-}
-
-/* Link & testo */
-.container-form p {
-  text-align: center;
-  margin: 25px 0 10px 0;
-  color: var(--text-color);
-}
+/* Paragrafo altra opzione */
 
 .container-form a {
-  color: var(--primary-color);
+  color: #00c6ff;
   text-decoration: none;
-  font-weight: bold;
+  transition: color 0.2s ease-in-out;
 }
 
 .container-form a:hover {
-  color: var(--primary-hover);
+  color: #007bff;
   text-decoration: underline;
 }
 
-/* Bottone */
-.principal_button-100w {
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  background-color: var(--primary-color);
-  color: var(--bg-color);
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background 0.3s;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.principal_button-100w:hover {
-  background-color: var(--primary-hover);
 }

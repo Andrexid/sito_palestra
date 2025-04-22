@@ -8,16 +8,42 @@
   <link rel="stylesheet" href="../css/new_training_card.css">
   <link rel="stylesheet" href="../css/buttons.css">
   <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/_variables.css">
+  <link rel="stylesheet" href="../css/commonNavbar.css">
+
 </head>
 
 <body onload="addExercises(), blurExercises()">
+  
+  <nav class="navbar">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra">
+    </div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi" class="selezionata">Progressi</a></li>
+        <li><a href="../html/faq.html" data-section="FAQ">FAQ</a></li>
+        <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+        <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+        <li class="profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html', false)">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('settings.html', false)">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
   <div class="title-container">
     <h1>Crea la tua Scheda Allenamento in pochi click</h1>
   </div>
 
   <form action="../php/new_training_card.php" method="POST">
     <div class="container">
-
       <!-- Durata -->
       <div class="box">
         <h2>Durata del Programma</h2>

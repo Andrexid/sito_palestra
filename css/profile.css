@@ -1,179 +1,53 @@
-@import url("./_variables.css");
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a1a40, #3b3b98);
+    color: white;
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
-  }
-  
-
-/* ----- Navbar ----- */
-.nav-links a,
-.nav-links a.selezionata:hover {
-  color: var(--color-white);
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--secondary-color);
-  padding: 15px 30px;
-}
-
-.logo img {
-  height: 50px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 18px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 3px;
-  background-color: var(--color-light-blue-one);
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover {
-  color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.nav-links a.selezionata {
-  font-size: 22px;
-  background-color: var( --color-white);
-  color: var( --color-text);
-  padding: 8px 15px;
-  border-radius: var(--radius-10);
-  font-weight: bold;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
-}
-
-.nav-links a.selezionata:hover {
-  background-color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.profile-container {
-  position: relative;
-  display: inline-block;
-}
-
-#profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#profile-pic:hover {
-  transform: scale(1.1);
-}
-
-.dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: var(--color-white);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  width: 150px;
-  z-index: 100;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-  background: var(--color-white);
-}
-
-  /* Container principale */
-  .contact-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 40px;
-    background-color: var(--box-color);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 40px auto;
-    max-width: 1000px;
-    gap: 40px;
-  }
-  
-  .profile-container-header,
-  .profile-container-header * {
-    color: var(--text-color);
-  }
-  
-  .profile-container-header {
+.profile-container-header {
     max-width: 60%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
-    background: var(--box-color);
+    background: #2a2a72;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  /* Profilo */
-  #profile-pic-profile {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-container-header img {
+    min-width: 100px;
+    min-height: 100px;
+}
+
+/* ----- Info Utente ----- */
+#profile-pic-profile {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     cursor: pointer;
     transition: opacity 0.3s ease-in-out;
-  }
-  
-  #profile-pic-profile:hover {
+}
+
+#profile-pic-profile:hover {
     opacity: 0.8;
-  }
-  
-  /* Bottone modifica */
-  button {
-    background: var(--bg-color);
-    color: var(--bg-color);
+}
+
+
+
+
+
+
+
+button {
+    background: linear-gradient(135deg, #ff4d00, #ff9100);
+    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -181,180 +55,244 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 30px;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     transform: scale(1.05);
-    background: var(--primary-hover);
-  }
-  
-  button:active {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
     transform: scale(0.95);
-  }
-  
-  /* Input */
-  input[type="text"],
-  input[type="date"] {
-    width: 80%;
+}
+
+input[type="text"], input[type="date"]{
+    max-width: 80%;
     padding: 10px;
     margin: 10px 0;
     border: none;
     border-radius: 8px;
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: #7373d8;
+    color: white;
     font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  input[type="text"]:focus,
-  input[type="date"]:focus {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    background: #4a4ab2;
     outline: none;
-    border: 2px solid var(--primary-color);
-    background: #ffffff;
-  }
-  
-  /* Motivational */
-  .motivational-quote-container {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+input[type="text"]::placeholder, input[type="date"]::placeholder {
+    color: #aaa;
+}
+
+/* Stile per il select */
+.input-container select {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3b3b98;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.input-container select:focus {
+    background: #4a4ab2;
+    outline: none;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+/* Stile per le option */
+.input-container select option {
+    background: #2a2a72;
+    color: white;
+    font-size: 16px;
+}
+
+/* Stile per i contenitori degli input */
+.input-container {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Stile per i label */
+.input-container label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff9100;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile per gli input */
+.input-container input[type="text"], .input-container input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3b3b98;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-container input[type="text"]:focus, .input-container input[type="date"]:focus {
+    background: #4a4ab2;
+    outline: none;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.input-container input[type="text"]::placeholder, .input-container input[type="date"]::placeholder {
+    color: #aaa;
+}
+/* ----- Fine Info Utente ----- */
+
+
+/* ----- Motivational Quote ----- */
+.motivational-quote-container {
     max-width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background: var(--heading-color);
+    background: linear-gradient(135deg, #ff4d00, #ff9100);
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    color: var(--bg-color);
-  }
-  
-  .motivational-quote {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.motivational-quote {
     font-size: 24px;
     font-weight: bold;
-    color: var(--bg-color);
-  }
-  
-  .motivational-author {
-    font-size: 16px;
-    margin-top: 10px;
-    color: var(--bg-color);
-  }
-  
-  /* Gamification */
-  .gamification-container {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+/* ----- Fine Motivational Quote ----- */
+
+/* ----- SEZIONE GAMIFICATION ----- */
+.gamification-container {
     max-width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background: var(--secondary-color);
+    background: linear-gradient(135deg, #0077ff, #00c3ff);
     border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    
-  }
-  
-  .gamification-container > p, .gamification-container > label, .gamification-container > h3, .gamification-container > strong {
-    color: var(--text-color);
-  }
- 
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.gamification-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+/* ----- Fine SEZIONE GAMIFICATION ----- */
 
 
-  #progressGoals {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  /* Badge */
-  .badge-container {
+/* ----- Badge ----- */
+.badge-container {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-top: 15px;
-  }
-  
-  .badge {
-    background: #fff;
+}
+
+.badge {
+    background: white;
     padding: 10px;
     border-radius: 10px;
+    text-align: center;
     width: 100px;
-    transition: transform 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .badge:hover {
-    transform: scale(1.1);
-  }
-  
-  .badge img {
+    transition: transform 0.2s ease-in-out;
+}
+
+.badge img {
     width: 60px;
     height: 60px;
-  }
-  
-  .badge p {
+}
+
+.badge p {
     font-weight: bold;
-    color: var(--text-color);
-  }
-  
-  .badge.locked {
+    margin-top: 5px;
+    color: black;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+.badge.locked {
     opacity: 0.5;
     filter: grayscale(100%);
-  }
-  
-  /* Statistiche e Allenamenti */
-  .stats, .workout-history {
-    margin-top: 30px;
-    padding: 20px;
-    background: var(--bg-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    color: var(--text-color);
-  }
-  
-  .stats h3, .workout-history h3 {
-    color: var(--heading-color);
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  
-  .stats p, .workout-history p {
-    color: var(--text-color);
-  }
-  
-  /* BMI */
-  .bmi-container-big {
+}
+/* ----- Fine Badge ----- */
+
+.bmi-container-big {
     max-width: 60%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
-    background: var(--bg-color);
+    background: #2a2a72;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    color: var(--text-color);
-  }
-  
-  .bmi-container {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bmi-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 250px;
-  }
-  
-  .arrow {
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.arrow {
     position: absolute;
     width: 6px;
     height: 140px;
-    background-color: var(--primary-color);
+    background-color: red;
     transform-origin: bottom center;
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%) rotate(0deg);
     border-radius: 3px;
-  }
-  
-  #bmiText {
+}
+
+#bmiText {
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
-    color: var(--text-color);
-  }
-  
-  #bmiWarning {
-    color: var(--error-color);
-  }
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

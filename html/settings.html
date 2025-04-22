@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impostazioni</title>
     <link rel="stylesheet" href="../css/settings.css">
-    <!-- <link rel="stylesheet" href="../css/commonNavbar.css"> -->
+    <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <nav class="navbar">
@@ -16,45 +15,35 @@
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
-            <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
-            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="chisiamo.html">Chi siamo</a></li>
+            <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
             <li class = "profile-container" data-section="Profile">
                 <a href="#">
                     <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
-                    <a href="../html/profile.html" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">   
-                        </span> Profilo</a>
-                    <a href="../html/settings.html" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
-                        </span> Impostazioni</a>
-                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
-                        </span> Logout</a>
+                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
         </ul>
     </nav>
+
     <div class="settings">
-        <h3><span class="material-symbols-outlined">
-            settings
-            </span> Impostazioni</h3>
+        <h3>⚙️ Impostazioni</h3>
 
         <!-- Sezione di navigazione -->
         <div class="navigation">
-            <button onclick="vaiAlProfilo()"><span class="material-symbols-outlined">
-                person
-                </span> Torna al Profilo</button>
-            <button onclick="vaiAiProgressi()"><span class="material-symbols-outlined">
-                monitoring
-                </span> Visualizza Progressi</button>
+            <button onclick="vaiAlProfilo()">👤 Torna al Profilo</button>
+            <button onclick="vaiAiProgressi()">📊 Visualizza Progressi</button>
         </div>
 
         <!-- Tema Dark/Light -->
         <div class="theme-section">
-            <p><span class="material-symbols-outlined">
-                tonality
-                </span> Modalità Dark/Light:</p>
+            <p>🌗 Modalità Dark/Light:</p>
             <label for="theme" class="theme">
                 <span class="theme__toggle-wrap">
                     <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
@@ -76,9 +65,7 @@
 
         <!-- Notifiche -->
         <div class="notifications-section">
-            <p><span class="material-symbols-outlined">
-                notifications
-                </span> Notifiche:</p>
+            <p>🔔 Notifiche:</p>
             <label for="notifications">
                 <input id="notifications" type="checkbox" name="notifications" class = "checkNotification">
                 Attiva/Disattiva Notifiche
@@ -86,25 +73,15 @@
         </div>
 
         <div class="data-export-section">
-            <p><span class="material-symbols-outlined">
-                description
-                </span> Esporta Dati:</p>
-            <button onclick="exportDataAsJSON()"><span class="material-symbols-outlined">
-                save_as
-                </span> Esporta come JSON</button>
-            <button onclick="exportDataAsCSV()"><span class="material-symbols-outlined">
-                save_as
-                </span> Esporta come CSV</button>
+            <p>📄 Esporta Dati:</p>
+            <button onclick="exportDataAsJSON()">📥 Esporta come JSON</button>
+            <button onclick="exportDataAsCSV()">📥 Esporta come CSV</button>
         </div>
 
         <!-- Sicurezza -->
         <div class="security-section">
-            <button onclick="cambiaPassword()"><span class="material-symbols-outlined">
-                key
-                </span> Cambia Password</button>
-            <button class="delete-account" onclick="eliminaAccount()"><span class="material-symbols-outlined">
-                close
-                </span> Elimina Account</button>
+            <button onclick="cambiaPassword()">🔑 Cambia Password</button>
+            <button class="delete-account" onclick="eliminaAccount()">❌ Elimina Account</button>
         </div>
     </div>
 

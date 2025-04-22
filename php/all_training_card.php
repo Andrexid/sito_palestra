@@ -22,6 +22,9 @@ $stm = $conn->prepare($select_training_cards);
     <title>Gestione Schede</title>
     <link rel="stylesheet" href="../css/all_training_card.css">
     <link rel="stylesheet" href="../css/commonNavbar.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/_variables.css">
 </head>
 
 <body>

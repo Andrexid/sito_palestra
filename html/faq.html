@@ -1,150 +1,125 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
-    <link rel="stylesheet" href="../css/commonNavbar.css">
-    <link rel="stylesheet" href="../css/faq.css?v=1.2">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ</title>
+  <link rel="stylesheet" href="../css/commonNavbar.css" />
+  <link rel="stylesheet" href="../css/faq.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
-            <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
-            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
-            <li class = "profile-container" data-section="Profile">
-                <a href="#">
-                    <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="../html/profile.html" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">   
-                        </span> Profilo</a>
-                    <a href="../html/settings.html" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
-                        </span> Impostazioni</a>
-                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
-                        </span> Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+  <nav class="navbar">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra">
+    </div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+        <li><a href="faq.html" data-section="FAQ" class="selezionata">FAQ</a></li>
+        <li><a href="chisiamo.html">Chi siamo</a></li>
+        <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
+        <li class = "profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
 
-    
+  <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()" />
 
-    <div class="faq-container">
-        <h1>Domande Frequenti (FAQ)</h1>
-    
-        <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()">
-        <!-- FAQ sulla piattaforma -->
-        <section>
-            <h2><span class="material-symbols-outlined">
-                person_raised_hand
-                </span> FAQ sulla Piattaforma</h2>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    how_to_reg
-                    </span> Come posso registrarmi alla piattaforma?</div>
-                <div class="answer">Per registrarti, vai sulla homepage e clicca su "Registrati". Ti verrà richiesto di inserire il tuo nome, email e una password sicura. Dopo aver completato il modulo, potrai accedere a tutte le pagine che vuoi nel sito</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    lock_reset
-                    </span> Ho dimenticato la password, come posso recuperarla?</div>
-                <div class="answer">Se hai dimenticato la password, vai alla pagina di login e clicca su "Password dimenticata?". Inserisci la tua email e riceverai un link per impostare una nuova password. Assicurati di controllare anche la cartella spam nel caso non trovassi l'email.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    monitoring
-                    </span> Come posso monitorare i miei progressi?</div>
-                <div class="answer">Nella sezione "Progressi" troverai un pannello dettagliato con grafici e statistiche sui tuoi allenamenti. Potrai vedere il numero di sessioni completate, l'incremento dei pesi sollevati e un'analisi delle tue prestazioni nel tempo.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    payments
-                    </span> Quali metodi di pagamento accettate?</div>
-                <div class="answer">Accettiamo pagamenti tramite carte di credito (Visa, Mastercard, American Express), PayPal e bonifico bancario. Puoi gestire il tuo metodo di pagamento dalla sezione "Abbonamento" nel tuo profilo.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    shopping_cart
-                    </span> Quanto costa l'abbonamento alla piattaforma?</div>
-                <div class="answer">Offriamo diverse opzioni di abbonamento: un piano gratuito con funzioni limitate, un piano base a 9,99€/mese e un piano premium con funzioni avanzate a 19,99€/mese. Per maggiori dettagli, visita la sezione "Prezzi".</div>
-            </div>
-        </section>
-    
-        <!-- FAQ generali sulla palestra -->
-        <section><br><br>
-            <h2><span class="material-symbols-outlined">
-                fitness_center
-                </span> FAQ sulla Palestra</h2>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    sports_gymnastics
-                    </span> Quali sono i migliori esercizi per aumentare la massa muscolare?</div>
-                <div class="answer">Gli esercizi multiarticolari come squat, panca piana, stacchi da terra e trazioni sono fondamentali per sviluppare la massa muscolare. Questi movimenti coinvolgono più gruppi muscolari contemporaneamente, permettendo un allenamento più efficace e completo.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    local_fire_department
-                    </span> Come posso bruciare più calorie durante l’allenamento?</div>
-                <div class="answer">Per bruciare più calorie puoi optare per allenamenti ad alta intensità come HIIT (High-Intensity Interval Training) o circuiti combinati di esercizi con pesi e cardio. Mantenere un ritmo sostenuto e ridurre i tempi di recupero tra le serie aiuta a massimizzare il consumo calorico.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    restaurant
-                    </span> Qual è la dieta migliore per chi si allena in palestra?</div>
-                <div class="answer">La dieta ideale dipende dal tuo obiettivo: se vuoi aumentare la massa muscolare, devi assumere più proteine (carne, pesce, uova, legumi) e mantenere un surplus calorico controllato. Se invece vuoi dimagrire, dovrai ridurre l'apporto calorico e bilanciare proteine, carboidrati e grassi per favorire il deficit calorico.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    hourglass_empty
-                    </span> Quanto tempo serve per vedere risultati in palestra?</div>
-                <div class="answer">I primi risultati possono vedersi dopo circa 4-6 settimane, ma dipende dalla costanza e dall'intensità dell'allenamento. L'aumento della forza è generalmente percepibile già dopo le prime settimane, mentre i cambiamenti estetici richiedono più tempo e una corretta alimentazione.</div>
-            </div>
-            <div class="faq">
-                <div class="question"><span class="material-symbols-outlined">
-                    physical_therapy
-                    </span> È importante fare stretching dopo l’allenamento?</div>
-                <div class="answer">Sì, lo stretching post-allenamento aiuta a migliorare la flessibilità, ridurre la tensione muscolare e prevenire infortuni. Dedicare almeno 5-10 minuti a esercizi di allungamento migliora anche la circolazione e il recupero muscolare.</div>
-            </div>
-        </section>
-    </div>    
+  <div class="faq-container">
+    <h1>Domande Frequenti (FAQ)</h1>
 
-    
+    <section>
+      <h2>📌 FAQ sulla Piattaforma</h2>
+      
+      <div class="faq"><div class="question">📌 Come posso registrarmi alla piattaforma?</div><div class="answer">Vai sulla homepage e clicca su "Registrati". Inserisci i tuoi dati e accedi a tutte le funzionalità.</div></div>
+      
+      <div class="faq"><div class="question">🔄 Ho dimenticato la password, come posso recuperarla?</div><div class="answer">Vai alla pagina di login e clicca su "Password dimenticata?". Ti invieremo un link per impostare una nuova password.</div></div>
+      
+      <div class="faq"><div class="question">📊 Come posso monitorare i miei progressi?</div><div class="answer">Accedi alla sezione "Progressi" per visualizzare grafici, statistiche e i risultati degli allenamenti.</div></div>
+      
+      <div class="faq"><div class="question">💳 Quali metodi di pagamento accettate?</div><div class="answer">Carte di credito (Visa, Mastercard, AmEx), PayPal e bonifico bancario.</div></div>
+      
+      <div class="faq"><div class="question">💰 Quanto costa l'abbonamento alla piattaforma?</div><div class="answer">Piano gratuito (funzioni limitate), piano base a 9,99€/mese, piano premium a 19,99€/mese.</div></div>
+      
+      <div class="faq"><div class="question">📱 Posso usare la piattaforma anche da mobile?</div><div class="answer">Sì, il sito è ottimizzato per dispositivi mobili e tablet per permetterti di allenarti ovunque.</div></div>
+      
+      <div class="faq"><div class="question">🧠 È presente un'assistente virtuale per consigli?</div><div class="answer">Sì, nel piano premium è incluso un chatbot basato su AI che ti suggerisce allenamenti e strategie personalizzate.</div></div>
+    </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const questions = document.querySelectorAll(".question");
-        
-            questions.forEach((question) => {
-                question.addEventListener("click", function () {
-                    const answer = this.nextElementSibling;
-                    const isOpen = this.classList.contains("open");
-        
-                    // Chiudi tutte le risposte
-                    document.querySelectorAll(".question").forEach((q) => q.classList.remove("open"));
-                    document.querySelectorAll(".answer").forEach((a) => a.classList.remove("active"));
-        
-                    // Se non era già aperta, apri questa
-                    if (!isOpen) {
-                        this.classList.add("open");
-                        answer.classList.add("active");
-                    }
-                });
-            });
+    <section><br><br>
+      <h2>💪 FAQ sulla Palestra</h2>
+
+      <div class="faq"><div class="question">🏋️ Quali sono i migliori esercizi per aumentare la massa muscolare?</div><div class="answer">Squat, panca piana, stacchi e trazioni: coinvolgono più muscoli e sono efficaci.</div></div>
+
+      <div class="faq"><div class="question">🔥 Come posso bruciare più calorie durante l’allenamento?</div><div class="answer">HIIT, circuiti cardio-pesi e pause brevi tra le serie aumentano il consumo calorico.</div></div>
+
+      <div class="faq"><div class="question">🥗 Qual è la dieta migliore per chi si allena in palestra?</div><div class="answer">Dipende dall'obiettivo: massa muscolare → surplus proteico, dimagrimento → deficit calorico controllato.</div></div>
+
+      <div class="faq"><div class="question">⏳ Quanto tempo serve per vedere risultati in palestra?</div><div class="answer">4-6 settimane per i primi risultati. Costanza e alimentazione sono fondamentali.</div></div>
+
+      <div class="faq"><div class="question">🧘 È importante fare stretching dopo l’allenamento?</div><div class="answer">Sì, migliora la flessibilità, favorisce il recupero e previene infortuni.</div></div>
+
+      <div class="faq"><div class="question">🗓️ Devo allenarmi tutti i giorni?</div><div class="answer">No, il riposo è essenziale per il recupero muscolare. Si consiglia 3-5 giorni a settimana, con almeno 1 giorno di riposo.</div></div>
+
+      <div class="faq"><div class="question">💦 È necessario bere integratori?</div><div class="answer">Non sempre. Se la tua alimentazione è bilanciata, potresti non averne bisogno. Proteine in polvere o creatina possono essere utili in certi casi.</div></div>
+    </section>
+  </div>
+
+  <button onclick="scrollToTop()" id="topBtn">⬆</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const faqs = document.querySelectorAll(".faq");
+      faqs.forEach((faq) => {
+        faq.addEventListener("click", function () {
+          faqs.forEach((el) => {
+            if (el !== this) {
+              el.classList.remove("open");
+              el.querySelector(".answer").style.display = "none";
+            }
+          });
+          const answer = this.querySelector(".answer");
+          const isOpen = this.classList.contains("open");
+          if (!isOpen) {
+            this.classList.add("open");
+            answer.style.display = "block";
+            this.scrollIntoView({ behavior: "smooth", block: "center" });
+          } else {
+            this.classList.remove("open");
+            answer.style.display = "none";
+          }
         });
-        </script>
-        
-        
+      });
+    });
 
-    <script src="../src/faq.js"></script>
-    <script src="../src/commonNavbar.js?v=1.2"></script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function searchFAQ() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const faqs = document.querySelectorAll(".faq");
+      faqs.forEach((faq) => {
+        const question = faq.querySelector(".question").innerText.toLowerCase();
+        if (question.includes(input)) {
+          faq.style.display = "block";
+        } else {
+          faq.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+  <script src="../src/faq.js"></script>
+  <script src="../src/commonNavbar.js?v=1.2"></script>
 </body>
 </html>

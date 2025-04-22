@@ -5,12 +5,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    color: var(--text-color);
+    color: white;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: var(--bg-color);
+    background: var(--bg-color-grad);
     margin: 0;
     padding: 0;
     text-align: center;

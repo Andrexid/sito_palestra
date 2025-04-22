@@ -1,265 +1,31 @@
-@import url("./_variables.css");
-
-/* Stile generale */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    min-height: 100vh;
-}
-
-/* ----- Navbar ----- */
-.nav-links a,
-.nav-links a.selezionata:hover {
-  color: var(--color-white);
-}
-
-.navbar {
-  display: flex;
-  width:100%;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--secondary-color);
-  padding: 15px 30px;
-}
-
-.logo img {
-  height: 50px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 18px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-}
-
-.nav-links a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 3px;
-  background-color: var(--color-light-blue-one);
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover {
-  color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.nav-links a.selezionata {
-  font-size: 22px;
-  background-color: var( --color-white);
-  color: var( --color-text);
-  padding: 8px 15px;
-  border-radius: var(--radius-10);
-  font-weight: bold;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
-}
-
-.nav-links a.selezionata:hover {
-  background-color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.profile-container {
-  position: relative;
-  display: inline-block;
-  
-}
-
-#profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#profile-pic:hover {
-  transform: scale(1.1);
-}
-
-.dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: var(--color-white);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  width: 150px;
-  z-index: 100;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-  background: var(--color-white);
-}
-/* Contenitore form */
-.container {
+.container-form {
     display: flex;
     justify-content: center;
-    width: 100%;
-}
-
-/* Box form */
-.container-form {
-    background-color: var(--box-color);
+    max-width: 50%;
+    height: 70%;
+    background-color: #6B6ECC;
+    background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
     border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    color: var(--text-color);
-}
-
-/* Titolo */
-.container-form h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 26px;
-    color: var(--heading-color);
-}
-
-/* Etichette e input */
-.labels {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.container-form label {
-    font-weight: bold;
-    margin-top: 10px;
+    padding: 40px;
+    box-shadow: 0 0 10px 5px rgba(35, 35, 35, 0.87);
 }
 
 .container-form .input {
-    height: 40px;
-    padding: 0 12px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 8px;
+    height: 35px;
+    width: 350px;
+    margin: 10px 0 0 0;
+    padding: 0 10px;
+    border: none;
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
     background-color: white;
-    color: var(--text-color);
-    transition: border 0.3s ease, box-shadow 0.3s ease;
-    font-size: 16px;
 }
 
-.container-form .input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px var(--primary-color);
+.input:first-of-type{
+    margin-bottom: 20px;    
 }
 
-/* Link password dimenticata */
 .container-form p {
     text-align: center;
-    margin: 20px 0;
-}
-
-.container-form .link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.container-form .link:hover {
-    text-decoration: underline;
-}
-
-/* Pulsanti */
-.container-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.principal_button-100w,
-.secondary-button-100w {
-    height: 45px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    width: 100%;
-}
-
-/* Pulsante "Accedi" */
-.principal_button-100w {
-    background-color: var(--primary-color);
-   
-}
-
-.principal_button-100w:hover {
-    background-color: var(--primary-hover);
-   
-}
-
-/* Pulsante "Registrati" */
-.secondary-button-100w {
-    background-color: white;
-    border: 2px solid var(--primary-color);
-    color: var(--box-color);
-}
-
-.secondary-button-100w:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .container-form {
-        padding: 25px 20px;
-    }
-
-    .container-form h1 {
-        font-size: 22px;
-    }
-
-    .container-form .input {
-        width: 100%;
-    }
-
-    .container-buttons {
-        gap: 10px;
-    }
+    margin: 15% 0;
 }
