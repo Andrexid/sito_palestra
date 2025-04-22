@@ -4,4 +4,32 @@ h1 {
 
 .table-single-card {
     margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
 }
+
+input {
+    color: black;
+}
+
+th, td {
+    padding: 14px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  th {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    font-size: 15pt;
+  }
+
+  tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }

@@ -80,9 +80,6 @@
 .container {
   justify-content: center;
 }
-img {
-  border: 2px solid red;
-}
 
 .container-main {
     display: grid;
@@ -154,4 +151,19 @@ img {
   padding: 0;
   margin: 0 10px;
   cursor: pointer;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.container-img {
+  border: 1px solid red;
+}
+
+.container-img > img {
+  width: 300px;
 }

@@ -52,7 +52,7 @@
   border: none;
   font-size: 15px;
   transition: all 0.3s ease-in-out;
-  background-color: var(  --color-base-three);
+  background-color: var(--color-base-three);
 
 }
 .secondary-button:hover,

@@ -14,7 +14,7 @@ if ($user_id) {
         $result = $stmt->get_result();
         if ($result && $row = $result->fetch_assoc()) {
             $nome_utente = htmlspecialchars($row['nome'] . ' ' . $row['cognome']);
-        }        
+        }
         $stmt->close();
     }
 }
@@ -35,18 +35,18 @@ if ($user_id) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
 
-<body onload = "getUserDataProfile()">
-<nav class="navbar">
+<body onload="getUserDataProfile()">
+    <nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi"  class="selezionata">Progressi</a></li>
+            <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi" class="selezionata">Progressi</a></li>
             <li><a href="../html/faq.html" data-section="FAQ">FAQ</a></li>
             <li><a href="../html/chisiamo.html">Chi siamo</a></li>
             <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
-            <li class = "profile-container" data-section="Profile">
+            <li class="profile-container" data-section="Profile">
                 <a href="#">
                     <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
                 </a>
@@ -72,39 +72,39 @@ if ($user_id) {
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
             <?php
-                $sql = "SELECT workouts_per_week, workouts_done FROM workout_plans WHERE user_id = ? ORDER BY id DESC LIMIT 1";
-                $stm = $conn->prepare($sql);
+            $sql = "SELECT workouts_per_week, workouts_done FROM workout_plans WHERE user_id = ? ORDER BY id DESC LIMIT 1";
+            $stm = $conn->prepare($sql);
 
-                if ($stm) {
-                    $stm->bind_param("i", $user_id);
-                    $stm->execute();
-                    $result = $stm->get_result();
+            if ($stm) {
+                $stm->bind_param("i", $user_id);
+                $stm->execute();
+                $result = $stm->get_result();
 
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        $done = (int)$row['workouts_done'];
-                        $total = (int)$row['workouts_per_week'];
-                        $percent = $total > 0 ? round(($done / $total) * 100) : 0;
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $done = (int)$row['workouts_done'];
+                    $total = (int)$row['workouts_per_week'];
+                    $percent = $total > 0 ? round(($done / $total) * 100) : 0;
 
-                        echo "<p class='progress-text'>$done/$total <span class='percent-text'>($percent%)</span></p>";
-                    } else {
-                        echo "Nessuna scheda trovata per questo utente.";
-                    }
-                    $stm->close();
+                    echo "<p class='progress-text'>$done/$total <span class='percent-text'>($percent%)</span></p>";
                 } else {
-                    echo "Errore nella preparazione della query: " . $conn->error;
+                    echo "Nessuna scheda trovata per questo utente.";
                 }
+                $stm->close();
+            } else {
+                echo "Errore nella preparazione della query: " . $conn->error;
+            }
             ?>
         </div>
         <div class="training-bar-right">
-            <a href = "start_training.php"><button class="principal_button">Inizia Allenamento</button></a>
+            <a href="start_training.php"><button class="principal_button">Inizia Allenamento</button></a>
         </div>
     </div>
 
     <div class="container">
         <div class="container-main">
             <div class="box large-box">
-            <div class="gamification-container-account">
+                <div class="gamification-container-account">
                     <p class="gamification-text-account">Sei al <strong>Livello 3</strong> 💪</p>
                     <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
                     <br><br>
@@ -112,12 +112,18 @@ if ($user_id) {
                     <progress id="progressGoals" max="100" value="70">170%</progress>
 
                     <div id="badge-container" class="badge-container">
-                        <di>
-                            </di><img src="" id="firstImg">
-                            <p></p>
-                            
-                        <img src="" id="secondImg">
-                        <img src="" id="thirdImg" class="locked">
+                        <div class="container-img">
+                            <img src="" id="firstImg">
+                            <p id="subOne"></p>
+                        </div>
+                        <div class="container-img">
+                            <img src="" id="secondImg">
+                            <p id="subTwo"></p>
+                        </div>
+                        <div class="container-img">
+                            <img src="" id="thirdImg" class="locked">
+                            <p id="subThree"></p>
+                        </div>
                         <!-- <img src = "../img/badge-0.jpg"> -->
                     </div>
                 </div>
