@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - GymTrack</title>
+    <link rel="stylesheet" href="../css/commonNavbar.css">
+    <link rel="stylesheet" href="../css/contatti.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../php/account.php" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+            <li><a href="../html/faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../html/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li class = "profile-container" data-section="Profile">
+                <a href="#">
+                    <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="../html/profile.html" onclick="controllaAccesso('profile.html')"><span class="material-symbols-outlined">   
+                        </span> Profilo</a>
+                    <a href="../html/settings.html" onclick="controllaAccesso('impostazioni.html')"><span class="material-symbols-outlined">
+                        </span> Impostazioni</a>
+                    <a href="#" onclick="logout()"><span class="material-symbols-outlined">
+                        </span> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contact-container">
+        <section class="contact-info">
+            <h2>Contattaci</h2>
+            <p><strong>Email:</strong> <a href="mailto:gymtrack@gmail.com">gymtrack@gmail.com</a></p>
+            
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/rumen_bortoletto?igsh=MXczd3hnbTR5cHVwNA==" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Rumen Bortoletto</p>
+                </a>
+                <a href="https://www.instagram.com/sabe_andre?igsh=MTRpdDZmYXhhNHdv" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Andrea Sabetta</p>
+                </a>
+                <a href="https://www.instagram.com/brazz0_?igsh=MW9jeDcxc3V4MmtwMQ==" target="_blank" class="social-link-a"> 
+                    <img src="../img/logo_instagram.png" alt="Instagram" class="logo"> 
+                    <p>Nicolas Brazzo</p>
+                </a> 
+            </div>
+            
+                <a class="link-sito-andrea" href="https://andre-dev.com/">Andrea Web Developer</a>
+            
+            <div id="testo-faq">
+                <p>Se hai domande o perplessità clicca qui sotto per vedere le domande più frequenti e vedere chi siamo!</p>
+            </div>
+
+            <div class="info">
+                <a href="faq.html" class="pulsante">
+                    <button>
+                    FAQ
+                    </button>
+                </a>
+                <a href="chisiamo.html" class="pulsante">
+                    <button>
+                     CHI SIAMO
+                    </button>
+                </a>
+            </div>
+            
+        </section>
+
+        <section class="contact-form">
+            <h2>Scrivici un messaggio</h2>
+            <form action="#" method="POST">
+                <input id="nome" type="text" name="name" placeholder="Il tuo nome" required>
+                <input id="cognome" type="text" name="surname" placeholder="Il tuo cognome" required>
+                <input id="email" type="email" name="email" placeholder="La tua email" required>
+                <textarea id="messaggio" name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
+                <button type="submit" class="input-button">Invia</button>
+            </form>
+
+        </div>
+    </section>
+
+
+    <script src="../src/commonNavbar.js?v=1.2"></script>
+
+        </section>
+    </main>
+
+    <script src="../src/index.js"></script>
+
+</body>
+</html>

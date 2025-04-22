@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a40, #0082a7);
+    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+#title {
+    color: white;
+}
+
+.input-stile {
+    border: none;
+    background-color: #f5f5f5;
+    background-color: #cccccc;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+
+/* Contenitore generale */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+    max-width: 90vw;
+    width: 100%;
+    background-color: #7086A0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.726);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100px;
+    transition: transform 0.3s ease-in-out;  
+    color: white;
+}
+
+.box:hover {
+    transform: scale(1.03);
+}
+
+.tall-box {
+    grid-row: span 2;
+}
+
+.double-box {
+    grid-row: span 1;
+}
+
+.double-box > div {
+    margin-bottom: 10px;
+}
+
+/* Box data */
+.input-durata{
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.input-durata * {
+    margin: 5px;
+}
+
+.date {
+    border: none;
+    padding: 5px;
+}
+
+/* Box allenamenti a settimana */
+#week-workout {
+    margin-top: 10px;
+}
+
+
+/* Box Esercizi */
+.input-esercizi {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-esercizi * {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.input-esercizi input, .input-esercizi select {
+    width: 50%;
+}
+
+.input-esercizi input {
+    margin-bottom: 10px;
+}
+
+
+/* Esercizi Inseriti */
+#exercise {
+    margin-top: 15px;
+}
+
+#exercise > li {
+    padding-top: 10px;
+    list-style: none;
+}
+
+.data {
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: #b5b1b1;
+    height: 94%;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+}
+
+.delete-button {
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    line-height: 1;
+    padding: 4px;
+    border: 1px solid black;
+    background-color: rgb(247, 110, 110);
+    margin-left: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease-in-out;    
+}
+
+.delete-button:hover {
+    background-color: rgb(255, 57, 57);
+}
+
+/* Invio dei dati */
+#send-data {
+    width: 50px;
+    height: 30px;
+}
+
+/* Risultati */

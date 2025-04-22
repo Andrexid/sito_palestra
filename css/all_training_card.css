@@ -1,0 +1,66 @@
+.all-training-cards {
+  display: flex;
+  justify-content: center;
+  height: 120vh;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 30px;
+  padding-top: 30px;
+  background-color: rgba(255, 255, 255, 0.353);
+}
+
+h1 {
+  margin: 20px;
+}
+
+.training-card {
+  background-color: rgba(0, 0, 0, 0.726);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 350px;
+  transition: transform 0.3s ease-in-out;
+  color: white;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.training-card:hover {
+  transform: scale(1.03);
+}
+
+.training-card h2 {
+  font-size: 20pt;
+}
+
+.expiration {
+  padding: 10px;
+}
+
+.input-button {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background: #ff8c00;
+  color: white;
+  transition: background 0.3s ease-in-out;
+}
+
+.input-button:hover {
+  background: #ff6000;
+}
+
+.secondary-button {
+  width: 70%;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+}
