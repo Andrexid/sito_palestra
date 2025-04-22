@@ -35,7 +35,7 @@ if ($user_id) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
 
-<body>
+<body onload = "getUserDataProfile()">
 <nav class="navbar">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo Palestra">
@@ -112,9 +112,13 @@ if ($user_id) {
                     <progress id="progressGoals" max="100" value="70">170%</progress>
 
                     <div id="badge-container" class="badge-container">
-                        <img src="" id="firstImg">
+                        <di>
+                            </di><img src="" id="firstImg">
+                            <p></p>
+                            
                         <img src="" id="secondImg">
                         <img src="" id="thirdImg" class="locked">
+                        <!-- <img src = "../img/badge-0.jpg"> -->
                     </div>
                 </div>
             </div>
@@ -133,7 +137,7 @@ if ($user_id) {
     </div>
 
     <script src="../src/commonNavbar.js?v=1.1"></script>
-    <script src="../src/profile.js?v=2.2"></script>
+    <script src="../src/account.js"></script>
 </body>
 
 </html>

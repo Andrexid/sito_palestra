@@ -80,6 +80,9 @@
 .container {
   justify-content: center;
 }
+img {
+  border: 2px solid red;
+}
 
 .container-main {
     display: grid;
