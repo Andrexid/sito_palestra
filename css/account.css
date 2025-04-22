@@ -1,5 +1,123 @@
 @import url("./_variables.css");
 
+/* ----- Navbar ----- */
+.nav-links a,
+.nav-links a.selezionata:hover {
+  color: var(--bg-color);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--heading-color);
+  padding: 15px 30px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.nav-links a.selezionata {
+  font-size: 22px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a.selezionata:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+#profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: var(--bg-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  width: 150px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: var(--box-color);
+}
+
 /* Titolo */
 #title {
   font-size: 20pt;
@@ -7,6 +125,7 @@
   margin: 0 auto;
   width: 100%;
   padding: 40px 0;
+  color: var(--heading-color);
 }
 
 /* Display Flex */
@@ -35,16 +154,18 @@
 .container,
 .double-box,
 .notification-content,
-.notification-buttons  {
-    flex-direction: column;
+.notification-buttons {
+  flex-direction: column;
 }
 
 /* Sezione Schede */
 .training-bar {
   justify-content: space-between;
   margin-bottom: 30px;
-  background-color: white;
-  color: black;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .training-bar > div {
@@ -52,28 +173,19 @@
 }
 
 .training-bar-center {
-  background-color: var(--color-black-one);
+  background-color: var(--box-color);
   padding: 30px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.progress-text {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-top: 10px;
-}
-
-.percent-text {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--success-color);
-  margin-left: 8px;
-}
-
+/* Allenamenti settimanali */
 .weekly-training {
   justify-content: center;
   margin: 5px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 6px;
 }
 
 /* Contenitore generale */
@@ -82,34 +194,38 @@
 }
 
 .container-main {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 30px;
-    padding: 30px 20px;
-    max-width: 90vw;
-    width: 100%;
-    background-color: #7086A0;
-    border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 30px;
+  padding: 30px 20px;
+  max-width: 90vw;
+  width: 100%;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Box */
 .box {
-  background-color: var(--color-black-one);
-  border-radius: var(--radius-10);
+  background-color: var(--box-color);
+  border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-height: 170px;
+  color: var(--text-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
-  /* min-width: 80vw; */
 }
 
 .box:hover {
   transform: scale(1.03);
 }
 
+#current-badge {
+  border-radius: 50%;
+}
+
 .large-box {
-    grid-column: span 3;
-    grid-row: 1;
+  grid-column: span 3;
 }
 
 .tall-box {
@@ -117,11 +233,10 @@
 }
 
 .double-box {
-    display: flex;
+  justify-content: space-between;
 }
 
-/* ---------Scadenze e notifiche------------- */
-
+/* Scadenze e notifiche */
 #notification-box {
   margin-top: 10px;
 }
@@ -133,12 +248,22 @@
 
 .notification-buttons button {
   width: 100%;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.notification-buttons button:hover {
+  background-color: var(--primary-hover);
 }
 
 .notification-buttons p {
   padding: 8px;
   font-weight: bold;
-  color: var(--color-light-green);
+  color: var(--success-color);
   text-align: left;
 }
 
@@ -151,19 +276,5 @@
   padding: 0;
   margin: 0 10px;
   cursor: pointer;
-}
-
-.badge-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
-
-.container-img {
-  border: 1px solid red;
-}
-
-.container-img > img {
-  width: 300px;
+  color: var(--primary-color);
 }
