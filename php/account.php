@@ -96,6 +96,68 @@ if ($user_id) {
     </div>
 </div>
 
+    <div class="container">
+        <div class="container-main">
+            <div class="box large-box">
+
+                <div class="gamification-container-account">
+                    <p class="gamification-text-account">Sei al <strong>Livello 3</strong> 💪</p>
+                    <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+                    <br><br>
+                    <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
+                    <progress id="progressGoals" max="100" value="70">170%</progress>
+
+                    <div id="badge-container" class="badge-container">
+                        <img src="" id="firstImg">
+                        <img src="" id="secondImg">
+                        <img src="" id="thirdImg" class="locked">
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="box info" id="notification-box"> -->
+            <!-- <div class="notification-content">
+                    <h2>Notifiche e scadenze</h2>
+                    <div class="notification-buttons">
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
+                        <div class="notification-button-and-settings">
+                            <button>Notifica 1</button>
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                        </div>
+                        <p>scade il ??/??/???</p>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+            <div class="box large-box tall-box"> <br>
+                <?php require_once '../grafici/grafco_exp_settimanale.php' ?>
+            </div>
+            <div class="box">
+                <h2>Obiettivi</h2>
+                <a href="../php/new_goal.php"><button>Inserisci un nuovo obiettivo</button></a>
+                <?php require_once '../grafici/obiettivi.php'; ?>
+            </div>
+            <div class="box">
+                <?php require_once '../grafici/allenamenti_mensili.html'; ?>
+            </div>
+
+
+        </div>
+    </div>
 <div class="container">
     <div class="container-main">
         <div class="box large-box" data-aos="zoom-in">

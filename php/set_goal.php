@@ -11,15 +11,39 @@ require '../database/connessione.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleziona Obiettivi</title>
     <link rel="stylesheet" href="../css/set_goal.css">
+    <link rel="stylesheet" href="../css/commonNavbar.css">
 </head>
 
 <body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
 
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ((isset($_POST['obiettivi']) && !empty($_POST['obiettivi'])) || (isset($_POST['exercise_goals']) && !empty($_POST['exercise_goals']))) {
 
             echo "<h1>Obiettivi Selezionati</h1>";
+            echo "<p class='sub'>Inserisci i dati nei campi per cominciare a settare i tuoi obiettivi!</p>";
             echo "<form method='POST' action='./insert_goal.php'>";
             echo "<div class='card_container'>";
 
@@ -32,26 +56,30 @@ require '../database/connessione.php';
                     echo "<input type='hidden' name='exercise[]' value='" . htmlspecialchars($ex_goals, ENT_QUOTES, 'UTF-8') . "'>";
                     echo "<input type='hidden' name='id_exercises[]' value='" . (int)$id_ex . "'>";
 
-                    echo "<p>Inserisci un valore iniziale</p>";
-                    echo "<div class='insert'>
-                <input type='text' name='es_valore_iniziale[]' required> kg
-              </div>";
+                    echo "<div class='container-insert'>
+                            <p>Inserisci un valore iniziale</p>
+                            <div class='insert'>
+                                <input type='text' name='es_valore_iniziale[]' required> kg
+                            </div>
+                        </div>";
 
-                    echo "<p>Inserisci un valore da raggiungere</p>";
-                    echo "<div class='insert'>
-                <input type='text' name='es_valore_finale[]' required> kg
-              </div>";
+                    echo "<div class='container-insert'>
+                            <p>Inserisci un valore da raggiungere</p>
+                            <div class='insert'>
+                                <input type='text' name='es_valore_finale[]' required> kg
+                            </div>
+                        </div>";
 
-                    echo "<p>Inserisci la data finale</p>";
-                    echo "<div class='insert'>
-                <input type='date' name='es_data_finale[]' required>
-              </div>";
+                    echo "<div class='container-insert'>
+                            <p>Inserisci la data finale</p>
+                            <div class='insert'>
+                                <input type='date' name='es_data_finale[]' required>
+                            </div>
+                        </div>";
 
                     echo "</div>"; // chiude card
                 }
             }
-
-
 
             if (isset($_POST['obiettivi']) && !empty($_POST['obiettivi'])) {
                 $obiettivi_selezionati = $_POST['obiettivi'];
@@ -68,7 +96,7 @@ require '../database/connessione.php';
                             echo "<div class='card'>";
                             echo "<h3>" . htmlspecialchars($row['obiettivo']) . "</h3>";
                             echo "<p>" . htmlspecialchars($row['descrizione']) . "</p>";
-                            echo "<span>" . htmlspecialchars($row['metrica']) . "</span><br>";
+                            echo "<span> <p class='grassetto'>Unità di misurazione: </p>" . htmlspecialchars($row['metrica']) . "</span>";
 
                             // Hidden fields per i dati da inviare
                             echo "<input type='hidden' name='id_goal[]' value='" . $row['id'] . "'>";
@@ -76,20 +104,26 @@ require '../database/connessione.php';
                             echo "<input type='hidden' name='obiettivo[]' value='" . htmlspecialchars($row['obiettivo'], ENT_QUOTES, 'UTF-8') . "'>";
 
                             // Campi input per valore iniziale e finale
-                            echo "<p>Inserisci un valore iniziale</p>";
-                            echo "<div class='insert'>
-                            <input type='text' name='valore_iniziale[]' required> " . htmlspecialchars($row['unita_misura']) . "
-                          </div>";
+                            echo "<div class='container-insert'>
+                                    <p>Inserisci un valore iniziale</p>
+                                    <div class='insert'>
+                                        <input type='text' name='valore_iniziale[]' required> " . htmlspecialchars($row['unita_misura']) . "
+                                    </div>
+                                </div>";
 
-                            echo "<p>Inserisci un valore da raggiungere</p>";
-                            echo "<div class='insert'>
-                            <input type='text' name='valore_finale[]' required> " . htmlspecialchars($row['unita_misura']) . "
-                          </div>";
+                            echo "<div class='container-insert'>
+                                    <p>Inserisci un valore da raggiungere</p>
+                                    <div class='insert'>
+                                        <input type='text' name='valore_finale[]' required> " . htmlspecialchars($row['unita_misura']) . "
+                                    </div>
+                                </div>";
 
-                            echo "<p>Inserisci la data finale</p>";
-                            echo "<div class='insert'>
-                            <input type='date' name='data_finale[]' required>;
-                          </div>";
+                            echo "<div class='container-insert'>
+                                    <p>Inserisci la data finale</p>
+                                    <div class='insert'>
+                                        <input type='date' name='data_finale[]' required>
+                                    </div> 
+                                </div>";
 
                             echo "</div>"; // chiude card
                         }
