@@ -148,25 +148,7 @@
 }
 
 .notification-button-and-settings span {
-    padding: 0;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-/* ----------- Obiettivi ------------ */
-
-.temporary-graphic {
-    background-color: rgb(255, 255, 255);
-    height: 90%;
-}
-
-
-
-
-.gamification-container-account {
-    max-width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
+  padding: 0;
+  margin: 0 10px;
+  cursor: pointer;
 }
