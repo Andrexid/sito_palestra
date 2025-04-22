@@ -66,8 +66,8 @@ if ($user_id) {
 
     <div class="training-bar">
         <div class="training-bar-left">
-            <a href="../html/new_training_card.html"><button>Aggiungi Scheda</button></a>
-            <a href="./all_training_card.php"><button>Visualizza Schede</button></a>
+            <a href="../html/new_training_card.html"><button class="principal_button">Aggiungi Scheda</button></a>
+            <a href="./all_training_card.php"><button class="principal_button">Visualizza Schede</button></a>
         </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
@@ -104,42 +104,26 @@ if ($user_id) {
     <div class="container">
         <div class="container-main">
             <div class="box large-box">
-                bedge
-            </div>
-            <!-- <div class="box info" id="notification-box"> -->
-            <!-- <div class="notification-content">
-                    <h2>Notifiche e scadenze</h2>
-                    <div class="notification-buttons">
-                        <div class="notification-button-and-settings">
-                            <button>Notifica 1</button>
-                            <span class="material-symbols-outlined">
-                                settings
-                            </span>
-                        </div>
-                        <p>scade il ??/??/???</p>
-                        <div class="notification-button-and-settings">
-                            <button>Notifica 1</button>
-                            <span class="material-symbols-outlined">
-                                settings
-                            </span>
-                        </div>
-                        <p>scade il ??/??/???</p>
-                        <div class="notification-button-and-settings">
-                            <button>Notifica 1</button>
-                            <span class="material-symbols-outlined">
-                                settings
-                            </span>
-                        </div>
-                        <p>scade il ??/??/???</p>
+            <div class="gamification-container-account">
+                    <p class="gamification-text-account">Sei al <strong>Livello 3</strong> 💪</p>
+                    <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+                    <br><br>
+                    <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
+                    <progress id="progressGoals" max="100" value="70">170%</progress>
+
+                    <div id="badge-container" class="badge-container">
+                        <img src="" id="firstImg">
+                        <img src="" id="secondImg">
+                        <img src="" id="thirdImg" class="locked">
                     </div>
-                </div> -->
-            <!-- </div> -->
+                </div>
+            </div>
             <div class="box large-box tall-box"> <br>
                 <?php require_once '../grafici/grafco_exp_settimanale.php' ?>
             </div>
             <div class="box">
                 <h2>Obiettivi</h2>
-                <a href="../php/new_goal.php"><button>Inserisci un nuovo obiettivo</button></a>
+                <a href="../php/new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a>
                 <?php require_once '../grafici/obiettivi.php'; ?>
             </div>
             <div class="box">
@@ -149,32 +133,7 @@ if ($user_id) {
     </div>
 
     <script src="../src/commonNavbar.js?v=1.1"></script>
-    <!-- <script src="../src/callAjaxAccount.js"></script> -->
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const hamburger = document.getElementById('hamburger');
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-
-            const closeBtn = document.getElementById('close-btn');
-            hamburger.addEventListener('click', () => {
-                sidebar.style.left = '0';
-                overlay.style.display = 'block';
-            });
-
-            overlay.addEventListener('click', () => {
-                sidebar.style.left = '-350px';
-                overlay.style.display = 'none';
-            });
-
-            closeBtn.addEventListener('click', () => {
-                sidebar.style.left = '-350px';
-                overlay.style.display = 'none';
-            });
-        });
-    </script> -->
-
-
+    <script src="../src/profile.js?v=2.2"></script>
 </body>
 
 </html>
