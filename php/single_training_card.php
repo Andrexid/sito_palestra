@@ -35,6 +35,9 @@ if (isset($_GET['id'])) {
     <title>Scheda numero: <?php echo $card_id; ?></title>
     <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/single_training_card.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/_variables.css">
 </head>
 
 <body>
