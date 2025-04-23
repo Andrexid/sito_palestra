@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once("../database/connessione.php");
 
@@ -16,10 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_status']) && is
     }
 }
 
-
 if (isset($_GET['id_card'])) {
     $id_card = $_GET['id_card'];
-
     $delete_training_card = "DELETE FROM workout_plans WHERE id = ? AND user_id = ?";
     $stm = $conn->prepare($delete_training_card);
 
@@ -32,8 +30,5 @@ if (isset($_GET['id_card'])) {
     }
 }
 
-
-
 require_once("../database/close-connessione.php");
-
 ?>

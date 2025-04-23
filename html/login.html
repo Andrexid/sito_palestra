@@ -12,20 +12,28 @@
   </head>
 
 <body>
-    <nav aria-label="Menu di navigazione principale">
-        <link rel="stylesheet" href="../css/commonNavbar.css">
-        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../img/utente_without_bg.png" alt="Logo Sabetta Andrea">
+  <nav class="navbar">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra">
+    </div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
+        <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
+        <li><a href="chisiamo.html">Chi siamo</a></li>
+        <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
+        <li class = "profile-container selezionata" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo">
             </a>
-        </div>
-        <ul id="menu" class="menu">
-            <li><a href="../index.html" data-section="Home">Home</a></li> <!-- data-section è usato per determinare quale link è attivo, invece di basarsi sul contenuto del testo del link. Questo è utile se il testo del link cambia o viene tradotto.-->
-            <li><a href="login.html" data-section="Login">Login</a></li>
-            <li><a href="registrazione.html" data-section="Signup">Signup</a></li>
-        </ul>
-    </nav>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
 
     <div class="container">
       <div class="container-form">

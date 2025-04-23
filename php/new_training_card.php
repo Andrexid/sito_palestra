@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-?> 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,6 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 10px;
             color: black;
         }
+
         .form-results label {
             margin: 10px;
         }
@@ -130,6 +131,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
     <div id="container-results">
         <h1>Visualizza e conferma</h1>
         <form action="./all_training_card.php" class="form-results">

@@ -44,6 +44,7 @@ $conn->close();
     <title>Allenamento Giornaliero</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/commonNavbar.css">
     <link rel="stylesheet" href="../css/_variables.css">
     <style>
         body {
@@ -99,6 +100,27 @@ $conn->close();
     </style>
 </head>
 <body>
+<nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html" class="selezionata">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+            <li class="profile-container">
+                <a href="#">
+                    <img id="profile-pic" src="" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
     <h1>Allenamento suddiviso per giorno</h1>
 
     <?php if (empty($giorni)) : ?>

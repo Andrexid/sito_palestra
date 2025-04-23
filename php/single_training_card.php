@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
                 </a>
                 <div class="dropdown-menu" id="profile-menu">
                     <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('impostazioni.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
                     <a href="#" onclick="logout()">🚪 Logout</a>
                 </div>
             </li>
