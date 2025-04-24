@@ -21,7 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.success) {
                 console.log("Login riuscito! Reindirizzamento in corso...");
                 localStorage.setItem("email", emailInput.value);
-                window.location.href = "../index.html";
+
+                // Aspetta 2 secondi prima del redirect
+                setTimeout(() => {
+                    window.location.href = "../index.html";
+                }, 2500);
             } else {
                 console.log("Errore:", data.message);
                 addErrorMessage("server", data.message);

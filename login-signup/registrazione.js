@@ -16,9 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                localStorage.setItem("email", emailInput.value);
-        
+            if (data.success) {        
                 // Mostra il messaggio di conferma
                 const confirmMessage = document.getElementById("confirmMessage");
                 confirmMessage.textContent = "Registrazione completata con successo! Reindirizzamento in corso...";
