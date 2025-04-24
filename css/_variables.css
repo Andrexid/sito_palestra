@@ -1,45 +1,18 @@
-
-/* :root {
-  /* Light Mode Colors 
+:root {
+  /* Light Mode Colors */
   --bg-color: #F9F9F9;
-  --box-color: #e4cccc;
-  --text-color: #181d0c;
+  --box-color: #EFEFEF;
+  --text-color: #444444;
   --heading-color: #1F2E4D;
   --primary-color: #E63946;
   --primary-hover: #FF5722;
   --secondary-color: #B0B0B0;
   --success-color: #2ECC71;
   --error-color: #C0392B;
-  --color-black: #000000;
-} */
-
-
-
-:root {
-  /*Dark Mode Colors*/
- --bg-color: #1F2E4D;
- --box-color: #2D3E60;
- --text-color: #CCCCCC;
- --heading-color: #FFFFFF;
- --primary-color: #E63946;
- --primary-hover: #FF7043;
- --secondary-color: #888888;
- --success-color: #27AE60;
- --error-color: #C0392B;
- --color-black: #000000;
-} 
-
-
-
-
-
-
-
-
-
-@media (prefers-color-scheme:dark) {
+}
+@media (prefers-color-scheme: dark) {
   :root {
-     /*Dark Mode Colors*/
+    /* Dark Mode Colors */
     --bg-color: #1F2E4D;
     --box-color: #2D3E60;
     --text-color: #CCCCCC;
@@ -49,6 +22,5 @@
     --secondary-color: #888888;
     --success-color: #27AE60;
     --error-color: #C0392B;
-    --color-black: #000000;
   }
-} 
+}

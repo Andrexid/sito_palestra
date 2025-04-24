@@ -5,10 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
 
-    if (localStorage.getItem("email")) {
-        getUserPicProfile(localStorage.getItem("imagePic"));
+    if (localStorage.getItem("email") && localStorage.getItem("imagePic")) {
+        // getUserPicProfile(localStorage.getItem("imagePic"));
+        accountPic.src = localStorage.getItem("imagePic");
     } else {
-        accountPic.src = "../img/utente.png";  // Immagine grigia se l'utente non è loggato
+        accountPic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
     }
 
     // Mostra/nasconde il menu al click sull'immagine profilo
@@ -32,14 +33,14 @@ function controllaAccesso(destination){
     if(localStorage.getItem("email")){
         window.location.href = destination;
     }else{
-        window.location.href = "html/login.html"
+        window.location.href = "login-signup/login.html"
     }
 }
 
 function logout() {
     alert("Logout effettuato!");
     localStorage.removeItem("email");
-    window.location.href = "html/login.html";
+    window.location.href = "login-signup/login.html";
 }
 
 function getUserPicProfile(txt) {

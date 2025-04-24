@@ -156,12 +156,6 @@
     const chartGoals = new ApexCharts(document.querySelector("#goals"), options);
     chartGoals.render();
   </script>
-
-
-
-
-
-
 </body>
 
 </html>
