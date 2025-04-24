@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamification</title>
+    <link rel="stylesheet" href="gamification.css">
+
+    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
+    <link rel="stylesheet" href="../commonCSS/buttons.css" />
+    <link rel="stylesheet" href="../commonCSS/reset.css" />
+    <link rel="stylesheet" href="../commonCSS/_variables.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Palestra">
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#" onclick="controllaAccesso('account.php', false)" data-section="Progressi">Progressi</a></li>
+            <li><a href="../faq/faq.html"  data-section="FAQ">FAQ</a></li>
+            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+            <li class = "profile-container" data-section="Profile">
+                <a href="#">
+                    <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo">
+                </a>
+                <div class="dropdown-menu" id="profile-menu">
+                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="regole-gamification">
+            <h1>🎮 Regole della Gamification</h1>
+
+            <div class="sotto-sezione">
+                <h2>Missioni Giornaliere</h2>
+                <ul>
+                    <li>“Riscaldamento quotidiano” - Registra un allenamento oggi. → +10 XP</li>
+                    <li>“Costanza prima di tutto” - Registra due allenamenti in un giorno. → +20 XP</li>
+                    <li>“Equilibrio perfetto” - Allenati almeno 1 ora. → +20 XP</li>
+                    <li>“Spingi oltre” - Supera il numero di ripetizioni del giorno precedente. → +15 XP</li>
+                    <li>“Cardio Power” - Completa almeno 20 minuti di cardio. → +15 XP</li>
+                    <li>“Sollevatore del giorno” - Fai almeno 3 esercizi con i pesi. → +15 XP</li>
+                    <li>“Forza esplosiva” - Aumenta di 1kg il peso rispetto all’ultima sessione. → +20 XP</li>
+                    <li>“Resistenza d'acciaio” - Allenati almeno 120 minuti. → +30 XP</li>
+                </ul>
+            </div>
+
+            <div class="sotto-sezione">
+                <h2>Missioni Settimanali</h2>
+                <ul>
+                    <li>“Settimana di fuoco” - Completa almeno 3 allenamenti. → +50 XP</li>
+                    <li>“Costanza assoluta” - Allenati per 7 giorni consecutivi. → +100 XP</li>
+                    <li>“Miglioramento continuo” - Aumenta i carichi in 3 esercizi. → +75 XP</li>
+                    <li>“Resistenza Pro” - Accumula 5 ore totali di allenamento. → +75 XP</li>
+                    <li>“Brucia tutto” - Consuma 3.000 kcal in allenamento. → +75 XP</li>
+                    <li>“Riconosci il tuo progresso” - Aggiorna peso e misure. → +50 XP</li>
+                    <li>“Sfida muscolare” - Aggiungi un nuovo esercizio. → +50 XP</li>
+                </ul>
+            </div>
+
+            <div class="sotto-sezione">
+                <h2>Missioni Mensili</h2>
+                <ul>
+                    <li>“Mese da atleta” - Completa 12 sessioni nel mese. → +150 XP</li>
+                    <li>“Massimo impegno” - 20 ore di allenamento. → +200 XP e badge “Atleta Dedicato”</li>
+                    <li>“Forza oltre i limiti” - Aumenta carico in 5 esercizi. → +150 XP</li>
+                    <li>“Sfida della resistenza” - Corri/pedala 50 km. → +200 XP e badge “Endurance King”</li>
+                    <li>“Scolpisci il tuo corpo” - 4 sessioni full body. → +150 XP e cornice profilo</li>
+                    <li>“Maratona di allenamento” - 20 allenamenti nel mese. → +250 XP e boost XP</li>
+                    <li>“Crescita muscolare” - +2% massa magra. → +250 XP e badge “Muscle Builder”</li>
+                    <li>“Precisione e controllo” - Registra tutto con precisione. → +150 XP</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="badge-section">
+            <h1>🏅 Badge da Sbloccare</h1>
+            <div class="badge-container">
+                <div class="badge"><img src="../img/badge-0.jpg" alt=""><span>Il viaggio inizia</span>  0 XP</div>
+                <div class="badge"><img src="../img/badge-1.jpg" alt=""><span>Primo Passo</span>  500 XP</div>
+                <div class="badge"><img src="../img/badge-2.jpg" alt=""><span>Iniziato il Viaggio</span>  1.500 XP</div>
+                <div class="badge"><img src="../img/badge-3.jpg" alt=""><span>Fitness Warrior</span>  3.000 XP</div>
+                <div class="badge"><img src="../img/badge-4.jpg" alt=""><span>Resiliente</span>  7.500 XP</div>
+                <div class="badge"><img src="../img/badge-5.jpg" alt=""><span>Iron Man</span>  15.000 XP</div>
+                <div class="badge"><img src="../img/badge-6.jpg" alt=""><span>Fitness Machine</span>  30.000 XP</div>
+                <div class="badge"><img src="../img/badge-7.jpg" alt=""><span>Inarrestabile</span>  50.000 XP</div>
+                <div class="badge"><img src="../img/badge-8.jpg" alt=""><span>Bestia della Palestra</span>  100.000 XP</div>
+                <div class="badge"><img src="../img/badge-9.jpg" alt=""><span>Atleta d’élite</span>  200.000 XP</div>
+                <div class="badge"><img src="../img/badge-10.jpg" alt=""><span>Leggenda del Fitness</span>  500.000 XP</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../commonJS/commonNavbar.js"></script>
+</body>
+</html>

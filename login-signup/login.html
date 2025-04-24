@@ -4,27 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../css/commonNavbar.css" />
-    <link rel="stylesheet" href="../css/login-signup.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/buttons.css" />
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="login-signup.css" />
+    <link rel="stylesheet" href="login.css" />
+
+    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
+    <link rel="stylesheet" href="../commonCSS/buttons.css" />
+    <link rel="stylesheet" href="../commonCSS/reset.css" />
+    <link rel="stylesheet" href="../commonCSS/_variables.css">
   </head>
 
 <body>
-    <nav aria-label="Menu di navigazione principale">
-        <link rel="stylesheet" href="../css/commonNavbar.css">
-        <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Apri Menu di Navigazione">☰</button>
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../img/utente_without_bg.png" alt="Logo Sabetta Andrea">
-            </a>
-        </div>
-        <ul id="menu" class="menu">
-            <li><a href="../index.html" data-section="Home">Home</a></li> <!-- data-section è usato per determinare quale link è attivo, invece di basarsi sul contenuto del testo del link. Questo è utile se il testo del link cambia o viene tradotto.-->
-            <li><a href="login.html" data-section="Login">Login</a></li>
-            <li><a href="registrazione.html" data-section="Signup">Signup</a></li>
-        </ul>
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+      <div class="logo">
+          <img src="../img/logo.png" alt="Logo Palestra">
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html" data-section="Home">Home</a></li>
+        <li><a href="login.html" data-section="Login">Login</a></li>
+        <li><a href="signup.html" data-section="Signup">Signup</a></li>
+      </ul>
     </nav>
 
     <div class="container">
@@ -67,6 +66,6 @@
       </div>
     </div>
 
-    <script src="../src/login.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
