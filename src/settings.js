@@ -34,3 +34,20 @@ themeToggle.addEventListener("change", function() {
         localStorage.setItem("darkMode", "disabled");
     }
 });
+
+
+const toggle = document.getElementById('theme');
+
+toggle.addEventListener('change', () => {
+  const root = document.documentElement;
+  if (toggle.checked) {
+    root.classList.add('dark-mode');
+    root.classList.remove('light-mode');
+  } else {
+    root.classList.add('light-mode');
+    root.classList.remove('dark-mode');
+  }
+});
+
+
+
