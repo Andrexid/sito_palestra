@@ -4,36 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="../css/commonNavbar.css" />
-    <link rel="stylesheet" href="../css/login-signup.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/buttons.css" />
-    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="login-signup.css" />
+    <link rel="stylesheet" href="login.css" />
+
+    <link rel="stylesheet" href="../commonCSS/commonNavbar.css" />
+    <link rel="stylesheet" href="../commonCSS/buttons.css" />
+    <link rel="stylesheet" href="../commonCSS/reset.css" />
+    <link rel="stylesheet" href="../commonCSS/_variables.css" />
   </head>
 
-<body>
-  <nav class="navbar">
-    <div class="logo">
-        <img src="../img/logo.png" alt="Logo Palestra">
-    </div>
-    <ul class="nav-links">
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra" />
+      </div>
+      <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="#" onclick="controllaAccesso('../php/account.php')" data-section="Progressi">Progressi</a></li>
-        <li><a href="faq.html"  data-section="FAQ">FAQ</a></li>
+        <li>
+          <a
+            href="#"
+            onclick="controllaAccesso('../php/account.php')"
+            data-section="Progressi"
+            >Progressi</a
+          >
+        </li>
+        <li><a href="faq.html" data-section="FAQ">FAQ</a></li>
         <li><a href="chisiamo.html">Chi siamo</a></li>
         <li><a href="contatti.html" data-section="Contatti">Contatti</a></li>
-        <li class = "profile-container selezionata" data-section="Profile">
-            <a href="#">
-                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo">
-            </a>
-            <div class="dropdown-menu" id="profile-menu">
-                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
-            </div>
+        <li class="profile-container selezionata" data-section="Profile">
+          <a href="#">
+            <img
+              id="profile-pic"
+              src="../img/utente_without_bg.png"
+              alt="Profilo"
+            />
+          </a>
+          <div class="dropdown-menu" id="profile-menu">
+            <a href="#" onclick="controllaAccesso('profile.html')"
+              >👤 Profilo</a
+            >
+            <a href="#" onclick="controllaAccesso('settings.html')"
+              >⚙️ Impostazioni</a
+            >
+            <a href="#" onclick="logout()">🚪 Logout</a>
+          </div>
         </li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
 
     <div class="container">
       <div class="container-form">
@@ -60,7 +77,14 @@
             />
           </div>
 
-          <p>Password dimenticata?<a href="reset_password_request.html" class="link"> Clicca qui</a></p>
+          <p>
+            Password dimenticata?<a
+              href="reset_password_request.html"
+              class="link"
+            >
+              Clicca qui</a
+            >
+          </p>
 
           <div class="container-buttons">
             <input type="submit" value="Accedi" class="principal_button-100w" />
@@ -75,6 +99,6 @@
       </div>
     </div>
 
-    <script src="../src/login.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>

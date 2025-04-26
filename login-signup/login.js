@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Blocca l'invio tradizionale del form
 
         const formData = new FormData(form);
-        fetch("../php/login.php", {
+        fetch("login.php", {
             method: "POST",
             body: formData
         })

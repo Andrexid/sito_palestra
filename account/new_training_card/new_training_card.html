@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuova Scheda Allenamento</title>
+  <link rel="stylesheet" href="../css/new_training_card.css">
+  <link rel="stylesheet" href="../css/buttons.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/_variables.css">
+  <link rel="stylesheet" href="../css/commonNavbar.css">
+
+</head>
+
+<body onload="addExercises(), blurExercises()">
+  <div class="title-container">
+    <h1>Crea la tua Scheda Allenamento in pochi click</h1>
+  </div>
+
+  <form action="new_training_card.php" method="POST">
+    <div class="container">
+      <!-- Durata -->
+      <div class="box">
+        <h2>Durata del Programma</h2>
+        <div class="input-durata">
+          <label for="duration_start">Da</label>
+          <input type="date" name="duration_start" class="input-stile" required>
+
+          <label for="duration_end">a</label>
+          <input type="date" name="duration_end" class="input-stile" required>
+        </div>
+      </div>
+
+      <!-- Allenamenti a settimana -->
+      <div class="box">
+        <h2>Quanti giorni a settimana ti alleni?</h2>
+        <select name="week-workout" id="week-workout" class="input-stile" onchange="modifyDaysTraining(this.value)" required>
+          <option value="">Seleziona un numero</option>
+          <option value="1">1 giorno</option>
+          <option value="2">2 giorni</option>
+          <option value="3">3 giorni</option>
+          <option value="4">4 giorni</option>
+          <option value="5">5 giorni</option>
+          <option value="6">6 giorni</option>
+          <option value="7">7 giorni</option>
+        </select>
+      </div>
+
+      <!-- Esercizi -->
+      <div class="box">
+        <h2>Inserisci Esercizi</h2>
+
+        <label for="exercise-search">Cerca esercizio:</label>
+        <input type="text" id="exercise-search" placeholder="Scrivi per cercare un esercizio..." onkeyup="filterExercises()" onclick="openSelect()">
+
+        <label for="insert-exercise">Seleziona dall'elenco:</label>
+        <select name="insert-exercise" id="insert-exercise" size="7" class="input-stile" required></select>
+
+        <label for="muscle-group">Giorno dell'esercizio:</label>
+        <select name="muscle-group" id="muscle-group" class="input-stile" required>
+          <!-- Popolato dinamicamente -->
+        </select>
+
+        <button type="button" onclick="checkExercise()" class="def-button">Aggiungi Esercizio</button>
+      </div>
+
+      <!-- Lista Esercizi Aggiunti -->
+      <div class="box tall-box">
+        <h2>Esercizi Aggiunti</h2>
+        <div class="exercisesList">
+          <ul id="exercise"></ul>
+          <div id="exercisesList"></div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <input type="submit" class="principal_button-form" value="Salva Scheda">
+    </div>
+  </form>
+
+  <script src="insertNewTrainingCard.js?v=1.63"></script>
+</body>
+
+</html>

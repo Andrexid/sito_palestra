@@ -4,44 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Palestra Tracker - Potenzia i tuoi progressi!</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/commonNavbar.css" />
-    <link rel="stylesheet" href="css/buttons.css" />
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    
+    <link rel="stylesheet" href="commonCSS/commonNavbar.css" />
+    <link rel="stylesheet" href="commonCSS/buttons.css" />
+    <link rel="stylesheet" href="commonCSS/reset.css" />
   </head>
 
   <body onload="getUserPicProfile()">
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
       <div class="logo">
-        <img src="img/logo.png" alt="Logo Palestra" />
+          <img src="img/logo.png" alt="Logo Palestra">
       </div>
       <ul class="nav-links">
-        <li><a href="#" class="selezionata">Home</a></li>
-        <li>
-          <a href="#" onclick="controllaAccesso('php/account.php')"
-            >Progressi</a
-          >
-        </li>
-        <li><a href="html/faq.html">FAQ</a></li>
-        <li><a href="html/chisiamo.html">Chi siamo</a></li>
-        <li><a href="html/contatti.html">Contatti</a></li>
-
-        <li class="profile-container">
-          <a href="#">
-            <img id="profile-pic" src="" alt="Profilo" />
-          </a>
-          <div class="dropdown-menu" id="profile-menu">
-            <a href="#" onclick="controllaAccesso('html/profile.html')"
-              >👤 Profilo</a
-            >
-            <a href="#" onclick="controllaAccesso('html/settings.html')"
-              >⚙️ Impostazioni</a
-            >
-            <a href="#" onclick="logout()">🚪 Logout</a>
-          </div>
-        </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi">Progressi</a></li>
+          <li><a href="faq/faq.html"  data-section="FAQ">FAQ</a></li>
+          <li><a href="chiSiamo/chisiamo.html">Chi siamo</a></li>
+          <li><a href="contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+          <li class = "profile-container" data-section="Profile">
+              <a href="#">
+                  <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
+              </a>
+              <div class="dropdown-menu" id="profile-menu">
+                  <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                  <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                  <a href="#" onclick="logout()">🚪 Logout</a>
+              </div>
+          </li>
       </ul>
-    </nav>
+  </nav>
 
     <section class="hero">
       <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
@@ -141,6 +134,6 @@
       >
     </section>
 
-    <script src="src/index.js?v=1.65"></script>
+    <script src="index.js?v=1.66"></script>
   </body>
 </html>

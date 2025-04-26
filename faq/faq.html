@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ</title>
+  <link rel="stylesheet" href="faq.css" />
+
+  <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
+    <link rel="stylesheet" href="../commonCSS/buttons.css" />
+    <link rel="stylesheet" href="../commonCSS/reset.css" />
+    <link rel="stylesheet" href="../commonCSS/_variables.css">
+</head>
+<body>
+  <nav class="navbar" aria-label="Menu di navigazione principale">
+    <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Palestra">
+    </div>
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" onclick="controllaAccesso('account.php', false)" data-section="Progressi">Progressi</a></li>
+        <li><a href="../faq/faq.html"  data-section="FAQ" class="selezionata">FAQ</a></li>
+        <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+        <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+        <li class = "profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo">
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </li>
+    </ul>
+  </nav>
+
+  <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()" />
+
+  <div class="faq-container">
+    <h1>Domande Frequenti (FAQ)</h1>
+
+    <section>
+      <h2>📌 FAQ sulla Piattaforma</h2>
+      
+      <div class="faq"><div class="question">📌 Come posso registrarmi alla piattaforma?</div><div class="answer">Vai sulla homepage e clicca su "Registrati". Inserisci i tuoi dati e accedi a tutte le funzionalità.</div></div>
+      
+      <div class="faq"><div class="question">🔄 Ho dimenticato la password, come posso recuperarla?</div><div class="answer">Vai alla pagina di login e clicca su "Password dimenticata?". Ti invieremo un link per impostare una nuova password.</div></div>
+      
+      <div class="faq"><div class="question">📊 Come posso monitorare i miei progressi?</div><div class="answer">Accedi alla sezione "Progressi" per visualizzare grafici, statistiche e i risultati degli allenamenti.</div></div>
+      
+      <div class="faq"><div class="question">💳 Quali metodi di pagamento accettate?</div><div class="answer">Carte di credito (Visa, Mastercard, AmEx), PayPal e bonifico bancario.</div></div>
+      
+      <div class="faq"><div class="question">💰 Quanto costa l'abbonamento alla piattaforma?</div><div class="answer">Piano gratuito (funzioni limitate), piano base a 9,99€/mese, piano premium a 19,99€/mese.</div></div>
+      
+      <div class="faq"><div class="question">📱 Posso usare la piattaforma anche da mobile?</div><div class="answer">Sì, il sito è ottimizzato per dispositivi mobili e tablet per permetterti di allenarti ovunque.</div></div>
+      
+      <div class="faq"><div class="question">🧠 È presente un'assistente virtuale per consigli?</div><div class="answer">Sì, nel piano premium è incluso un chatbot basato su AI che ti suggerisce allenamenti e strategie personalizzate.</div></div>
+    </section>
+
+    <section><br><br>
+      <h2>💪 FAQ sulla Palestra</h2>
+
+      <div class="faq"><div class="question">🏋️ Quali sono i migliori esercizi per aumentare la massa muscolare?</div><div class="answer">Squat, panca piana, stacchi e trazioni: coinvolgono più muscoli e sono efficaci.</div></div>
+
+      <div class="faq"><div class="question">🔥 Come posso bruciare più calorie durante l’allenamento?</div><div class="answer">HIIT, circuiti cardio-pesi e pause brevi tra le serie aumentano il consumo calorico.</div></div>
+
+      <div class="faq"><div class="question">🥗 Qual è la dieta migliore per chi si allena in palestra?</div><div class="answer">Dipende dall'obiettivo: massa muscolare → surplus proteico, dimagrimento → deficit calorico controllato.</div></div>
+
+      <div class="faq"><div class="question">⏳ Quanto tempo serve per vedere risultati in palestra?</div><div class="answer">4-6 settimane per i primi risultati. Costanza e alimentazione sono fondamentali.</div></div>
+
+      <div class="faq"><div class="question">🧘 È importante fare stretching dopo l’allenamento?</div><div class="answer">Sì, migliora la flessibilità, favorisce il recupero e previene infortuni.</div></div>
+
+      <div class="faq"><div class="question">🗓️ Devo allenarmi tutti i giorni?</div><div class="answer">No, il riposo è essenziale per il recupero muscolare. Si consiglia 3-5 giorni a settimana, con almeno 1 giorno di riposo.</div></div>
+
+      <div class="faq"><div class="question">💦 È necessario bere integratori?</div><div class="answer">Non sempre. Se la tua alimentazione è bilanciata, potresti non averne bisogno. Proteine in polvere o creatina possono essere utili in certi casi.</div></div>
+    </section>
+  </div>
+
+  <button onclick="scrollToTop()" id="topBtn">⬆</button>
+
+  <script src="faq.js"></script>
+  <script src="../commonJS/commonNavbar.js"></script>
+</body>
+</html>
