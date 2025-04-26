@@ -1,5 +1,5 @@
 :root {
-  /* Light Mode Colors */
+  /* Default Light Mode (fallback) */
   --bg-color: #F9F9F9;
   --box-color: #EFEFEF;
   --text-color: #444444;
@@ -10,9 +10,10 @@
   --success-color: #2ECC71;
   --error-color: #C0392B;
 }
+
+/* System Preference: Dark Mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode Colors */
+  :root:not(.light-mode) {
     --bg-color: #1F2E4D;
     --box-color: #2D3E60;
     --text-color: #CCCCCC;
@@ -24,3 +25,32 @@
     --error-color: #C0392B;
   }
 }
+
+/* Manual Override: Dark Mode */
+:root.dark-mode {
+  --bg-color: #1F2E4D;
+  --box-color: #2D3E60;
+  --text-color: #CCCCCC;
+  --heading-color: #FFFFFF;
+  --primary-color: #E63946;
+  --primary-hover: #FF7043;
+  --secondary-color: #888888;
+  --success-color: #27AE60;
+  --error-color: #C0392B;
+}
+
+/* Manual Override: Light Mode (forces light even if system prefers dark) */
+:root.light-mode {
+  --bg-color: #F9F9F9;
+  --box-color: #EFEFEF;
+  --text-color: #444444;
+  --heading-color: #1F2E4D;
+  --primary-color: #E63946;
+  --primary-hover: #FF5722;
+  --secondary-color: #B0B0B0;
+  --success-color: #2ECC71;
+  --error-color: #C0392B;
+}
+
+
+
