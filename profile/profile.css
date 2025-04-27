@@ -1,204 +1,353 @@
-@import url("./_variables.css");
+/* Variabili principali */
+:root {
+  /* Light Mode Colors */
+  --primary-blue: #2563eb;       
+  --primary-red: #dc2626;        
+  --accent-orange: #f97316;      
+  --light-bg: #f8fafc;           
+  --light-text: #1e293b;         
+  --light-card: #ffffff;         
+  
+  /* Dark Mode Colors */
+  --dark-bg: #0f172a;            
+  --dark-text: #e2e8f0;          
+  --dark-card: #1e293b;          
+  --dark-accent: #3b82f6;        
 
+  /* Extra Colors */
+  --success-green: #22c55e;
+  --warning-yellow: #eab308;
+  --light-border: #cbd5e1;
+  --dark-border: #334155;
+}
+
+/* --- IMPOSTAZIONI GENERALI --- */
 body {
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
+h1, h2, h3 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+p, label {
+  color: var(--light-text);
+}
+
+strong {
+  color: var(--accent-orange);
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- NAVBAR (si basa su commonNavbar.css) --- */
+.navbar {
+  background-color: var(--light-card);
+  border-bottom: 1px solid var(--light-border);
+}
+
+/* --- PROFILO HEADER --- */
 .profile-container-header {
-    max-width: 60%;
-    margin: 50px auto;
-    padding: 20px;
-    background: var(--box-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
 }
 
-/* Profilo */
+.profile-header {
+  background-color: var(--light-card);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+  color: var(--light-text);
+}
+
+.profile-header input, .profile-header select, .profile-header option{
+  color: var(--light-text);
+}
+
 #profile-pic-profile {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: opacity 0.3s ease-in-out;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid var(--primary-blue);
+  cursor: pointer;
 }
 
-#profile-pic-profile:hover {
-    opacity: 0.8;
+.profile-header p {
+  margin: 5px 0;
 }
 
-/* Bottone modifica */
-button {
-    background: var(--primary-color);
-    color: var(--bg-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+#btnModify {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
-button:hover {
-    transform: scale(1.05);
-    background: var(--primary-hover);
+#btnModify:hover {
+  background-color: var(--accent-orange);
 }
 
-button:active {
-    transform: scale(0.95);
+#confirmMessage {
+  margin-top: 10px;
+  color: var(--success-green);
+  font-weight: bold;
 }
 
-/* Input */
-input[type="text"],
-input[type="date"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    background: var(--bg-color);
-    color: var(--text-color);
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-input[type="text"]:focus,
-input[type="date"]:focus {
-    outline: none;
-    border: 2px solid var(--primary-color);
-    background: #ffffff;
-}
-
-/* Motivational */
+/* --- FRASE MOTIVAZIONALE --- */
 .motivational-quote-container {
-    max-width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background: var(--primary-color);
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    color: white;
+  margin-top: 20px;
+  background-color: var(--light-card);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 600px;
 }
 
 .motivational-quote {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
 .motivational-author {
-    font-size: 16px;
-    margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--primary-blue);
 }
 
-/* Gamification */
+/* --- GAMIFICATION --- */
 .gamification-container {
-    max-width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background: var(--secondary-color);
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    color: var(--text-color);
+  background-color: var(--light-card);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 30px;
+  max-width: 600px;
 }
 
 .gamification-text {
-    font-size: 22px;
-    font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
 }
 
-/* Badge */
+#progressGoals {
+  width: 80%;
+  height: 20px;
+  margin-top: 10px;
+  appearance: none;
+  border-radius: 10px;
+}
+
+#progressGoals::-webkit-progress-bar {
+  background-color: var(--light-border);
+  border-radius: 10px;
+}
+
+#progressGoals::-webkit-progress-value {
+  background-color: var(--accent-orange);
+  border-radius: 10px;
+}
+
 .badge-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background: var(--background-light);
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.badge {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100px;
-    transition: transform 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.badge-container div {
+  text-align: center;
 }
 
-.badge:hover {
-    transform: scale(1.1);
+.badge-container h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 10px;
 }
 
-.badge img {
-    width: 60px;
-    height: 60px;
+.badge-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--light-border);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.badge p {
-    font-weight: bold;
-    color: var(--text-color);
+.badge-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.badge.locked {
-    opacity: 0.5;
-    filter: grayscale(100%);
+.badge-container img.locked {
+  filter: grayscale(80%);
+  opacity: 0.4;
 }
 
-/* Statistiche e Allenamenti */
-.stats, .workout-history {
-    margin-top: 30px;
-    padding: 20px;
-    background: var(--bg-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    color: var(--text-color);
+/* --- STATISTICHE --- */
+.stats {
+  margin-top: 40px;
+  background-color: var(--light-card);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  text-align: center;
+  color: var(--light-text);
 }
 
-.stats h3, .workout-history h3 {
-    color: var(--heading-color);
-    font-size: 22px;
-    margin-bottom: 10px;
+.stats span, .stats p{
+  color: var(--light-text);
 }
 
-/* BMI */
+/* --- STORICO ALLENAMENTI --- */
+.workout-history {
+  margin-top: 30px;
+  background-color: var(--light-card);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+}
+
+/* --- BMI GAUGE --- */
 .bmi-container-big {
-    max-width: 60%;
-    margin: 50px auto;
-    padding: 20px;
-    background: var(--bg-color);
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  text-align: center;
 }
 
 .bmi-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 250px;
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#bmiGaugeChart {
+  width: 300px;
+  height: 300px;
 }
 
 .arrow {
-    position: absolute;
-    width: 6px;
-    height: 140px;
-    background-color: var(--primary-color);
-    transform-origin: bottom center;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(0deg);
-    border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 80px;
+  background-color: var(--accent-orange);
+  transform: translate(-50%, -100%) rotate(0deg);
+  transform-origin: bottom center;
 }
 
-#bmiText {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: var(--text-color);
+/* --- THEME TOGGLE BUTTON --- */
+.theme-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.theme-button:hover {
+  background-color: var(--accent-orange);
+}
+
+/* --- DARK MODE --- */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: var(--dark-accent);
+}
+
+body.dark-mode p, 
+body.dark-mode label {
+  color: var(--dark-text);
+}
+
+body.dark-mode strong {
+  color: var(--dark-accent);
+}
+
+body.dark-mode .profile-header,
+body.dark-mode .motivational-quote-container,
+body.dark-mode .gamification-container,
+body.dark-mode .stats,
+body.dark-mode .workout-history {
+  background-color: var(--dark-card);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .stats span, body.dark-mode .stats p{
+  color: var(--dark-text);
+}
+
+body.dark-mode .badge-container {
+  background: var(--background-dark);
+}
+
+body.dark-mode .badge-container img {
+  border-color: var(--dark-border);
+}
+
+body.dark-mode #btnModify {
+  background-color: var(--dark-accent);
+}
+
+body.dark-mode #btnModify:hover {
+  background-color: var(--accent-orange);
+}
+
+body.dark-mode #progressGoals::-webkit-progress-bar {
+  background-color: var(--dark-border);
+}
+
+body.dark-mode #progressGoals::-webkit-progress-value {
+  background-color: var(--dark-accent);
+}
+
+body.dark-mode .theme-button {
+  background-color: var(--dark-accent);
+}
+
+body.dark-mode .theme-button:hover {
+  background-color: var(--accent-orange);
 }

@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
     <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet" href="login-signup.css">
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../commonCSS/reset.css" />
     <link rel="stylesheet" href="../commonCSS/_variables.css">
 </head>
@@ -42,7 +40,7 @@
     <div class="container">
         <div class="container-form">
             <form action="../php/registrazione.php" method="POST" id="registrationForm">
-                <h1>Registrati</h1>
+                <h1>Crea il tuo account e inizia il tuo percorso!</h1>
 
                 <!-- Nome e Cognome -->
                 <div class="double-input">
@@ -65,7 +63,7 @@
 
                 <!-- Sesso -->
                 <div class="input-group">
-                    <label>Sesso</label>
+                    <label>Seleziona il tuo genere</label>
                     <div class="radio-container">
                         <label class="radio-button">
                             <input type="radio" name="sesso" value="Uomo" required>
@@ -85,26 +83,69 @@
                 <!-- Password -->
                 <div class="double-input">
                     <div class="input-group">
-                        <label for="password">Password</label>
+                        <label for="password">Crea una Password</label>
                         <input type="password" name="password" id = "password" class="input" placeholder="Crea una Password" required>
                     </div>
                     <div class="input-group">
-                        <label for="password-v">Conferma Password</label>
+                        <label for="password-v">Conferma la Password</label>
                         <input type="password" name="password-v" id = "password-v" class="input" placeholder="Conferma la Password"
                             required>
                     </div>
                 </div>
 
-                <!-- Login Link -->
-                <p>Hai già un account? <a href="./login.html" class="link">Effettua il Login</a></p>
-
                 <p id = "confirmMessage"></p>
 
-                <!-- Bottone Registrati -->
-                <input type="submit" value="Registrati" class="principal_button-100w">
+                <div class="container-buttons">
+                    <input type="submit" value="Registrati ora" class="principal_button-100w" />
+
+                    
+        
+                    <a href="login.html"
+                      ><button type="button" class="secondary-button-100w">
+                        Accedi
+                      </button>
+                    </a>
+                </div>
             </form>
         </div>
     </div>
+
+    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
+
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              document.body.classList.add('dark-mode');
+              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+            }
+          }
+        
+          function toggleTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // Quando la pagina carica
+            if (!localStorage.getItem('theme')) {
+              // Se non c'è un tema salvato, imposta 'light' di default
+              localStorage.setItem('theme', 'light');
+            }
+            applyTheme();
+        
+            // Event listener sul pulsante
+            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+          });
+    </script>
 
     <script src = signup.js?v=1.64></script>
     

@@ -1,5 +1,5 @@
+/* Default Light Mode (fallback) */
 :root {
-  /* Default Light Mode (fallback) */
   --bg-color: #F9F9F9;
   --box-color: #EFEFEF;
   --text-color: #444444;
@@ -9,10 +9,12 @@
   --secondary-color: #B0B0B0;
   --success-color: #2ECC71;
   --error-color: #C0392B;
+  --info-color: #3498DB;
+  --warning-color: #F39C12;
 }
 
 /* System Preference: Dark Mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root:not(.light-mode) {
     --bg-color: #1F2E4D;
     --box-color: #2D3E60;
@@ -23,11 +25,13 @@
     --secondary-color: #888888;
     --success-color: #27AE60;
     --error-color: #C0392B;
+    --info-color: #3498DB;
+    --warning-color: #F39C12;
   }
-}
+} */
 
 /* Manual Override: Dark Mode */
-:root.dark-mode {
+/* :root.dark-mode {
   --bg-color: #1F2E4D;
   --box-color: #2D3E60;
   --text-color: #CCCCCC;
@@ -37,10 +41,12 @@
   --secondary-color: #888888;
   --success-color: #27AE60;
   --error-color: #C0392B;
-}
+  --info-color: #3498DB;
+  --warning-color: #F39C12;
+} */
 
 /* Manual Override: Light Mode (forces light even if system prefers dark) */
-:root.light-mode {
+/* :root.light-mode {
   --bg-color: #F9F9F9;
   --box-color: #EFEFEF;
   --text-color: #444444;
@@ -50,7 +56,9 @@
   --secondary-color: #B0B0B0;
   --success-color: #2ECC71;
   --error-color: #C0392B;
-}
+  --info-color: #3498DB;
+  --warning-color: #F39C12;
+} */
 
 
 

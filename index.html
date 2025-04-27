@@ -36,25 +36,27 @@
       </ul>
   </nav>
 
-    <section class="hero">
+  <section class="hero">
+    <div class="hero-content">
       <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
       <p>
         Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-        <strong>Palestra Tracker</strong> hai tutto sotto controllo: progressi,
+        Palestra Tracker hai tutto sotto controllo: progressi,
         allenamenti e nuove sfide da superare!
       </p>
-      <div style="display: flex; justify-content: center; align-items: center">
+      <div class="hero-buttons">
         <a
           href="#"
           class="principal_button"
           onclick="controllaAccesso('php/account.php')"
-          >Inizia Ora</a
-        >
-        <a href="#features"
-          ><button class="secondary-button-fit">Scopri di più</button></a
-        >
+        >Inizia Ora</a>
+        <a href="#features">
+          <button class="secondary-button-fit">Scopri di più</button>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
+  
 
     <section class="features" id="features">
       <div class="feature-card">
@@ -129,10 +131,15 @@
         Unisciti alla community di atleti che stanno già migliorando ogni
         giorno! Non perdere altro tempo.
       </p>
-      <a href="#" onclick="controllaAccesso('php/account.php')"
-        ><button class="principal_button">Unisciti a Noi</button></a
-      >
+      <a
+          href="#"
+          class="principal_button"
+          onclick="controllaAccesso('php/account.php')"
+        >Inizia Ora</a>
     </section>
+
+    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
+
 
     <script src="index.js?v=1.66"></script>
   </body>

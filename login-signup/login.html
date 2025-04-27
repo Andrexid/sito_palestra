@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="login-signup.css" />
     <link rel="stylesheet" href="login.css" />
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css" />
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../commonCSS/reset.css" />
     <link rel="stylesheet" href="../commonCSS/_variables.css" />
   </head>
@@ -55,10 +53,11 @@
     <div class="container">
       <div class="container-form">
         <form action="../php/login.php" method="POST" id="loginForm">
-          <h1>Accedi al tuo account</h1>
+          <h1>👋 Bentornato!</h1>
+          <p>Accedi per gestire i tuoi allenamenti, monitorare i tuoi progressi e raggiungere i tuoi obiettivi!</p><br>
 
           <div class="labels">
-            <label for="Email">Email</label>
+            <label for="Email">📧 Email</label>
             <input
               type="email"
               id="email"
@@ -67,7 +66,7 @@
               class="input"
             />
 
-            <label for="password">Password</label>
+            <label for="password">🔒 Password</label>
             <input
               type="password"
               id="password"
@@ -87,9 +86,9 @@
           </p>
 
           <div class="container-buttons">
-            <input type="submit" value="Accedi" class="principal_button-100w" />
+            <input type="submit" value="Accedi ora" class="principal_button-100w" />
 
-            <a href="./registrazione.html"
+            <a href="signup.html"
               ><button type="button" class="secondary-button-100w">
                 Registrati
               </button>
@@ -98,6 +97,43 @@
         </form>
       </div>
     </div>
+
+    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
+
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              document.body.classList.add('dark-mode');
+              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+            }
+          }
+        
+          function toggleTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // Quando la pagina carica
+            if (!localStorage.getItem('theme')) {
+              // Se non c'è un tema salvato, imposta 'light' di default
+              localStorage.setItem('theme', 'light');
+            }
+            applyTheme();
+        
+            // Event listener sul pulsante
+            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+          });
+    </script>
 
     <script src="login.js"></script>
   </body>

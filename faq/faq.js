@@ -36,10 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
   function searchFAQ() {
     const input = document.getElementById("search").value.toLowerCase();
     const faqs = document.querySelectorAll(".faq");

@@ -1,238 +1,190 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
+/* faq.css */
 
-body {
-    background-color: var(--bg-color);
-    background-attachment: fixed;
-    background-size: cover;
-    line-height: 1.6;
-}
-
-
-@import url("./_variables.css");
-
-/* ----- Navbar ----- */
-.nav-links a,
-.nav-links a.selezionata:hover {
-  color: var(--color-white);
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: var(--secondary-color);
-  height:85px;
-}
-
-.logo img {
-  height: 50px;
+/* ROOT AGGIUNTIVO */
+:root {
+    /* Light Mode */
+    --primary-blue: #2563eb;
+    --primary-red: #dc2626;
+    --accent-orange: #f97316;
+    --light-bg: #f8fafc;
+    --light-text: #1e293b;
+    --light-card: #ffffff;
+    --light-border: #e2e8f0;
+    --button-bg: #2563eb;
+    --button-text: #ffffff;
   
+    /* Dark Mode */
+    --dark-bg: #0f172a;
+    --dark-text: #e2e8f0;
+    --dark-card: #1e293b;
+    --dark-accent: #3b82f6;
+    --dark-border: #334155;
+    --button-bg-dark: #3b82f6;
+    --button-text-dark: #0f172a;
+
+  --faq-border-radius: 12px;
+  --faq-spacing: 1.5rem;
+  --faq-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
+/* STILE GENERALE */
+body {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
-.nav-links li {
-  margin: 0 15px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-size: 18px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-  color:var(--text-color);
-}
-
-.nav-links a::after {
-  content: "";
-  display: block;
-  width: 0%;
-  height: 3px;
-  background-color: var(--color-light-blue-one);
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-.nav-links a:hover {
-  color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.nav-links a.selezionata {
-  font-size: 22px;
-  background-color: var( --color-white);
-  color: var( --color-text);
-  padding: 8px 15px;
-  border-radius: var(--radius-10);
-  font-weight: bold;
-  transition: 0.3s ease-in-out;
-  box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
-}
-
-.nav-links a.selezionata:hover {
-  background-color: var(--color-light-blue-one);
-  transform: scale(1.05);
-}
-
-.profile-container {
-  position: relative;
-  display: inline-block;
-}
-
-#profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#profile-pic:hover {
-  transform: scale(1.1);
-}
-
-.dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 50px;
-  background: var(--color-white);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  display: none;
-  flex-direction: column;
-  width: 150px;
-  z-index: 100;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  color: var(--color-text);
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-  background: var(--color-white);
-}
-
-
-.faq-container {
-    max-width: 800px;
-    margin: 60px auto;
-    background-color: var(--box-color);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-h1 {
-    text-align: center;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-}
-
-h2 {
-    margin-top: 30px;
-    color: var(--heading-color);
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.faq {
-    border-bottom: 1px solid var(--color-black);
-    margin-top: 15px;
-    padding-bottom: 15px;
-}
-
-.question {
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 18px;
-    background: var(--secondary-color);
-    color: var(--color-black);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.question:hover {
-    background-color: var(--primary-hover);
-    color: white;
-}
-
-.answer {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 18px;
-    font-size: 16px;
-    color: var(--text-color);
-    background: var(--bg-color);
-    margin-top: 0px;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-}
-
-.answer.active {
-    max-height: 500px;
-    padding: 12px 18px;
-}
-
-.question::after {
-    content: "add";
-    font-family: 'Material Symbols Outlined';
-    font-size: 22px;
-    transition: transform 0.3s ease;
-}
-
-.question.open::after {
-    content: "remove";
-}
-
+/* Search Bar */
 #search {
-    width: 90%;
-    max-width: 600px;
-    padding: 14px 20px;
-    margin: 30px auto 20px auto;
-    display: block;
-    font-size: 16px;
-    border-radius: 10px;
-    outline: none;
-    background-color: white;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-}
-
-#search::placeholder {
-    color: var(--text-color);
-    font-style: italic;
+  width: 100%;
+  max-width: 600px;
+  padding: 0.8rem 1rem;
+  margin: 2rem auto;
+  display: block;
+  border: 1px solid var(--primary-blue);
+  border-radius: var(--faq-border-radius);
+  font-size: 1rem;
+  background-color: var(--light-card);
+  color: var(--light-text);
+  transition: border-color var(--transition-speed);
 }
 
 #search:focus {
-    border-color: var(--primary-color);
-    background-color: #fff;
-    box-shadow: 0 0 10px var(--primary-color);
+  outline: none;
+  border-color: var(--accent-orange);
+}
+
+/* Contenitore FAQ */
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--light-card);
+  padding: 2rem;
+  border-radius: var(--faq-border-radius);
+  box-shadow: var(--faq-shadow);
+}
+
+/* Titolo principale */
+.faq-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--primary-blue);
+}
+
+/* Sezioni FAQ */
+.faq-container section {
+  margin-bottom: 3rem;
+}
+
+.faq-container section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-orange);
+}
+
+/* Singola FAQ */
+.faq {
+  margin-bottom: var(--faq-spacing);
+  padding: 1rem;
+  border: 1px solid var(--primary-blue);
+  border-radius: var(--faq-border-radius);
+  background: var(--light-bg);
+  cursor: pointer;
+  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.faq:hover {
+  background-color: #e0e7ff; /* Un azzurrino chiaro */
+  border-color: var(--accent-orange);
+}
+
+.question {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--light-text);
+}
+
+.answer {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-top: 0.5rem;
+  color: var(--light-text);
+}
+
+/* Nascondere risposte */
+.answer {
+  display: none;
+}
+
+/* Bottone "Torna su" */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--faq-shadow);
+  transition: background-color var(--transition-speed);
+}
+
+#topBtn:hover {
+  background-color: var(--accent-orange);
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode #search {
+  background-color: var(--dark-card);
+  border: 1px solid var(--dark-accent);
+  color: var(--dark-text);
+}
+
+body.dark-mode .faq-container {
+  background: var(--dark-card);
+  box-shadow: none;
+}
+
+body.dark-mode .faq {
+  background-color: var(--dark-bg);
+  border: 1px solid var(--dark-accent);
+}
+
+body.dark-mode .faq:hover {
+  background-color: #1e40af; /* Blu un po' più acceso */
+  border-color: var(--accent-orange);
+}
+
+body.dark-mode .question,
+body.dark-mode .answer {
+  color: var(--dark-text);
+}
+
+body.dark-mode #topBtn {
+  background-color: var(--dark-accent);
+}
+
+body.dark-mode #topBtn:hover {
+  background-color: var(--accent-orange);
+}
+
+body.dark-mode .faq-container h1 {
+  color: var(--dark-accent);
+}
+
+body.dark-mode .faq-container section h2 {
+  color: var(--accent-orange);
 }

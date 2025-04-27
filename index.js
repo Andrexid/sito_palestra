@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // getUserPicProfile(localStorage.getItem("imagePic"));
         accountPic.src = localStorage.getItem("imagePic");
     } else {
-        accountPic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
+        accountPic.src = "../img/utente_without_bg.png";  // Immagine grigia se l'utente non è loggato
     }
 
     // Mostra/nasconde il menu al click sull'immagine profilo
@@ -61,3 +61,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+function applyTheme() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+    } else {
+      document.body.classList.remove('dark-mode');
+      document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+    }
+  }
+
+  function toggleTheme() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+    applyTheme();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Quando la pagina carica
+    if (!localStorage.getItem('theme')) {
+      // Se non c'è un tema salvato, imposta 'light' di default
+      localStorage.setItem('theme', 'light');
+    }
+    applyTheme();
+
+    // Event listener sul pulsante
+    document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+  });
