@@ -12,9 +12,12 @@ if ($user_id) {
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($result && $row = $result->fetch_assoc()) {
-            $nome_utente = htmlspecialchars($row['nome'] . ' ' . $row['cognome']);
-        }
+        if ($result) {
+            $row = $result->fetch_assoc();
+            if ($row) {
+                $nome_utente = htmlspecialchars($row['nome'] . ' ' . $row['cognome']);
+            }
+        }        
         $stmt->close();
     }
 }
@@ -27,12 +30,11 @@ if ($user_id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="account.css?v=1.2">
+    <link rel="stylesheet" href="account.css?v=1.6">
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/_variables.css">
+    <link rel="stylesheet" href="../commonCSS/commonCSS.css" />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
@@ -63,15 +65,11 @@ if ($user_id) {
     </nav>
 
     <div class="cover">
-        <div id="title">Benvenuto, <span id="nomeUtente"><?= $nome_utente ?></span></div>
+        <div id="title">Benvenuto <span id="nomeUtente"><?= $nome_utente ?></span></div>
     </div>
 
 
     <div class="training-bar">
-        <div class="training-bar-left">
-            <a href="new_training_card/new_training_card.html"><button class="principal_button">Aggiungi Scheda</button></a>
-            <a href="all_training_card/all_training_card.php"><button class="principal_button">Visualizza Schede</button></a>
-        </div>
         <div class="training-bar-center">
             <h2>Questa Settimana</h2>
             <?php
@@ -91,62 +89,106 @@ if ($user_id) {
 
                     echo "<p class='progress-text'>$done/$total <span class='percent-text'>($percent%)</span></p>";
                 } else {
-                    echo "Nessuna scheda trovata per questo utente.";
+                    echo "<p class='no-data'>Nessuna scheda trovata per questo utente.</p>";
                 }
                 $stm->close();
             } else {
-                echo "Errore nella preparazione della query: " . $conn->error;
+                echo "<p class='error-message'>Errore nella preparazione della query: " . $conn->error . "</p>";
             }
             ?>
-        </div>
-        <div class="training-bar-right">
-            <a href="start_training/start_training.php"><button class="principal_button">Inizia Allenamento</button></a>
+        </div><br><br>
+
+        <div class="training-bar-actions">
+            <div class="training-bar-left">
+                <a href="new_training_card/new_training_card.html"><button class="principal_button">➕ Aggiungi Scheda</button></a>
+                <a href="all_training_card/all_training_card.php"><button class="principal_button">📑 Visualizza Schede</button></a>
+            </div>
+            <div class="training-bar-right">
+                <a href="start_training/start_training.php"><button class="principal_button highlight">🔥 Inizia Allenamento!</button></a>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="container-main">
-            <div class="box large-box">
-                <div class="gamification-container-account">
-                    <p class="gamification-text-account">Sei al <strong>Livello 3</strong> 💪</p>
-                    <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
-                    <br><br>
-                    <label for="progressGoals">Punti per superare la tua attuale lega:</label><br>
-                    <progress id="progressGoals" max="100" value="70">170%</progress>
-
-                    <div id="badge-container" class="badge-container">
-                        <div class="container-img">
-                            <img src="" id="firstImg">
-                            <p id="subOne"></p>
-                        </div>
-                        <div class="container-img">
-                            <img src="" id="secondImg">
-                            <p id="subTwo"></p>
-                        </div>
-                        <div class="container-img">
-                            <img src="" id="thirdImg" class="locked">
-                            <p id="subThree"></p>
-                        </div>
-                        <!-- <img src = "../img/badge-0.jpg"> -->
-                    </div>
+    
+    <div class="profile-container-header">
+        <!-- NUOVA SEZIONE GAMIFICATION -->
+        <div class="gamification-container">
+            <h3>🏆 Obiettivi & Livelli</h3>
+            <p id = "gamification-text" class = "gamification-text">Sei al <strong>Livello 3</strong> 💪</p>
+            <p id = "nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+            <br><br>
+            <label for="progressGoals">Sei sempre più vicino al prossimo traguardo! 💪 Continua ad allenarti e supera i tuoi limiti!</label><br>
+            <progress id="progressGoals" max="100" value="70"></progress>
+            <p id = "ci">0%</p>
+            
+            <div id="badge-container" class="badge-container">
+                <div>
+                    <h3>🏅 Il tuo Badge Attuale:</h3>
+                    <img src="../img/badge-1.jpg" id="secondImg" alt="Il tuo badge attuale">
+                    <p id = "secondP"></p>
                 </div>
-            </div>
-            <div class="box large-box tall-box"> <br>
-                <?php require_once 'grafico_exp_settimanale.php' ?>
-            </div>
-            <div class="box">
-                <h2>Obiettivi</h2>
-                <a href="new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a>
-                <?php require_once 'grafico_obiettivi.php'; ?>
-            </div>
-            <div class="box">
-                <?php require_once 'grafico_allenamenti_mensili.php'; ?>
-            </div>
+                <div>
+                    <h3>🚀 Prossimo Obiettivo:</h3>
+                    <img src="../img/badge-2.jpg" id="thirdImg" class="locked" alt="Badge successivo">
+                    <p id = "thirdP"></p>
+                </div>
+            </div>            
         </div>
+        <!-- FINE SEZIONE GAMIFICATION -->
     </div>
+
+    
+    <div class="box large-box tall-box"> <br>
+        <?php require_once 'grafico_exp_settimanale.php' ?>
+    </div><br>
+    <div class="box">
+        <h2>Obiettivi</h2>
+        <a href="new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a>
+        <?php require_once 'grafico_obiettivi.php'; ?>
+    </div>
+    <div class="box">
+        <?php require_once 'grafico_allenamenti_mensili.php'; ?>
+    </div>
+
+    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
+
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              document.body.classList.add('dark-mode');
+              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+            }
+          }
+        
+          function toggleTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // Quando la pagina carica
+            if (!localStorage.getItem('theme')) {
+              // Se non c'è un tema salvato, imposta 'light' di default
+              localStorage.setItem('theme', 'light');
+            }
+            applyTheme();
+        
+            // Event listener sul pulsante
+            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+          });
+    </script>
 
     <script src="../commonJS/commonNavbar.js"></script>
-    <script src="account.js"></script>
+    <script src="account.js?v=1.1"></script>
 </body>
 
 </html>

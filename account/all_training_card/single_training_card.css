@@ -1,0 +1,179 @@
+/* Variabili colore */
+:root {
+    /* Light Mode Colors */
+    --primary-blue: #2563eb;       /* Blu intenso - fiducia */
+    --primary-red: #dc2626;        /* Rosso energico */
+    --accent-orange: #f97316;      /* Arancio - entusiasmo */
+    --success-green: #22c55e;      /* Verde - successo */
+    --light-bg: #f8fafc;           /* Sfondo chiaro */
+    --light-text: #1e293b;         /* Testo scuro */
+    --light-card: #ffffff;         /* Card bianche */
+  
+    /* Dark Mode Colors */
+    --dark-bg: #0f172a;            /* Sfondo blu scuro */
+    --dark-text: #e2e8f0;          /* Testo chiaro */
+    --dark-card: #1e293b;          /* Card blu medio */
+    --dark-accent: #3b82f6;        /* Blu elettrico */
+  }
+  
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  /* DARK MODE */
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  /* Titolo */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-blue);
+  }
+  
+  /* Tabella */
+  .table-single-card {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--light-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  body.dark-mode .table-single-card {
+    background-color: var(--dark-card);
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+  }
+  
+  .table-single-card th, .table-single-card td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  body.dark-mode .table-single-card th, 
+  body.dark-mode .table-single-card td {
+    border-bottom: 1px solid #334155;
+  }
+  
+  .table-single-card th {
+    background-color: var(--primary-blue);
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  body.dark-mode .table-single-card th {
+    background-color: var(--dark-accent);
+  }
+  
+  /* Input disabilitati */
+  .input-text-dis {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--light-text);
+  }
+  
+  .input-text-dis:disabled {
+    background-color: #e2e8f0;
+    color: var(--light-text);
+  }
+  
+  body.dark-mode .input-text-dis {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: var(--dark-text);
+  }
+  
+  body.dark-mode .input-text-dis:disabled {
+    background-color: #334155;
+  }
+  
+  /* Bottone principale (Submit) */
+  .principal_button-sm {
+    display: block;
+    width: 50%;
+    margin: 2rem auto 0;
+    padding: 0.75rem;
+    background-color: var(--accent-orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .principal_button-sm:disabled {
+    background-color: #facc15; /* Giallo chiaro per indicare disabilitato */
+    cursor: not-allowed;
+  }
+  
+  .principal_button-sm:hover:not(:disabled) {
+    background-color: #fb923c;
+    transform: scale(1.05);
+  }
+  
+  /* Bottone secondary ("Sblocca") */
+  .secondary-button {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .secondary-button:hover {
+    background-color: var(--primary-blue);
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
+  body.dark-mode .secondary-button {
+    color: var(--dark-accent);
+    border-color: var(--dark-accent);
+  }
+  
+  body.dark-mode .secondary-button:hover {
+    background-color: var(--dark-accent);
+    color: #fff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .table-single-card th, .table-single-card td {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+  
+    .principal_button-sm {
+      width: 80%;
+    }
+  }
+  

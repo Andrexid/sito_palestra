@@ -6,44 +6,58 @@ function vaiAiProgressi() {
     window.location.href = "progress.html"; // Cambia con il percorso corretto
 }
 
-document.getElementById("notifications").addEventListener("change", function() {
-    if (this.checked) {
-        alert("Notifiche attivate!");
+function testLogout() {
+    const conferma = confirm("⚠️ Stai per disconnetterti dal tuo account. Sei sicuro?");
+    
+    if (conferma) {
+        // Se l'utente conferma, fai il logout
+        alert("Logout effettuato!");
+        localStorage.removeItem("email");
+        window.location.href = "../login-signup/login.html";
     } else {
-        alert("Notifiche disattivate!");
+      // Se annulla, non succede nulla
     }
-});
+}
+  
 
 // Gestione dark mode
-const themeToggle = document.getElementById("theme");
-
-// Controlla lo stato della dark mode al caricamento della pagina
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("darkMode");
-    themeToggle.checked = true;
-}
-
-// Aggiungi un listener per cambiare lo stato della dark mode
-themeToggle.addEventListener("change", function() {
-    if (this.checked) {
-        document.body.classList.add("darkMode");
-        localStorage.setItem("darkMode", "enabled");
-        alert
+function applyTheme() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
     } else {
-        document.body.classList.remove("darkMode");
-        localStorage.setItem("darkMode", "disabled");
+      document.body.classList.remove('dark-mode');
     }
-});
-
-const toggle = document.getElementById('theme');
-
-toggle.addEventListener('change', () => {
-  const root = document.documentElement;
-  if (toggle.checked) {
-    root.classList.add('dark-mode');
-    root.classList.remove('light-mode');
-  } else {
-    root.classList.add('light-mode');
-    root.classList.remove('dark-mode');
   }
-});
+
+  function toggleTheme() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+    applyTheme();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Quando la pagina carica
+    if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'light');
+    }
+    applyTheme();
+  
+    // Event listener sul checkbox switch
+    const switchCheckbox = document.getElementById('switch');
+    switchCheckbox.addEventListener('change', function() {
+      toggleTheme();
+    });
+  
+    // Impostare lo stato iniziale del checkbox in base al tema salvato
+    if (localStorage.getItem('theme') === 'dark') {
+      switchCheckbox.checked = true;
+    } else {
+      switchCheckbox.checked = false;
+    }
+  });
+  

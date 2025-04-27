@@ -34,7 +34,6 @@ function controllaAccesso(destination) {
         ? `../${baseName}/${destination}`
         : `../login-signup/login.html`;
 
-    alert(redirectPath);
     window.location.href = redirectPath;
 }
 

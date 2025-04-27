@@ -19,7 +19,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php', false)" data-section="Progressi">Progressi</a></li>
+            <li><a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi">Progressi</a></li>
             <li><a href="../faq/faq.html"  data-section="FAQ">FAQ</a></li>
             <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
@@ -38,14 +38,16 @@
 
     <div class="settings">
         <h3>⚙️ Impostazioni</h3>
-
+    
         <!-- Sezione di navigazione -->
         <div class="navigation">
-            <button onclick="vaiAlProfilo()">👤 Torna al Profilo</button>
-            <button onclick="vaiAiProgressi()">📊 Visualizza Progressi</button>
+            <button onclick="controllaAccesso('profile.html')">👤 Torna al Mio Profilo</button>
+            <button onclick="controllaAccesso('account.php')">📊 Guarda i Tuoi Progressi</button>
         </div>
-
+    
         <!-- Tema Dark/Light -->
+        <br><h2>🎨 Personalizza il Tema:</h2>
+        <p>Scegli tra modalità Chiara o Scura e cambia stile al volo!</p><br>
         <input id="switch" type="checkbox">
         <div class="app">
             <div class="body">
@@ -66,58 +68,16 @@
                 </div>
             </div>
         </div>
-
-        <div class="data-export-section">
-            <p>📄 Esporta Dati:</p>
-            <button onclick="exportDataAsJSON()">📥 Esporta come JSON</button>
-            <button onclick="exportDataAsCSV()">📥 Esporta come CSV</button>
-        </div>
-
+    
         <!-- Sicurezza -->
         <div class="security-section">
-            <button onclick="cambiaPassword()">🔑 Cambia Password</button>
-            <button class="delete-account" onclick="eliminaAccount()">❌ Elimina Account</button>
+            <button onclick="window.location.href='../login-signup/reset_password_request.html'">🔒 Aggiorna la Tua Password</button>
+            <button class="delete-account" onclick="testLogout()">🚫 Disconnettiti dall'Account</button>
         </div>
     </div>
 
-    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-    <script>
-        function applyTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              document.body.classList.add('dark-mode');
-              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-            } else {
-              document.body.classList.remove('dark-mode');
-              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-            }
-          }
-        
-          function toggleTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              localStorage.setItem('theme', 'light');
-            } else {
-              localStorage.setItem('theme', 'dark');
-            }
-            applyTheme();
-          }
-        
-          document.addEventListener('DOMContentLoaded', function() {
-            // Quando la pagina carica
-            if (!localStorage.getItem('theme')) {
-              // Se non c'è un tema salvato, imposta 'light' di default
-              localStorage.setItem('theme', 'light');
-            }
-            applyTheme();
-        
-            // Event listener sul pulsante
-            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-          });
-    </script>
-
-    <script src = "settings.js"></script>
+    <script src = "settings.js?v=1.2"></script>
     <script src="../commonJS/commonNavbar.js"></script>
+    <script src = "../commonJS/commonScript.js"></script>
 </body>
 </html>

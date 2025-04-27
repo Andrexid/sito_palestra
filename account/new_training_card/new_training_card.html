@@ -5,15 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuova Scheda Allenamento</title>
-  <link rel="stylesheet" href="../css/new_training_card.css">
-  <link rel="stylesheet" href="../css/buttons.css">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/_variables.css">
-  <link rel="stylesheet" href="../css/commonNavbar.css">
-
+  <link rel="stylesheet" href="new_training_card.css">
 </head>
 
-<body onload="addExercises(), blurExercises()">
+<body onload="initializePage()">
   <div class="title-container">
     <h1>Crea la tua Scheda Allenamento in pochi click</h1>
   </div>
@@ -48,7 +43,7 @@
       </div>
 
       <!-- Esercizi -->
-      <div class="box">
+      <div class="box" id = "box">
         <h2>Inserisci Esercizi</h2>
 
         <label for="exercise-search">Cerca esercizio:</label>
@@ -79,7 +74,7 @@
     </div>
   </form>
 
-  <script src="insertNewTrainingCard.js?v=1.63"></script>
+  <script src="insertNewTrainingCard.js?v=1.64"></script>
 </body>
 
 </html>

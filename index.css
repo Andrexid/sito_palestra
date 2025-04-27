@@ -226,7 +226,7 @@ p strong {
 }
 
 .dark-mode .cta-section {
-  background: linear-gradient(135deg, var(--dark-card), #7f1d1d);
+  background: linear-gradient(135deg, var(--dark-card), #34a7ef);
 }
 
 .cta-section h2 {

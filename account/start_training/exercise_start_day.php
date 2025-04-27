@@ -40,10 +40,7 @@ $stmt->close();
 <head>
     <meta charset="UTF-8">
     <title>Allenamento Giorno <?php echo $day; ?></title>
-    <link rel="stylesheet" href="../../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../../commonCSS/_variables.css">
+    <link rel="stylesheet" href="exercise_start_day.css">
 </head>
 <body>
 
@@ -79,10 +76,10 @@ $stmt->close();
             </div>
         <?php endforeach; ?>
 
+        <div id="result" class="result-box" style="display: none;"></div>
+
         <button type="submit" class="finish-btn">✅ Finisci allenamento</button>
     </form>
-
-    <div id="result" class="result-box" style="display: none;"></div>
 <?php endif; ?>
 
 <script>
@@ -118,7 +115,6 @@ $stmt->close();
                 <strong>🎉 Allenamento salvato con successo!</strong><br><br>
                 Hai guadagnato <strong>${data.xp}</strong> XP<br>
                 Totale XP: <strong>${data.total_xp}</strong><br>
-                Badge ottenuto: <strong>${data.badge}</strong>
             `;
             document.getElementById("training-form").reset();
         })

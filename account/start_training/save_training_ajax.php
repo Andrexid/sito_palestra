@@ -100,7 +100,7 @@ $conn->close();
 
 echo json_encode([
     "success" => true,
-    "message" => "Allenamento salvato con successo. XP guadagnati: $total_xp",
+    "total_xp" => $nuovo_totale_xp,
     "xp" => $total_xp
 ]);
 exit();

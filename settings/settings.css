@@ -1,73 +1,128 @@
 :root {
   /* Light Mode Colors */
-  --primary-blue: #2563eb;       /* Blu intenso - fiducia */
-  --primary-red: #dc2626;        /* Rosso energico */
-  --accent-orange: #f97316;      /* Arancio - entusiasmo */
-  --light-bg: #f8fafc;           /* Sfondo chiaro */
-  --light-text: #1e293b;         /* Testo scuro */
-  --light-card: #ffffff;         /* Card bianche */  
-  --light-border: #cbd5e1;       /* Bordo delicato */
+  --primary-blue: #2563eb;
+  --primary-red: #dc2626;
+  --accent-orange: #f97316;
+  --light-bg: #f8fafc;
+  --light-text: #1e293b;
+  --light-card: #ffffff;
 
   /* Dark Mode Colors */
-  --dark-bg: #0f172a;            /* Sfondo blu scuro */
-  --dark-text: #e2e8f0;          /* Testo chiaro */
-  --dark-card: #1e293b;          /* Card blu medio */
-  --dark-accent: #3b82f6;        /* Blu elettrico */
-  --dark-border: #475569;        /* Bordo scuro */
+  --dark-bg: #0f172a;
+  --dark-text: #e2e8f0;
+  --dark-card: #1e293b;
+  --dark-accent: #3b82f6;
+
+  /* Extra Variables */
+  --border-radius: 10px;
+  --transition-speed: 0.3s;
 }
 
-/* GENERAL SETTINGS STYLES */
+/* Base */
 body {
-  font-family: "Arial", sans-serif;
   background-color: var(--light-bg);
   color: var(--light-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease-in-out;
 }
 
-h3 {
-  font-size: 1.8em;
+/* Container principale */
+.settings {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--light-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Titolo principale */
+.settings h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: bold;
   color: var(--primary-blue);
-  text-align: center;
 }
 
-.settings {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background: var(--light-card);
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.settings h2, .settings p {
+  color: var(--light-text);
 }
 
-/* BUTTONS */
-button {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 10px;
-  background: var(--primary-blue);
+/* Sezione di navigazione */
+.navigation {
+  display: flex;
+  gap: 1rem;
+  width: 50%;
+  margin: 2rem auto;
+}
+
+.navigation button {
+  background-color: var(--primary-blue);
   color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color var(--transition-speed);
 }
 
-button:hover {
-  background: var(--accent-orange);
+.navigation button:hover {
+  background-color: var(--accent-orange);
 }
 
-button.delete-account {
-  background: var(--primary-red);
+/* Sezione sicurezza */
+.security-section {
+  margin-top: 2rem;
 }
 
-button.delete-account:hover {
-  background: #b91c1c;
+.security-section button {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  margin-right: 1rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.security-section button:hover {
+  background-color: var(--accent-orange);
+}
+
+/* Bottone per eliminare account */
+.delete-account {
+  background-color: var(--primary-red);
+}
+
+.delete-account:hover {
+  background-color: #b91c1c; /* rosso più scuro al passaggio */
+}
+
+/* Bottone tema */
+.theme-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  z-index: 1000;
+}
+
+.theme-button:hover {
+  background-color: var(--accent-orange);
+  transform: scale(1.05);
 }
 
 /* DARK MODE */
@@ -76,45 +131,49 @@ body.dark-mode {
   color: var(--dark-text);
 }
 
-.settings.dark-mode {
+/* Dark mode per il contenitore delle impostazioni */
+body.dark-mode .settings {
   background-color: var(--dark-card);
-  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
 }
 
-h3.dark-mode {
+body.dark-mode .settings h2, body.dark-mode .settings p {
+  color: var(--dark-text);
+}
+
+/* Dark mode per il titolo */
+body.dark-mode .settings h3 {
   color: var(--dark-accent);
 }
 
-button.dark-mode {
-  background: var(--dark-accent);
+/* Dark mode: bottoni */
+body.dark-mode .navigation button,
+body.dark-mode .data-export-section button,
+body.dark-mode .security-section button,
+body.dark-mode .theme-button {
+  background-color: var(--dark-accent);
+  color: var(--dark-text);
 }
 
-button.dark-mode:hover {
-  background: var(--primary-blue);
+body.dark-mode .navigation button:hover,
+body.dark-mode .data-export-section button:hover,
+body.dark-mode .security-section button:hover,
+body.dark-mode .theme-button:hover {
+  background-color: var(--accent-orange);
+  color: white;
 }
 
-button.delete-account.dark-mode {
-  background: var(--primary-red);
+/* Dark mode: bottone elimina account */
+body.dark-mode .delete-account {
+  background-color: var(--primary-red);
 }
 
-button.delete-account.dark-mode:hover {
-  background: #b91c1c;
+body.dark-mode .delete-account:hover {
+  background-color: #b91c1c;
 }
 
-/* TOGGLE SWITCH */
-.theme__toggle {
-  width: 50px;
-  height: 25px;
-  appearance: none;
-  background: var(--light-border);
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
-}
 
-.theme__toggle:checked {
-  background: var(--dark-border);
-}
+
 
 
 /* CODICE PER LIGHT-DARK MODE */
@@ -253,6 +312,12 @@ label {
 
 .time {
   color: black;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* -------- Switch Styles ------------*/
 [type="checkbox"] {

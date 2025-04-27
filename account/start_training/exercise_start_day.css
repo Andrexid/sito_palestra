@@ -1,0 +1,196 @@
+:root {
+    /* Light Mode Colors */
+    --primary-blue: #2563eb;       /* Blu intenso - fiducia */
+    --primary-red: #dc2626;        /* Rosso energico */
+    --accent-orange: #f97316;      /* Arancio - entusiasmo */
+    --light-bg: #f8fafc;           /* Sfondo chiaro */
+    --light-text: #1e293b;         /* Testo scuro */
+    --light-card: #ffffff;         /* Card bianche */
+    --light-border: #cbd5e1;       /* Bordo chiaro */
+  
+    /* Dark Mode Colors */
+    --dark-bg: #0f172a;            /* Sfondo blu scuro */
+    --dark-text: #e2e8f0;          /* Testo chiaro */
+    --dark-card: #1e293b;          /* Card blu medio */
+    --dark-accent: #3b82f6;        /* Blu elettrico */
+    --dark-border: #334155;        /* Bordo scuro */
+  }
+  
+  /* Reset base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo pagina */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  /* Titolo principale */
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+  }
+  
+  /* Form allenamento */
+  #training-form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Card singola esercizio */
+  .exercise-card {
+    background-color: var(--light-card);
+    padding: 20px;
+    border: 2px solid var(--light-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  }
+  
+  /* Titolo esercizio */
+  .exercise-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--accent-orange);
+  }
+  
+  /* Label set/reps */
+  .set-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--primary-blue);
+  }
+  
+  /* Container set */
+  .set-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /* Input campi */
+  input[type="number"],
+  textarea {
+    padding: 8px 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: border-color 0.2s;
+  }
+  
+  input[type="number"]:focus,
+  textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+  }
+  
+  /* Textarea */
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+  
+  /* Bottone finale */
+  .finish-btn {
+    padding: 12px 20px;
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+  }
+  
+  .finish-btn:hover {
+    background-color: var(--accent-orange);
+  }
+  
+  /* Box risultato */
+  .result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--light-card);
+    border: 2px solid var(--accent-orange);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-red);
+    font-weight: bold;
+  }
+  
+  /* DARK MODE */
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  body.dark-mode h1 {
+    color: var(--dark-accent);
+  }
+  
+  body.dark-mode .exercise-card {
+    background-color: var(--dark-card);
+    border-color: var(--dark-border);
+  }
+  
+  body.dark-mode .exercise-title {
+    color: var(--dark-accent);
+  }
+  
+  body.dark-mode .set-label {
+    color: var(--dark-accent);
+  }
+  
+  body.dark-mode input[type="number"],
+  body.dark-mode textarea {
+    background-color: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    color: var(--dark-text);
+  }
+  
+  body.dark-mode input[type="number"]:focus,
+  body.dark-mode textarea:focus {
+    border-color: var(--dark-accent);
+  }
+  
+  body.dark-mode .finish-btn {
+    background-color: var(--dark-accent);
+    color: var(--dark-text);
+  }
+  
+  body.dark-mode .finish-btn:hover {
+    background-color: var(--primary-red);
+  }
+  
+  body.dark-mode .result-box {
+    background-color: var(--dark-card);
+    border-color: var(--dark-accent);
+    color: var(--dark-text);
+  }
+  

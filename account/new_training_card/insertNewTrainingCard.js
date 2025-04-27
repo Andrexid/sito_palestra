@@ -1,3 +1,9 @@
+async function initializePage() {
+    await addExercises(); // aspetta che gli esercizi siano caricati
+    blurExercises(); // poi applica il blur
+}
+
+
 const todayInput = document.querySelector('[name="duration_start"]');
 const tomorrowInput = document.querySelector('[name="duration_end"]');
 
@@ -50,17 +56,17 @@ function modifyDaysTraining(val){
 }
 
 function blurExercises() {
-        let div = document.getElementById("box");
-        let elements = div.querySelectorAll("*"); // Select all elements inside the div
+    let div = document.getElementById("box");
+    let elements = div.querySelectorAll("*"); // Select all elements inside the div
 
-        elements.forEach(el => {
-            if (el.tagName !== "P" && el.tagName !== "DIV" && el.tagName !== "SPAN") {
-                el.disabled = true; // Disable only interactive elements
-            }
-            el.style.pointerEvents = "none"; // Prevent clicks on everything
-            el.style.opacity = "0.5"; // Visual effect
-        });
-    }
+    elements.forEach(el => {
+        if (el.tagName !== "P" && el.tagName !== "DIV" && el.tagName !== "SPAN") {
+            el.disabled = true; // Disable only interactive elements
+        }
+        el.style.pointerEvents = "none"; // Prevent clicks on everything
+        el.style.opacity = "0.5"; // Visual effect
+    });
+}
 
 function enableExercises() {
     let div = document.getElementById("box");

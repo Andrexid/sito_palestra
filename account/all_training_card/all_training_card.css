@@ -1,16 +1,180 @@
-.all-training-cards {
-    border: 2px solid var(--color-text);
+/* Variabili Colori */
+:root {
+    /* Light Mode Colors */
+    --primary-blue: #2563eb;
+    --primary-red: #dc2626;
+    --accent-orange: #f97316;
+    --light-bg: #f8fafc;
+    --light-text: #1e293b;
+    --light-card: #ffffff;
+  
+    /* Dark Mode Colors */
+    --dark-bg: #0f172a;
+    --dark-text: #e2e8f0;
+    --dark-card: #1e293b;
+    --dark-accent: #3b82f6;
+  
+    /* Extra */
+    --border-radius: 12px;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+  }
+  
+  /* Reset di base */
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+  }
+  
+  /* DARK MODE */
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  /* Titolo principale */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0;
+    font-weight: bold;
+    color: var(--primary-blue);
+  }
+  
+  /* Container delle schede */
+  .all-training-cards {
     display: flex;
-    justify-content: center;
-    height: 300px;
     flex-wrap: wrap;
-    gap: 30px;
-}
-
-.training-card {
-    background-color: var(--color-light-blue-one);
-    border: 1px solid var(--error-color);
-    height: 100px;
-    padding: 20px;
-    border-radius: 14px;
-}
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* Singola scheda */
+  .training-card {
+    background-color: var(--light-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    width: 300px;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+  }
+  
+  body.dark-mode .training-card {
+    background-color: var(--dark-card);
+  }
+  
+  /* Hover effetto sulle card */
+  .training-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Titolo scheda */
+  .training-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-orange);
+  }
+  
+  /* Contenitore scadenza */
+  .expiration-cont {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Testo della data di scadenza */
+  .expiration {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: normal;
+    color: var(--light-text);
+  }
+  
+  body.dark-mode .expiration {
+    color: var(--dark-text);
+  }
+  
+  /* Pulsanti */
+  .input-button,
+  .secondary-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    margin: 0.4rem 0.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+  }
+  
+  /* Bottone principale (Elimina) */
+  .input-button {
+    background-color: var(--primary-red);
+    color: white;
+  }
+  
+  .input-button:hover {
+    background-color: #b91c1c; /* rosso più scuro */
+  }
+  
+  /* Bottone secondario (Modifica / Visualizza) */
+  .secondary-button {
+    background-color: var(--primary-blue);
+    color: white;
+  }
+  
+  .secondary-button:hover {
+    background-color: #1d4ed8; /* blu più scuro */
+  }
+  
+  /* Nessuna scheda trovata */
+  h1 + div {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .all-training-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .training-card {
+      width: 90%;
+    }
+  }
+  
+  /* Dark mode - colorazione elementi testuali */
+  body.dark-mode h1 {
+    color: var(--dark-accent);
+  }
+  
+  body.dark-mode .training-card h2 {
+    color: var(--accent-orange);
+  }
+  
+  body.dark-mode .expiration-cont {
+    color: var(--dark-text);
+  }
+  
+  body.dark-mode .input-button {
+    background-color: var(--primary-red);
+  }
+  
+  body.dark-mode .input-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  body.dark-mode .secondary-button {
+    background-color: var(--dark-accent);
+  }
+  
+  body.dark-mode .secondary-button:hover {
+    background-color: #2563eb;
+  }
+  

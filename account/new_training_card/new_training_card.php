@@ -92,71 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="new_training_card.css">
-
-    <link rel="stylesheet" href="../../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../../commonCSS/_variables.css">
-    <style>
-        #container-results {
-            display: flex;
-            flex-direction: column;
-            color: white;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        #container-results h1 {
-            margin-top: 40px;
-        }
-
-        .form-results {
-            font-size: 15pt;
-            display: flex;
-            justify-content: left;
-            align-items: left;
-            flex-direction: column;
-            margin: 20px;
-            padding: 20px;
-            background-color: #b5b1b1;
-            border-radius: 10px;
-            color: black;
-        }
-
-        .form-results label {
-            margin: 10px;
-        }
-
-        .form-results ul {
-            padding-left: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="new_training_card.css?v=1.1">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
     <div id="container-results">
         <h1>Visualizza e conferma</h1>
         <form action="./all_training_card.php" class="form-results">

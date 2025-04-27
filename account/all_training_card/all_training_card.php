@@ -20,41 +20,13 @@ $stm = $conn->prepare($select_training_cards);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Schede</title>
-    <link rel="stylesheet" href="all_training_card.css">
+    <link rel="stylesheet" href="all_training_card.css?v=1.1">
     
     <link rel="stylesheet" href="../../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../../commonCSS/_variables.css">
+    <link rel="stylesheet" href="../../commonCSS/commonCSS.css?v=1.2">
 </head>
 
 <body>
-
-<<<<<<< HEAD:php/all_training_card.php
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
-=======
->>>>>>> 5aa324d409b53c512ecf1d0da45a63ba91cbd702:account/all_training_card/all_training_card.php
     <?php
 
     if ($stm) {
@@ -78,8 +50,7 @@ $stm = $conn->prepare($select_training_cards);
                     </div>
                 </div> 
                 <br>
-                <a href='./delete_training_card.php?id_card=" . $row['id'] . "'><button onclick='eliminazione()' type='button' class='input-button'>Elimina Scheda</button></a>
-                <a><button class='secondary-button' type='button'>Modifica Scheda</button></a>
+                <a href='#' onclick='eliminazione(" . $row['id'] . ")'><button type='button' class='input-button'>Elimina Scheda</button></a>
                 <a href='./single_training_card.php?id=" . $row['id'] . "'><button class='secondary-button' type='button'>Visualizza scheda</button></a>
     
                 </div>";
@@ -98,6 +69,7 @@ $stm = $conn->prepare($select_training_cards);
         echo "Errore nella preparazione della query: " . $conn->error;
     }
     ?>
+    <button onClick= "window.location.href = '../account.php'" class = "btnBackToAccount">Torna indietro</button>
 
     <script>
         var expirationText = document.querySelectorAll('.expiration');
@@ -120,11 +92,31 @@ $stm = $conn->prepare($select_training_cards);
         });
 
 
-        function eliminazione() {
-            if (confirm("Vuoi davvero effettuare eliminare la Scheda?")) {
-                alert("Eliminazione effettuata!");
+        function eliminazione(cardId) {
+            if (confirm("Vuoi davvero eliminare questa scheda di allenamento?")) {
+                // Effettua una richiesta fetch per eliminare la scheda
+                fetch(`./delete_training_card.php?id_card=${cardId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Scheda eliminata con successo!");
+                        // Ricarica la pagina per aggiornare la lista
+                        // window.location.reload();
+                        // window.location.href=window.location.href
+                    } else {
+                        throw new Error('Errore nella cancellazione' . response);
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore:', error);
+                    alert("Si è verificato un errore durante l'eliminazione");
+                });
             } else {
-                alert("Operazione annullata, Scheda NON eliminata");
+                alert("Eliminazione annullata");
             }
         }
 

@@ -38,6 +38,10 @@ body {
   padding: 2rem;
 }
 
+.about-info p{
+  color: red;
+}
+
 /* Sezioni */
 .about-info,
 .team-section,
@@ -154,6 +158,12 @@ body.dark-mode .about-info h1,
 body.dark-mode .team-section h2,
 body.dark-mode .project-details h2 {
   color: var(--dark-accent);
+}
+
+body.dark-mode .about-info p,
+body.dark-mode .team-section p,
+body.dark-mode .project-details p {
+  color: var(--dark-text);
 }
 
 body.dark-mode .member {
