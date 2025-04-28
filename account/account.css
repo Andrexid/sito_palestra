@@ -227,6 +227,11 @@ a:hover {
 .double-box {
   display: flex;
   justify-content: center;
+  flex-direction: row;
+}
+
+.bedge-img {
+  width: 200px;
 }
 
 /* TESTO E TITOLI */
@@ -454,3 +459,34 @@ body.dark-mode .container-img img {
 #title strong {
   font-weight: var(--font-bold);
 }
+
+@media (max-width: 768px) {
+  .double-box {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .box, 
+  .box-100 {
+    width: 90%;
+  }
+  .container-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gamification-container {
+    width: 100%;
+  }
+
+  .badge-container {
+    flex-direction: column;
+  }
+
+  .training-bar-actions button {
+    margin: 10px;
+  }
+}
+
+

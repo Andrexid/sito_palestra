@@ -34,7 +34,6 @@ if ($user_id) {
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/commonCSS.css" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
 </head>
@@ -139,12 +138,12 @@ if ($user_id) {
                     <div id="badge-container" class="badge-container">
                         <div>
                             <h3>🏅 Il tuo Badge Attuale:</h3>
-                            <img src="../img/badge-1.jpg" id="secondImg" alt="Il tuo badge attuale">
+                            <img src="../img/badge-1.jpg" id="secondImg" alt="Il tuo badge attuale" class="bedge-img">
                             <p id="secondP"></p>
                         </div>
                         <div>
                             <h3>🚀 Prossimo Obiettivo:</h3>
-                            <img src="../img/badge-2.jpg" id="thirdImg" class="locked" alt="Badge successivo">
+                            <img src="../img/badge-2.jpg" id="thirdImg" class="locked bedge-img" alt="Badge successivo">
                             <p id="thirdP"></p>
                         </div>
                     </div>
@@ -154,11 +153,12 @@ if ($user_id) {
         </div>
     </div>
 
-
-
-    <div class="box">
-        <?php require_once 'grafico_exp_settimanale.php' ?>
+    <div class="container-box">
+        <div class="box">
+            <?php require_once 'grafico_exp_settimanale.php' ?>
+        </div>
     </div>
+    
     <div class="double-box">
         <div class="box-100">
             <h2>Obiettivi</h2>
