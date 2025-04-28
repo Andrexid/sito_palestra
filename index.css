@@ -222,14 +222,6 @@ p strong {
 .cta-section {
   text-align: center;
   padding: 5rem 2rem;
-<<<<<<< HEAD
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
-}
-
-.dark-mode .cta-section {
-  background: linear-gradient(135deg, var(--dark-card), #34a7ef);
-=======
->>>>>>> 5acfdbf4675a89da5ff9ae83cd1c1ecc997c7d92
 }
 
 .cta-section h2 {
@@ -291,4 +283,18 @@ p strong {
   background: linear-gradient(0deg, rgba(5, 9, 213, 0.8) 0%, rgba(31, 88, 209, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
   background-size: cover; /*allarga l'immagine su tutto lo sfondo*/
 
+}
+
+
+@media (max-width: 768px) {
+  
+.hero h1 {
+  font-size: 2.30rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  max-width: 700px;
+}
 }

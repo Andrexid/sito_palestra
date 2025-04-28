@@ -41,27 +41,38 @@ if ($user_id) {
 
 <body onload="getUserDataProfile()">
     <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+            ☰
+        </button>
+
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+            <a href="../index.html">
+                <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
+            </a>
         </div>
+
+        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi" class="selezionata">Progressi</a></li>
+            <li>
+                <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi" class="selezionata">Progressi</a>
+            </li>
             <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
             <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-            <li class="profile-container" data-section="Profile">
-                <a href="#">
-                    <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
         </ul>
+
+        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+        <div class="profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </div>
     </nav>
 
     <div class="cover">
@@ -196,6 +207,7 @@ if ($user_id) {
         });
     </script>
 
+    <script src="../commonJS/navbar.js"></script>
     <script src="../commonJS/commonNavbar.js"></script>
     <script src="account.js?v=1.1"></script>
 </body>

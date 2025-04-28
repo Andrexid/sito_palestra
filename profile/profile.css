@@ -241,12 +241,35 @@ body.dark-mode .workout-history {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
 }
 
+body.dark-mode .gamification-container,
+.gamification-container {
+  margin-top: 20px;
+}
+
+.gamification-container {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--light-card);
+}
+
+
 body.dark-mode .stats span, body.dark-mode .stats p{
   color: var(--dark-text);
 }
 
+.badge-container {
+  background: var(--background-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
 body.dark-mode .badge-container {
   background: var(--background-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body.dark-mode .badge-container img {

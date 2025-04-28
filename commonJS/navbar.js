@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Chiudi il menu quando si clicca su un link interno
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    document.querySelectorAll(".nav-links li").forEach(link => {
         link.addEventListener("click", () => {
             menu.classList.remove("show");
             document.body.classList.remove("menu-open");
