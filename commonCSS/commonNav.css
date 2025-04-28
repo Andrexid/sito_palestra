@@ -1,0 +1,204 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* -------- Nav -------- */
+nav {
+    width: 100%;
+    position: relative;
+    background: #2d3e50;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuisce spazio tra logo e menu */
+    white-space: nowrap;
+}
+
+nav .logo {
+    display: flex; /* Allinea immagine e testo orizzontalmente */
+    align-items: center; /* Centra verticalmente immagine e testo */
+    font-weight: bold;
+    margin-left: 1%;
+}
+
+nav .logo a {
+    display: flex; /* Necessario anche sull'elemento <a> */
+    align-items: center; /* Centra immagine e testo verticalmente */
+    text-decoration: none; /* Rimuove la sottolineatura del link */
+}
+
+nav .logo img {
+    height: 70px; /* Altezza dell'immagine */
+    width: auto; /* Mantiene proporzioni corrette */
+    margin-right: 10px; /* Spazio tra immagine e testo */
+}
+
+nav .logo p {
+    font-size: 1.2rem; /* Dimensione del testo */
+    color: rgba(255, 255, 255, 0.8); /* Colore del testo */
+    margin: 0; /* Rimuove il margine che causa il problema */
+    line-height: 1; /* Allinea correttamente il testo */
+    white-space: nowrap; /* Impedisce il ritorno a capo */
+}
+
+nav .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3%; /* Spazio tra i pulsanti */
+    white-space: nowrap; /* Evita il capo automatico */
+    justify-content: flex-end; /* Allinea i pulsanti a destra */
+}
+
+.menu.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu li {
+    text-align: center;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav .menu li a.selezionata {
+    background-color: #272727; /* Colore caldo per la selezione */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* Bottone hamburger */
+.hamburger-menu {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    display: none; /* Nascosto su schermi grandi */
+}
+/* -------- Fine Nav -------- */
+
+@media (max-width: 768px) {
+    /* Navbar */
+    nav {
+        padding: 15px 10px; /* Spaziatura più bilanciata */
+        flex-wrap: wrap;
+        position: relative;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+        max-height: 100px;
+    }
+
+    /* Bottone hamburger */
+    .hamburger-menu {
+        display: block;
+        font-size: 1.8rem;
+        position: absolute;
+        right: 15px; /* Leggermente più centrato */
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: black;
+        cursor: pointer;
+        z-index: 20;
+        transition: color 0.3s ease;
+    }
+
+    .hamburger-menu:hover {
+        color: #686868; /* Leggera animazione colore */
+    }
+
+    nav .logo p {
+        font-size: 0.9rem;
+        color: rgb(66, 66, 66);
+        font-weight: bold;
+    }
+
+    nav .logo img {
+        width: 80px;
+        height: auto;
+    }
+
+    /* Menu laterale */
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(239, 239, 239); /* Colore più soft */
+        position: fixed;
+        top: 0;
+        right: -50%; /* Spostato più fuori schermo */
+        width: 40%; /* Larghezza leggermente maggiore */
+        height: 60%; /* Un po’ più grande */
+        padding-top: 20px;
+        transition: right 0.4s ease-in-out; /* Transizione più fluida */
+        z-index: 1500;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* Effetto ombra laterale */
+        border-radius: 10px 0 0 10px; /* Arrotondamento bordo sinistro */
+    }
+
+    /* Mostra il menu quando è attivo */
+    .menu.show {
+        display: flex;
+        right: 5px; /* Leggermente staccato dal bordo destro */
+        top:85px
+    }
+
+    .menu.showProjects{
+        display: flex;
+        right: 60px; /* Leggermente staccato dal bordo destro */
+        height: 25vh;
+    }
+
+    /* Stile per i link del menu */
+    .menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 15px;
+        width: 80%; /* Lascia un po' di spazio ai lati */
+        font-size: 0.95rem;
+        color: black;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+        border-radius: 8px; /* Leggera arrotondatura */
+        margin: 0 auto;
+    }
+
+    nav .menu li a.selezionata {
+        background-color: #686868;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 12px;
+        color: white; /* Testo più leggibile */
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .menu li a:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: #333;
+    }
+}

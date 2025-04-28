@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Palestra Tracker - Potenzia i tuoi progressi!</title>
     <link rel="stylesheet" href="index.css" />
-    
+
     <link rel="stylesheet" href="commonCSS/commonNavbar.css" />
     <link rel="stylesheet" href="commonCSS/buttons.css" />
     <link rel="stylesheet" href="commonCSS/reset.css" />
@@ -13,50 +13,62 @@
 
   <body onload="getUserPicProfile()">
     <nav class="navbar" aria-label="Menu di navigazione principale">
-      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+        ☰
+      </button>
+      
       <div class="logo">
-          <img src="img/logo.png" alt="Logo Palestra">
-      </div>
-      <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi">Progressi</a></li>
-          <li><a href="faq/faq.html"  data-section="FAQ">FAQ</a></li>
-          <li><a href="chiSiamo/chisiamo.html">Chi siamo</a></li>
-          <li><a href="contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-          <li class = "profile-container" data-section="Profile">
-              <a href="#">
-                  <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo">
-              </a>
-              <div class="dropdown-menu" id="profile-menu">
-                  <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                  <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                  <a href="#" onclick="logout()">🚪 Logout</a>
-              </div>
-          </li>
-      </ul>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
-      <p>
-        Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-        Palestra Tracker hai tutto sotto controllo: progressi,
-        allenamenti e nuove sfide da superare!
-      </p>
-      <div class="hero-buttons">
-        <a
-          href="#"
-          class="principal_button"
-          onclick="controllaAccesso('php/account.php')"
-        >Inizia Ora</a>
-        <a href="#features">
-          <button class="secondary-button-fit">Scopri di più</button>
+        <a href="./index.html">
+          <img src="img/logo.png" alt="Logo Palestra" />
         </a>
       </div>
-    </div>
-  </section>
-  
+    
+      <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi">Progressi</a>
+        </li>
+        <li><a href="faq/faq.html" data-section="FAQ">FAQ</a></li>
+        <li><a href="chiSiamo/chisiamo.html">Chi siamo</a></li>
+        <li><a href="contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+      </ul>
+    
+      <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+      <div class="profile-container" data-section="Profile">
+        <a href="#">
+          <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo" />
+        </a>
+        <div class="dropdown-menu" id="profile-menu">
+          <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+          <a href="#" onclick="logout()">🚪 Logout</a>
+        </div>
+      </div>
+    </nav>
+    
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
+        <p>
+          Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
+          Palestra Tracker hai tutto sotto controllo: progressi, allenamenti e
+          nuove sfide da superare!
+        </p>
+        <div class="hero-buttons">
+          <a
+            href="#"
+            class="principal_button"
+            onclick="controllaAccesso('php/account.php')"
+            >Inizia Ora</a
+          >
+          <a href="#features">
+            <button class="secondary-button-fit">Scopri di più</button>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section class="features" id="features">
       <div class="feature-card">
@@ -132,15 +144,16 @@
         giorno! Non perdere altro tempo.
       </p>
       <a
-          href="#"
-          class="principal_button"
-          onclick="controllaAccesso('php/account.php')"
-        >Inizia Ora</a>
+        href="#"
+        class="principal_button"
+        onclick="controllaAccesso('php/account.php')"
+        >Inizia Ora</a
+      >
     </section>
 
     <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
 
-
     <script src="index.js?v=1.66"></script>
+    <script src="./commonJS/navbar.js"></script>
   </body>
 </html>
