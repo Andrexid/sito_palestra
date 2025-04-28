@@ -78,7 +78,8 @@ $stmt->close();
 
         <div id="result" class="result-box" style="display: none;"></div>
 
-        <button type="submit" class="finish-btn">✅ Finisci allenamento</button>
+        <button type="submit" class="finish-btn" onclick="redirectAfterDelay()">✅ Finisci allenamento</button>
+        <p id="redirectText"></p>
     </form>
 <?php endif; ?>
 
@@ -120,6 +121,18 @@ $stmt->close();
         })
         .catch(err => alert("Errore nel salvataggio: " + err));
     });
+
+    function redirectAfterDelay() {
+    // (Opzionale) Mostra un messaggio mentre aspetti
+    document.getElementById('redirectText').style.display = 'block';
+    document.getElementById('redirectText').style.color = 'black';
+    document.getElementById('redirectText').innerText = 'Verrai reindirizzato tra pochi secondi...';
+
+    // Aspetta 5 secondi e poi cambia pagina
+    setTimeout(function() {
+        window.location.href = '../account.php'; // Cambia "nome-pagina.php" con la destinazione
+    }, 2000);
+}
 </script>
 
 </body>

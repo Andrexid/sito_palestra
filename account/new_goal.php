@@ -9,10 +9,16 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuovo obiettivo</title>
-    <link rel="stylesheet" href="../css/commonNavbar.css">
+    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../css/new_goal.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../commonCSS/reset.css">
+    <link rel="stylesheet" href="../commonCSS/buttons.css">
+
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
 
 </head>
 
@@ -52,7 +58,7 @@ session_start();
     <main>
         <h1>Inserisci un nuovo obiettivo</h1>
         <h3>“Scegli ciò che desideri raggiungere, così possiamo personalizzare la tua esperienza.”</h3>
-        <form action="../php/set_goal.php" method="POST">
+        <form action="./set_goal.php" method="POST">
             <div class="ext-container">
                 <div class="container">
                     <h2 class="grassetto">Obiettivi generali</h2>

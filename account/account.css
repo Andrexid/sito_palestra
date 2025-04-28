@@ -66,14 +66,14 @@ a:hover {
 }
 
 .navbar .nav-links a.selezionata {
-  color: var(--primary-red);
+  color: var(--box-color);
 }
 
 /* ===== COVER ===== */
 .cover {
   background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
   color: var(--light-card);
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
   font-size: 2rem;
   font-weight: var(--font-bold);
@@ -86,11 +86,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--light-card);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  height: 100%;
 }
 
 .training-bar-center h2 {
@@ -124,9 +122,17 @@ a:hover {
 
 .training-bar-actions {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   margin-top: 15px;
+}
+
+.training-bar-left {
+  display: flex;
+  flex-direction: column;
+}
+.training-bar-actions button {
+  margin: 30px;
 }
 
 .principal_button {
@@ -183,16 +189,26 @@ a:hover {
 }
 
 /* Box */
-.box {
-  background-color: var(--box-color);
-  border-radius: 10px;
+.box, .box-100 {
+  background-color: var(--heading-color);
   padding: 20px;
   color: var(--text-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
+  margin: 10px;
+  border-radius: 20px;
+}
+.box-100 {
+  width: 100%;
+}
+.box-70 {
+  width: 70%;
+}
+.box-30 {
+  width: 30%;
 }
 
-.box:hover {
+.box:hover, .box-100:hover {
   transform: scale(1.03);
 }
 
@@ -209,7 +225,8 @@ a:hover {
 }
 
 .double-box {
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
 }
 
 /* TESTO E TITOLI */
