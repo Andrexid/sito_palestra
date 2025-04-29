@@ -116,6 +116,7 @@ $stmt->close();
                 <strong>🎉 Allenamento salvato con successo!</strong><br><br>
                 Hai guadagnato <strong>${data.xp}</strong> XP<br>
                 Totale XP: <strong>${data.total_xp}</strong><br>
+                Verrai reindirizzato tra pochi secondi <br>
             `;
             document.getElementById("training-form").reset();
         })
@@ -124,14 +125,10 @@ $stmt->close();
 
     function redirectAfterDelay() {
     // (Opzionale) Mostra un messaggio mentre aspetti
-    document.getElementById('redirectText').style.display = 'block';
-    document.getElementById('redirectText').style.color = 'black';
-    document.getElementById('redirectText').innerText = 'Verrai reindirizzato tra pochi secondi...';
-
     // Aspetta 5 secondi e poi cambia pagina
     setTimeout(function() {
         window.location.href = '../account.php'; // Cambia "nome-pagina.php" con la destinazione
-    }, 2000);
+    }, 5000);
 }
 </script>
 

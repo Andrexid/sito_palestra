@@ -1,0 +1,142 @@
+:root {
+    /* Light Mode Colors */
+    --primary-blue: #2563eb;
+    --primary-red: #dc2626;
+    --accent-orange: #f97316;
+    --light-bg: #f8fafc;
+    --light-text: #1e293b;
+    --light-card: #ffffff;
+  
+    /* Dark Mode Colors */
+    --dark-bg: #0f172a;
+    --dark-text: #e2e8f0;
+    --dark-card: #1e293b;
+    --dark-accent: #3b82f6;
+  
+    /* Shared */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+    --transition-fast: 0.3s ease;
+  }
+  
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+  
+  /* DARK MODE */
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  /* HEADINGS */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-orange);
+  }
+  
+  h2.grassetto {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+  }
+  
+  /* CONTAINER STYLES */
+  .ext-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .container {
+    background-color: var(--light-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 500px;
+    transition: background-color var(--transition-fast);
+  }
+  
+  body.dark-mode .container {
+    background-color: var(--dark-card);
+  }
+  
+  /* LABELS */
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  label input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+    accent-color: var(--primary-blue);
+  }
+  
+  /* BUTTON */
+  .principal_button {
+    display: block;
+    margin: 0 auto;
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+  
+  .principal_button:hover {
+    background-color: var(--accent-orange);
+  }
+  
+  /* Dark mode checkbox accent + button */
+  body.dark-mode label input[type="checkbox"] {
+    accent-color: var(--dark-accent);
+  }
+  
+  body.dark-mode .principal_button {
+    background-color: var(--dark-accent);
+  }
+  
+  body.dark-mode .principal_button:hover {
+    background-color: var(--accent-orange);
+  }
+  
+  /* MEDIA QUERIES */
+  @media (max-width: 768px) {
+    .ext-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

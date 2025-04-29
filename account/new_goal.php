@@ -10,9 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuovo obiettivo</title>
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../css/new_goal.css">
-    <link rel="stylesheet" href="../commonCSS/reset.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css">
+    <link rel="stylesheet" href="new_goal.css">
 
     <style>
         body {
@@ -23,28 +21,6 @@ session_start();
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
     <?php
     require '../database/connessione.php';
 
@@ -135,7 +111,42 @@ session_start();
         </form>
     </main>
 
+    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
 
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              document.body.classList.add('dark-mode');
+              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+            }
+          }
+        
+          function toggleTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // Quando la pagina carica
+            if (!localStorage.getItem('theme')) {
+              // Se non c'è un tema salvato, imposta 'light' di default
+              localStorage.setItem('theme', 'light');
+            }
+            applyTheme();
+        
+            // Event listener sul pulsante
+            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+          });
+    </script>
 </body>
 
 </html>

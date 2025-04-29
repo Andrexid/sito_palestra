@@ -10,37 +10,11 @@ require '../database/connessione.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleziona Obiettivi</title>
-    <link rel="stylesheet" href="../css/set_goal.css">
-    <link rel="stylesheet" href="../css/commonNavbar.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="set_goal.css">
 
 </head>
 
 <body>
-
-    <nav class="navbar">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')" class="selezionata">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ((isset($_POST['obiettivi']) && !empty($_POST['obiettivi'])) || (isset($_POST['exercise_goals']) && !empty($_POST['exercise_goals']))) {
