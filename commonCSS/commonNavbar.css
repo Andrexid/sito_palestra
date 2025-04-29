@@ -12,11 +12,20 @@
   align-items: center;
   padding: 15px 30px;
   background-color: var(--secondary-color);
+  box-shadow: 0 2px 6px var(--light-shadow);
+}
+
+.navbar .nav-links a.selezionata {
+  color: var(--box-color);
+}
+
+body.dark-mode .navbar {
+  background-color: var(--dark-card);
+  box-shadow: 0 2px 6px var(--dark-shadow);
 }
 
 .logo img {
   height: 50px;
-  
 }
 
 .nav-links {
@@ -36,6 +45,12 @@
   border-radius: 6px;
   transition: all 0.3s ease-in-out;
   position: relative;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+body.dark-mode .nav-links a {
+  color: white;
 }
 
 .nav-links a::after {

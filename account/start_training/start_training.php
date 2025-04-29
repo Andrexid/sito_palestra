@@ -39,58 +39,54 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <title>Allenamento Giornaliero</title>
-<<<<<<< HEAD:php/start_training.php
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/buttons.css">
-    <link rel="stylesheet" href="../css/commonNavbar.css">
-    <link rel="stylesheet" href="../css/_variables.css">
-=======
     <link rel="stylesheet" href="../../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../../commonCSS/reset.css" />
     <link rel="stylesheet" href="../../commonCSS/_variables.css">
-    
->>>>>>> 5aa324d409b53c512ecf1d0da45a63ba91cbd702:account/start_training/start_training.php
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-        }
+
         .day-container {
             margin-bottom: 2rem;
             padding: 1rem;
             border: 2px solid var(--primary-color);
             border-radius: 10px;
         }
+
         .day-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
+
         ul.exercise-list {
             list-style: none;
             padding-left: 0;
         }
+
         ul.exercise-list li {
             padding: 0.5rem 0;
             border-bottom: 1px solid #ccc;
         }
 
         .day-card {
-            background-color:rgb(41, 41, 41);
+            background-color: rgb(41, 41, 41);
             padding: 1.5rem;
             border: 2px solid var(--primary-color);
             border-radius: 15px;
             width: 300px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
+
         .day-card:hover {
             transform: scale(1.03);
         }
+
         .btn-primary {
             background-color: var(--primary-color);
             color: white;
@@ -101,33 +97,47 @@ $conn->close();
             cursor: pointer;
             margin-top: 1rem;
         }
+
         .btn-primary:hover {
             background-color: #005bb5;
         }
-
     </style>
 </head>
+
 <body>
-<nav class="navbar">
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+            ☰
+        </button>
+
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+            <a href="../index.html">
+                <img src="../../img/logo.png" alt="Logo Palestra" class="logo-img" />
+            </a>
         </div>
+
+        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
         <ul class="nav-links">
-            <li><a href="../index.html" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+                <a href="#" onclick="controllaAccesso('../account.php')" data-section="Progressi" class="selezionata">Progressi</a>
             </li>
+            <li><a href="../../faq/faq.html" data-section="FAQ">FAQ</a></li>
+            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
         </ul>
+
+        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+        <div class="profile-container" data-section="Profile">
+            <a href="#">
+                <img id="profile-pic" src="../../img/utente_without_bg.png" alt="Profilo" />
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="#" onclick="controllaAccesso('../../profile/profile.html')">👤 Profilo</a>
+                <a href="#" onclick="controllaAccesso('../../settings/settings.html')">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </div>
     </nav>
     <h1>Allenamento suddiviso per giorno</h1>
 
@@ -152,5 +162,10 @@ $conn->close();
         </div>
     <?php endif; ?>
 
+    
+    <script src="../../commonJS/navbar.js"></script>
+    <script src="../../commonJS/commonNavbar.js"></script>
+
 </body>
+
 </html>

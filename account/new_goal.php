@@ -12,12 +12,6 @@ session_start();
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="new_goal.css">
 
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
-
 </head>
 
 <body>

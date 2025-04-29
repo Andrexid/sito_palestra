@@ -40,11 +40,17 @@
 body {
   background-color: var(--light-bg);
   color: var(--light-text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--primary-blue);
   font-weight: var(--font-bold);
 }
@@ -59,19 +65,13 @@ a:hover {
   color: var(--accent-orange);
 }
 
-/* ===== NAVBAR (già fatto nel common, ma aggiustiamo piccole cose) ===== */
-.navbar {
-  background-color: var(--light-card);
-  box-shadow: 0 2px 6px var(--light-shadow);
-}
-
-.navbar .nav-links a.selezionata {
-  color: var(--box-color);
-}
-
 /* ===== COVER ===== */
 .cover {
-  background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--accent-orange)
+  );
   color: var(--light-card);
   padding: 40px 20px;
   text-align: center;
@@ -169,7 +169,8 @@ a:hover {
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: var(--font-bold);
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
 }
 
 .principal_button:hover {
@@ -189,7 +190,8 @@ a:hover {
 }
 
 /* Box */
-.box, .box-100 {
+.box,
+.box-100 {
   background-color: var(--heading-color);
   padding: 20px;
   color: var(--text-color);
@@ -201,6 +203,11 @@ a:hover {
 .box-100 {
   width: 100%;
 }
+
+.box-100 h2 {
+  margin-bottom: 10px;
+}
+
 .box-70 {
   width: 70%;
 }
@@ -208,7 +215,8 @@ a:hover {
   width: 30%;
 }
 
-.box:hover, .box-100:hover {
+.box:hover,
+.box-100:hover {
   transform: scale(1.03);
 }
 
@@ -334,7 +342,8 @@ a:hover {
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 8px var(--light-shadow);
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
 }
 
 .theme-button:hover {
@@ -368,11 +377,6 @@ progress::-moz-progress-bar {
 body.dark-mode {
   background-color: var(--dark-bg);
   color: var(--dark-text);
-}
-
-body.dark-mode .navbar {
-  background-color: var(--dark-card);
-  box-shadow: 0 2px 6px var(--dark-shadow);
 }
 
 body.dark-mode .cover {
@@ -466,10 +470,11 @@ body.dark-mode .container-img img {
     align-items: center;
     justify-content: center;
   }
-  .box, 
+  .box,
   .box-100 {
     width: 90%;
   }
+
   .container-box {
     display: flex;
     justify-content: center;
@@ -488,5 +493,3 @@ body.dark-mode .container-img img {
     margin: 10px;
   }
 }
-
-
