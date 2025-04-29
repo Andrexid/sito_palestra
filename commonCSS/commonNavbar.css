@@ -15,6 +15,16 @@
   box-shadow: 0 2px 6px var(--light-shadow);
 }
 
+#profile-menu {
+  background-color: var(--box-color);
+  color: var(--text-color);
+}
+
+body.dark-mode #profile-menu {
+  background-color: var(--info-color);
+  color: var(--bg-color);
+}
+
 .navbar .nav-links a.selezionata {
   color: var(--box-color);
 }
@@ -78,7 +88,7 @@ body.dark-mode .nav-links a {
 .nav-links a.selezionata {
   font-size: 20px;
   background-color: var(--info-color);
-  color: var( --box-color);
+  color: var(--box-color);
   padding: 8px 15px;
   border-radius: 10px;
   font-weight: bold;
@@ -134,7 +144,6 @@ body.dark-mode .nav-links a {
   background: var(--color-white);
 }
 
-
 /* Bottone hamburger */
 .hamburger-menu {
   font-size: 1.5rem;
@@ -145,8 +154,6 @@ body.dark-mode .nav-links a {
   display: none; /* Nascosto su schermi grandi */
 }
 /* -------- Fine Nav -------- */
-
-
 
 @media (max-width: 768px) {
   .navbar {
@@ -162,41 +169,45 @@ body.dark-mode .nav-links a {
     align-items: center;
     margin-right: 30px;
   }
-  
+
   .profile-container img {
     width: 40px;
     height: 40px;
   }
-  
+
   /* Navbar */
   nav {
-      padding: 15px 10px; /* Spaziatura più bilanciata */
-      flex-wrap: wrap;
-      position: relative;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
-      max-height: 100px;
-      display: flex;
-      align-items: center;
+    padding: 15px 10px; /* Spaziatura più bilanciata */
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    max-height: 100px;
+    display: flex;
+    align-items: center;
   }
 
   /* Bottone hamburger */
   .hamburger-menu {
-      display: block;
-      font-size: 1.8rem;
-      position: absolute;
-      right: 15px; /* Leggermente più centrato */
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      color: black;
-      cursor: pointer;
-      z-index: 20;
-      transition: color 0.3s ease;
+    display: block;
+    font-size: 1.8rem;
+    position: absolute;
+    right: 15px; /* Leggermente più centrato */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    z-index: 20;
+    transition: color 0.3s ease;
+  }
+
+  body.dark-mode .hamburger-menu {
+    color: var(--box-color);
   }
 
   .hamburger-menu:hover {
-      color: #686868; /* Leggera animazione colore */
+    color: #686868; /* Leggera animazione colore */
   }
 
   nav li {
@@ -204,84 +215,89 @@ body.dark-mode .nav-links a {
   }
 
   nav p {
-      font-size: 0.9rem;
-      color: rgb(66, 66, 66);
-      font-weight: bold;
+    font-size: 0.9rem;
+    color: rgb(66, 66, 66);
+    font-weight: bold;
   }
 
-
-  nav .logo-img{
-      width: 70px;
-      height: auto;
+  nav .logo-img {
+    width: 70px;
+    height: auto;
   }
 
   /* Menu laterale */
   nav .nav-links {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(239, 239, 239); /* Colore più soft */
-      position: fixed;
-      top: 0;
-      right: -50%; /* Spostato più fuori schermo */
-      width: 40%; /* Larghezza leggermente maggiore */
-      height: 60%; /* Un po’ più grande */
-      padding-top: 20px;
-      transition: right 0.4s ease-in-out; /* Transizione più fluida */
-      z-index: 1500;
-      box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* Effetto ombra laterale */
-      border-radius: 10px 0 0 10px; /* Arrotondamento bordo sinistro */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(239, 239, 239); /* Colore più soft */
+    position: fixed;
+    top: 0;
+    right: -50%; /* Spostato più fuori schermo */
+    width: 40%; /* Larghezza leggermente maggiore */
+    height: 60%; /* Un po’ più grande */
+    padding-top: 20px;
+    transition: right 0.4s ease-in-out; /* Transizione più fluida */
+    z-index: 1500;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2); /* Effetto ombra laterale */
+    border-radius: 10px 0 0 10px; /* Arrotondamento bordo sinistro */
   }
 
   /* Mostra il menu quando è attivo */
   .nav-links.show {
-      display: flex;
-      flex-direction: column;
-      right: 5px; /* Leggermente staccato dal bordo destro */
-      top:15px;
-      color: black;
+    display: flex;
+    flex-direction: column;
+    right: 5px; /* Leggermente staccato dal bordo destro */
+    top: 75px;
+    background-color: var(--box-color);
   }
-  .nav-links.show li {
-    display: block;
-   margin: 10px 0;
-  }
-  .nav-links.show li a {
-    padding: 10px 0;
+  body.dark-mode .nav-links.show {
+    background-color: var(--bg-color);
   }
 
-  .nav-links.showProjects{
-      display: flex;
-      right: 60px; /* Leggermente staccato dal bordo destro */
-      height: 25vh;
+  .nav-links.show li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .nav-links.show li a {
+    padding: 10px 0;
+    color: black;
+  }
+
+  .nav-links.showProjects {
+    display: flex;
+    right: 60px; /* Leggermente staccato dal bordo destro */
+    height: 25vh;
   }
 
   /* Stile per i link del menu */
   .nav-links li {
-      width: 100%;
-      text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   .nav-links li a {
-      display: block;
-      padding: 15px;
-      width: 80%; /* Lascia un po' di spazio ai lati */
-      font-size: 0.95rem;
-      color: black;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-      border-radius: 8px; /* Leggera arrotondatura */
-      margin: 0 auto;
+    display: block;
+    padding: 15px;
+    width: 80%; /* Lascia un po' di spazio ai lati */
+    font-size: 0.95rem;
+    color: black;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 8px; /* Leggera arrotondatura */
+    margin: 0 auto;
   }
 
   nav .nav-links li a.selezionata {
-      background-color: var(--info-color);
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 12px;
-      color: white; /* Testo più leggibile */
-      width: 80%;
-      margin: 0 auto;
+    background-color: var(--info-color);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    color: white; /* Testo più leggibile */
+    width: 80%;
+    margin: 0 auto;
   }
 
   nav .nav-links li a.selezionata:hover {
@@ -289,7 +305,7 @@ body.dark-mode .nav-links a {
   }
 
   .nav-links li a:hover {
-      background: rgba(0, 0, 0, 0.1);
-      color: #333;
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
   }
 }
