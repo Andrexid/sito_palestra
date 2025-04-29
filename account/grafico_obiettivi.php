@@ -130,12 +130,12 @@
           startAngle: 0,
           endAngle: 360,
           hollow: {
-            size: '60%',
+            size: '50%',
             background: 'transparent'
           },
           track: {
             background: '#f2f2f2',
-            strokeWidth: '80%', // Aumentato lo spessore delle linee
+            strokeWidth: '70%', // Aumentato lo spessore delle linee
             margin: 3
           },
           dataLabels: {
