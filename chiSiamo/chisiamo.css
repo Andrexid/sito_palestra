@@ -111,7 +111,7 @@ body {
 }
 
 .member h3 {
-  color: var(--primary-red);
+  color: var(--accent-orange);
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
 }

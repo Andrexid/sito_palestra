@@ -7,6 +7,7 @@
   --light-bg: #f8fafc;           /* Sfondo chiaro */
   --light-text: #1e293b;         /* Testo scuro */
   --light-card: #ffffff;         /* Card bianche */  
+  --info-color: #3498DB;
 
   /* Dark Mode Colors */
   --dark-bg: #0f172a;            /* Sfondo blu scuro */
@@ -82,10 +83,10 @@ p strong {
 }
 
 /* ===== BUTTONS ===== */
-.principal_button {
-  background-color: var(--primary-red);
-  color: white;
-  border: none;
+a .principal_button {
+  color: black;
+  background-color: var(--primary-blue);
+  border: 1px solid white;
   padding: 14px 28px;
   border-radius: 10px;
   font-weight: 600;
@@ -93,14 +94,11 @@ p strong {
   cursor: pointer;
 }
 
-.principal_button:hover {
-  transform: translateY(-3px);
-}
 
 .secondary-button-fit {
   background-color: transparent;
-  color: white;
-  border: 2px solid white;
+  color: var(--info-color);
+  border: 2px solid var(--info-color);
   padding: 12px 24px;
   border-radius: 10px;
   font-weight: 500;
@@ -266,7 +264,7 @@ p strong {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, rgba(61, 94, 160, 0.8) 0%, rgba(16, 144, 172, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(181, 181, 181, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
    /*cbg-gradiant snippet*/
   background-size: cover; /*allarga l'immagine su tutto lo sfondo*/
 }
@@ -278,7 +276,7 @@ p strong {
 }
 
 .dark-mode .cover {
-  background: linear-gradient(0deg, rgba(5, 9, 213, 0.8) 0%, rgba(31, 88, 209, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
+  background: linear-gradient(0deg, rgba(206, 206, 206, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
   background-size: cover; /*allarga l'immagine su tutto lo sfondo*/
 
 }

@@ -5,11 +5,13 @@
 .principal_button-100w,
 .principal_button-sm,
 .principal_button-form {
+  text-decoration: none;
   display: inline-block;
-  padding: 12px 25px;
+  padding: 10px 20px;
   font-weight: bold;
-  color: var(--color-white);
-  background: var(--color-orange-one);
+  color: var(--bg-color);
+  background: var(--warning-color);
+
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   border: none;
@@ -39,8 +41,7 @@
 .principal_button-100w:hover,
 .principal_button-sm:hover,
 .principal_button-form:hover {
-  background: var(--color-orange-two);
-  transform: scale(1.1);
+  background: var(--info-color);
 }
 
 /* Bottone secondario */
@@ -58,4 +59,16 @@
 
 .secondary-button-100w {
   padding: 10px 70px;
+}
+
+.principal_button.highlight {
+  background-color: var(--primary-red);
+}
+
+.principal_button.highlight:hover {
+  background-color: var(--success-color);
+}
+
+body.dark-mode .principal_button.highlight:hover {
+  background-color: var(--info-color);
 }

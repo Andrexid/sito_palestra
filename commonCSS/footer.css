@@ -1,0 +1,68 @@
+.site-footer {
+    background-color: #0a2540; /* blu scuro */
+    color: #ffffff;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+  }
+
+  .footer-section {
+    flex: 1 1 300px;
+    min-width: 250px;
+  }
+
+  .footer-title {
+    color: #ff7f00; /* arancione energico */
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .footer-subtitle {
+    color: #ffaa33;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #ff7f00;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+  }

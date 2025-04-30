@@ -125,57 +125,13 @@ a:hover {
   flex-direction: column;
   width: 100%;
   margin-top: 15px;
+  gap: 20px;
 }
 
 .training-bar-left {
   display: flex;
   flex-direction: column;
-}
-.training-bar-actions button {
-  margin: 30px;
-}
-
-.principal_button {
-  background-color: var(--primary-blue);
-  color: var(--light-card);
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-}
-
-.principal_button:hover {
-  background-color: var(--accent-orange);
-}
-
-.principal_button.highlight {
-  background-color: var(--primary-red);
-}
-
-.principal_button.highlight:hover {
-  background-color: var(--accent-orange);
-}
-
-/* ===== BUTTONS ===== */
-.principal_button {
-  background-color: var(--primary-blue);
-  color: var(--light-card);
-  border: none;
-  padding: 12px 20px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: var(--font-bold);
-  transition: background-color var(--transition-speed),
-    transform var(--transition-speed);
-}
-
-.principal_button:hover {
-  background-color: var(--accent-orange);
-  transform: scale(1.05);
+  gap: 20px;
 }
 
 /* ===== CONTAINER ===== */
@@ -250,28 +206,6 @@ a:hover {
   margin-bottom: 15px;
 }
 
-/* PULSANTI */
-.principal_button {
-  background-color: var(--primary-blue);
-  color: var(--light-card);
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-}
-
-.principal_button:hover {
-  background-color: var(--accent-orange);
-}
-
-.principal_button:active {
-  transform: scale(0.95);
-}
-
 .ai-coming-soon {
   margin-top: 2rem;
   padding: 2rem;
@@ -323,13 +257,6 @@ a:hover {
   color: var(--dark-accent);
 }
 
-.principal_button.dark-mode {
-  background-color: var(--dark-accent);
-}
-
-.principal_button.dark-mode:hover {
-  background-color: var(--primary-blue);
-}
 
 /* ===== GAMIFICATION ===== */
 .gamification-container-account {
@@ -447,35 +374,6 @@ body.dark-mode .cover {
 
 .error-message.dark-mode {
   color: var(--dark-accent);
-}
-
-.principal_button.dark-mode {
-  background-color: var(--dark-accent);
-}
-
-.principal_button.dark-mode:hover {
-  background-color: var(--primary-blue);
-}
-
-.principal_button.highlight.dark-mode {
-  background-color: var(--primary-red);
-}
-
-.principal_button.highlight.dark-mode:hover {
-  background-color: var(--dark-accent);
-}
-
-body.dark-mode .principal_button {
-  background-color: var(--dark-accent);
-  color: var(--dark-text);
-}
-
-body.dark-mode .principal_button.highlight {
-  background-color: var(--primary-red);
-}
-
-body.dark-mode .principal_button.highlight:hover {
-  background-color: var(--accent-orange);
 }
 
 body.dark-mode .theme-button {

@@ -42,6 +42,7 @@ if ($user_id) {
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css" />
+    <link rel="stylesheet" href="../commonCSS/buttons.css" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
     <script src="../login-signup/sessionCheck.js"></script>
