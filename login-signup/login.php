@@ -36,7 +36,7 @@ try {
             setcookie("user_id", $row['id'], time() + (86400 * 300000), "/"); // Salva nei cookie per 300000 giorni (82 anni)
 
             $response["success"] = true;
-            $response["message"] = "Login effettuato con successo.";
+            $response["user_id"] = $row['id'];
         } else {
             throw new Exception("Password non corretta.");
         }

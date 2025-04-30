@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.success) {
                 console.log("Login riuscito! Reindirizzamento in corso...");
                 localStorage.setItem("email", emailInput.value);
+                localStorage.setItem('user_id', data.user_id || '');
 
                 // Aspetta 2 secondi prima del redirect
                 setTimeout(() => {
@@ -39,15 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function addErrorMessage(field, message) {
+        const existing = document.querySelector(".error-message");
+        if (existing) existing.remove();
+    
         let errorParagraph = document.createElement("p");
         errorParagraph.className = "error-message";
         errorParagraph.style.color = "red";
         errorParagraph.textContent = message;
-
+    
         let whereAddError;
         switch (field) {
             case "server": whereAddError = form; break;
         }
         whereAddError.appendChild(errorParagraph);
     }
+    
 });

@@ -2,7 +2,13 @@
 session_start();
 require_once '../database/connessione.php';
 
-$user_id = $_SESSION['id'] ?? null;
+if (!isset($_SESSION['id'])) {
+    header("Location: ../login-signup/login.html");
+    exit();
+}
+
+$user_id = $_SESSION['id'];
+
 $nome_utente = "";
 
 if ($user_id) {
@@ -36,6 +42,7 @@ if ($user_id) {
     <link rel="stylesheet" href="../commonCSS/reset.css" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+    <script src="../login-signup/sessionCheck.js"></script>
 </head>
 
 <body onload="getUserDataProfile()">
@@ -209,7 +216,7 @@ if ($user_id) {
 
     <script src="../commonJS/navbar.js"></script>
     <script src="../commonJS/commonNavbar.js"></script>
-    <script src="account.js?v=1.1"></script>
+    <script src="account.js"></script>
 </body>
 
 </html>
