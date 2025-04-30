@@ -1,5 +1,11 @@
 @import url("./_variables.css");
 
+/* Assicura che gli elementi non superino la larghezza dello schermo */
+* {
+    box-sizing: border-box;
+}
+
+
 /* ----- Navbar ----- */
 .nav-links a,
 .nav-links a.selezionata:hover {
@@ -13,6 +19,7 @@
   padding: 15px 30px;
   background-color: var(--secondary-color);
   box-shadow: 0 2px 6px var(--light-shadow);
+  
 }
 
 #profile-menu {

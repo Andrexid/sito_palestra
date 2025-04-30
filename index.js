@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // getUserPicProfile(localStorage.getItem("imagePic"));
         accountPic.src = localStorage.getItem("imagePic");
     } else {
-        accountPic.src = "../img/utente_without_bg.png";  // Immagine grigia se l'utente non è loggato
+        accountPic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
     }
 
     // Mostra/nasconde il menu al click sull'immagine profilo
@@ -86,7 +86,7 @@ function applyTheme() {
     // Quando la pagina carica
     if (!localStorage.getItem('theme')) {
       // Se non c'è un tema salvato, imposta 'light' di default
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem('theme', 'dark');
     }
     applyTheme();
 

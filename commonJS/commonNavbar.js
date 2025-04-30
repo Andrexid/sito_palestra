@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         // Nessun utente loggato: immagine di default
         accountPic.src = "../img/utente.png";
-        // Se vuoi disabilitare il menu o fare redirect:
-        profileBtn.style.pointerEvents = "none";
-        profileBtn.title = "Accedi per usare il profilo";
-        profileMenu.style.display = "none";
     }
 
     // Mostra/nasconde il menu al click sull'immagine profilo

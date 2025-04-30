@@ -208,11 +208,12 @@ a:hover {
 
 .ai-coming-soon {
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 16px;
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 90vw;
 }
 
 .dark-mode .ai-coming-soon {
@@ -220,19 +221,11 @@ a:hover {
   color: #fff;
 }
 
-.ai-coming-soon p:first-of-type {
-  color: var(--light-text);
-}
-
 .coming-soon-text {
   font-size: 1.1rem;
   font-style: italic;
   color: #555;
   margin-top: 0.5rem;
-}
-
-.dark-mode .ai-coming-soon p:first-of-type {
-  color: var(--dark-text);
 }
 
 .dark-mode .coming-soon-text {
@@ -245,6 +238,7 @@ a:hover {
   border-radius: 12px;
   opacity: 0.9;
 }
+
 
 
 /* DARK MODE */

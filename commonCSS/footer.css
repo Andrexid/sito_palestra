@@ -1,68 +1,160 @@
-.site-footer {
-    background-color: #0a2540; /* blu scuro */
-    color: #ffffff;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-  }
+:root {
+  /* Light Mode Colors */
+  --primary-blue: #2563eb;
+  --primary-red: #dc2626;
+  --accent-orange: #f97316;
+  --light-bg: #f8fafc;
+  --light-text: #1e293b;
+  --light-card: #ffffff;
+  --light-muted: #64748b;
 
+  /* Dark Mode Colors */
+  --dark-bg: #0f172a;
+  --dark-text: #e2e8f0;
+  --dark-card: #1e293b;
+  --dark-accent: #3b82f6;
+  --dark-muted: #94a3b8;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* === FOOTER === */
+.site-footer {
+  background-color: var(--light-card);
+  padding: 40px 20px;
+  border-top: 4px solid var(--accent-orange);
+  margin-top: 60px;
+}
+
+body.dark-mode .site-footer {
+  background-color: var(--dark-card);
+  border-top: 4px solid var(--dark-accent);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-red);
+  margin-bottom: 10px;
+}
+
+body.dark-mode .footer-title {
+  color: var(--dark-accent);
+}
+
+.footer-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+}
+
+body.dark-mode .footer-subtitle {
+  color: var(--dark-accent);
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--light-text);
+}
+
+.footer-text a{
+  color: var(--light-text);
+}
+
+body.dark-mode .footer-text {
+  color: var(--dark-muted);
+}
+
+body.dark-mode .footer-text a{
+  color: var(--dark-muted);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: var(--accent-orange);
+}
+
+body.dark-mode .footer-links a {
+  color: var(--dark-accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 13px;
+  color: var(--light-muted);
+}
+
+body.dark-mode .footer-bottom {
+  border-top: 1px solid #334155;
+  color: var(--dark-muted);
+}
+
+/* Motivational Phrase */
+.footer-bottom::before {
+  content: "Non smettere finché non sei fiero di te. 💪";
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+body.dark-mode .footer-bottom::before {
+  color: var(--dark-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-    gap: 40px;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 90vw;
   }
 
   .footer-section {
-    flex: 1 1 300px;
-    min-width: 250px;
+    flex: 1 1 100%;
   }
-
-  .footer-title {
-    color: #ff7f00; /* arancione energico */
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-
-  .footer-subtitle {
-    color: #ffaa33;
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-
-  .footer-text {
-    font-size: 14px;
-    color: #cccccc;
-    line-height: 1.6;
-  }
-
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover {
-    color: #ff7f00;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    font-size: 13px;
-    color: #aaaaaa;
-    margin-top: 40px;
-    border-top: 1px solid #333;
-    padding-top: 15px;
-  }
+}

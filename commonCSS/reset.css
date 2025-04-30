@@ -1,5 +1,10 @@
 @import url('./_variables.css');
 
+/* Assicura che gli elementi non superino la larghezza dello schermo */
+* {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,4 +19,9 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+.dark-mode body {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }

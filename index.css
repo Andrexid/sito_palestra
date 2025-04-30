@@ -16,27 +16,6 @@
   --dark-accent: #3b82f6;        /* Blu elettrico */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* ===== BASE STYLES ===== */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.7;
-  color: var(--light-text);
-  background-color: var(--light-bg);
-  transition: all 0.3s ease;
-  font-size: 16px;
-}
-
-.dark-mode body {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
-}
-
 h1, h2, h3 {
   line-height: 1.3;
 }
@@ -281,16 +260,90 @@ a .principal_button {
 
 }
 
-
+/* ===== MOBILE OPTIMIZATION ===== */
 @media (max-width: 768px) {
-  
-.hero h1 {
-  font-size: 2.30rem;
-  margin-bottom: 1rem;
-}
+  html, body {
+    overflow-x: hidden;
+  }
 
-.hero p {
-  font-size: 1rem;
-  max-width: 700px;
-}
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .feature-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .feature-card p {
+    font-size: 1rem;
+  }
+
+  .project-details p,
+  .about-info p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .faq {
+    padding: 3rem 1rem;
+  }
+
+  .faq h2 {
+    font-size: 2rem;
+  }
+
+  .faq-item {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+  }
+
+  .theme-toggle {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+  }
+
+  .cover__text {
+    padding: 15% 5%;
+    font-size: 1rem;
+  }
+
+  .principal_button,
+  .secondary-button-fit {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .hero,
+  .cover {
+    padding: 1.5rem;
+    text-align: center;
+    background-attachment: scroll;
+  }
 }
