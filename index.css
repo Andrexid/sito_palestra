@@ -94,9 +94,7 @@ p strong {
 }
 
 .principal_button:hover {
-  background-color: #b91c1c;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(220, 38, 38, 0.3);
 }
 
 .secondary-button-fit {
