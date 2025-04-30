@@ -21,7 +21,9 @@ if ($user_id) {
         if ($result) {
             $row = $result->fetch_assoc();
             if ($row) {
-                $nome_utente = htmlspecialchars($row['nome'] . ' ' . $row['cognome']);
+                $nome = $row['nome'] ?? '';
+                $cognome = $row['cognome'] ?? '';
+                $nome_utente = htmlspecialchars(trim($nome . ' ' . $cognome));
             }
         }
         $stmt->close();
@@ -82,9 +84,17 @@ if ($user_id) {
     </nav>
 
     <div class="cover">
-        <div id="title">Benvenuto <span id="nomeUtente"><?= $nome_utente ?></span></div>
+        <div id="title">Benvenuto <span id="nomeUtente"><?php echo $nome_utente ?></span></div>
     </div>
 
+    <div class="box-100 ai-coming-soon">
+        <h2>🤖 Intelligenza Artificiale in Arrivo</h2>
+        <p>Presto potrai allenarti con un assistente intelligente al tuo fianco! L'AI analizzerà i tuoi dati, ti darà consigli su misura e ti aiuterà a superare i tuoi limiti 🚀</p>
+
+        <p class="coming-soon-text">✨ Stiamo lavorando sodo per offrirti il massimo. Resta connesso, il meglio deve ancora arrivare!</p>
+
+        <img src="../img/ai_illustration.jpg" alt="AI in lavorazione" class="ai-img">
+    </div>
 
     <div class="double-box">
         <div class="box box-30">
@@ -169,13 +179,23 @@ if ($user_id) {
     <div class="double-box">
         <div class="box-100">
             <h2>Obiettivi</h2>
-            <a href="new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a>
+            <!-- <a href="new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a> -->
+            <button class="principal_button" onClick = "alert('Ancora in lavorazione!!')">Inserisci un nuovo obiettivo</button>
             <?php require_once 'grafico_obiettivi.php'; ?>
         </div>
         <div class="box-100">
             <?php require_once 'grafico_allenamenti_mensili.php'; ?>
         </div>
     </div>
+
+    <!-- <div class="box-100 ai-coming-soon">
+        <h2>🤖 Intelligenza Artificiale in Arrivo</h2>
+        <p>Presto potrai allenarti con un assistente intelligente al tuo fianco! L'AI analizzerà i tuoi dati, ti darà consigli su misura e ti aiuterà a superare i tuoi limiti 🚀</p>
+
+        <p class="coming-soon-text">✨ Stiamo lavorando sodo per offrirti il massimo. Resta connesso, il meglio deve ancora arrivare!</p>
+
+        <img src="../img/ai_illustration.jpg" alt="AI in lavorazione" class="ai-img">
+    </div> -->
 
     <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
 

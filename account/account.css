@@ -272,6 +272,47 @@ a:hover {
   transform: scale(0.95);
 }
 
+.ai-coming-soon {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .ai-coming-soon {
+  background: linear-gradient(135deg, #263238, #37474f);
+  color: #fff;
+}
+
+.ai-coming-soon p:first-of-type {
+  color: var(--light-text);
+}
+
+.coming-soon-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.dark-mode .ai-coming-soon p:first-of-type {
+  color: var(--dark-text);
+}
+
+.dark-mode .coming-soon-text {
+  color: #ccc;
+}
+
+.ai-img {
+  max-width: 300px;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  opacity: 0.9;
+}
+
+
 /* DARK MODE */
 .box.dark-mode {
   background-color: var(--dark-card);

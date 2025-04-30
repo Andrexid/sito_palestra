@@ -45,6 +45,33 @@
       color: #fff;
       /* Cambiato da #666 a bianco */
     }
+
+    /* CODICE PER L'OVERLAY DEI LAVORI IN CORSO */
+    .chart-wrapper {
+      position: relative;
+      opacity: 0.4; /* grigio trasparente per dare l'idea di "disattivato" */
+      pointer-events: none; /* disattiva interazione col grafico */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(30, 30, 30, 0.7); /* grigio scuro trasparente */
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 10px;
+      backdrop-filter: blur(2px);
+    }
+
   </style>
 
 </head>
@@ -92,6 +119,10 @@
   require '../database/close-connessione.php';
   ?>
 
+  <div id="chart-wrapper" class="chart-wrapper">
+  <div class="overlay">
+    <p>🚧 Ancora in lavorazione 🚧</p>
+  </div>
   <div id="chart-container">
     <div id="center-info" style="display: none;">
       <h3 id="goal-name"></h3>
@@ -99,6 +130,9 @@
     </div>
     <div id="goals"></div>
   </div>
+</div>
+
+  
 
   <script>
     const labels = <?php echo json_encode($labels); ?>;
