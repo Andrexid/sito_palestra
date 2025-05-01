@@ -85,7 +85,7 @@ function applyTheme() {
   document.addEventListener('DOMContentLoaded', function() {
     // Quando la pagina carica
     if (!localStorage.getItem('theme')) {
-      // Se non c'è un tema salvato, imposta 'light' di default
+      // Se non c'è un tema salvato, imposta 'dark' di default
       localStorage.setItem('theme', 'dark');
     }
     applyTheme();

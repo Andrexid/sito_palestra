@@ -1,34 +1,44 @@
 let accountPic;
 
-document.addEventListener("DOMContentLoaded", function () {
-    accountPic = document.getElementById("profile-pic");
-
+document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector(".nav-links");
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
+    const hamburger = document.querySelector(".hamburger-menu");
 
-    const userId = localStorage.getItem("user_id");
-    const userImage = localStorage.getItem("imagePic");
+    // Toggle menu quando si clicca sull'hamburger
+    hamburger.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita che il click si propaghi e chiuda subito il menu
+        menu.classList.toggle("show");
+        document.body.classList.toggle("menu-open");
+    });
 
-    if (userId) {
-        // Utente loggato, mostra la sua immagine se esiste
-        getUserPicProfile(userImage || "../img/utente.png");
-    } else {
-        // Nessun utente loggato: immagine di default
-        accountPic.src = "../img/utente.png";
-    }
+    // Chiudi il menu quando si clicca su un link interno
+    document.querySelectorAll(".nav-links li").forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("show");
+            document.body.classList.remove("menu-open");
+        });
+    });
+
+    // Chiudi il menu se si clicca fuori
+    window.addEventListener("click", (event) => {
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            menu.classList.remove("show");
+            document.body.classList.remove("menu-open");
+        }
+    });
+
+    // Chiudi il menu quando l'utente scrolla la pagina
+    window.addEventListener("scroll", () => {
+        menu.classList.remove("show");
+        document.body.classList.remove("menu-open");
+    });
 
     // Mostra/nasconde il menu al click sull'immagine profilo
     profileBtn.addEventListener("click", function (event) {
         event.stopPropagation();
         profileMenu.style.display = (profileMenu.style.display === "flex") ? "none" : "flex";
-    });
-
-    document.addEventListener("click", function () {
-        profileMenu.style.display = "none";
-    });
-
-    profileMenu.addEventListener("click", function (event) {
-        event.stopPropagation();
     });
 });
 

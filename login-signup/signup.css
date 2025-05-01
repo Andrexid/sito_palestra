@@ -240,4 +240,89 @@ body {
   body.dark-mode .principal_button-100w:hover {
     background-color: var(--primary-blue);
   }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
   
+    .container {
+      padding: 1rem 0;
+    }
+  
+    .container-form {
+      padding: 1.5rem 1.5rem;
+      border-radius: 0.75rem;
+      width: 100%;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.5s ease-in;
+    }
+  
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+  
+    .input-group label {
+      font-size: 0.95rem;
+    }
+  
+    .input {
+      padding: 0.65rem;
+      font-size: 0.95rem;
+    }
+  
+    .double-input {
+      flex-direction: column;
+      gap: 0;
+    }
+  
+    .radio-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .container-buttons {
+      gap: 0.75rem;
+    }
+  
+    .principal_button-100w {
+      font-size: 1rem;
+      padding: 0.75rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+  
+    .secondary-button-100w {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.7rem;
+      border-radius: 0.6rem;
+    }
+  
+    #confirmMessage {
+      font-size: 0.85rem;
+    }
+  
+    p {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+  
+    .link {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        transform: translateY(15px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }

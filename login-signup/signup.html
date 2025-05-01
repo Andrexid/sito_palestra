@@ -14,28 +14,39 @@
 
 <body>
     <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+          ☰
+        </button>
+        
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo Palestra">
+          <a href="../index.html">
+            <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
+          </a>
         </div>
+      
+        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
         <ul class="nav-links">
-            <li><a href="../index.html" class="selezionata">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('progressi.html')">Progressi</a></li>
-            <li><a href="../html/faq.html">FAQ</a></li>
-            <li><a href="html/chisiamo.html">Chi siamo</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
-            <li class="profile-container">
-                <a href="#">
-                    <img id="profile-pic" src="" alt="Profilo">
-                </a>
-                <div class="dropdown-menu" id="profile-menu">
-                    <a href="#" onclick="controllaAccesso('profilo.html')">👤 Profilo</a>
-                    <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                    <a href="#" onclick="logout()">🚪 Logout</a>
-                </div>
-            </li>
+          <li><a href="../index.html">Home</a></li>
+          <li>
+            <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
+          </li>
+          <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
+          <li><a href="../chiSiamo/chisiamo.html" data-section="Chi Siamo">Chi siamo</a></li>
+          <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
         </ul>
-    </nav>
+      
+        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+        <div class="profile-container" data-section="Profile">
+          <a href="#">
+            <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
+          </a>
+          <div class="dropdown-menu" id="profile-menu">
+            <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+            <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+            <a href="#" onclick="logout()">🚪 Logout</a>
+          </div>
+        </div>
+      </nav>
 
     <div class="container">
         <div class="container-form">
@@ -110,45 +121,9 @@
         </div>
     </div>
 
-    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-    <script>
-        function applyTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              document.body.classList.add('dark-mode');
-              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-            } else {
-              document.body.classList.remove('dark-mode');
-              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-            }
-          }
-        
-          function toggleTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              localStorage.setItem('theme', 'light');
-            } else {
-              localStorage.setItem('theme', 'dark');
-            }
-            applyTheme();
-          }
-        
-          document.addEventListener('DOMContentLoaded', function() {
-            // Quando la pagina carica
-            if (!localStorage.getItem('theme')) {
-              // Se non c'è un tema salvato, imposta 'light' di default
-              localStorage.setItem('theme', 'light');
-            }
-            applyTheme();
-        
-            // Event listener sul pulsante
-            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-          });
-    </script>
-
     <script src = signup.js?v=1.64></script>
-    
+    <script src="../commonJS/commonNavbar.js"></script>
+    <script src = "../commonJS/commonScript.js"></script>
 </body>
 
 </html>

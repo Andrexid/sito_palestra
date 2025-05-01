@@ -49,7 +49,6 @@ $conn->close();
     <link rel="stylesheet" href="../../commonCSS/_variables.css">
 
     <style>
-
         .day-container {
             margin-bottom: 2rem;
             padding: 1rem;
@@ -101,44 +100,50 @@ $conn->close();
         .btn-primary:hover {
             background-color: #005bb5;
         }
+
+        @media (max-width: 768px) {
+    .day-card {
+        width: 100%;
+        padding: 1.2rem;
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
+
+    .day-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .day-container {
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    ul.exercise-list li {
+        font-size: 1rem;
+        padding: 0.6rem 0;
+    }
+
+    .btn-primary {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 0.8rem;
+        margin-top: 1.2rem;
+        border-radius: 10px;
+    }
+
+    /* Evita scroll orizzontale */
+    html, body {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+}
     </style>
+
+    <link rel="stylesheet" href="../../commonCSS/commonCSS.css?v=1.2">
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-            ☰
-        </button>
-
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../../img/logo.png" alt="Logo Palestra" class="logo-img" />
-            </a>
-        </div>
-
-        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-        <ul class="nav-links">
-            <li><a href="../../index.html">Home</a></li>
-            <li>
-                <a href="#" onclick="controllaAccesso('../account.php')" data-section="Progressi" class="selezionata">Progressi</a>
-            </li>
-            <li><a href="../../faq/faq.html" data-section="FAQ">FAQ</a></li>
-            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-        </ul>
-
-        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-        <div class="profile-container" data-section="Profile">
-            <a href="#">
-                <img id="profile-pic" src="../../img/utente_without_bg.png" alt="Profilo" />
-            </a>
-            <div class="dropdown-menu" id="profile-menu">
-                <a href="#" onclick="controllaAccesso('../../profile/profile.html')">👤 Profilo</a>
-                <a href="#" onclick="controllaAccesso('../../settings/settings.html')">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
-            </div>
-        </div>
-    </nav>
     <h1>Allenamento suddiviso per giorno</h1>
 
     <?php if (empty($giorni)) : ?>
@@ -162,9 +167,10 @@ $conn->close();
         </div>
     <?php endif; ?>
 
-    
-    <script src="../../commonJS/navbar.js"></script>
-    <script src="../../commonJS/commonNavbar.js"></script>
+    <button onClick= "window.location.href = '../account.php'" class = "btnBackToAccount">Torna indietro</button>
+
+        <script src="../../commonJS/commonNavbar.js"></script>
+    <script src = "../../commonJS/commonScript.js"></script>
 
 </body>
 

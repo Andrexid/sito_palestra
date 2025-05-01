@@ -38,7 +38,7 @@ if ($user_id) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="account.css?v=1.6">
+    <link rel="stylesheet" href="account.css?v=1.92">
 
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css" />
@@ -95,7 +95,7 @@ if ($user_id) {
         <p class="coming-soon-text">✨ Stiamo lavorando sodo per offrirti il massimo. Resta connesso, il meglio deve ancora arrivare!</p>
 
         <img src="../img/ai_illustration.jpg" alt="AI in lavorazione" class="ai-img">
-    </div>
+    </div><br><br>
 
     <div class="double-box">
         <div class="box box-30">
@@ -138,7 +138,7 @@ if ($user_id) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br><br>
 
 
         <div class="box box-70">
@@ -175,7 +175,7 @@ if ($user_id) {
         <div class="box">
             <?php require_once 'grafico_exp_settimanale.php' ?>
         </div>
-    </div>
+    </div><br><br>
     
     <div class="double-box">
         <div class="box-100">
@@ -198,46 +198,9 @@ if ($user_id) {
         <img src="../img/ai_illustration.jpg" alt="AI in lavorazione" class="ai-img">
     </div> -->
 
-    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-    <script>
-        function applyTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-            } else {
-                document.body.classList.remove('dark-mode');
-                document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-            }
-        }
-
-        function toggleTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-                localStorage.setItem('theme', 'light');
-            } else {
-                localStorage.setItem('theme', 'dark');
-            }
-            applyTheme();
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Quando la pagina carica
-            if (!localStorage.getItem('theme')) {
-                // Se non c'è un tema salvato, imposta 'light' di default
-                localStorage.setItem('theme', 'light');
-            }
-            applyTheme();
-
-            // Event listener sul pulsante
-            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-        });
-    </script>
-
-    <script src="../commonJS/navbar.js"></script>
     <script src="../commonJS/commonNavbar.js"></script>
     <script src="account.js"></script>
+    <script src = "../commonJS/commonScript.js"></script>
 </body>
 
 </html>

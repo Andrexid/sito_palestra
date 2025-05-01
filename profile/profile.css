@@ -53,12 +53,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* --- NAVBAR (si basa su commonNavbar.css) --- */
-.navbar {
-  background-color: var(--light-card);
-  border-bottom: 1px solid var(--light-border);
-}
-
 /* --- PROFILO HEADER --- */
 .profile-container-header {
   display: flex;
@@ -298,4 +292,100 @@ body.dark-mode .theme-button {
 
 body.dark-mode .theme-button:hover {
   background-color: var(--accent-orange);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+/* --- STILE MOBILE --- */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .profile-container-header {
+    padding: 20px 10px;
+  }
+
+  .profile-header,
+  .motivational-quote-container,
+  .stats,
+  .workout-history,
+  .gamification-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  #profile-pic-profile {
+    width: 100px;
+    height: 100px;
+  }
+
+  #btnModify {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .motivational-quote {
+    font-size: 16px;
+  }
+
+  .motivational-author {
+    font-size: 14px;
+  }
+
+  .stats p, .stats span {
+    font-size: 14px;
+  }
+
+  .bmi-container {
+    margin-top: 10px;
+  }
+
+  #bmiGaugeChart {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  .arrow {
+    height: 60px;
+    width: 3px;
+  }
+
+  .theme-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  h1, h2, h3 {
+    font-size: 22px;
+  }
+
+  p, label {
+    font-size: 15px;
+  }
+
+  .badge-container {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .badge-container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Nascondi ombre molto forti su mobile per migliorare leggibilità */
+  .profile-header,
+  .motivational-quote-container,
+  .stats,
+  .workout-history,
+  .gamification-container {
+    box-shadow: none;
+  }
 }

@@ -391,3 +391,120 @@ label {
   border-radius: 40px;
   ;
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 0 1rem;
+    overflow-x: hidden;
+  }
+
+  .settings {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .settings h3 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .settings h2, .settings p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .navigation {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+  }
+
+  .navigation button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+
+  .security-section {
+    margin-top: 1.5rem;
+  }
+
+  .security-section button {
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .theme-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 40px;
+  }
+
+  .main-circle {
+    width: 90vw;
+    height: 90vw;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .phone {
+    width: 90vw;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .content {
+    width: 100%;
+    transform: translateY(0%);
+  }
+
+  .circle {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .crescent {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .names {
+    font-size: 0.85rem;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 7%;
+  }
+
+  label {
+    margin: 2rem 0;
+  }
+
+  .toggle {
+    width: 50%;
+  }
+
+  .app {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .time {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* No overflow on small devices */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}

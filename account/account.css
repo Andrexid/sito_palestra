@@ -213,12 +213,19 @@ a:hover {
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 90vw;
+}
+
+.ai-coming-soon p:first-of-type {
+  color: var(--light-text);
 }
 
 .dark-mode .ai-coming-soon {
   background: linear-gradient(135deg, #263238, #37474f);
   color: #fff;
+}
+
+.dark-mode .ai-coming-soon p:first-of-type {
+  color: var(--dark-text);
 }
 
 .coming-soon-text {
@@ -397,32 +404,129 @@ body.dark-mode .container-img img {
   font-weight: var(--font-bold);
 }
 
+/* ===== MOBILE OPTIMIZATION ===== */
 @media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  div {
+    margin-bottom: 50px;
+  }
+
+  .cover {
+    font-size: 1.5rem;
+    padding: 30px 15px;
+    margin: 15px;
+    border-radius: 16px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .container-main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .box,
+  .box-100,
+  .box-70,
+  .box-30 {
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .box h2 {
+    font-size: 1.3rem;
+  }
+
+  .training-bar {
+    padding: 15px;
+  }
+
+  .training-bar-center h2 {
+    font-size: 1.2rem;
+  }
+
+  .progress-text,
+  .percent-text,
+  .no-data,
+  .error-message {
+    font-size: 1rem;
+  }
+
+  .training-bar-actions {
+    gap: 10px;
+    margin-top: -7%;
+    margin-bottom: -7%;
+  }
+
   .double-box {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .box,
-  .box-100 {
-    width: 90%;
   }
 
-  .container-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .gamification-container {
-    width: 100%;
+  .bedge-img {
+    width: 120px;
   }
 
   .badge-container {
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
   }
 
-  .training-bar-actions button {
-    margin: 10px;
+  .container-img img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .theme-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+
+  .ai-coming-soon {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .coming-soon-text {
+    font-size: 0.95rem;
+  }
+
+  .ai-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  progress {
+    height: 15px;
+  }
+
+  .gamification-text-account {
+    font-size: 1.2rem;
+  }
+
+  #nTrainings {
+    font-size: 1rem;
+  }
+
+  /* Evita overflow per ogni box */
+  .box,
+  .cover,
+  .container,
+  .training-bar,
+  .ai-coming-soon {
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 }

@@ -104,6 +104,14 @@ body {
   text-align: center;
 }
 
+.badge-section p {
+  color: var(--light-text);
+}
+
+body.dark-mode .badge-section p {
+  color: var(--dark-text);
+}
+
 .badge-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));

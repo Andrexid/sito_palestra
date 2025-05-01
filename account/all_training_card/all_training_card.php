@@ -71,42 +71,6 @@ $stm = $conn->prepare($select_training_cards);
     ?>
     <button onClick= "window.location.href = '../account.php'" class = "btnBackToAccount">Torna indietro</button>
 
-    <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-    <script>
-        function applyTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              document.body.classList.add('dark-mode');
-              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-            } else {
-              document.body.classList.remove('dark-mode');
-              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-            }
-          }
-        
-          function toggleTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              localStorage.setItem('theme', 'light');
-            } else {
-              localStorage.setItem('theme', 'dark');
-            }
-            applyTheme();
-          }
-        
-          document.addEventListener('DOMContentLoaded', function() {
-            // Quando la pagina carica
-            if (!localStorage.getItem('theme')) {
-              // Se non c'è un tema salvato, imposta 'light' di default
-              localStorage.setItem('theme', 'light');
-            }
-            applyTheme();
-        
-            // Event listener sul pulsante
-            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-          });
-    </script>
     <script>
         var expirationText = document.querySelectorAll('.expiration');
 
@@ -159,6 +123,7 @@ $stm = $conn->prepare($select_training_cards);
         // Rende la funzione disponibile globalmente
         window.eliminazione = eliminazione;
     </script>
+    <script src = "../../commonJS/commonScript.js"></script>
 
 </body>
 

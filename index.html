@@ -109,6 +109,20 @@
       </div>
     </section>
 
+    <section class="cta-section cover">
+      <h2>Sei pronto a trasformarti?</h2>
+      <p>
+        Unisciti alla community di atleti che stanno già migliorando ogni
+        giorno! Non perdere altro tempo.
+      </p>
+      <a
+        href="#"
+        class="principal_button"
+        onclick="controllaAccesso('account.php')"
+        >Inizia Ora</a
+      >
+    </section>
+
     <section class="faq" id="faq">
       <h2>Domande Frequenti</h2>
 
@@ -143,20 +157,6 @@
           monitorare i tuoi progressi ovunque.
         </p>
       </div>
-    </section>
-
-    <section class="cta-section cover">
-      <h2>Sei pronto a trasformarti?</h2>
-      <p>
-        Unisciti alla community di atleti che stanno già migliorando ogni
-        giorno! Non perdere altro tempo.
-      </p>
-      <a
-        href="#"
-        class="principal_button"
-        onclick="controllaAccesso('account.php')"
-        >Inizia Ora</a
-      >
     </section>
 
     <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
@@ -203,8 +203,43 @@
         &copy; 2025 GymPower. Tutti i diritti riservati.
       </div>
     </footer>
-    
-    
+
+    <!-- <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
+
+    <script>
+        function applyTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              document.body.classList.add('dark-mode');
+              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
+            } else {
+              document.body.classList.remove('dark-mode');
+              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
+            }
+          }
+        
+          function toggleTheme() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+              localStorage.setItem('theme', 'light');
+            } else {
+              localStorage.setItem('theme', 'dark');
+            }
+            applyTheme();
+          }
+        
+          document.addEventListener('DOMContentLoaded', function() {
+            // Quando la pagina carica
+            if (!localStorage.getItem('theme')) {
+              // Se non c'è un tema salvato, imposta 'light' di default
+              localStorage.setItem('theme', 'light');
+            }
+            applyTheme();
+        
+            // Event listener sul pulsante
+            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
+          });
+    </script> -->
 
     <script src="index.js?v=1.66"></script>
     <script src="./commonJS/navbar.js"></script>

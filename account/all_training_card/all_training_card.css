@@ -137,18 +137,6 @@
     margin-top: 2rem;
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .all-training-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .training-card {
-      width: 90%;
-    }
-  }
-  
   /* Dark mode - colorazione elementi testuali */
   body.dark-mode h1 {
     color: var(--dark-accent);
@@ -178,3 +166,43 @@
     background-color: #2563eb;
   }
   
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+      margin: 1.5rem 1rem;
+    }
+  
+    .all-training-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+  
+    .training-card {
+      width: 90%;
+      padding: 1.2rem;
+      box-sizing: border-box;
+    }
+  
+    .training-card h2 {
+      font-size: 1.3rem;
+    }
+  
+    .expiration-cont {
+      font-size: 0.95rem;
+    }
+  
+    .input-button,
+    .secondary-button {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  
+    .training-card:hover {
+      transform: none; /* Disattiva hover su mobile */
+    }
+  }

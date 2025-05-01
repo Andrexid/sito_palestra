@@ -33,7 +33,9 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Scheda numero: <?php echo $card_id; ?></title>
-    <link rel="stylesheet" href="single_training_card.css">
+    <link rel="stylesheet" href="single_training_card.css?v=1.1">
+
+    <link rel="stylesheet" href="../../commonCSS/commonCSS.css?v=1.2">
 </head>
 
 <body>
@@ -98,43 +100,8 @@ if (isset($_GET['id'])) {
     }
     ?>
 
-<button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-<script>
-    function applyTheme() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.body.classList.add('dark-mode');
-          document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-        } else {
-          document.body.classList.remove('dark-mode');
-          document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-        }
-      }
+    <button onClick= "window.location.href = 'all_training_card.php'" class = "btnBackToAccount">Torna indietro</button>
     
-      function toggleTheme() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          localStorage.setItem('theme', 'light');
-        } else {
-          localStorage.setItem('theme', 'dark');
-        }
-        applyTheme();
-      }
-    
-      document.addEventListener('DOMContentLoaded', function() {
-        // Quando la pagina carica
-        if (!localStorage.getItem('theme')) {
-          // Se non c'è un tema salvato, imposta 'light' di default
-          localStorage.setItem('theme', 'light');
-        }
-        applyTheme();
-    
-        // Event listener sul pulsante
-        document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-      });
-</script>
-
     <script>
         const inputs = document.querySelectorAll(".input-text-dis");
         const unlockButton = document.querySelector(".unlock-button");
@@ -156,6 +123,7 @@ if (isset($_GET['id'])) {
             unlockButton.textContent = isDisabled ? "Sblocca Modifica" : "Blocca Modifica";
         }
     </script>
+    <script src = "../../commonJS/commonScript.js"></script>
 
 </body>
 
