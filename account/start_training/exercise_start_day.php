@@ -37,100 +37,148 @@ $stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <title>Allenamento Giorno <?php echo $day; ?></title>
     <link rel="stylesheet" href="exercise_start_day.css">
+    <link rel="stylesheet" href="../../commonCSS/footer.css" />
+
 </head>
+
 <body>
 
-<h1>Allenamento - Giorno <?php echo $day; ?></h1>
+    <h1>Allenamento - Giorno <?php echo $day; ?></h1>
 
-<?php if (empty($esercizi)) : ?>
-    <p style="text-align:center;">Nessun esercizio trovato per oggi.</p>
-<?php else : ?>
-    <form id="training-form">
-        <input type="hidden" name="day" value="<?php echo $day; ?>">
+    <?php if (empty($esercizi)) : ?>
+        <p style="text-align:center;">Nessun esercizio trovato per oggi.</p>
+    <?php else : ?>
+        <form id="training-form">
+            <input type="hidden" name="day" value="<?php echo $day; ?>">
 
-        <?php foreach ($esercizi as $esercizio): ?>
-            <div class="exercise-card">
-                <div class="exercise-title"><?php echo htmlspecialchars($esercizio['name']); ?></div>
+            <?php foreach ($esercizi as $esercizio): ?>
+                <div class="exercise-card">
+                    <div class="exercise-title"><?php echo htmlspecialchars($esercizio['name']); ?></div>
 
-                <label class="set-label">Numero di set:
-                    <input type="number" id="set-input-<?php echo $esercizio['id']; ?>" name="sets[<?php echo $esercizio['id']; ?>]" value="3" min="1" onchange="generaInputSet(<?php echo $esercizio['id']; ?>)">
-                </label>
+                    <label class="set-label">Numero di set:
+                        <input type="number" id="set-input-<?php echo $esercizio['id']; ?>" name="sets[<?php echo $esercizio['id']; ?>]" value="3" min="1" onchange="generaInputSet(<?php echo $esercizio['id']; ?>)">
+                    </label>
 
-                <div id="reps-container-<?php echo $esercizio['id']; ?>">
-                    <?php for ($i = 1; $i <= 3; $i++): ?>
-                        <div class="set-container">
-                            <label class="set-label">Set <?php echo $i; ?>:</label>
-                            <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required> 
-                            <input type="number" name="weights[<?php echo $esercizio['id']; ?>][]" placeholder="Peso (kg)" step="0.5" min="0">
-                        </div>
-                    <?php endfor; ?>
+                    <div id="reps-container-<?php echo $esercizio['id']; ?>">
+                        <?php for ($i = 1; $i <= 3; $i++): ?>
+                            <div class="set-container">
+                                <label class="set-label">Set <?php echo $i; ?>:</label>
+                                <input type="number" name="reps[<?php echo $esercizio['id']; ?>][]" placeholder="Reps" min="1" required>
+                                <input type="number" name="weights[<?php echo $esercizio['id']; ?>][]" placeholder="Peso (kg)" step="0.5" min="0">
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+
+                    <label for="note-<?php echo $esercizio['id']; ?>">Note:
+                        <textarea id="note-<?php echo $esercizio['id']; ?>" name="notes[<?php echo $esercizio['id']; ?>]" rows="2" placeholder="Scrivi qualcosa se vuoi..."></textarea>
+                    </label>
                 </div>
+            <?php endforeach; ?>
 
-                <label for="note-<?php echo $esercizio['id']; ?>">Note:
-                    <textarea id="note-<?php echo $esercizio['id']; ?>" name="notes[<?php echo $esercizio['id']; ?>]" rows="2" placeholder="Scrivi qualcosa se vuoi..."></textarea>
-                </label>
+            <div id="result" class="result-box" style="display: none;"></div>
+
+            <button type="submit" class="finish-btn" onclick="redirectAfterDelay()">✅ Finisci allenamento</button>
+            <p id="redirectText"></p>
+        </form>
+    <?php endif; ?>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Logo / Descrizione -->
+            <div class="footer-section">
+                <h2 class="footer-title">GymPower</h2>
+                <p class="footer-text">
+                    Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con GymPower hai tutto sotto controllo: progressi, allenamenti e nuove sfide da superare!
+                </p>
+                <p class="footer-text">
+                    Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
+                </p>
+                <!-- Frase motivazionale extra -->
+                <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600;">
+                    “La costanza batte il talento, quando il talento non è costante.”
+                </p>
             </div>
-        <?php endforeach; ?>
 
-        <div id="result" class="result-box" style="display: none;"></div>
+            <!-- Link utili -->
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Scopri</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../gamification/gamification.html">Gamification</a></li>
+                    <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+                    <li><a href="../faq/faq.html">FAQ</a></li>
+                    <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
+                    <li><a href="../contatti/contatti.html">Contatti</a></li>
+                </ul>
+            </div>
 
-        <button type="submit" class="finish-btn" onclick="redirectAfterDelay()">✅ Finisci allenamento</button>
-        <p id="redirectText"></p>
-    </form>
-<?php endif; ?>
+            <!-- Contatti / Social -->
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Contattaci</h3>
+                <p class="footer-text">Email: <a href="mailto:info@gympower.com">info@gympower.com</a></p>
+            </div>
+        </div>
 
-<script>
-    function generaInputSet(id) {
-        const setInput = document.getElementById(`set-input-${id}`);
-        const setCount = parseInt(setInput.value);
-        const container = document.getElementById(`reps-container-${id}`);
-        container.innerHTML = "";
-        for (let i = 1; i <= setCount; i++) {
-            container.innerHTML += `
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            &copy; 2025 GymPower. Tutti i diritti riservati.
+        </div>
+    </footer>
+
+    <script>
+        function generaInputSet(id) {
+            const setInput = document.getElementById(`set-input-${id}`);
+            const setCount = parseInt(setInput.value);
+            const container = document.getElementById(`reps-container-${id}`);
+            container.innerHTML = "";
+            for (let i = 1; i <= setCount; i++) {
+                container.innerHTML += `
                 <div class="set-container">
                     <label class="set-label">Set ${i}:</label>
                     <input type="number" name="reps[${id}][]" placeholder="Reps" min="1" required>
                     <input type="number" name="weights[${id}][]" placeholder="Peso (kg)" step="0.5" min="0">
                 </div>
             `;
+            }
         }
-    }
 
-    document.getElementById("training-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
+        document.getElementById("training-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
 
-        fetch("save_training_ajax.php", {
-            method: "POST",
-            body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-            const resultBox = document.getElementById("result");
-            resultBox.style.display = "block";
-            resultBox.innerHTML = `
+            fetch("save_training_ajax.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const resultBox = document.getElementById("result");
+                    resultBox.style.display = "block";
+                    resultBox.innerHTML = `
                 <strong>🎉 Allenamento salvato con successo!</strong><br><br>
                 Hai guadagnato <strong>${data.xp}</strong> XP<br>
                 Totale XP: <strong>${data.total_xp}</strong><br>
                 Verrai reindirizzato tra pochi secondi <br>
             `;
-            document.getElementById("training-form").reset();
-        })
-        .catch(err => alert("Errore nel salvataggio: " + err));
-    });
+                    document.getElementById("training-form").reset();
+                })
+                .catch(err => alert("Errore nel salvataggio: " + err));
+        });
 
-    function redirectAfterDelay() {
-    // (Opzionale) Mostra un messaggio mentre aspetti
-    // Aspetta 5 secondi e poi cambia pagina
-    setTimeout(function() {
-        window.location.href = '../account.php'; // Cambia "nome-pagina.php" con la destinazione
-    }, 5000);
-}
-</script>
+        function redirectAfterDelay() {
+            // (Opzionale) Mostra un messaggio mentre aspetti
+            // Aspetta 5 secondi e poi cambia pagina
+            setTimeout(function() {
+                window.location.href = '../account.php'; // Cambia "nome-pagina.php" con la destinazione
+            }, 5000);
+        }
+    </script>
 
 </body>
+
 </html>

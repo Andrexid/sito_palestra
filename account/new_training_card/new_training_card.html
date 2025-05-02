@@ -1,85 +1,239 @@
 <!DOCTYPE html>
 <html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuova Scheda Allenamento</title>
+    <link rel="stylesheet" href="new_training_card.css?v=1.1" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuova Scheda Allenamento</title>
-  <link rel="stylesheet" href="new_training_card.css?v=1.1">
+    <link rel="stylesheet" href="../../commonCSS/commonCSS.css?v=1.2" />
+    <link rel="stylesheet" href="../../commonCSS/commonNavbar.css">
+    <link rel="stylesheet" href="../../commonCSS/footer.css" />
 
-  <link rel="stylesheet" href="../../commonCSS/commonCSS.css?v=1.2">
-</head>
+  </head>
 
-<body onload="initializePage()">
-  <div class="title-container">
-    <h1>Crea la tua Scheda Allenamento in pochi click</h1>
-  </div>
+  <body onload="initializePage()">
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+        ☰
+      </button>
 
-  <form action="new_training_card.php" method="POST">
-    <div class="container">
-      <!-- Durata -->
-      <div class="box">
-        <h2>Durata del Programma</h2>
-        <div class="input-durata">
-          <label for="duration_start">Da</label>
-          <input type="date" name="duration_start" class="input-stile" required>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../img/logo.png" alt="Logo Palestra" class="logo-img" />
+        </a>
+      </div>
 
-          <label for="duration_end">a</label>
-          <input type="date" name="duration_end" class="input-stile" required>
+      <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li>
+          <a
+            href="#"
+            onclick="controllaAccesso('../account.php')"
+            data-section="Progressi"
+            class="selezionata"
+            >Progressi</a
+          >
+        </li>
+        <li><a href="../../faq/faq.html" data-section="FAQ">FAQ</a></li>
+        <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+        <li>
+          <a href="../../contatti/contatti.html" data-section="Contatti"
+            >Contatti</a
+          >
+        </li>
+      </ul>
+
+      <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+      <div class="profile-container" data-section="Profile">
+        <a href="#">
+          <img
+            id="profile-pic"
+            src="../../img/utente_without_bg.png"
+            alt="Profilo"
+          />
+        </a>
+        <div class="dropdown-menu" id="profile-menu">
+          <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+          <a href="#" onclick="controllaAccesso('settings.html')"
+            >⚙️ Impostazioni</a
+          >
+          <a href="#" onclick="logout()">🚪 Logout</a>
         </div>
       </div>
+    </nav>
 
-      <!-- Allenamenti a settimana -->
-      <div class="box">
-        <h2>Quanti giorni a settimana ti alleni?</h2>
-        <select name="week-workout" id="week-workout" class="input-stile" onchange="modifyDaysTraining(this.value)" required>
-          <option value="">Seleziona un numero</option>
-          <option value="1">1 giorno</option>
-          <option value="2">2 giorni</option>
-          <option value="3">3 giorni</option>
-          <option value="4">4 giorni</option>
-          <option value="5">5 giorni</option>
-          <option value="6">6 giorni</option>
-          <option value="7">7 giorni</option>
-        </select>
-      </div>
-
-      <!-- Esercizi -->
-      <div class="box" id = "box">
-        <h2>Inserisci Esercizi</h2>
-
-        <label for="exercise-search">Cerca esercizio:</label>
-        <input type="text" id="exercise-search" placeholder="Scrivi per cercare un esercizio..." onkeyup="filterExercises()" onclick="openSelect()">
-
-        <label for="insert-exercise">Seleziona dall'elenco:</label>
-        <select name="insert-exercise" id="insert-exercise" size="7" class="input-stile" required></select>
-
-        <label for="muscle-group">Giorno dell'esercizio:</label>
-        <select name="muscle-group" id="muscle-group" class="input-stile" required>
-          <!-- Popolato dinamicamente -->
-        </select>
-
-        <button type="button" onclick="checkExercise()" class="def-button">Aggiungi Esercizio</button>
-      </div>
-
-      <!-- Lista Esercizi Aggiunti -->
-      <div class="box tall-box">
-        <h2>Esercizi Aggiunti</h2>
-        <div class="exercisesList">
-          <ul id="exercise"></ul>
-          <div id="exercisesList"></div>
-        </div>
-      </div>
-
-      <!-- Submit -->
-      <input type="submit" class="principal_button-form" value="Salva Scheda">
+    <div class="title-container">
+      <h1>Crea la tua Scheda Allenamento in pochi click</h1>
     </div>
-  </form>
 
-  <button onClick= "window.location.href = '../account.php'" class = "btnBackToAccount">Torna indietro</button>
+    <form action="new_training_card.php" method="POST">
+      <div class="container">
+        <!-- Durata -->
+        <div class="box">
+          <h2>Durata del Programma</h2>
+          <div class="input-durata">
+            <label for="duration_start">Da</label>
+            <input
+              type="date"
+              name="duration_start"
+              class="input-stile"
+              required
+            />
 
-  <script src="insertNewTrainingCard.js?v=1.64"></script>
-  <script src = "../../commonJS/commonScript.js"></script>
-</body>
+            <label for="duration_end">a</label>
+            <input
+              type="date"
+              name="duration_end"
+              class="input-stile"
+              required
+            />
+          </div>
+        </div>
 
+        <!-- Allenamenti a settimana -->
+        <div class="box">
+          <h2>Quanti giorni a settimana ti alleni?</h2>
+          <select
+            name="week-workout"
+            id="week-workout"
+            class="input-stile"
+            onchange="modifyDaysTraining(this.value)"
+            required
+          >
+            <option value="">Seleziona un numero</option>
+            <option value="1">1 giorno</option>
+            <option value="2">2 giorni</option>
+            <option value="3">3 giorni</option>
+            <option value="4">4 giorni</option>
+            <option value="5">5 giorni</option>
+            <option value="6">6 giorni</option>
+            <option value="7">7 giorni</option>
+          </select>
+        </div>
+
+        <!-- Esercizi -->
+        <div class="box" id="box">
+          <h2>Inserisci Esercizi</h2>
+
+          <label for="exercise-search">Cerca esercizio:</label>
+          <input
+            type="text"
+            id="exercise-search"
+            placeholder="Scrivi per cercare un esercizio..."
+            onkeyup="filterExercises()"
+            onclick="openSelect()"
+          />
+
+          <label for="insert-exercise">Seleziona dall'elenco:</label>
+          <select
+            name="insert-exercise"
+            id="insert-exercise"
+            size="7"
+            class="input-stile"
+            required
+          ></select>
+
+          <label for="muscle-group">Giorno dell'esercizio:</label>
+          <select
+            name="muscle-group"
+            id="muscle-group"
+            class="input-stile"
+            required
+          >
+            <!-- Popolato dinamicamente -->
+          </select>
+
+          <button type="button" onclick="checkExercise()" class="def-button">
+            Aggiungi Esercizio
+          </button>
+        </div>
+
+        <!-- Lista Esercizi Aggiunti -->
+        <div class="box tall-box">
+          <h2>Esercizi Aggiunti</h2>
+          <div class="exercisesList">
+            <ul id="exercise"></ul>
+            <div id="exercisesList"></div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <input
+          type="submit"
+          class="principal_button-form"
+          value="Salva Scheda"
+        />
+      </div>
+    </form>
+
+    <button
+      onClick="window.location.href = '../account.php'"
+      class="btnBackToAccount"
+    >
+      Torna indietro
+    </button>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Logo / Descrizione -->
+        <div class="footer-section">
+          <h2 class="footer-title">GymPower</h2>
+          <p class="footer-text">
+            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
+            GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
+            sfide da superare!
+          </p>
+          <p class="footer-text">
+            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
+          </p>
+          <!-- Frase motivazionale extra -->
+          <p
+            class="footer-text"
+            style="margin-top: 10px; font-style: italic; font-weight: 600"
+          >
+            “La costanza batte il talento, quando il talento non è costante.”
+          </p>
+        </div>
+
+        <!-- Link utili -->
+        <div class="footer-section">
+          <h3 class="footer-subtitle">Scopri</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li>
+              <a href="../gamification/gamification.html">Gamification</a>
+            </li>
+            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../faq/faq.html">FAQ</a></li>
+            <li>
+              <a href="#" onclick="controllaAccesso('account.php')"
+                >Progressi</a
+              >
+            </li>
+            <li><a href="../contatti/contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+
+        <!-- Contatti / Social -->
+        <div class="footer-section">
+          <h3 class="footer-subtitle">Contattaci</h3>
+          <p class="footer-text">
+            Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        &copy; 2025 GymPower. Tutti i diritti riservati.
+      </div>
+    </footer>
+
+    <script src="../../commonJS/commonNavbar.js"></script>
+    <script src="../../commonJS/navbar.js"></script>
+    <script src="insertNewTrainingCard.js?v=1.64"></script>
+    <script src="../../commonJS/commonScript.js"></script>
+  </body>
 </html>

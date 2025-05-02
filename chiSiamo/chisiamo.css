@@ -103,12 +103,15 @@ body {
 }
 
 .member img {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;       /* Questo è fondamentale per evitare stretching */
+  object-position: center; /* Centra l'immagine all'interno del cerchio */
   border-radius: 50%;
   margin-bottom: 1rem;
   border: 3px solid var(--accent-orange);
 }
+
 
 .member h3 {
   color: var(--accent-orange);

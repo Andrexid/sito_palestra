@@ -43,6 +43,8 @@ if ($user_id) {
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css" />
     <link rel="stylesheet" href="../commonCSS/buttons.css" />
+    <link rel="stylesheet" href="../commonCSS/footer.css" />
+
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
     <script src="../login-signup/sessionCheck.js"></script>
@@ -176,12 +178,12 @@ if ($user_id) {
             <?php require_once 'grafico_exp_settimanale.php' ?>
         </div>
     </div><br><br>
-    
+
     <div class="double-box">
         <div class="box-100">
             <h2>Obiettivi</h2>
             <!-- <a href="new_goal.php"><button class="principal_button">Inserisci un nuovo obiettivo</button></a> -->
-            <button class="principal_button" onClick = "alert('Ancora in lavorazione!!')">Inserisci un nuovo obiettivo</button>
+            <button class="principal_button" onClick="alert('Ancora in lavorazione!!')">Inserisci un nuovo obiettivo</button>
             <?php require_once 'grafico_obiettivi.php'; ?>
         </div>
         <div class="box-100">
@@ -198,9 +200,55 @@ if ($user_id) {
         <img src="../img/ai_illustration.jpg" alt="AI in lavorazione" class="ai-img">
     </div> -->
 
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Logo / Descrizione -->
+            <div class="footer-section">
+                <h2 class="footer-title">GymPower</h2>
+                <p class="footer-text">
+                    Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con GymPower hai tutto sotto controllo: progressi, allenamenti e nuove sfide da superare!
+                </p>
+                <p class="footer-text">
+                    Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
+                </p>
+                <!-- Frase motivazionale extra -->
+                <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600;">
+                    “La costanza batte il talento, quando il talento non è costante.”
+                </p>
+            </div>
+
+            <!-- Link utili -->
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Scopri</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../gamification/gamification.html">Gamification</a></li>
+                    <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+                    <li><a href="../faq/faq.html">FAQ</a></li>
+                    <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
+                    <li><a href="../contatti/contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <!-- Contatti / Social -->
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Contattaci</h3>
+                <p class="footer-text">Email: <a href="mailto:info@gympower.com">info@gympower.com</a></p>
+            </div>
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            &copy; 2025 GymPower. Tutti i diritti riservati.
+        </div>
+    </footer>
+
+
     <script src="../commonJS/commonNavbar.js"></script>
     <script src="account.js"></script>
-    <script src = "../commonJS/commonScript.js"></script>
+    <script src="../commonJS/commonScript.js"></script>
+    <script src="../commonJS/navbar.js"></script>
 </body>
 
 </html>
