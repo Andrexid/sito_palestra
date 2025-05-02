@@ -124,6 +124,21 @@ body {
   color: var(--light-text);
 }
 
+.personal-site {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.personal-site:hover {
+  color: #005fa3;
+  text-decoration: underline;
+}
+
 /* Bottone modalità scura */
 .theme-button {
   position: fixed;

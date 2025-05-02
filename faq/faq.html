@@ -3,248 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAQ</title>
+  <link rel="icon" href="../img/logo.png" type="image/x-icon">
+  <link rel="icon" href="../img/logo.png" type="image/png">
+
+  <title>FAQ MyGymStats - Risposte su Abbonamenti, Progressi e Allenamenti</title>
+  <meta name="description" content="Scopri tutte le risposte alle domande più frequenti su MyGymStats: registrazione, piani di allenamento, progressi, abbonamenti e utilizzo su mobile.">
+  <meta name="keywords" content="faq palestra, mygymstats domande, tracciamento progressi, allenamenti, abbonamento palestra, app fitness, assistente AI palestra">
+  <meta name="author" content="MyGymStats">
   <link rel="stylesheet" href="faq.css" />
 
+  <!-- CSS comuni -->
   <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/_variables.css">
-    <link rel="stylesheet" href="../commonCSS/footer.css">
+  <link rel="stylesheet" href="../commonCSS/buttons.css" />
+  <link rel="stylesheet" href="../commonCSS/reset.css" />
+  <link rel="stylesheet" href="../commonCSS/_variables.css">
+  <link rel="stylesheet" href="../commonCSS/footer.css">
 </head>
 <body onload="getUserPicProfile()">
-  <nav class="navbar" aria-label="Menu di navigazione principale">
-    <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-      ☰
-    </button>
-    
-    <div class="logo">
-      <a href="../index.html">
-        <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
-      </a>
-    </div>
-  
-    <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li>
-        <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
-      </li>
-      <li><a href="../faq/faq.html" data-section="FAQ" class="selezionata">FAQ</a></li>
-      <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-      <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-    </ul>
-  
-    <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-    <div class="profile-container" data-section="Profile">
-      <a href="#">
-        <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
-      </a>
-      <div class="dropdown-menu" id="profile-menu">
-        <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-        <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-        <a href="#" onclick="logout()">🚪 Logout</a>
+  <header>
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../img/logo.png" alt="Logo MyGymStats - Traccia i tuoi progressi" class="logo-img" loading="lazy" />
+        </a>
       </div>
-    </div>
-  </nav>
 
-  <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()" />
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="#" onclick="controllaAccesso('../account/account.php')">Progressi</a></li>
+        <li><a href="faq.html" class="selezionata">FAQ</a></li>
+        <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+        <li><a href="../contatti/contatti.html">Contatti</a></li>
+      </ul>
 
-  <div class="faq-container">
-    <h1>Domande Frequenti (FAQ)</h1>
-
-    <section>
-      <h2>📌 FAQ sulla Piattaforma</h2>
-      
-      <div class="faq">
-        <div class="question">📌 Come posso registrarmi alla piattaforma?</div>
-        <div class="answer">
-          Registrarsi è semplice e veloce! Basta accedere alla nostra homepage, cliccare su "Registrati" e compilare il modulo con i tuoi dati. Una volta confermata l'email, potrai iniziare a esplorare tutti i nostri strumenti, programmi di allenamento e funzionalità personalizzate.
+      <div class="profile-container">
+        <a href="#">
+          <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo utente MyGymStats" loading="lazy" />
+        </a>
+        <div class="dropdown-menu" id="profile-menu">
+          <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+          <a href="#" onclick="logout()">🚪 Logout</a>
         </div>
       </div>
+    </nav>
+  </header>
 
-      <div class="faq">
-        <div class="question">🔄 Ho dimenticato la password, come posso recuperarla?</div>
-        <div class="answer">
-          Nessun problema! Clicca su "Password dimenticata?" nella pagina di login. Riceverai subito un'email con un link sicuro per impostare una nuova password e tornare ad allenarti senza perdere i tuoi progressi.
-        </div>
-      </div>
-
-      <div class="faq">
-        <div class="question">📊 Come posso monitorare i miei progressi?</div>
-        <div class="answer">
-          Nella sezione "Progressi" trovi grafici dettagliati, statistiche giornaliere, settimanali e mensili sui tuoi allenamenti. Il nostro sistema analizza i dati e ti fornisce report automatici per migliorare giorno dopo giorno.
-        </div>
-      </div>
-
-      <div class="faq">
-        <div class="question">💳 Quali metodi di pagamento accettate?</div>
-        <div class="answer">
-          Accettiamo pagamenti tramite carta di credito/debito (Visa, Mastercard, AmEx), PayPal e bonifico bancario. Tutte le transazioni sono protette da protocolli di sicurezza avanzati per garantirti un'esperienza serena.
-        </div>
-      </div>
-
-      <div class="faq">
-        <div class="question">💰 Quanto costa l'abbonamento alla piattaforma?</div>
-        <div class="answer">
-          Offriamo un piano gratuito con accesso limitato, ideale per iniziare. Per funzionalità avanzate, puoi scegliere il piano Base a soli 9,99€/mese oppure il piano Premium a 19,99€/mese, che ti offre anche il supporto prioritario e accesso al nostro assistente AI.
-        </div>
-      </div>
-
-      <div class="faq">
-        <div class="question">📱 Posso usare la piattaforma anche da mobile?</div>
-        <div class="answer">
-          Assolutamente sì! La nostra piattaforma è completamente ottimizzata per smartphone e tablet, permettendoti di seguire i tuoi allenamenti, controllare i progressi e ricevere consigli ovunque ti trovi.
-        </div>
-      </div>
-
-      <div class="faq">
-        <div class="question">🧠 È presente un'assistente virtuale per consigli?</div>
-        <div class="answer">
-          Sì! Con il piano Premium avrai accesso al nostro esclusivo assistente virtuale basato su intelligenza artificiale, capace di analizzare le tue performance e suggerirti strategie e piani di allenamento personalizzati.
-        </div>
-      </div>
+  <main>
+    <section class="faq-search-section">
+      <h1>Domande Frequenti su MyGymStats</h1>
+      <p>Tutto ciò che devi sapere su abbonamenti, progressi, esercizi e funzionalità della piattaforma.</p>
+      <input type="text" id="search" placeholder="Cerca una domanda..." onkeyup="searchFAQ()" aria-label="Cerca una domanda nelle FAQ" />
     </section>
 
-    <section><br><br>
-      <h2>💪 FAQ sulla Palestra</h2>
+    <section class="faq-container">
+      <header><h2>📌 Domande sulla piattaforma</h2></header>
 
-      <div class="faq">
-        <div class="question">🏋️ Quali sono i migliori esercizi per aumentare la massa muscolare?</div>
-        <div class="answer">
-          Gli esercizi fondamentali come squat, panca piana, stacchi da terra e trazioni sono indispensabili. Lavorano su più gruppi muscolari contemporaneamente e favoriscono una crescita rapida ed equilibrata della massa muscolare.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Come posso registrarmi a MyGymStats?</h3>
+        <div class="answer">Vai nella homepage, clicca su "Registrati" e inserisci i tuoi dati. Dopo aver confermato l’email, puoi subito iniziare a monitorare i tuoi allenamenti!</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">🔥 Come posso bruciare più calorie durante l’allenamento?</div>
-        <div class="answer">
-          Ti consigliamo allenamenti ad alta intensità (HIIT), circuiti cardio-pesi e di mantenere pause brevi tra le serie. Allenarsi in questo modo accelera il metabolismo e continua a bruciare calorie anche dopo l'allenamento (effetto afterburn).
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Cosa fare se dimentico la password?</h3>
+        <div class="answer">Clicca su "Password dimenticata?" nella pagina di login. Riceverai un’email per reimpostarla in sicurezza.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">🥗 Qual è la dieta migliore per chi si allena in palestra?</div>
-        <div class="answer">
-          La dieta perfetta varia in base ai tuoi obiettivi: per aumentare massa muscolare, serve un surplus calorico ricco di proteine e carboidrati complessi; per dimagrire, un deficit calorico moderato mantenendo una buona quota proteica è l'approccio più efficace.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Come si monitorano i progressi?</h3>
+        <div class="answer">Accedi alla sezione "Progressi" per visualizzare grafici e statistiche dettagliate su ogni allenamento.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">⏳ Quanto tempo serve per vedere risultati in palestra?</div>
-        <div class="answer">
-          Generalmente, con un impegno costante e una buona alimentazione, i primi cambiamenti si iniziano a notare dopo 4-6 settimane. Ricorda che la perseveranza è la chiave per ottenere risultati solidi e duraturi.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Quali metodi di pagamento sono accettati?</h3>
+        <div class="answer">Carte Visa, Mastercard, AmEx, PayPal e bonifico bancario. Tutte le transazioni sono sicure.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">🧘 È importante fare stretching dopo l’allenamento?</div>
-        <div class="answer">
-          Assolutamente sì! Lo stretching migliora la flessibilità, accelera il recupero muscolare e riduce il rischio di infortuni. Bastano 5-10 minuti a fine allenamento per ottenere benefici concreti.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Quanto costa MyGymStats?</h3>
+        <div class="answer">Abbiamo un piano gratuito e due a pagamento: Base (9,99€/mese) e Premium (19,99€/mese) con assistente AI incluso.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">🗓️ Devo allenarmi tutti i giorni?</div>
-        <div class="answer">
-          No, il corpo ha bisogno di riposo per costruire massa muscolare e recuperare le energie. Si consiglia di allenarsi 3-5 giorni a settimana, intervallando sessioni intense con giorni di riposo o attività leggere.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Posso usare la piattaforma da mobile?</h3>
+        <div class="answer">Sì, è completamente ottimizzata per dispositivi mobili!</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">💦 È necessario bere integratori?</div>
-        <div class="answer">
-          Gli integratori non sono obbligatori se segui una dieta bilanciata. Tuttavia, in alcuni casi, proteine in polvere, creatina o multivitaminici possono aiutarti a raggiungere più facilmente i tuoi obiettivi.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">C’è un assistente virtuale?</h3>
+        <div class="answer">Sì, con il piano Premium avrai un assistente basato su AI che ti guiderà nel tuo percorso di crescita fisica.</div>
+      </article>
     </section>
 
-    <section><br><br>
-      <h2>⭐ Perché scegliere noi?</h2>
+    <section class="faq-container">
+      <header><h2>💪 Domande su allenamenti e salute</h2></header>
 
-      <div class="faq">
-        <div class="question">🔝 Qual è il nostro valore aggiunto?</div>
-        <div class="answer">
-          Offriamo un'esperienza completa: programmi personalizzati, assistenza rapida, tecnologie avanzate e una community motivante. Siamo professionisti appassionati e puntiamo a rendere il tuo percorso di crescita il più efficace e stimolante possibile.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Quali esercizi aiutano ad aumentare la massa muscolare?</h3>
+        <div class="answer">Squat, stacchi, panca e trazioni sono i più efficaci.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">🎯 Chi ha già scelto la nostra piattaforma?</div>
-        <div class="answer">
-          Migliaia di utenti, tra cui atleti, personal trainer e appassionati di fitness, si sono affidati a noi per trasformare il loro stile di vita. Le recensioni positive che riceviamo ogni giorno ci spingono a migliorare costantemente.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Come bruciare più calorie in allenamento?</h3>
+        <div class="answer">Allenamenti HIIT, circuiti intensi e pause brevi sono l’ideale.</div>
+      </article>
 
-      <div class="faq">
-        <div class="question">💼 Cosa ci differenzia dagli altri?</div>
-        <div class="answer">
-          Non siamo solo una piattaforma: siamo partner del tuo cambiamento. I nostri piani sono studiati da esperti certificati, aggiornati regolarmente secondo le ultime ricerche scientifiche, e puntano a risultati reali, senza scorciatoie.
-        </div>
-      </div>
+      <article class="faq">
+        <h3 class="question">Qual è la dieta consigliata per chi si allena?</h3>
+        <div class="answer">Dipende dall’obiettivo: per massa muscolare serve un surplus calorico, per dimagrire un leggero deficit.</div>
+      </article>
 
+      <article class="faq">
+        <h3 class="question">Quanto tempo ci vuole per vedere risultati?</h3>
+        <div class="answer">I primi cambiamenti si notano in 4-6 settimane se si è costanti.</div>
+      </article>
+
+      <article class="faq">
+        <h3 class="question">È importante fare stretching?</h3>
+        <div class="answer">Sì, migliora la flessibilità, previene infortuni e aiuta il recupero.</div>
+      </article>
+
+      <article class="faq">
+        <h3 class="question">Devo allenarmi tutti i giorni?</h3>
+        <div class="answer">No, sono consigliati 3-5 giorni a settimana con giorni di recupero.</div>
+      </article>
+
+      <article class="faq">
+        <h3 class="question">Devo prendere integratori?</h3>
+        <div class="answer">Non obbligatori, ma utili in caso di carenze o obiettivi specifici.</div>
+      </article>
     </section>
-  </div>
+
+    <section class="faq-container">
+      <header><h2>⭐ Perché scegliere MyGymStats</h2></header>
+
+      <article class="faq">
+        <h3 class="question">Qual è il nostro valore aggiunto?</h3>
+        <div class="answer">Tecnologia, motivazione, personalizzazione e supporto continuo: il tuo successo è anche il nostro.</div>
+      </article>
+
+      <article class="faq">
+        <h3 class="question">Chi usa MyGymStats?</h3>
+        <div class="answer">Atleti, personal trainer e migliaia di utenti soddisfatti in tutta Italia.</div>
+      </article>
+
+      <article class="faq">
+        <h3 class="question">Cosa ci rende diversi?</h3>
+        <div class="answer">Non sei solo un utente: sei parte di una community motivata e seguita da professionisti.</div>
+      </article>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-container">
-      <!-- Logo / Descrizione -->
       <div class="footer-section">
-        <h2 class="footer-title">GymPower</h2>
-        <p class="footer-text">
-          Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-          GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-          sfide da superare!
-        </p>
-        <p class="footer-text">
-          Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-        </p>
-        <!-- Frase motivazionale extra -->
-        <p
-          class="footer-text"
-          style="margin-top: 10px; font-style: italic; font-weight: 600"
-        >
+        <h2 class="footer-title">MyGymStats</h2>
+        <p class="footer-text">Il tuo alleato per monitorare allenamenti, progressi e raggiungere risultati reali in palestra.</p>
+        <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">
           “La costanza batte il talento, quando il talento non è costante.”
         </p>
       </div>
 
-      <!-- Link utili -->
       <div class="footer-section">
-        <h3 class="footer-subtitle">Scopri</h3>
+        <h3 class="footer-subtitle">Naviga</h3>
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
-          <li>
-            <a href="../gamification/gamification.html">Gamification</a>
-          </li>
+          <li><a href="../gamification/gamification.html">Gamification</a></li>
           <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-          <li><a href="../faq/faq.html">FAQ</a></li>
-          <li>
-            <a href="#" onclick="controllaAccesso('account.php')"
-              >Progressi</a
-            >
-          </li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
           <li><a href="../contatti/contatti.html">Contatti</a></li>
         </ul>
       </div>
 
-      <!-- Contatti / Social -->
       <div class="footer-section">
-        <h3 class="footer-subtitle">Contattaci</h3>
-        <p class="footer-text">
-          Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
-        </p>
+        <h3 class="footer-subtitle">Contatti</h3>
+        <p class="footer-text">Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a></p>
       </div>
     </div>
 
-    <!-- Footer bottom -->
     <div class="footer-bottom">
-      &copy; 2025 GymPower. Tutti i diritti riservati.
+      &copy; 2025 MyGymStats. Tutti i diritti riservati.
     </div>
   </footer>
 
+  <!-- Script -->
   <script src="faq.js"></script>
   <script src="../commonJS/commonNavbar.js?v=1.1"></script>
-  <script src = "../commonJS/commonScript.js?v=1.1"></script>
-
+  <script src="../commonJS/commonScript.js?v=1.1"></script>
 </body>
 </html>

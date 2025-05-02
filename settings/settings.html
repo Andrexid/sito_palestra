@@ -1,151 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impostazioni</title>
-    <link rel="stylesheet" href="settings.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/_variables.css">
-    <link rel="stylesheet" href="../commonCSS/footer.css">
+  <title>Impostazioni Utente | Personalizza il Tuo Profilo - MyGymStats</title>
+  <meta name="description" content="Gestisci le impostazioni del tuo account su MyGymStats: cambia tema, aggiorna la password, personalizza il profilo e ottimizza la tua esperienza fitness.">
+  <meta name="keywords" content="impostazioni, profilo, palestra, MyGymStats, fitness, tema scuro, tema chiaro, reset password, personalizzazione account">
+  <meta name="author" content="MyGymStats">
+
+  <link rel="canonical" href="https://mygymstats.com/settings/settings.html">
+
+  <link rel="icon" href="../img/logo.png" type="image/png">
+  <link rel="stylesheet" href="settings.css">
+  <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
+  <link rel="stylesheet" href="../commonCSS/buttons.css" />
+  <link rel="stylesheet" href="../commonCSS/reset.css" />
+  <link rel="stylesheet" href="../commonCSS/_variables.css">
+  <link rel="stylesheet" href="../commonCSS/footer.css">
 </head>
 <body onload="getUserPicProfile()">
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-            ☰
-        </button>
 
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
-            </a>
-        </div>
-
-        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li>
-                <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
-            </li>
-            <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
-            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-        </ul>
-
-        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-        <div class="profile-container" data-section="Profile">
-            <a href="#">
-                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
-            </a>
-            <div class="dropdown-menu" id="profile-menu">
-                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="settings">
-        <h3>⚙️ Impostazioni</h3>
-    
-        <!-- Sezione di navigazione -->
-        <div class="navigation">
-            <button onclick="controllaAccesso('profile.html')">👤 Torna al Mio Profilo</button>
-            <button onclick="controllaAccesso('account.php')">📊 Guarda i Tuoi Progressi</button>
-        </div>
-    
-        <!-- Tema Dark/Light -->
-        <br><h2>🎨 Personalizza il Tema:</h2>
-        <p>Scegli tra modalità Chiara o Scura e cambia stile al volo!</p><br>
-        <input id="switch" type="checkbox">
-        <div class="app">
-            <div class="body">
-                <div class="phone">                
-                    <div class="content">
-                        <div class="circle">
-                        <div class="crescent"></div>
-                        </div>
-                    
-                        <label for="switch">
-                        <div class="toggle"></div>
-                        <div class="names">
-                            <p class="light">Light</p>
-                            <p class="dark">Dark</p>
-                        </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Sicurezza -->
-        <div class="security-section">
-            <button onclick="window.location.href='../login-signup/reset_password_request.html'">🔒 Aggiorna la Tua Password</button>
-            <button class="delete-account" onclick="testLogout()">🚫 Disconnettiti dall'Account</button>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar" aria-label="Menu di navigazione principale">
+    <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/logo.png" alt="Logo MyGymStats - App Fitness" class="logo-img" />
+      </a>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-container">
-          <!-- Logo / Descrizione -->
-          <div class="footer-section">
-            <h2 class="footer-title">GymPower</h2>
-            <p class="footer-text">
-              Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-              GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-              sfide da superare!
-            </p>
-            <p class="footer-text">
-              Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-            </p>
-            <!-- Frase motivazionale extra -->
-            <p
-              class="footer-text"
-              style="margin-top: 10px; font-style: italic; font-weight: 600"
-            >
-              “La costanza batte il talento, quando il talento non è costante.”
-            </p>
-          </div>
-  
-          <!-- Link utili -->
-          <div class="footer-section">
-            <h3 class="footer-subtitle">Scopri</h3>
-            <ul class="footer-links">
-              <li><a href="../index.html">Home</a></li>
-              <li>
-                <a href="../gamification/gamification.html">Gamification</a>
-              </li>
-              <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-              <li><a href="../faq/faq.html">FAQ</a></li>
-              <li>
-                <a href="#" onclick="controllaAccesso('account.php')"
-                  >Progressi</a
-                >
-              </li>
-              <li><a href="../contatti/contatti.html">Contatti</a></li>
-            </ul>
-          </div>
-  
-          <!-- Contatti / Social -->
-          <div class="footer-section">
-            <h3 class="footer-subtitle">Contattaci</h3>
-            <p class="footer-text">
-              Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
-            </p>
-          </div>
-        </div>
-  
-        <!-- Footer bottom -->
-        <div class="footer-bottom">
-          &copy; 2025 GymPower. Tutti i diritti riservati.
-        </div>
-      </footer>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="#" onclick="controllaAccesso('../account/account.php')">Progressi</a></li>
+      <li><a href="../faq/faq.html">FAQ</a></li>
+      <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+      <li><a href="../contatti/contatti.html">Contatti</a></li>
+    </ul>
 
-    <script src = "settings.js?v=1.4"></script>
-    <script src="../commonJS/commonNavbar.js?v=1.2"></script>
-    <!-- <script src = "../commonJS/commonScript.js"></script> -->
+    <div class="profile-container">
+      <a href="#">
+        <img id="profile-pic" src="../img/utente_without_bg.png" alt="Immagine Profilo Utente" />
+      </a>
+      <div class="dropdown-menu" id="profile-menu">
+        <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+        <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+        <a href="#" onclick="logout()">🚪 Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <main class="settings">
+    <h1>⚙️ Impostazioni del Profilo</h1>
+    <p>Modifica le impostazioni del tuo account su MyGymStats per personalizzare la tua esperienza fitness.</p>
+
+    <!-- Navigazione rapida -->
+    <section class="navigation">
+      <button onclick="controllaAccesso('profile.html')">👤 Torna al Mio Profilo</button>
+      <button onclick="controllaAccesso('account.php')">📊 Visualizza i Tuoi Progressi</button>
+    </section>
+
+    <!-- Tema Scuro/Chiaro -->
+    <section class="theme-settings">
+      <h2>🎨 Personalizzazione Tema</h2>
+      <p>Scegli tra tema Chiaro o Scuro e adatta l'interfaccia di MyGymStats secondo i tuoi gusti.</p><br>
+      <input id="switch" type="checkbox">
+      <div class="app">
+        <div class="body">
+          <div class="phone">                
+            <div class="content">
+              <div class="circle"><div class="crescent"></div></div>
+              <label for="switch">
+                <div class="toggle"></div>
+                <div class="names">
+                  <p class="light">Light</p>
+                  <p class="dark">Dark</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sicurezza Account -->
+    <section class="security-section">
+      <h2>🔐 Sicurezza Account</h2>
+      <p>Proteggi il tuo profilo e gestisci l'accesso all'app.</p><br>
+      <button onclick="window.location.href='../login-signup/reset_password_request.html'">🔒 Aggiorna la Tua Password</button>
+      <button class="delete-account" onclick="testLogout()">🚫 Disconnettiti dall'Account</button>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h2 class="footer-title">MyGymStats</h2>
+        <p class="footer-text">
+          Con MyGymStats puoi monitorare ogni allenamento, personalizzare il tuo percorso e superare ogni limite. La tua trasformazione comincia qui!
+        </p>
+        <p class="footer-text">
+          Traccia. Migliora. Supera te stesso. Ogni giorno.
+        </p>
+        <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">
+          “La costanza batte il talento, quando il talento non è costante.”
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3 class="footer-subtitle">Navigazione</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../gamification/gamification.html">Gamification</a></li>
+          <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+          <li><a href="../faq/faq.html">FAQ</a></li>
+          <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
+          <li><a href="../contatti/contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3 class="footer-subtitle">Contatti</h3>
+        <p class="footer-text">Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 MyGymStats. Tutti i diritti riservati.
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="settings.js?v=1.4"></script>
+  <script src="../commonJS/commonNavbar.js?v=1.2"></script>
 </body>
 </html>

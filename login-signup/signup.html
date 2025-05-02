@@ -2,185 +2,160 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrazione</title>
-    <link rel="stylesheet" href="signup.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../img/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/_variables.css">
-    <link rel="stylesheet" href="../commonCSS/footer.css">
+  <title>Registrati su MyGymStats - Traccia i tuoi progressi in palestra</title>
+  <meta name="description" content="Crea un account gratuito su MyGymStats e inizia a monitorare i tuoi allenamenti, i progressi e le sfide in palestra. Inizia oggi il tuo percorso verso una forma fisica straordinaria!" />
+  <meta name="keywords" content="registrazione palestra, fitness app, MyGymStats, monitoraggio progressi, app allenamento, iscrizione MyGymStats" />
+  
+  <link rel="canonical" href="https://mygymstats.com/login-signup/signup.html" />
+  <link rel="stylesheet" href="signup.css" />
+  <link rel="stylesheet" href="../commonCSS/commonNavbar.css" />
+  <link rel="stylesheet" href="../commonCSS/reset.css" />
+  <link rel="stylesheet" href="../commonCSS/_variables.css" />
+  <link rel="stylesheet" href="../commonCSS/footer.css" />
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-          ☰
-        </button>
-        
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
-          </a>
-        </div>
-      
-        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li>
-            <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
-          </li>
-          <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
-          <li><a href="../chiSiamo/chisiamo.html" data-section="Chi Siamo">Chi siamo</a></li>
-          <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-        </ul>
-      
-        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-        <div class="profile-container" data-section="Profile">
-          <a href="#">
-            <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
-          </a>
-          <div class="dropdown-menu" id="profile-menu">
-            <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-            <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-            <a href="#" onclick="logout()">🚪 Logout</a>
-          </div>
-        </div>
-      </nav>
+  <nav class="navbar" aria-label="Menu di navigazione principale">
+    <button class="hamburger-menu" aria-label="Apri menu di navigazione">
+      ☰
+    </button>
 
-    <div class="container">
-        <div class="container-form">
-            <form action="../php/registrazione.php" method="POST" id="registrationForm">
-                <h1>Crea il tuo account e inizia il tuo percorso!</h1>
-
-                <!-- Nome e Cognome -->
-                <div class="double-input">
-                    <div class="input-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id = "nome" class="input" placeholder="Inserisci il Nome" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="cognome">Cognome</label>
-                        <input type="text" name="cognome" id = "cognome" class="input" placeholder="Inserisci il Cognome" required>
-                    </div>
-                </div>
-
-                <!-- Email -->
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id = "email" class="input" id="email" placeholder="Inserisci la tua Email"
-                        required>
-                </div>
-
-                <!-- Sesso -->
-                <div class="input-group">
-                    <label>Seleziona il tuo genere</label>
-                    <div class="radio-container">
-                        <label class="radio-button">
-                            <input type="radio" name="sesso" value="Uomo" required>
-                            <span class="radio-checkmark"></span> Uomo
-                        </label>
-                        <label class="radio-button">
-                            <input type="radio" name="sesso" value="Donna" required>
-                            <span class="radio-checkmark"></span> Donna
-                        </label>
-                        <label class="radio-button">
-                            <input type="radio" name="sesso" value="Altro" required>
-                            <span class="radio-checkmark"></span> Altro
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Password -->
-                <div class="double-input">
-                    <div class="input-group">
-                        <label for="password">Crea una Password</label>
-                        <input type="password" name="password" id = "password" class="input" placeholder="Crea una Password" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password-v">Conferma la Password</label>
-                        <input type="password" name="password-v" id = "password-v" class="input" placeholder="Conferma la Password"
-                            required>
-                    </div>
-                </div>
-
-                <p id = "confirmMessage"></p>
-
-                <div class="container-buttons">
-                    <input type="submit" value="Registrati ora" class="principal_button-100w" />
-
-                    
-        
-                    <a href="login.html"
-                      ><button type="button" class="secondary-button-100w">
-                        Accedi
-                      </button>
-                    </a>
-                </div>
-            </form>
-        </div>
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/logo.png" alt="Logo MyGymStats - Traccia i tuoi allenamenti" class="logo-img" />
+      </a>
     </div>
 
-    <footer class="site-footer">
-      <div class="footer-container">
-        <!-- Logo / Descrizione -->
-        <div class="footer-section">
-          <h2 class="footer-title">GymPower</h2>
-          <p class="footer-text">
-            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-            GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-            sfide da superare!
-          </p>
-          <p class="footer-text">
-            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-          </p>
-          <!-- Frase motivazionale extra -->
-          <p
-            class="footer-text"
-            style="margin-top: 10px; font-style: italic; font-weight: 600"
-          >
-            “La costanza batte il talento, quando il talento non è costante.”
-          </p>
-        </div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li>
+        <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
+      </li>
+      <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
+      <li><a href="../chiSiamo/chisiamo.html" data-section="Chi Siamo">Chi siamo</a></li>
+      <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+    </ul>
 
-        <!-- Link utili -->
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Scopri</h3>
-          <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
-            <li>
-              <a href="../gamification/gamification.html">Gamification</a>
-            </li>
-            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../faq/faq.html">FAQ</a></li>
-            <li>
-              <a href="#" onclick="controllaAccesso('account.php')"
-                >Progressi</a
-              >
-            </li>
-            <li><a href="../contatti/contatti.html">Contatti</a></li>
-          </ul>
-        </div>
+    <div class="profile-container" data-section="Profilo utente">
+      <a href="#">
+        <img id="profile-pic" src="../img/utente_without_bg.png" alt="Icona profilo utente" />
+      </a>
+      <div class="dropdown-menu" id="profile-menu">
+        <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+        <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
+        <a href="#" onclick="logout()">🚪 Logout</a>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Contatti / Social -->
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
-            Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
-          </p>
-        </div>
+  <main>
+    <div class="container">
+      <div class="container-form">
+        <form action="../php/registrazione.php" method="POST" id="registrationForm">
+          <h1>Registrati su MyGymStats e migliora i tuoi allenamenti</h1>
+          <p>Compila il modulo per creare il tuo account gratuito e iniziare subito a tenere traccia dei tuoi progressi in palestra.</p>
+          <br>
+          <div class="double-input">
+            <div class="input-group">
+              <label for="nome">Nome</label>
+              <input type="text" name="nome" id="nome" class="input" placeholder="Inserisci il Nome" required />
+            </div>
+            <div class="input-group">
+              <label for="cognome">Cognome</label>
+              <input type="text" name="cognome" id="cognome" class="input" placeholder="Inserisci il Cognome" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="input" placeholder="Inserisci la tua Email" required />
+          </div>
+
+          <div class="input-group">
+            <label>Genere</label>
+            <div class="radio-container">
+              <label class="radio-button">
+                <input type="radio" name="sesso" value="Uomo" required checked/>
+                <span class="radio-checkmark"></span> Uomo
+              </label>
+              <label class="radio-button">
+                <input type="radio" name="sesso" value="Donna" required />
+                <span class="radio-checkmark"></span> Donna
+              </label>
+              <label class="radio-button">
+                <input type="radio" name="sesso" value="Altro" required />
+                <span class="radio-checkmark"></span> Altro
+              </label>
+            </div>
+          </div>
+
+          <div class="double-input">
+            <div class="input-group">
+              <label for="password">Crea una password</label>
+              <input type="password" name="password" id="password" class="input" placeholder="Crea una password sicura" required />
+            </div>
+            <div class="input-group">
+              <label for="password-v">Conferma password</label>
+              <input type="password" name="password-v" id="password-v" class="input" placeholder="Conferma la tua password" required />
+            </div>
+          </div>
+
+          <p id="confirmMessage" aria-live="polite"></p>
+
+          <div class="container-buttons">
+            <input type="submit" value="Registrati ora" class="principal_button-100w" />
+            <a href="login.html">
+              <button type="button" class="secondary-button-100w">Hai già un account? Accedi</button>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h2 class="footer-title">MyGymStats</h2>
+        <p class="footer-text">Traccia ogni tuo allenamento, misura i tuoi risultati e migliora la tua forma fisica con l'app MyGymStats.</p>
+        <p class="footer-text">Unisciti a centinaia di utenti che ogni giorno superano i loro limiti.</p>
+        <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">
+          “La costanza batte il talento, quando il talento non è costante.”
+        </p>
       </div>
 
-      <!-- Footer bottom -->
-      <div class="footer-bottom">
-        &copy; 2025 GymPower. Tutti i diritti riservati.
+      <div class="footer-section">
+        <h3 class="footer-subtitle">Navigazione</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../gamification/gamification.html">Gamification</a></li>
+          <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+          <li><a href="../faq/faq.html">FAQ</a></li>
+          <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
+          <li><a href="../contatti/contatti.html">Contatti</a></li>
+        </ul>
       </div>
-    </footer>
 
-    <script src = signup.js?v=1.64></script>
-    <script src="../commonJS/commonNavbar.js"></script>
-    <script src = "../commonJS/commonScript.js"></script>
+      <div class="footer-section">
+        <h3 class="footer-subtitle">Contattaci</h3>
+        <p class="footer-text">
+          Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 MyGymStats. Tutti i diritti riservati.
+    </div>
+  </footer>
+
+  <script src="signup.js?v=1.64"></script>
+  <script src="../commonJS/commonNavbar.js"></script>
+  <script src="../commonJS/commonScript.js"></script>
 </body>
 
 </html>

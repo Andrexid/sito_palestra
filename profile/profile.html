@@ -3,239 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profilo Utente</title>
-    <link rel="stylesheet" href="profile.css?v=1.8" />
+    <meta name="description" content="Accedi al tuo profilo su MyGymStats: traccia i tuoi progressi, visualizza le statistiche di allenamento, il tuo livello fitness e ottieni badge motivazionali. Tutto in un'unica dashboard personale." />
+    <meta name="keywords" content="MyGymStats, profilo fitness, tracciamento allenamenti, livelli palestra, statistiche personali, badge palestra, gamification fitness" />
+    <meta name="author" content="MyGymStats Team" />
+    <link rel="canonical" href="https://mygymstats.com/profile/profile.html" />
 
+    <title>Profilo Utente - Statistiche, Obiettivi e Badge | MyGymStats</title>
+
+    <link rel="icon" href="../img/logo.png" type="image/png">
+    <link rel="stylesheet" href="profile.css?v=1.8" />
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css" />
     <link rel="stylesheet" href="../commonCSS/reset.css" />
     <link rel="stylesheet" href="../commonCSS/_variables.css" />
     <link rel="stylesheet" href="../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../commonCSS/footer.css" />
   </head>
+
   <body>
     <nav class="navbar" aria-label="Menu di navigazione principale">
       <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
         ☰
       </button>
-
       <div class="logo">
         <a href="../index.html">
-          <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
+          <img src="../img/logo.png" alt="Logo MyGymStats - Home" class="logo-img" />
         </a>
       </div>
-
-      <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li>
-          <a
-            href="#"
-            onclick="controllaAccesso('../account/account.php')"
-            data-section="Progressi"
-            >Progressi</a
-          >
-        </li>
-        <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
+        <li><a href="#" onclick="controllaAccesso('../account/account.php')">Progressi</a></li>
+        <li><a href="../faq/faq.html">FAQ</a></li>
         <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-        <li>
-          <a href="../contatti/contatti.html" data-section="Contatti"
-            >Contatti</a
-          >
-        </li>
+        <li><a href="../contatti/contatti.html">Contatti</a></li>
       </ul>
-
-      <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-      <div class="profile-container" data-section="Profile">
+      <div class="profile-container">
         <a href="#">
-          <img
-            id="profile-pic"
-            src="../img/utente_without_bg.png"
-            alt="Profilo"
-          />
+          <img id="profile-pic" src="../img/utente_without_bg.png" alt="Icona Profilo" />
         </a>
         <div class="dropdown-menu" id="profile-menu">
           <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-          <a href="#" onclick="controllaAccesso('settings.html')"
-            >⚙️ Impostazioni</a
-          >
+          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
           <a href="#" onclick="logout()">🚪 Logout</a>
         </div>
       </div>
     </nav>
 
-    <div class="profile-container-header">
-      <div class="profile-header">
+    <main class="profile-container-header">
+      <section class="profile-header">
         <label for="upload-profile-pic">
-          <img
-            id="profile-pic-profile"
-            src="../img/utente_without_bg.png"
-            alt="Foto Profilo"
-          />
+          <img id="profile-pic-profile" src="../img/utente_without_bg.png" alt="Foto Profilo Utente" />
         </label>
-        <input
-          type="file"
-          id="upload-profile-pic"
-          accept="image/*"
-          style="display: none"
-        />
-
-        <h2 id="username" data-editable="true">Andrea Sabetta</h2>
-        <p id="email">ciao</p>
+        <input type="file" id="upload-profile-pic" accept="image/*" style="display: none" />
+        <h1 id="username" data-editable="true">Nome e Cognome</h1>
+        <p id="email">emailUtente@gmail.com</p>
         <p id="dateBirth" data-editable="true" tag="date">02-04-05</p>
-        <p id="sex" data-editable="true" tag="sex">uom</p>
-        <p id="weight" data-editable="true" tag="weight">5</p>
-        <p id="height" data-editable="true" tag="height">5</p>
-
-        <button onclick="modifyProfile()" id="btnModify">
-          ✏️ Modifica Profilo
-        </button>
+        <p id="sex" data-editable="true" tag="sex">Altro</p>
+        <p id="weight" data-editable="true" tag="weight">55</p>
+        <p id="height" data-editable="true" tag="height">185</p>
+        <button onclick="modifyProfile()" id="btnModify">✏️ Modifica Profilo</button>
         <p id="confirmMessage"></p>
-      </div>
+      </section>
 
-      <div class="motivational-quote-container">
+      <section class="motivational-quote-container">
         <p id="motivational-quote" class="motivational-quote"></p>
         <p id="motivational-author" class="motivational-author"></p>
-      </div>
+      </section>
 
-      <!-- NUOVA SEZIONE GAMIFICATION -->
-      <div class="gamification-container">
-        <h3>🏆 Obiettivi & Livelli</h3>
-        <p id="gamification-text" class="gamification-text">
-          Sei al <strong>Livello 3</strong> 💪
-        </p>
-        <p id="nTrainings">
-          Hai completato <strong>42</strong> allenamenti! 🚀
-        </p>
-        <br /><br />
-        <label for="progressGoals"
-          >Sei sempre più vicino al prossimo traguardo! 💪 Continua ad allenarti
-          e supera i tuoi limiti!</label
-        ><br />
+      <section class="gamification-container">
+        <h2>🏆 Obiettivi Fitness & Avanzamento Livelli</h2>
+        <p id="gamification-text">Sei al <strong>Livello 3</strong> 💪</p>
+        <p id="nTrainings">Hai completato <strong>42</strong> allenamenti! 🚀</p>
+        <label for="progressGoals">Continua a superare te stesso e sblocca nuovi traguardi!</label><br />
         <progress id="progressGoals" max="100" value="70"></progress>
         <p id="ci">0%</p>
-
         <div id="badge-container" class="badge-container">
           <div>
-            <h3>🏅 Il tuo Badge Attuale:</h3>
-            <img
-              src="../img/badge-1.jpg"
-              id="secondImg"
-              alt="Il tuo badge attuale"
-              width="200px"
-            />
+            <h3>🏅 Badge Attuale</h3>
+            <img src="../img/badge-1.jpg" id="secondImg" alt="Badge attuale" width="200px" />
             <p id="secondP"></p>
           </div>
           <div>
-            <h3>🚀 Prossimo Obiettivo:</h3>
-            <img
-              src="../img/badge-2.jpg"
-              id="thirdImg"
-              class="locked"
-              alt="Badge successivo"
-              width="200px"
-            />
+            <h3>🚀 Prossimo Badge</h3>
+            <img src="../img/badge-2.jpg" id="thirdImg" class="locked" alt="Prossimo badge" width="200px" />
             <p id="thirdP"></p>
           </div>
         </div>
+        <a href="../gamification/gamification.html">
+          <button class="principal_button-sm">Esplora tutti i Badge</button>
+        </a>
+      </section>
 
-        <a href="../gamification/gamification.html"
-          ><button class="principal_button-sm">Vedi tutti i Badge</button></a
-        >
-      </div>
-      <!-- FINE SEZIONE GAMIFICATION -->
-
-      <div class="stats">
-        <h3>📊 Le Tue Statistiche</h3>
+      <section class="stats">
+        <h2>📊 Le Tue Statistiche Allenamento</h2>
         <p>Totale XP guadagnati: <span id="most-xp">0</span> ⚡</p>
-        <!-- <p>XP guadagnati negli ultimi 7 giorni: <span id="weekly-xp">0</span> ⚡</p> -->
         <p>Esercizio più frequente: <span id="top-exercise">-</span> 🔁</p>
         <p>Obiettivi attivi: <span id="goals-active">0</span> 🎯</p>
-        <p>
-          Totale set completati: <span id="sets-completed">0</span> |
-          Ripetizioni: <span id="reps-completed">0</span> 💥
-        </p>
-      </div>
+        <p>Set completati: <span id="sets-completed">0</span> | Ripetizioni: <span id="reps-completed">0</span> 💥</p>
+      </section>
 
-      <div class="workout-history">
-        <h3>📅 Ultimi Allenamenti</h3>
+      <section class="workout-history">
+        <h2>📅 Cronologia degli Ultimi Allenamenti</h2>
         <p>📅 10 Marzo - Panca Piana: 80kg x 8 reps</p>
         <p>📅 8 Marzo - Squat: 100kg x 6 reps</p>
         <p>📅 5 Marzo - Stacco: 120kg x 5 reps</p>
-      </div>
+      </section>
 
-      <div class="bmi-container-big">
-        <h2>Il Tuo Indice di Massa Corporea (BMI)</h2>
-        <br />
+      <section class="bmi-container-big">
+        <h2>📐 Il Tuo Indice di Massa Corporea (BMI)</h2>
         <div class="bmi-container">
-          <canvas id="bmiGaugeChart"></canvas><br />
+          <canvas id="bmiGaugeChart"></canvas>
           <div class="arrow" id="arrow"></div>
         </div>
         <p id="bmiText"></p>
         <p id="bmiWarning"></p>
-      </div>
-    </div>
+      </section>
+    </main>
 
     <footer class="site-footer">
       <div class="footer-container">
-        <!-- Logo / Descrizione -->
         <div class="footer-section">
-          <h2 class="footer-title">GymPower</h2>
-          <p class="footer-text">
-            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-            GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-            sfide da superare!
-          </p>
-          <p class="footer-text">
-            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-          </p>
-          <!-- Frase motivazionale extra -->
-          <p
-            class="footer-text"
-            style="margin-top: 10px; font-style: italic; font-weight: 600"
-          >
+          <h2 class="footer-title">MyGymStats</h2>
+          <p class="footer-text">Traccia il tuo percorso fitness in modo semplice, motivante e visivo. Dai badge ai livelli, ogni traguardo conta.</p>
+          <p class="footer-text">Allenati. Supera te stesso. Ogni giorno.</p>
+          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">
             “La costanza batte il talento, quando il talento non è costante.”
           </p>
         </div>
-
-        <!-- Link utili -->
         <div class="footer-section">
-          <h3 class="footer-subtitle">Scopri</h3>
+          <h3 class="footer-subtitle">Navigazione</h3>
           <ul class="footer-links">
             <li><a href="../index.html">Home</a></li>
-            <li>
-              <a href="../gamification/gamification.html">Gamification</a>
-            </li>
+            <li><a href="../gamification/gamification.html">Gamification</a></li>
             <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="../faq/faq.html">FAQ</a></li>
-            <li>
-              <a href="#" onclick="controllaAccesso('account.php')"
-                >Progressi</a
-              >
-            </li>
+            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
             <li><a href="../contatti/contatti.html">Contatti</a></li>
           </ul>
         </div>
-
-        <!-- Contatti / Social -->
         <div class="footer-section">
           <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
-            Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
-          </p>
+          <p class="footer-text">Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a></p>
         </div>
       </div>
-
-      <!-- Footer bottom -->
       <div class="footer-bottom">
-        &copy; 2025 GymPower. Tutti i diritti riservati.
+        &copy; 2025 MyGymStats. Tutti i diritti riservati.
       </div>
     </footer>
 
     <script src="profile.js?v=2.4"></script>
     <script src="../commonJS/commonNavbar.js?v=1.1"></script>
     <script src="../commonJS/commonScript.js?v=1.2"></script>
-
-    <!-- Includo chart.js per poter creare il grafico del peso -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

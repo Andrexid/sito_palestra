@@ -3,27 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contatti - GymTrack</title>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+    <link rel="icon" href="../img/logo.png" type="image/png">
+    
+    <title>Contattaci - Supporto App MyGymStats e Sviluppatori</title>
+    <meta name="description" content="Hai domande su MyGymStats? Contatta il team di supporto o i nostri sviluppatori per assistenza sull'app, suggerimenti o collaborazioni.">
+    
     <link rel="stylesheet" href="contatti.css" />
-
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css" />
     <link rel="stylesheet" href="../commonCSS/buttons.css" />
     <link rel="stylesheet" href="../commonCSS/reset.css" />
     <link rel="stylesheet" href="../commonCSS/_variables.css" />
     <link rel="stylesheet" href="../commonCSS/footer.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
+
   <body onload="getUserPicProfile()">
     <nav class="navbar" aria-label="Menu di navigazione principale">
       <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
         ☰
       </button>
-
+  
       <div class="logo">
         <a href="../index.html">
           <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
         </a>
       </div>
-
+  
       <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
@@ -38,15 +45,12 @@
         <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
         <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
         <li>
-          <a
-            href="../contatti/contatti.html"
-            data-section="Contatti"
-            class="selezionata"
-            >Contatti</a
-          >
+          <a href="../contatti/contatti.html" data-section="Contatti" class="selezionata">
+            Contatti
+          </a>
         </li>
       </ul>
-
+  
       <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
       <div class="profile-container" data-section="Profile">
         <a href="#">
@@ -68,97 +72,56 @@
 
     <main class="contact-container">
       <section class="contact-info">
-        <h2>Contattaci</h2>
+        <h1>Contatta il Team MyGymStats</h1>
+        <p>Per assistenza sull'app MyGymStats, collaborazioni o richieste specifiche, non esitare a scriverci.</p>
+
         <p>
-          <strong>Email:</strong>
-          <a href="mailto:gymtrack@gmail.com">gymtrack@gmail.com</a>
+          <strong>Email ufficiale:</strong>
+          <a href="mailto:MyGymStats@gmail.com">MyGymStats@gmail.com</a>
         </p>
 
         <div class="social-links">
-          <a
-            href="https://www.instagram.com/rumen_bortoletto?igsh=MXczd3hnbTR5cHVwNA=="
-            target="_blank"
-            class="social-link-a"
-          >
-            <img src="../img/logo_instagram.png" alt="Instagram" class="logo" />
+          <h2>Seguici sui social o contatta i fondatori</h2>
+
+          <a href="https://www.instagram.com/rumen_bortoletto?igsh=MXczd3hnbTR5cHVwNA==" target="_blank" class="social-link-a">
+            <img src="../img/logo_instagram.png" alt="Profilo Instagram di Rumen Bortoletto - MyGymStats" class="logo" />
             <p>Rumen Bortoletto</p>
           </a>
-          <a
-            href="https://www.instagram.com/sabe_andre?igsh=MTRpdDZmYXhhNHdv"
-            target="_blank"
-            class="social-link-a"
-          >
-            <img src="../img/logo_instagram.png" alt="Instagram" class="logo" />
+
+          <a href="https://www.instagram.com/sabe_andre?igsh=MTRpdDZmYXhhNHdv" target="_blank" class="social-link-a">
+            <img src="../img/logo_instagram.png" alt="Profilo Instagram di Andrea Sabetta - MyGymStats" class="logo" />
             <p>Andrea Sabetta</p>
           </a>
-          <a
-            href="https://www.instagram.com/brazz0_?igsh=MW9jeDcxc3V4MmtwMQ=="
-            target="_blank"
-            class="social-link-a"
-          >
-            <img src="../img/logo_instagram.png" alt="Instagram" class="logo" />
+
+          <a href="https://www.instagram.com/brazz0_?igsh=MW9jeDcxc3V4MmtwMQ==" target="_blank" class="social-link-a">
+            <img src="../img/logo_instagram.png" alt="Profilo Instagram di Nicolas Brazzo - MyGymStats" class="logo" />
             <p>Nicolas Brazzo</p>
           </a>
 
-          <a
-            href="https://andre-dev.com/"
-            target="_blank"
-            class="social-link-a"
-          >
-            <img
-              src="../img/logoAndreWebDeveloper.png"
-              alt="Andre Web Developer"
-              class="logo"
-            />
+          <a href="https://andre-dev.com/" target="_blank" class="social-link-a">
+            <img src="../img/logoAndreWebDeveloper.png" alt="Sito Web di Andrea Sabetta - Web Developer MyGymStats" class="logo" />
             <p>Andrea Web Developer</p>
           </a>
         </div>
 
         <div id="testo-faq">
-          <p>
-            Se hai domande o perplessità clicca qui sotto per vedere le domande
-            più frequenti e vedere chi siamo!
-          </p>
+          <p>Hai domande comuni? Visita la nostra sezione FAQ per risposte rapide o scopri chi siamo.</p>
         </div>
+
         <a href="../faq/faq.html">
-          <button class="principal_button">FAQ</button>
+          <button class="principal_button">Domande Frequenti (FAQ)</button>
         </a>
         <a href="../chiSiamo/chisiamo.html">
-          <button class="principal_button">CHI SIAMO</button>
+          <button class="principal_button">Il Nostro Team</button>
         </a>
       </section>
 
       <section class="contact-form">
-        <h2>Scrivici un messaggio</h2>
-        <form action="#" method="POST">
-          <input
-            id="nome"
-            type="text"
-            name="name"
-            placeholder="Il tuo nome"
-            required
-          />
-          <input
-            id="cognome"
-            type="text"
-            name="surname"
-            placeholder="Il tuo cognome"
-            required
-          />
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="La tua email"
-            required
-          />
-          <textarea
-            id="messaggio"
-            name="message"
-            placeholder="Il tuo messaggio"
-            rows="5"
-            required
-          ></textarea>
+        <h2>Scrivici un Messaggio Diretto</h2>
+        <form action="#" method="POST" id = "sendEmail">
+          <input id="nome" type="text" name="name" placeholder="Il tuo nome" required />
+          <input id="email" type="email" name="email" placeholder="La tua email" required />
+          <textarea id="messaggio" name="message" placeholder="Il tuo messaggio" rows="5" required></textarea>
           <button type="submit" class="input-button">Invia</button>
         </form>
       </section>
@@ -166,55 +129,33 @@
 
     <footer class="site-footer">
       <div class="footer-container">
-        <!-- Logo / Descrizione -->
         <div class="footer-section">
-          <h2 class="footer-title">GymPower</h2>
-          <p class="footer-text">
-            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-            GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-            sfide da superare!
-          </p>
-          <p class="footer-text">
-            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-          </p>
-          <!-- Frase motivazionale extra -->
-          <p
-            class="footer-text"
-            style="margin-top: 10px; font-style: italic; font-weight: 600"
-          >
+          <h2 class="footer-title">GymPower - App Fitness e Progressi</h2>
+          <p class="footer-text">Con GymPower monitori i tuoi allenamenti, misuri i progressi e sfidi i tuoi limiti ogni giorno.</p>
+          <p class="footer-text">Unisciti alla nostra community di appassionati del fitness.</p>
+          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">
             “La costanza batte il talento, quando il talento non è costante.”
           </p>
         </div>
 
-        <!-- Link utili -->
         <div class="footer-section">
-          <h3 class="footer-subtitle">Scopri</h3>
+          <h3 class="footer-subtitle">Naviga il sito</h3>
           <ul class="footer-links">
             <li><a href="../index.html">Home</a></li>
-            <li>
-              <a href="../gamification/gamification.html">Gamification</a>
-            </li>
+            <li><a href="../gamification/gamification.html">Gamification</a></li>
             <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="../faq/faq.html">FAQ</a></li>
-            <li>
-              <a href="#" onclick="controllaAccesso('account.php')"
-                >Progressi</a
-              >
-            </li>
+            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
             <li><a href="../contatti/contatti.html">Contatti</a></li>
           </ul>
         </div>
 
-        <!-- Contatti / Social -->
         <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
-            Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
-          </p>
+          <h3 class="footer-subtitle">Email Supporto</h3>
+          <p class="footer-text">Scrivici a <a href="mailto:info@gympower.com">info@gympower.com</a></p>
         </div>
       </div>
 
-      <!-- Footer bottom -->
       <div class="footer-bottom">
         &copy; 2025 GymPower. Tutti i diritti riservati.
       </div>
@@ -222,5 +163,13 @@
 
     <script src="../commonJS/commonNavbar.js?v=1.1"></script>
     <script src="../commonJS/commonScript.js?v=1.1"></script>
+
+    <script>
+      $("#sendEmail").on("submit", function(event) {
+        event.preventDefault();
+
+        alert("form inviato");
+    });
+    </script>
   </body>
 </html>

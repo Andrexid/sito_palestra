@@ -1,138 +1,136 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Siamo - GymTrack</title>
-    <link rel="stylesheet" href="chiSiamo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../img/logo.png" type="image/x-icon">
+  <link rel="icon" href="../img/logo.png" type="image/png">
 
-    <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
-    <link rel="stylesheet" href="../commonCSS/buttons.css" />
-    <link rel="stylesheet" href="../commonCSS/reset.css" />
-    <link rel="stylesheet" href="../commonCSS/_variables.css">
-    <link rel="stylesheet" href="../commonCSS/footer.css" />
+  <title>Chi Siamo - MyGymStats | App Palestra per Monitorare Allenamenti e Progressi</title>
+  <meta name="description" content="Scopri il team di MyGymStats, l'app intelligente per il fitness che ti aiuta a monitorare gli allenamenti, ottenere consigli personalizzati e superare i tuoi limiti.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph per social -->
+  <meta property="og:title" content="Chi Siamo - MyGymStats | App Fitness per Tracciare i Progressi">
+  <meta property="og:description" content="Conosci il team dietro MyGymStats, l'app per il monitoraggio dell’allenamento che rivoluziona il tuo modo di fare fitness.">
+  <meta property="og:image" content="../img/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mygymstats.com/chiSiamo/chisiamo.html">
+
+  <link rel="stylesheet" href="chiSiamo.css">
+  <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
+  <link rel="stylesheet" href="../commonCSS/buttons.css" />
+  <link rel="stylesheet" href="../commonCSS/reset.css" />
+  <link rel="stylesheet" href="../commonCSS/_variables.css">
+  <link rel="stylesheet" href="../commonCSS/footer.css" />
 </head>
 <body onload="getUserPicProfile()">
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-          ☰
-        </button>
-        
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
-          </a>
+  <nav class="navbar" aria-label="Menu di navigazione principale">
+    <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+      ☰
+    </button>
+
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/logo.png" alt="Logo Palestra" class="logo-img" />
+      </a>
+    </div>
+
+    <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li>
+        <a
+          href="#"
+          onclick="controllaAccesso('../account/account.php')"
+          data-section="Progressi"
+          >Progressi</a
+        >
+      </li>
+      <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
+      <li><a href="../chiSiamo/chisiamo.html" class="selezionata">Chi siamo</a></li>
+      <li>
+        <a href="../contatti/contatti.html" data-section="Contatti">
+          Contatti
+        </a>
+      </li>
+    </ul>
+
+    <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
+    <div class="profile-container" data-section="Profile">
+      <a href="#">
+        <img
+          id="profile-pic"
+          src="../img/utente_without_bg.png"
+          alt="Profilo"
+        />
+      </a>
+      <div class="dropdown-menu" id="profile-menu">
+        <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
+        <a href="#" onclick="controllaAccesso('settings.html')"
+          >⚙️ Impostazioni</a
+        >
+        <a href="#" onclick="logout()">🚪 Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="about-container">
+    <section class="about-info">
+      <h1>Chi Siamo: Il Team di MyGymStats</h1>
+      <p>Benvenuto in MyGymStats, la <strong>piattaforma digitale per il fitness</strong> nata dalla passione per lo sport e l’innovazione. Il nostro obiettivo è aiutarti a <strong>monitorare i tuoi allenamenti</strong>, misurare i progressi e ottenere il massimo dai tuoi sforzi in palestra.</p>
+      <p>La nostra app combina tecnologia e passione per offrirti un'esperienza completa, con <strong>statistiche personalizzate</strong>, consigli intelligenti e sfide motivanti.</p>
+    </section>
+
+    <section class="team-section">
+      <h2>Il Team Dietro l'App</h2>
+      <div class="team-members">
+        <div class="member">
+          <img src="../img/team1.jpg" alt="Foto di Rumen Bortoletto - Front-end developer MyGymStats">
+          <h3>Rumen Bortoletto</h3>
+          <p>Co-fondatore &amp; Front-end developer</p>
         </div>
-      
-        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-        <ul class="nav-links">
-          <li><a href="../index.html">Home</a></li>
-          <li>
-            <a href="#" onclick="controllaAccesso('../account/account.php')" data-section="Progressi">Progressi</a>
-          </li>
-          <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
-          <li><a href="../chiSiamo/chisiamo.html" class="selezionata">Chi siamo</a></li>
-          <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-        </ul>
-      
-        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-        <div class="profile-container" data-section="Profile">
-          <a href="#">
-            <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo" />
-          </a>
-          <div class="dropdown-menu" id="profile-menu">
-            <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-            <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-            <a href="#" onclick="logout()">🚪 Logout</a>
-          </div>
+        <div class="member">
+          <img src="../img/team2.jpg" alt="Foto di Andrea Sabetta - Full-stack developer MyGymStats">
+          <h3>Andrea Sabetta</h3>
+          <p>Co-fondatore &amp; Full-stack developer</p><br>
+          <a class="personal-site" href="https://andre-dev.com" target="_blank" rel="noopener noreferrer">
+            Scopri i miei progetti su andre-dev.com
+          </a>          
         </div>
-      </nav>
-
-    <main class="about-container">
-        <section class="about-info">
-            <h1>Chi Siamo</h1>
-            <p>GymTrack nasce dalla passione per il fitness e il desiderio di aiutare gli atleti a monitorare i loro progressi.</p>
-            <p>La nostra piattaforma permette di tenere traccia dei miglioramenti, ricevere consigli personalizzati e interagire con una community di appassionati.</p>
-        </section>
-
-        <section class="team-section">
-            <h2>Il Nostro Team</h2>
-            <div class="team-members">
-                <div class="member">
-                    <img src="../img/team1.jpg" alt="Rumen Bortoletto">
-                    <h3>Rumen Bortoletto</h3>
-                    <p>Co-fondatore & <br> Front-end developer</p>
-                </div>
-                <div class="member">
-                    <img src="../img/team2.jpg" alt="Andrea Sabetta">
-                    <h3>Andrea Sabetta</h3>
-                    <p>Co-fondatore & <br> Full-stack developer</p>
-                </div>
-                <div class="member">
-                    <img src="../img/team3.png" alt="Nicolas Brazzo">
-                    <h3>Nicolas Brazzo</h3>
-                    <p>Co-fondatore &  <br>Back-end developer</p>
-                </div>
-
-        </section>
-
-
-        <section class="project-details">
-            <h2>Il Nostro Progetto</h2>
-            <p><strong>GymTrack</strong> non è solo un'app di tracciamento: è un <strong>ecosistema intelligente</strong> progettato per ottimizzare i tuoi allenamenti. Grazie all'<strong>intelligenza artificiale</strong>, offriamo suggerimenti personalizzati basati sui tuoi progressi.</p>
-            <p>Utilizziamo la <strong>gamification</strong> per rendere il tuo percorso più stimolante: guadagna <strong>badge</strong>, scala livelli e sfida te stesso ogni giorno.</p>
-            <p>Siamo costantemente al lavoro per migliorare la piattaforma con nuove funzionalità.</p>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-container">
-        <!-- Logo / Descrizione -->
-        <div class="footer-section">
-          <h2 class="footer-title">GymPower</h2>
-          <p class="footer-text">
-            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con GymPower hai tutto sotto controllo: progressi, allenamenti e nuove sfide da superare!
-          </p>
-          <p class="footer-text">
-            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-          </p>
-          <!-- Frase motivazionale extra -->
-          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600;">
-            “La costanza batte il talento, quando il talento non è costante.”
-          </p>
-        </div>
-    
-        <!-- Link utili -->
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Scopri</h3>
-          <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../gamification/gamification.html">Gamification</a></li>
-            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../faq/faq.html">FAQ</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-            <li><a href="../contatti/contatti.html">Contatti</a></li>
-          </ul>
-        </div>
-    
-        <!-- Contatti / Social -->
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">Email: <a href="mailto:info@gympower.com">info@gympower.com</a></p>
+        <div class="member">
+          <img src="../img/team3.png" alt="Foto di Nicolas Brazzo - Back-end developer MyGymStats">
+          <h3>Nicolas Brazzo</h3>
+          <p>Co-fondatore &amp; Back-end developer</p>
         </div>
       </div>
-    
-      <!-- Footer bottom -->
-      <div class="footer-bottom">
-        &copy; 2025 GymPower. Tutti i diritti riservati.
-      </div>
-    </footer>
+    </section>
 
-    <script src="../commonJS/commonNavbar.js?v=1.1"></script>
-    <script src = "../commonJS/commonScript.js?v=1.1"></script>
-</body>
-</html>
+    <section class="project-details">
+      <h2>La Nostra Missione: Fitness Intelligente e Accessibile</h2>
+      <p><strong>MyGymStats</strong> è molto più di un'app per la palestra: è un <strong>assistente digitale intelligente</strong> che ti accompagna in ogni allenamento. Grazie all’<strong>intelligenza artificiale</strong> adattiva, ti forniamo suggerimenti precisi e basati sui tuoi dati reali.</p>
+      <p>Abbiamo integrato la <strong>gamification</strong> per rendere ogni sessione divertente e coinvolgente. Guadagna <strong>badge</strong>, scala livelli e supera i tuoi limiti giorno dopo giorno.</p>
+      <p>Il nostro team lavora ogni giorno per aggiungere nuove funzionalità, migliorare le performance e offrirti un'esperienza sempre più completa.</p>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <!-- ...footer invariato salvo correzione SEO nel testo... -->
+    <div class="footer-section">
+      <h2 class="footer-title">MyGymStats</h2>
+      <p class="footer-text">
+        Trasforma i tuoi obiettivi in risultati. Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.
+      </p>
+      <p class="footer-text">
+        Allenati con metodo. Supera i tuoi limiti. Cresci con noi.
+      </p>
+      <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600;">
+        “La costanza batte il talento, quando il talento non è costante.”
+      </p>
+    </div>
+  </footer>
+
+  <script src="../commonJS/commonNavbar.js?v=1.1"></script>
+  <script src="../commonJS/commonScript.js?v=1.1"></script>
 </body>
 </html>

@@ -3,8 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Palestra Tracker - Potenzia i tuoi progressi!</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="icon" href="img/logo.png" type="image/png">
 
+    <title>MyGymStats - Traccia i tuoi progressi in palestra</title>
+    <meta name="description" content="Con MyGymStats tieni traccia dei tuoi allenamenti in palestra, analizza i progressi con grafici dettagliati e supera i tuoi limiti ogni giorno. Entra ora!" />
+
+    <!-- Open Graph per anteprima social -->
+    <meta property="og:title" content="MyGymStats - Traccia i tuoi progressi in palestra" />
+    <meta property="og:description" content="Allenati con metodo, segui i tuoi miglioramenti e spingiti oltre i tuoi limiti con MyGymStats!" />
+    <meta property="og:image" content="img/logo.png" />
+    <meta property="og:url" content="https://mygymstats.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mygymstats.com/" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="commonCSS/commonNavbar.css" />
     <link rel="stylesheet" href="commonCSS/buttons.css" />
@@ -14,246 +29,130 @@
 
   <body onload="getUserPicProfile()">
     <nav class="navbar" aria-label="Menu di navigazione principale">
-      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-        ☰
-      </button>
+      <button class="hamburger-menu" aria-label="Apri menu di navigazione">☰</button>
 
       <div class="logo">
         <a href="./index.html">
-          <img src="img/logo.png" alt="Logo Palestra" class="logo-img" />
+          <img src="img/logo.png" alt="Logo MyGymStats" class="logo-img" />
         </a>
       </div>
 
-      <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
       <ul class="nav-links">
         <li><a href="index.html" class="selezionata">Home</a></li>
-        <li>
-          <a
-            href="#"
-            onclick="controllaAccesso('account.php')"
-            data-section="Progressi"
-            >Progressi</a
-          >
-        </li>
+        <li><a href="#" onclick="controllaAccesso('account.php')" data-section="Progressi">Progressi</a></li>
         <li><a href="faq/faq.html" data-section="FAQ">FAQ</a></li>
         <li><a href="chiSiamo/chisiamo.html">Chi siamo</a></li>
-        <li>
-          <a href="contatti/contatti.html" data-section="Contatti">Contatti</a>
-        </li>
+        <li><a href="contatti/contatti.html" data-section="Contatti">Contatti</a></li>
       </ul>
 
-      <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-      <div class="profile-container" data-section="Profile">
-        <a href="#">
-          <img id="profile-pic" src="img/utente_without_bg.png" alt="Profilo" />
-        </a>
+      <div class="profile-container" data-section="Profilo">
+        <a href="#"><img id="profile-pic" src="img/utente_without_bg.png" alt="Foto profilo utente" /></a>
         <div class="dropdown-menu" id="profile-menu">
           <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-          <a href="#" onclick="controllaAccesso('settings.html')"
-            >⚙️ Impostazioni</a
-          >
+          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
           <a href="#" onclick="logout()">🚪 Logout</a>
         </div>
       </div>
     </nav>
 
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Supera i tuoi limiti, <br />diventa una leggenda!</h1>
-        <p>
-          Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-          Palestra Tracker hai tutto sotto controllo: progressi, allenamenti e
-          nuove sfide da superare!
-        </p>
-        <div class="hero-buttons">
-          <a
-            href="#"
-            class="principal_button"
-            onclick="controllaAccesso('account.php')"
-            >Inizia Ora</a
-          >
-          <a href="#features">
-            <button class="secondary-button-fit">Scopri di più</button>
-          </a>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Traccia i tuoi progressi in palestra<br />con MyGymStats</h1>
+          <p>
+            Scopri come stai migliorando con grafici precisi e uno storico degli esercizi. Con MyGymStats la tua evoluzione non è più un mistero.
+          </p>
+          <div class="hero-buttons">
+            <a href="#" class="principal_button" onclick="controllaAccesso('account.php')">Inizia Ora</a>
+            <a href="#features"><button class="secondary-button-fit">Scopri di più</button></a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="features" id="features">
-      <div class="feature-card">
-        <h2>📊 Traccia ogni Allenamento</h2>
-        <p>
-          Registra ogni esercizio e scopri quanto stai migliorando. I numeri non
-          mentono!
-        </p>
-      </div>
-      <div class="feature-card">
-        <h2>📈 Grafici Ultra Dettagliati</h2>
-        <p>
-          Analizza i tuoi progressi con visualizzazioni chiare e
-          personalizzabili.
-        </p>
-      </div>
-      <div class="feature-card">
-        <h2>🏆 Guadagna Punti e Sfide</h2>
-        <p>
-          Ogni allenamento ti fa guadagnare punti. Sblocca premi e spingiti
-          oltre i tuoi limiti!
-        </p>
-      </div>
-      <div class="feature-card">
-        <h2>🤖 AI Coach (Prossimamente)</h2>
-        <p>
-          Allenati come un pro con suggerimenti personalizzati basati sui tuoi
-          dati.
-        </p>
-      </div>
-    </section>
+      <section class="features" id="features">
+        <div class="feature-card">
+          <h3>📊 Traccia ogni allenamento</h3>
+          <p>Registra ogni esercizio, ripetizione e carico. Ogni dettaglio conta nel tuo percorso.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📈 Grafici dettagliati dei tuoi progressi</h3>
+          <p>Analizza i dati con grafici intuitivi per capire dove stai crescendo davvero.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🏆 Sistema a punti e sfide motivanti</h3>
+          <p>Ottieni ricompense e badge per ogni traguardo raggiunto.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🤖 AI Coach (presto disponibile)</h3>
+          <p>Allenamenti personalizzati in base ai tuoi dati per massimizzare i risultati.</p>
+        </div>
+      </section>
 
-    <section class="cta-section cover">
-      <h2>Sei pronto a trasformarti?</h2>
-      <p>
-        Unisciti alla community di atleti che stanno già migliorando ogni
-        giorno! Non perdere altro tempo.
-      </p>
-      <a
-        href="#"
-        class="principal_button"
-        onclick="controllaAccesso('account.php')"
-        >Inizia Ora</a
-      >
-    </section>
+      <section class="cta-section cover">
+        <h2>Inizia oggi, migliora ogni giorno</h2>
+        <p>Con MyGymStats monitori i tuoi allenamenti e resti motivato. Non aspettare, agisci ora!</p>
+        <a href="#" class="principal_button" onclick="controllaAccesso('account.php')">Registrati ora</a>
+      </section>
 
-    <section class="faq" id="faq">
-      <h2>Domande Frequenti</h2>
-
-      <div class="faq-item">
-        <h3>💡 Come posso registrarmi?</h3>
-        <p>
-          Clicca su "Registrati" e segui le semplici istruzioni. In pochi
-          secondi sarai pronto a partire!
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>📊 Posso vedere i miei miglioramenti nel tempo?</h3>
-        <p>
-          Assolutamente sì! I nostri grafici ti mostrano ogni progresso, giorno
-          dopo giorno.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>🏆 Come funziona il sistema a punti?</h3>
-        <p>
-          Ogni allenamento e accesso giornaliero ti fa guadagnare punti. Usa i
-          punti per sbloccare premi e vantaggi esclusivi!
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>📱 Il sito funziona su smartphone?</h3>
-        <p>
-          Certo! L’esperienza è ottimizzata per qualsiasi dispositivo, così puoi
-          monitorare i tuoi progressi ovunque.
-        </p>
-      </div>
-    </section>
+      <section class="faq" id="faq">
+        <h2>Domande frequenti</h2>
+        <div class="faq-item">
+          <h3>💡 Come mi registro?</h3>
+          <p>Premi su “Registrati” e crea il tuo profilo in meno di un minuto.</p>
+        </div>
+        <div class="faq-item">
+          <h3>📊 Posso vedere i miglioramenti nel tempo?</h3>
+          <p>Sì! Tutti i tuoi progressi vengono salvati e visualizzati in grafici intuitivi.</p>
+        </div>
+        <div class="faq-item">
+          <h3>🏆 Cosa sono i punti?</h3>
+          <p>I punti premiano la costanza: allenati e sblocca vantaggi extra!</p>
+        </div>
+        <div class="faq-item">
+          <h3>📱 È ottimizzato per smartphone?</h3>
+          <p>Assolutamente! MyGymStats è responsive su qualsiasi dispositivo.</p>
+        </div>
+      </section>
+    </main>
 
     <footer class="site-footer">
       <div class="footer-container">
-        <!-- Logo / Descrizione -->
         <div class="footer-section">
-          <h2 class="footer-title">GymPower</h2>
-          <p class="footer-text">
-            Il tuo viaggio verso una forma fisica straordinaria inizia oggi. Con
-            GymPower hai tutto sotto controllo: progressi, allenamenti e nuove
-            sfide da superare!
-          </p>
-          <p class="footer-text">
-            Traccia i tuoi progressi. Supera i tuoi limiti. Ogni giorno.
-          </p>
-          <!-- Frase motivazionale extra -->
-          <p
-            class="footer-text"
-            style="margin-top: 10px; font-style: italic; font-weight: 600"
-          >
-            “La costanza batte il talento, quando il talento non è costante.”
-          </p>
+          <h2 class="footer-title">MyGymStats</h2>
+          <p class="footer-text">Traccia allenamenti. Analizza progressi. Supera te stesso.</p>
+          <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
 
-        <!-- Link utili -->
         <div class="footer-section">
-          <h3 class="footer-subtitle">Scopri</h3>
+          <h3 class="footer-subtitle">Naviga</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="./gamification/gamification.html">Gamification</a></li>
             <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="./faq/faq.html">FAQ</a></li>
-            <li>
-              <a href="#" onclick="controllaAccesso('account.php')"
-                >Progressi</a
-              >
-            </li>
+            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
             <li><a href="./contatti/contatti.html">Contatti</a></li>
           </ul>
         </div>
 
-        <!-- Contatti / Social -->
         <div class="footer-section">
           <h3 class="footer-subtitle">Contattaci</h3>
           <p class="footer-text">
-            Email: <a href="mailto:info@gympower.com">info@gympower.com</a>
+            Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
           </p>
         </div>
       </div>
 
-      <!-- Footer bottom -->
       <div class="footer-bottom">
-        &copy; 2025 GymPower. Tutti i diritti riservati.
+        &copy; 2025 MyGymStats. Tutti i diritti riservati.
       </div>
     </footer>
 
-    <!-- <button id="toggle-theme" class="theme-button">🌙 Modalità Scura</button>
-
-    <script>
-        function applyTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              document.body.classList.add('dark-mode');
-              document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
-            } else {
-              document.body.classList.remove('dark-mode');
-              document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
-            }
-          }
-        
-          function toggleTheme() {
-            const theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-              localStorage.setItem('theme', 'light');
-            } else {
-              localStorage.setItem('theme', 'dark');
-            }
-            applyTheme();
-          }
-        
-          document.addEventListener('DOMContentLoaded', function() {
-            // Quando la pagina carica
-            if (!localStorage.getItem('theme')) {
-              // Se non c'è un tema salvato, imposta 'light' di default
-              localStorage.setItem('theme', 'light');
-            }
-            applyTheme();
-        
-            // Event listener sul pulsante
-            document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
-          });
-    </script> -->
-
+    <!-- Script JS -->
     <script src="index.js?v=1.70"></script>
     <script src="./commonJS/navbar.js"></script>
-    <script src = "login-signup/sessionCheck.js"></script>
-    <script src = "sessionCheck.js"></script>
+    <script src="login-signup/sessionCheck.js"></script>
+    <script src="sessionCheck.js"></script>
   </body>
 </html>

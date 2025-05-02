@@ -4,7 +4,7 @@ function testLogout() {
     if (conferma) {
         // Se l'utente conferma, fai il logout
         alert("Logout effettuato!");
-        localStorage.removeItem("email");
+        localStorage.clear();
         window.location.href = "../login-signup/login.html";
     } else {
       // Se annulla, non succede nulla
