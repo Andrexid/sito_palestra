@@ -58,11 +58,28 @@ function logout() {
 }
 
 function getUserPicProfile(txt) {
+    accountPic = document.getElementById("profile-pic");
+
     if (!txt || txt === "null") {
-        accountPic.src = "../img/utente.png";
+        if(localStorage.getItem("imagePic")){
+            accountPic.src = localStorage.getItem("imagePic");
+        }else{
+            accountPic.src = "../img/utente.png";
+        }
         return;
     }
 
     localStorage.setItem("imagePic", txt);
     accountPic.src = txt;
+}
+
+function getUserPicProfileAccount(){
+    // Questa funzione verrà chiamata solo nelle sottocartelle dentro account
+    accountPic = document.getElementById("profile-pic");
+
+    if(localStorage.getItem("imagePic")){
+        accountPic.src = "../" + localStorage.getItem("imagePic");
+    }else{
+        accountPic.src = "../../img/utente.png";
+    }
 }

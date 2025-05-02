@@ -15,13 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
-            console.log("Risposta dal server:", data); // Stampa direttamente l'oggetto JSON ricevuto
-        
+        .then(data => {        
             if (data.success) {
-                console.log("Login riuscito! Reindirizzamento in corso...");
+                document.getElementById("message").textContent = ("Login riuscito! Reindirizzamento in corso...");
                 localStorage.setItem("email", emailInput.value);
-                localStorage.setItem('user_id', data.user_id || '');
+                localStorage.setItem('user_id', data.user_id);
 
                 // Aspetta 2 secondi prima del redirect
                 setTimeout(() => {

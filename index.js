@@ -55,20 +55,26 @@ function getUserPicProfile(){
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
+  anchor.addEventListener('click', function (e) {
+      const target = this.getAttribute('href');
+      
+      if (target === "#") return; // evita errore su href="#"
+
+      e.preventDefault();
+      const element = document.querySelector(target);
+
+      if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+      }
+  });
 });
 
 function applyTheme() {
     const theme = localStorage.getItem('theme');
     if (theme === 'dark') {
       document.body.classList.add('dark-mode');
-      document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
     } else {
       document.body.classList.remove('dark-mode');
-      document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
     }
   }
 
@@ -89,7 +95,4 @@ function applyTheme() {
       localStorage.setItem('theme', 'dark');
     }
     applyTheme();
-
-    // Event listener sul pulsante
-    document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
   });

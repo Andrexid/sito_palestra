@@ -18,10 +18,7 @@ function getUserDataProfile() {
     fetch("get_user_data_profile.php")
         .then(response => response.text())
         .then(text => {
-            console.log("📦 Risposta grezza dal server:", text);
             const data = JSON.parse(text); // 👈 parsing corretto
-
-            console.log("✅ JSON parsato:", data);
 
             if (data.error) {
                 console.error(data.error);
@@ -189,7 +186,6 @@ function modifyDatabase(){
             console.error("Errore dal server:", data.error);
             return;
         }
-        console.log("Dati salvati correttamente:", data);
 
         for(const key of formData.keys()){
             if(key === "profilePic"){

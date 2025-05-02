@@ -4,8 +4,6 @@ function getUserDataProfile() {
         .then(text => {
             const data = JSON.parse(text); // 👈 parsing corretto
 
-            console.log("✅ JSON parsato:", data);
-
             if (data.error) {
                 console.error(data.error);
                 return;
@@ -15,6 +13,7 @@ function getUserDataProfile() {
             sessionStorage.setItem("EXP", data.puntiEXP);
 
             // Aggiorna il DOM con i dati
+            getUserPicProfile();
             drawBadges();
         })
         .catch(error => console.error("❌ Errore nel recupero dati:", error));

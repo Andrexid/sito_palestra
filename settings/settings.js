@@ -1,11 +1,3 @@
-function vaiAlProfilo() {
-    window.location.href = "profile.html"; // Cambia con il percorso corretto
-}
-
-function vaiAiProgressi() {
-    window.location.href = "progress.html"; // Cambia con il percorso corretto
-}
-
 function testLogout() {
     const conferma = confirm("⚠️ Stai per disconnetterti dal tuo account. Sei sicuro?");
     

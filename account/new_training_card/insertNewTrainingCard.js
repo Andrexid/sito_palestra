@@ -86,8 +86,6 @@ async function addExercises() {
     fetch("addExercises.php")
         .then(response => response.json())
         .then(data => {
-            console.log("Risposta dal server:", data); // Debug
-
             if (data.success) {
                 let select = document.getElementById("insert-exercise");
 
@@ -217,9 +215,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const workoutsPerWeek = document.querySelector("#week-workout").value;
-    console.log(todayInput.value);
-    console.log(tomorrowInput.value);
-    console.log(workoutsPerWeek);
 
     if (!todayInput || !tomorrowInput || !workoutsPerWeek) {
         alert("Compila tutti i campi prima di salvare!");
@@ -240,8 +235,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
                     name: exerciseName,
                     day: parseInt(dayDiv.id.replace("divExercises", "")) + 1
                 });
-                console.log(exerciseName);
-                console.log(parseInt(dayDiv.id.replace("divExercises", "")) + 1);
             }
         });
     });
@@ -270,7 +263,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
         response.text();
     })
     .then(data => {
-        console.log(data);
         alert("Piano salvato con successo!");
         // Puoi fare un reset del form o redirect
         window.location.href = "../account.php";

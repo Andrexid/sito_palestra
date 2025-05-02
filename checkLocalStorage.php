@@ -1,5 +1,3 @@
-<!-- Questo file prende l’id da una chiamata AJAX (es. POST o GET) e lo mette in $_SESSION -->
-
 <?php
 session_start();
 header('Content-Type: application/json');

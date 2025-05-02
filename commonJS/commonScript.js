@@ -1,6 +1,6 @@
-// let accountPic;
+// 
 // document.addEventListener("DOMContentLoaded", function () {
-//     accountPic = document.getElementById("profile-pic");
+//     
 
 //     const profileBtn = document.getElementById("profile-pic");
 //     const profileMenu = document.getElementById("profile-menu");
@@ -43,24 +43,25 @@
 //     window.location.href = "../login-signup/login.html";
 // }
 
-// function getUserPicProfile(txt) {
-//     localStorage.removeItem("imagePic");
-//     localStorage.setItem("imagePic", txt);
-//     accountPic.src = txt;
-// }
-
 // function getUserPicProfile(){
 //     accountPic.src = localStorage.getItem("imagePic").replace("../", "");
+// }
+
+// let accountPic;
+// function getUserPicProfile(txt) {
+//   accountPic = document.getElementById("profile-pic");
+
+//   localStorage.removeItem("imagePic");
+//   localStorage.setItem("imagePic", txt);
+//   accountPic.src = txt;
 // }
 
 function applyTheme() {
     const theme = localStorage.getItem('theme');
     if (theme === 'dark') {
       document.body.classList.add('dark-mode');
-      document.getElementById('toggle-theme').textContent = '☀️ Modalità Chiara';
     } else {
       document.body.classList.remove('dark-mode');
-      document.getElementById('toggle-theme').textContent = '🌙 Modalità Scura';
     }
   }
 
@@ -81,7 +82,4 @@ function applyTheme() {
       localStorage.setItem('theme', 'dark');
     }
     applyTheme();
-
-    // Event listener sul pulsante
-    document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
   });

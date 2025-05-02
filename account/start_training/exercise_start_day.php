@@ -47,7 +47,6 @@ $stmt->close();
 </head>
 
 <body>
-
     <h1>Allenamento - Giorno <?php echo $day; ?></h1>
 
     <?php if (empty($esercizi)) : ?>
@@ -179,6 +178,7 @@ $stmt->close();
         }
     </script>
 
+    <script src="../../commonJS/commonScript.js"></script>
 </body>
 
 </html>

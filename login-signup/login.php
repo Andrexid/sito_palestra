@@ -33,7 +33,7 @@ try {
             session_start();
             $_SESSION['id'] = $row['id'];
             $_SESSION['logged'] = true;
-            setcookie("user_id", $row['id'], time() + (86400 * 300000), "/"); // Salva nei cookie per 300000 giorni (82 anni)
+            // setcookie("user_id", $row['id'], time() + (86400 * 300000), "/"); // Salva nei cookie per 300000 giorni (82 anni)
 
             $response["success"] = true;
             $response["user_id"] = $row['id'];

@@ -148,42 +148,6 @@ $conn->close();
 </head>
 
 <body>
-
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-            ☰
-        </button>
-
-        <div class="logo">
-            <a href="../../index.html">
-                <img src="../../img/logo.png" alt="Logo Palestra" class="logo-img" />
-            </a>
-        </div>
-
-        <!-- QUESTO È IL MENU MOBILE E DESKTOP -->
-        <ul class="nav-links">
-            <li><a href="../../index.html">Home</a></li>
-            <li>
-                <a href="#" onclick="controllaAccesso('../account.php')" data-section="Progressi" class="selezionata">Progressi</a>
-            </li>
-            <li><a href="../../faq/faq.html" data-section="FAQ">FAQ</a></li>
-            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
-        </ul>
-
-        <!-- QUESTO È IL PROFILO, FUORI DAL MENU -->
-        <div class="profile-container" data-section="Profile">
-            <a href="#">
-                <img id="profile-pic" src="../../img/utente_without_bg.png" alt="Profilo" />
-            </a>
-            <div class="dropdown-menu" id="profile-menu">
-                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
-            </div>
-        </div>
-    </nav>
-
     <h1 style="margin-top: 30px;">Allenamento suddiviso per giorno</h1>
 
     <?php if (empty($giorni)) : ?>
@@ -251,9 +215,6 @@ $conn->close();
             &copy; 2025 GymPower. Tutti i diritti riservati.
         </div>
     </footer>
-
-    <script src="../../commonJS/commonNavbar.js"></script>
-    <script src="../../commonJS/navbar.js"></script>
     <script src="../../commonJS/commonScript.js"></script>
 
 </body>
