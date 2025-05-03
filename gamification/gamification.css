@@ -23,14 +23,6 @@
   --card-hover: #e2e8f0; /* per hover light mode */
     --card-hover-dark: #334155; /* per hover dark mode */
 }
-/* ----- GENERAL STYLE ----- */
-body {
-  background-color: var(--light-bg);
-  color: var(--light-text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  padding: 20px;
-}
 
 .main-content {
   max-width: 1200px;
