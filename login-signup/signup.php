@@ -31,11 +31,13 @@ try {
     $password_hash = password_hash($psw, PASSWORD_DEFAULT);
 
     // Query di inserimento
-    $insert_new_user = "INSERT INTO utenti (nome, cognome, data_nascita, email, password, sesso, peso, altezza) 
-                        VALUES ('$name', '$surname', NULL, '$email', '$password_hash', '$sex', NULL, NULL)";
+    $insert_new_user = "INSERT INTO utenti (`nome`, `cognome`, `data_nascita`, `email`, `password`, `sesso`, `peso`, `altezza`) 
+                    VALUES ('$name', '$surname', NULL, '$email', '$password_hash', '$sex', NULL, NULL)";
 
     if (!$conn->query($insert_new_user)) {
-        throw new Exception("Errore durante la registrazione: " . $conn->error);
+        // throw new Exception("Errore durante la registrazione: " . $conn->error);
+        echo "Query fallita: " . $conn->error;
+        exit;
     }
 
     // Inizializzazione sessione
@@ -46,7 +48,9 @@ try {
     $response["success"] = true;
     $response["message"] = "Registrazione effettuata con successo!";
 } catch (Exception $e) {
-    $response["message"] = $e->getMessage();
+    // $response["message"] = $e->getMessage();
+    echo "Eccezione: " . $e->getMessage();
+    exit;
 }
 
 echo json_encode($response);
