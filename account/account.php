@@ -49,7 +49,7 @@ if ($user_id) {
     <meta property="og:locale" content="it_IT">
     <link rel="canonical" href="https://www.mygymstats.com/account/account.php">
 
-    <link rel="stylesheet" href="account.css?v=1.92">
+    <link rel="stylesheet" href="account.css?v=1.93">
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css">
     <link rel="stylesheet" href="../commonCSS/buttons.css">
@@ -180,37 +180,37 @@ if ($user_id) {
     </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
+      <div class="footer-container">
         <div class="footer-section">
-            <h2 class="footer-title">MyGymStats</h2>
-            <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
-            <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-            <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+          <h2 class="footer-title">MyGymStats</h2>
+          <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
+          <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
 
         <div class="footer-section">
-            <h3 class="footer-subtitle">Naviga</h3>
-            <ul class="footer-links">
+          <h3 class="footer-subtitle">Naviga</h3>
+          <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="./gamification/gamification.html">Gamification</a></li>
             <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
             <li><a href="./faq/faq.html">FAQ</a></li>
             <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
             <li><a href="./contatti/contatti.html">Contatti</a></li>
-            </ul>
+          </ul>
         </div>
 
         <div class="footer-section">
-            <h3 class="footer-subtitle">Contattaci</h3>
-            <p class="footer-text">
+          <h3 class="footer-subtitle">Contattaci</h3>
+          <p class="footer-text">
             Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
-            </p>
+          </p>
         </div>
-        </div>
+      </div>
 
-        <div class="footer-bottom">
+      <div class="footer-bottom">
         &copy; 2025 MyGymStats. Tutti i diritti riservati.
-        </div>
+      </div>
     </footer>
 
     <script src="../commonJS/commonNavbar.js?v=1.1"></script>

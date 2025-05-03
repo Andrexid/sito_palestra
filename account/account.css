@@ -111,7 +111,7 @@ a:hover {
 
 .no-data {
   font-size: 18px;
-  color: var(--light-text);
+  color: var(--dark-text);
   font-style: italic;
 }
 

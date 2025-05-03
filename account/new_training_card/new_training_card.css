@@ -39,6 +39,10 @@ body.dark-mode .box {
   border: 1px solid var(--dark-border);
 }
 
+body.dark-mode .box label {
+  color: var(--dark-text);
+}
+
 body.dark-mode .input-stile, 
 body.dark-mode select, 
 body.dark-mode input[type="date"], 
