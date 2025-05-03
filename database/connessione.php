@@ -5,10 +5,14 @@
     // $password = ''; // Lascia vuoto se non hai configurato una password
     // $dbname = 'palestra';
 
-    $servername = 'mygymscpalestra.mysql.db';
-    $username = 'mygymscpalestra';
-    $password = 'Detectiveconan05'; // Lascia vuoto se non hai configurato una password
-    $dbname = 'mygymscpalestra';
+    // $servername = 'mygymscpalestra.mysql.db';
+    // $username = 'mygymscpalestra';
+    // $password = 'Detectiveconan05'; // Lascia vuoto se non hai configurato una password
+    // $dbname = 'mygymscpalestra';
+    $servername = 'localhost';
+    $username = 'root';
+    $password = ''; // Lascia vuoto se non hai configurato una password
+    $dbname = 'palestra';
 
     // Query di connessione
     $conn = new mysqli($servername, $username, $password, $dbname);

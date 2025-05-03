@@ -42,6 +42,44 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+            ☰
+        </button>
+        <div class="logo">
+            <a href="../../index.html">
+                <img
+                    src="../../img/logo.png"
+                    alt="Logo MyGymStats"
+                    class="logo-img" />
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../account.php" class="selezionata">Progressi</a></li>
+            <li>
+                <a href="../../gamification/gamification.html">Badge e punti</a>
+            </li>
+            <li><a href="../../faq/faq.html">FAQ</a></li>
+            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../../contatti/contatti.html">Contatti</a></li>
+        </ul>
+        <div class="profile-container">
+            <a href="#">
+                <img
+                    id="profile-pic"
+                    src="../../img/utente_without_bg.png"
+                    alt="Immagine Profilo Utente" />
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="../../profile/profile.html">👤 Profilo</a>
+                <a href="../../settings/settings.html">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </div>
+    </nav>
+
     <?php
     if ($stm && $stm2) {
         $stm->bind_param("i", $card_id);
@@ -53,7 +91,7 @@ if (isset($_GET['id'])) {
         $result2 = $stm2->get_result();
 
         if ($result->num_rows > 0) {
-            echo "<h1>Scheda Allenamento</h1>";
+            echo "<h1 style='margin-top: 30px'>Scheda Allenamento</h1>";
 
             // Bottone per abilitare/disabilitare modifica
             echo "<button class='unlock-button secondary-button' onclick='unLockInputs()'>Sblocca Modifica</button>";
@@ -172,6 +210,8 @@ if (isset($_GET['id'])) {
         }
     </script>
     <script src="../../commonJS/commonScript.js"></script>
+    <script src="../../commonJS/commonNavbar.js"></script>
+
 </body>
 
 </html>

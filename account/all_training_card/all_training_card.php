@@ -29,6 +29,44 @@ $stm = $conn->prepare($select_training_cards);
 </head>
 
 <body>
+
+    <nav class="navbar" aria-label="Menu di navigazione principale">
+        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
+            ☰
+        </button>
+        <div class="logo">
+            <a href="../../index.html">
+                <img
+                    src="../../img/logo.png"
+                    alt="Logo MyGymStats"
+                    class="logo-img" />
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../account.php" class="selezionata">Progressi</a></li>
+            <li>
+                <a href="../../gamification/gamification.html">Badge e punti</a>
+            </li>
+            <li><a href="../../faq/faq.html">FAQ</a></li>
+            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../../contatti/contatti.html">Contatti</a></li>
+        </ul>
+        <div class="profile-container">
+            <a href="#">
+                <img
+                    id="profile-pic"
+                    src="../../img/utente_without_bg.png"
+                    alt="Immagine Profilo Utente" />
+            </a>
+            <div class="dropdown-menu" id="profile-menu">
+                <a href="../../profile/profile.html">👤 Profilo</a>
+                <a href="../../settings/settings.html">⚙️ Impostazioni</a>
+                <a href="#" onclick="logout()">🚪 Logout</a>
+            </div>
+        </div>
+    </nav>
+
     <?php
     if ($stm) {
         $stm->bind_param("i", $user_id);
@@ -167,6 +205,8 @@ $stm = $conn->prepare($select_training_cards);
         window.eliminazione = eliminazione;
     </script>
     <script src="../../commonJS/commonScript.js"></script>
+    <script src="../../commonJS/commonNavbar.js"></script>
+
 </body>
 
 </html>
