@@ -82,11 +82,22 @@ body.dark-mode .footer-subtitle {
   color: var(--light-text);
 }
 
+.footer-text.quote {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--light-text);
+}
+
 .footer-text a{
   color: var(--light-text);
 }
 
 body.dark-mode .footer-text {
+  color: var(--dark-muted);
+}
+
+body.dark-mode .footer-text.quote {
   color: var(--dark-muted);
 }
 

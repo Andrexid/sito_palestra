@@ -277,6 +277,25 @@ function drawBadges() {
 
 document.getElementById("upload-profile-pic").addEventListener("change", function(event) {
     const file = event.target.files[0]; // Prende il file selezionato
+    if(!file) return;
+
+    // Controllo MIME type
+    if (!file.type.startsWith('image/')) {
+        alert("Il file selezionato non è un'immagine.");
+        event.target.value = ""; // resetta input
+        return;
+    }
+
+    // controllo estensione
+    const validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+    const fileExtension = file.name.split('.').pop().toLowerCase();
+
+    if (!validExtensions.includes(fileExtension)) {
+        alert("Estensione non valida. Seleziona un file immagine.");
+        event.target.value = "";
+        return;
+    }
+
     if (file) {
         document.getElementById("profile-pic-profile").src = URL.createObjectURL(file); // Mostra l'anteprima
         formData.append("profilePic", file); // Aggiunge il file a FormData

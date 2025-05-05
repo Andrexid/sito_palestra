@@ -1,6 +1,10 @@
 let accountPic;
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Inizializza l'immagine profilo
+    getUserPicProfile();
+
+
     const menu = document.querySelector(".nav-links");
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
@@ -40,9 +44,39 @@ document.addEventListener("DOMContentLoaded", () => {
         event.stopPropagation();
         profileMenu.style.display = (profileMenu.style.display === "flex") ? "none" : "flex";
     });
+
+    // Gestione click su link con data-access senza usare inline JS
+    document.querySelectorAll('[data-access]').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const destination = link.getAttribute('data-access');
+            controllaAccesso(destination);
+        });
+    });
+
+    // Logout separato (non inline)
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            logout();
+        });
+    }
+
+    // Gestione dei link con data-access (Hero, CTA, Footer, ecc.)
+    document.querySelectorAll('[data-access]').forEach(link => {
+        link.addEventListener('click', (event) => {
+            alert("c");
+            event.preventDefault();
+            const destination = link.getAttribute('data-access');
+            
+            controllaAccesso(destination);
+        });
+    });
 });
 
 function controllaAccesso(destination) {
+    alert("c");
     const baseName = destination.split('.')[0];
     const redirectPath = localStorage.getItem("user_id") 
         ? `../${baseName}/${destination}`

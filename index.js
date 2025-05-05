@@ -1,31 +1,67 @@
 let accountPic;
-document.addEventListener("DOMContentLoaded", function () {
-    accountPic = document.getElementById("profile-pic");
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Inizializza l'immagine profilo
+    getUserPicProfile();
+
+
+    const menu = document.querySelector(".nav-links");
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
+    const hamburger = document.querySelector(".hamburger-menu");
 
-    if (localStorage.getItem("email") && localStorage.getItem("imagePic")) {
-        // getUserPicProfile(localStorage.getItem("imagePic"));
-        accountPic.src = localStorage.getItem("imagePic");
-    } else {
-        accountPic.src = "img/utente.png";  // Immagine grigia se l'utente non è loggato
-    }
+    // Toggle menu quando si clicca sull'hamburger
+    hamburger.addEventListener("click", (event) => {
+        event.stopPropagation(); // Evita che il click si propaghi e chiuda subito il menu
+        menu.classList.toggle("show");
+        document.body.classList.toggle("menu-open");
+    });
+
+    // Chiudi il menu quando si clicca su un link interno
+    document.querySelectorAll(".nav-links li").forEach(link => {
+        link.addEventListener("click", () => {
+            menu.classList.remove("show");
+            document.body.classList.remove("menu-open");
+        });
+    });
+
+    // Chiudi il menu se si clicca fuori
+    window.addEventListener("click", (event) => {
+        if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+            menu.classList.remove("show");
+            document.body.classList.remove("menu-open");
+        }
+    });
+
+    // Chiudi il menu quando l'utente scrolla la pagina
+    window.addEventListener("scroll", () => {
+        menu.classList.remove("show");
+        document.body.classList.remove("menu-open");
+    });
 
     // Mostra/nasconde il menu al click sull'immagine profilo
     profileBtn.addEventListener("click", function (event) {
-        event.stopPropagation(); // Evita la chiusura immediata del menu
+        event.stopPropagation();
         profileMenu.style.display = (profileMenu.style.display === "flex") ? "none" : "flex";
     });
 
-    // Nasconde il menu se l'utente clicca fuori
-    document.addEventListener("click", function () {
-        profileMenu.style.display = "none";
-    });
+    // Logout separato (non inline)
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            logout();
+        });
+    }
 
-    // Evita che il click sul menu lo chiuda subito
-    profileMenu.addEventListener("click", function (event) {
-        event.stopPropagation();
+    // Gestione dei link con data-access (Hero, CTA, Footer, ecc.)
+    document.querySelectorAll('[data-access]').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const destination = link.getAttribute('data-access');
+            
+            controllaAccesso(destination);
+        });
     });
 });
 
@@ -45,13 +81,17 @@ function logout() {
 }
 
 function getUserPicProfile(txt) {
-    localStorage.removeItem("imagePic");
-    localStorage.setItem("imagePic", txt);
-    accountPic.src = txt;
+  accountPic = document.getElementById("profile-pic");
+
+  localStorage.removeItem("imagePic");
+  localStorage.setItem("imagePic", txt);
+  accountPic.src = txt;
 }
 
 function getUserPicProfile(){
-    accountPic.src = localStorage.getItem("imagePic").replace("../", "");
+  accountPic = document.getElementById("profile-pic");
+
+  accountPic.src = localStorage.getItem("imagePic");
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
