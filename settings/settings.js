@@ -1,17 +1,3 @@
-function testLogout() {
-    const conferma = confirm("⚠️ Stai per disconnetterti dal tuo account. Sei sicuro?");
-    
-    if (conferma) {
-        // Se l'utente conferma, fai il logout
-        alert("Logout effettuato!");
-        localStorage.clear();
-        window.location.href = "../login-signup/login.html";
-    } else {
-      // Se annulla, non succede nulla
-    }
-}
-  
-
 // Gestione dark mode
 function applyTheme() {
     const theme = localStorage.getItem('theme');
@@ -51,5 +37,21 @@ function applyTheme() {
     } else {
       switchCheckbox.checked = false;
     }
+
+    document.getElementById("backToProfile").addEventListener('click', (event) => {
+      controllaAccesso('profile.html');
+    });
+
+    document.getElementById("backToAccount").addEventListener('click', (event) => {
+      controllaAccesso('account.php');
+    });
+
+    document.getElementById("backToResetPassword").addEventListener('click', (event) => {
+      window.location.href='../login-signup/reset_password_request.html';
+    });
+
+    document.getElementById("delete-account").addEventListener('click', (event) => {
+      logout();
+    });
   });
   

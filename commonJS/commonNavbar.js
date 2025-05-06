@@ -1,10 +1,6 @@
 let accountPic;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Inizializza l'immagine profilo
-    getUserPicProfile();
-
-
     const menu = document.querySelector(".nav-links");
     const profileBtn = document.getElementById("profile-pic");
     const profileMenu = document.getElementById("profile-menu");
@@ -66,17 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestione dei link con data-access (Hero, CTA, Footer, ecc.)
     document.querySelectorAll('[data-access]').forEach(link => {
         link.addEventListener('click', (event) => {
-            alert("c");
             event.preventDefault();
             const destination = link.getAttribute('data-access');
             
             controllaAccesso(destination);
         });
     });
+
+    // Inizializza l'immagine profilo
+    getUserPicProfile();
 });
 
 function controllaAccesso(destination) {
-    alert("c");
     const baseName = destination.split('.')[0];
     const redirectPath = localStorage.getItem("user_id") 
         ? `../${baseName}/${destination}`
@@ -86,9 +83,16 @@ function controllaAccesso(destination) {
 }
 
 function logout() {
-    alert("Logout effettuato!");
-    localStorage.clear(); // Elimina anche user_id e imagePic
-    window.location.href = "../login-signup/login.html";
+    const conferma = confirm("⚠️ Stai per disconnetterti dal tuo account. Sei sicuro?");
+    
+    if (conferma) {
+        // Se l'utente conferma, fai il logout
+        alert("Logout effettuato!");
+        localStorage.clear();
+        window.location.href = "../login-signup/login.html";
+    } else {
+      // Se annulla, non succede nulla
+    }
 }
 
 function getUserPicProfile(txt) {
@@ -114,6 +118,6 @@ function getUserPicProfileAccount(){
     if(localStorage.getItem("imagePic")){
         accountPic.src = "../" + localStorage.getItem("imagePic");
     }else{
-        accountPic.src = "../../img/utente.png";
+        accountPic.src = "../img/utente.png";
     }
 }

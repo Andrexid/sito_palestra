@@ -1,3 +1,64 @@
+document.addEventListener("DOMContentLoaded", function () {
+    todayInput.value = formatDateToInput(today);
+    tomorrowInput.value = formatDateToInput(nextMonth);
+    initializePage();
+
+    const workoutSelect = document.getElementById("week-workout");
+    const searchInput = document.getElementById("exercise-search");
+    const addBtn = document.getElementById("addExerciseBtn");
+
+    // 1. Modifica giorni allenamento
+    workoutSelect.addEventListener("change", (e) => {
+        const value = e.target.value;
+        modifyDaysTraining(value); // Funzione definita sotto
+    });
+
+    // 2. Filtra esercizi mentre scrivi
+    searchInput.addEventListener("keyup", filterExercises);
+    searchInput.addEventListener("click", openSelect);
+
+    // 3. Aggiungi esercizio alla lista
+    addBtn.addEventListener("click", checkExercise);
+
+    // Apre la lista select degli esercizi
+    window.openSelect = function () {
+        document.getElementById("insert-exercise").size = 7;
+    };
+
+    // Filtra gli esercizi nella select in base all'input
+    window.filterExercises = function () {
+        const input = document.getElementById("exercise-search").value.toLowerCase();
+        const select = document.getElementById("insert-exercise");
+        for (let option of select.options) {
+            const text = option.text.toLowerCase();
+            option.style.display = text.includes(input) ? "" : "none";
+        }
+    };
+
+    // Aggiunge un esercizio selezionato alla lista
+    window.checkExercise = function () {
+        const selectedExercise = document.getElementById("insert-exercise").value;
+        const selectedDay = document.getElementById("muscle-group").value;
+
+        if (!selectedExercise || !selectedDay) {
+            alert("Seleziona un esercizio e un giorno!");
+            return;
+        }
+
+        const list = document.getElementById("exercise");
+        const li = document.createElement("li");
+        li.textContent = `${selectedExercise} - ${selectedDay}`;
+        list.appendChild(li);
+
+        // Aggiunta input nascosto per invio al server
+        const hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = "exercises[]";
+        hiddenInput.value = `${selectedExercise}|${selectedDay}`;
+        document.getElementById("exercisesList").appendChild(hiddenInput);
+    };
+});
+
 async function initializePage() {
     await addExercises(); // aspetta che gli esercizi siano caricati
     blurExercises(); // poi applica il blur
@@ -14,11 +75,6 @@ nextMonth.setMonth(today.getMonth() + 1); // Imposta al mese successivo
 function formatDateToInput(date) {
     return date.toISOString().split('T')[0]; // Formato yyyy-mm-dd
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    todayInput.value = formatDateToInput(today);
-    tomorrowInput.value = formatDateToInput(nextMonth);
-});
 
 //Aggiunge dinamicamente i giorni possibili in cui un utente potrebbe mettere l'esercizio creato
 function modifyDaysTraining(val){

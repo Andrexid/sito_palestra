@@ -243,7 +243,7 @@ a .principal_button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(181, 181, 181, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(181, 181, 181, 0.8) 100%), url(./img/tipa.png) no-repeat center center;
    /*cbg-gradiant snippet*/
   background-size: cover; /*allarga l'immagine su tutto lo sfondo*/
 }
@@ -255,7 +255,7 @@ a .principal_button {
 }
 
 .dark-mode .cover {
-  background: linear-gradient(0deg, rgba(206, 206, 206, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%), url(./img/tipa.jpg) no-repeat center center;
+  background: linear-gradient(0deg, rgba(206, 206, 206, 0.8) 0%, rgba(13, 13, 13, 0.8) 100%), url(./img/tipa.png) no-repeat center center;
   background-size: cover; /*allarga l'immagine su tutto lo sfondo*/
 
 }

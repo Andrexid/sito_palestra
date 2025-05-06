@@ -38,6 +38,7 @@
     margin-bottom: 30px;
     font-size: 2.5rem;
     color: var(--primary-blue);
+    margin-top: 30px;
   }
   
   /* Form allenamento */
@@ -142,6 +143,7 @@
     font-size: 1.2rem;
     color: var(--primary-red);
     font-weight: bold;
+    display: none;
   }
   
   /* DARK MODE */

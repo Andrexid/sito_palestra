@@ -10,7 +10,7 @@
   <meta name="description" content="Scopri tutte le risposte alle domande più frequenti su MyGymStats: registrazione, piani di allenamento, progressi, abbonamenti e utilizzo su mobile.">
   <meta name="keywords" content="faq palestra, mygymstats domande, tracciamento progressi, allenamenti, abbonamento palestra, app fitness, assistente AI palestra">
   <meta name="author" content="MyGymStats">
-  <link rel="stylesheet" href="faq.css" />
+  <link rel="stylesheet" href="faq.css?v=1.1" />
 
   <!-- CSS comuni -->
   <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
@@ -19,38 +19,34 @@
   <link rel="stylesheet" href="../commonCSS/_variables.css">
   <link rel="stylesheet" href="../commonCSS/footer.css">
 </head>
-<body onload="getUserPicProfile()">
-  <header>
-    <nav class="navbar" aria-label="Menu di navigazione principale">
-      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
-
-      <div class="logo">
-        <a href="../index.html">
-          <img src="../img/logo.png" alt="Logo MyGymStats - Traccia i tuoi progressi" class="logo-img" loading="lazy" />
-        </a>
+<body>
+  <nav class="navbar" aria-label="Menu di navigazione principale">
+    <button class="hamburger-menu" aria-label="Apri menu di navigazione">☰</button>
+  
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../img/logo.png" alt="Logo MyGymStats" class="logo-img" />
+      </a>
+    </div>
+  
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="javascript:void(0);" data-access="account.php">Progressi</a></li>
+      <li><a href="../gamification/gamification.html">Badge e punti</a></li>
+      <li><a href="../faq/faq.html" data-section="FAQ" class="selezionata">FAQ</a></li>
+      <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+      <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
+    </ul>
+  
+    <div class="profile-container" data-section="Profilo">
+      <a href="#"><img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto profilo utente" /></a>
+      <div class="dropdown-menu" id="profile-menu">
+        <a href="javascript:void(0);" data-access="profile.html">👤 Profilo</a>
+        <a href="javascript:void(0);" data-access="settings.html">⚙️ Impostazioni</a>
+        <a href="javascript:void(0);" id="logout-btn">🚪 Logout</a>
       </div>
-
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="#" onclick="controllaAccesso('../account/account.php')">Progressi</a></li>
-        <li><a href="../gamification/gamification.html">Badge e punti</a></li>
-        <li><a href="faq.html" class="selezionata">FAQ</a></li>
-        <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-        <li><a href="../contatti/contatti.html">Contatti</a></li>
-      </ul>
-
-      <div class="profile-container">
-        <a href="#">
-          <img id="profile-pic" src="../img/utente_without_bg.png" alt="Profilo utente MyGymStats" loading="lazy" />
-        </a>
-        <div class="dropdown-menu" id="profile-menu">
-          <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-          <a href="#" onclick="logout()">🚪 Logout</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+    </div>
+  </nav> 
 
   <main>
     <section class="faq-search-section">
@@ -163,21 +159,21 @@
         <h2 class="footer-title">MyGymStats</h2>
         <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
         <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-        <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+        <p class="footer-text quote">“La costanza batte il talento, quando il talento non è costante.”</p>
       </div>
-
+  
       <div class="footer-section">
         <h3 class="footer-subtitle">Naviga</h3>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="./gamification/gamification.html">Gamification</a></li>
-          <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-          <li><a href="./faq/faq.html">FAQ</a></li>
-          <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-          <li><a href="./contatti/contatti.html">Contatti</a></li>
+          <li><a href="../gamification/gamification.html">Gamification</a></li>
+          <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+          <li><a href="../faq/faq.html">FAQ</a></li>
+          <li><a href="#" data-access="../account.php">Progressi</a></li>
+          <li><a href="../contatti/contatti.html">Contatti</a></li>
         </ul>
       </div>
-
+  
       <div class="footer-section">
         <h3 class="footer-subtitle">Contattaci</h3>
         <p class="footer-text">
@@ -185,15 +181,15 @@
         </p>
       </div>
     </div>
-
+  
     <div class="footer-bottom">
-      &copy; 2025 MyGymStats. Tutti i diritti riservati.
+      &copy; <span id="currentYear"></span> MyGymStats. Tutti i diritti riservati.
     </div>
   </footer>
 
   <!-- Script -->
-  <script src="faq.js"></script>
-  <script src="../commonJS/commonNavbar.js?v=1.1"></script>
-  <script src="../commonJS/commonScript.js?v=1.1"></script>
+  <script src="faq.js?v=1.1"></script>
+  <script src="../commonJS/commonNavbar.js?v=1.2"></script>
+  <script src="../commonJS/commonScript.js?v=1.2"></script>
 </body>
 </html>

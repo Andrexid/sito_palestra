@@ -21,33 +21,32 @@
 
   <body>
     <nav class="navbar" aria-label="Menu di navigazione principale">
-      <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
-        ☰
-      </button>
+      <button class="hamburger-menu" aria-label="Apri menu di navigazione">☰</button>
+    
       <div class="logo">
         <a href="../index.html">
-          <img src="../img/logo.png" alt="Logo MyGymStats - Home" class="logo-img" />
+          <img src="../img/logo.png" alt="Logo MyGymStats" class="logo-img" />
         </a>
       </div>
+    
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="#" onclick="controllaAccesso('../account/account.php')">Progressi</a></li>
+        <li><a href="javascript:void(0);" data-access="account.php">Progressi</a></li>
         <li><a href="../gamification/gamification.html">Badge e punti</a></li>
-        <li><a href="../faq/faq.html">FAQ</a></li>
+        <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
         <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-        <li><a href="../contatti/contatti.html">Contatti</a></li>
+        <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
       </ul>
-      <div class="profile-container">
-        <a href="#">
-          <img id="profile-pic" src="../img/utente_without_bg.png" alt="Icona Profilo" />
-        </a>
+    
+      <div class="profile-container" data-section="Profilo">
+        <a href="#"><img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto profilo utente" /></a>
         <div class="dropdown-menu" id="profile-menu">
-          <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-          <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-          <a href="#" onclick="logout()">🚪 Logout</a>
+          <a href="javascript:void(0);" data-access="profile.html">👤 Profilo</a>
+          <a href="javascript:void(0);" data-access="settings.html">⚙️ Impostazioni</a>
+          <a href="javascript:void(0);" id="logout-btn">🚪 Logout</a>
         </div>
       </div>
-    </nav>
+    </nav> 
 
     <main class="profile-container-header">
       <section class="profile-header">
@@ -61,7 +60,7 @@
         <p id="sex" data-editable="true" tag="sex">Altro</p>
         <p id="weight" data-editable="true" tag="weight">55</p>
         <p id="height" data-editable="true" tag="height">185</p>
-        <button onclick="modifyProfile()" id="btnModify">✏️ Modifica Profilo</button>
+        <button id="btnModify">✏️ Modifica Profilo</button>
         <p id="confirmMessage"></p>
       </section>
 
@@ -126,21 +125,21 @@
           <h2 class="footer-title">MyGymStats</h2>
           <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
           <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+          <p class="footer-text quote">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
-
+    
         <div class="footer-section">
           <h3 class="footer-subtitle">Naviga</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="./gamification/gamification.html">Gamification</a></li>
-            <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="./faq/faq.html">FAQ</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-            <li><a href="./contatti/contatti.html">Contatti</a></li>
+            <li><a href="../gamification/gamification.html">Gamification</a></li>
+            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../faq/faq.html">FAQ</a></li>
+            <li><a href="#" data-access="../account.php">Progressi</a></li>
+            <li><a href="../contatti/contatti.html">Contatti</a></li>
           </ul>
         </div>
-
+    
         <div class="footer-section">
           <h3 class="footer-subtitle">Contattaci</h3>
           <p class="footer-text">
@@ -148,15 +147,17 @@
           </p>
         </div>
       </div>
-
+    
       <div class="footer-bottom">
-        &copy; 2025 MyGymStats. Tutti i diritti riservati.
+        &copy; <span id="currentYear"></span> MyGymStats. Tutti i diritti riservati.
       </div>
     </footer>
 
-    <script src="profile.js?v=2.5"></script>
-    <script src="../commonJS/commonNavbar.js?v=1.2"></script>
-    <script src="../commonJS/commonScript.js?v=1.3"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="profile.js?v=2.7"></script>
+    <script src="../commonJS/commonNavbar.js?v=1.3"></script>
+    <script src="../commonJS/commonScript.js?v=1.4"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --> 
+     <!-- Lo script sopra l'ho salvato in locale per essere più sicuri -->
+      <script src="../charts/chart.umd.js"></script>
   </body>
 </html>

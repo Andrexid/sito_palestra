@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("insertGoal").addEventListener('click', (event) => {
+        alert('Ancora in lavorazione!!');
+    });
+});
+
 function getUserDataProfile() {
     fetch("../profile/get_user_data_profile.php")
         .then(response => response.text())

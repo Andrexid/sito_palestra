@@ -40,10 +40,9 @@ if ($user_id) {
     <meta name="description" content="Accedi al tuo profilo MyGymStats per monitorare i tuoi progressi, gestire gli allenamenti e raggiungere nuovi obiettivi fitness.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="MyGymStats Team">
-    <meta name="keywords" content="MyGymStats, profilo fitness, progressi allenamento, obiettivi palestra, monitoraggio fitness, allenamenti personalizzati">
+
     <meta property="og:title" content="MyGymStats – Il Tuo Profilo Fitness">
     <meta property="og:description" content="Monitora i tuoi progressi, gestisci gli allenamenti e raggiungi nuovi obiettivi con MyGymStats.">
-    <meta property="og:image" content="https://www.mygymstats.com/img/og-image.jpg">
     <meta property="og:url" content="https://www.mygymstats.com/account/account.php">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
@@ -54,35 +53,36 @@ if ($user_id) {
     <link rel="stylesheet" href="../commonCSS/reset.css">
     <link rel="stylesheet" href="../commonCSS/buttons.css">
     <link rel="stylesheet" href="../commonCSS/footer.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"> -->
 </head>
-<body onload="getUserDataProfile()">
+<body>
     <nav class="navbar" aria-label="Menu di navigazione principale">
-        <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
+        <button class="hamburger-menu" aria-label="Apri menu di navigazione">☰</button>
+    
         <div class="logo">
-            <a href="../index.html">
-                <img src="../img/logo.png" alt="Logo MyGymStats" class="logo-img">
-            </a>
+        <a href="../index.html">
+            <img src="../img/logo.png" alt="Logo MyGymStats" class="logo-img" />
+        </a>
         </div>
+    
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#" onclick="controllaAccesso('../account/account.php')" class="selezionata">Progressi</a></li>
-            <li><a href="../gamification/gamification.html">Badge e punti</a></li>
-            <li><a href="../faq/faq.html">FAQ</a></li>
-            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="../contatti/contatti.html">Contatti</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="javascript:void(0);" data-access="account.php" class="selezionata">Progressi</a></li>
+        <li><a href="../gamification/gamification.html">Badge e punti</a></li>
+        <li><a href="../faq/faq.html" data-section="FAQ">FAQ</a></li>
+        <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+        <li><a href="../contatti/contatti.html" data-section="Contatti">Contatti</a></li>
         </ul>
-        <div class="profile-container">
-            <a href="#">
-                <img id="profile-pic" src="../img/utente_without_bg.png" alt="Immagine Profilo Utente">
-            </a>
-            <div class="dropdown-menu" id="profile-menu">
-                <a href="#" onclick="controllaAccesso('profile.html')">👤 Profilo</a>
-                <a href="#" onclick="controllaAccesso('settings.html')">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
-            </div>
+    
+        <div class="profile-container" data-section="Profilo">
+        <a href="#"><img id="profile-pic" src="../img/utente_without_bg.png" alt="Foto profilo utente" /></a>
+        <div class="dropdown-menu" id="profile-menu">
+            <a href="javascript:void(0);" data-access="profile.html">👤 Profilo</a>
+            <a href="javascript:void(0);" data-access="settings.html">⚙️ Impostazioni</a>
+            <a href="javascript:void(0);" id="logout-btn">🚪 Logout</a>
         </div>
-    </nav>
+        </div>
+    </nav> 
 
     <main>
         <section class="cover">
@@ -163,59 +163,59 @@ if ($user_id) {
 
         <section class="container-box">
             <div class="box">
-                <?php require_once 'grafico_exp_settimanale.php'; ?>
+                <?php require_once 'grafici/grafico_exp_settimanale.php'; ?>
             </div>
         </section>
 
         <section class="double-box">
             <div class="box-100">
                 <h2>Obiettivi</h2>
-                <button class="principal_button" onClick="alert('Ancora in lavorazione!!')">Inserisci un nuovo obiettivo</button>
-                <?php require_once 'grafico_obiettivi.php'; ?>
+                <button id = "insertGoal" class="principal_button">Inserisci un nuovo obiettivo</button>
+                <?php require_once 'grafici/grafico_obiettivi.php'; ?>
             </div>
             <div class="box-100">
-                <?php require_once 'grafico_allenamenti_mensili.php'; ?>
+                <?php require_once 'grafici/grafico_allenamenti_mensili.php'; ?>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-container">
+        <div class="footer-container">
         <div class="footer-section">
-          <h2 class="footer-title">MyGymStats</h2>
-          <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
-          <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+            <h2 class="footer-title">MyGymStats</h2>
+            <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
+            <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+            <p class="footer-text quote">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
-
+    
         <div class="footer-section">
-          <h3 class="footer-subtitle">Naviga</h3>
-          <ul class="footer-links">
+            <h3 class="footer-subtitle">Naviga</h3>
+            <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="./gamification/gamification.html">Gamification</a></li>
-            <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="./faq/faq.html">FAQ</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-            <li><a href="./contatti/contatti.html">Contatti</a></li>
-          </ul>
+            <li><a href="../gamification/gamification.html">Gamification</a></li>
+            <li><a href="../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../faq/faq.html">FAQ</a></li>
+            <li><a href="#" data-access="../account.php">Progressi</a></li>
+            <li><a href="../contatti/contatti.html">Contatti</a></li>
+            </ul>
         </div>
-
+    
         <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
+            <h3 class="footer-subtitle">Contattaci</h3>
+            <p class="footer-text">
             Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
-          </p>
+            </p>
         </div>
-      </div>
-
-      <div class="footer-bottom">
-        &copy; 2025 MyGymStats. Tutti i diritti riservati.
-      </div>
+        </div>
+    
+        <div class="footer-bottom">
+        &copy; <span id="currentYear"></span> MyGymStats. Tutti i diritti riservati.
+        </div>
     </footer>
 
-    <script src="../commonJS/commonNavbar.js?v=1.1"></script>
-    <script src="account.js?v=1.1"></script>
-    <script src="../commonJS/commonScript.js?v=1.2"></script>
+    <script src="../commonJS/commonNavbar.js?v=1.2"></script>
+    <script src="account.js?v=1.2"></script>
+    <script src="../commonJS/commonScript.js?v=1.3"></script>
 </body>
 
 </html>

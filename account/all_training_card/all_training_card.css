@@ -136,6 +136,11 @@
     text-align: center;
     margin-top: 2rem;
   }
+
+  .nuovaScheda{
+    max-width: 15%; 
+    margin: auto
+  }
   
   /* Dark mode - colorazione elementi testuali */
   body.dark-mode h1 {

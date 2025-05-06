@@ -29,9 +29,6 @@ if (isset($_GET['id'])) {
     echo "Errore, id non trovato";
     exit;
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +46,6 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-
     <nav class="navbar" aria-label="Menu di navigazione principale">
         <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
             ☰
@@ -82,7 +78,7 @@ if (isset($_GET['id'])) {
             <div class="dropdown-menu" id="profile-menu">
                 <a href="../../profile/profile.html">👤 Profilo</a>
                 <a href="../../settings/settings.html">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
+                <a href="javascript:void(0);" id="logout-btn">🚪 Logout</a>
             </div>
         </div>
     </nav>
@@ -188,10 +184,7 @@ if (isset($_GET['id'])) {
     }
     ?>
 
-
-
-
-    <button onClick="window.location.href = 'all_training_card.php'" class="btnBackToAccount">Torna indietro</button>
+    <a href="../account.php" class="btnBackToAccount">Torna indietro</a>
 
 
     <footer class="site-footer">

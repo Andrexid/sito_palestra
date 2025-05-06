@@ -105,6 +105,8 @@ body {
 .member img {
   width: 200px;
   height: 200px;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: cover;       /* Questo è fondamentale per evitare stretching */
   object-position: center; /* Centra l'immagine all'interno del cerchio */
   border-radius: 50%;

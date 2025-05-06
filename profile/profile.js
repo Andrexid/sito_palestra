@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("btnModify").addEventListener('click', (event) => {
+        modifyProfile();
+    });
+
     getUserDataProfile();
     fetchMotivationalQuote();
     calcolateBMI();

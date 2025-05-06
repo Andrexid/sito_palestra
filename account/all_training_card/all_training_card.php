@@ -29,7 +29,6 @@ $stm = $conn->prepare($select_training_cards);
 </head>
 
 <body>
-
     <nav class="navbar" aria-label="Menu di navigazione principale">
         <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
             ☰
@@ -62,7 +61,6 @@ $stm = $conn->prepare($select_training_cards);
             <div class="dropdown-menu" id="profile-menu">
                 <a href="../../profile/profile.html">👤 Profilo</a>
                 <a href="../../settings/settings.html">⚙️ Impostazioni</a>
-                <a href="#" onclick="logout()">🚪 Logout</a>
             </div>
         </div>
     </nav>
@@ -89,7 +87,7 @@ $stm = $conn->prepare($select_training_cards);
                     </div>
                 </div> 
                 <br>
-                <a href='#' onclick='eliminazione(" . $row['id'] . ")'><button type='button' class='input-button'>Elimina Scheda</button></a>
+                <a href='#' id = 'deleteCard' data-id='<?= json_encode($row['id']) ?>'><button type='button' class='input-button'>Elimina Scheda</button></a>
                 <a href='./single_training_card.php?id=" . $row['id'] . "'><button class='secondary-button' type='button'>Guarda i Progressi</button></a>
     
                 </div>";
@@ -98,7 +96,7 @@ $stm = $conn->prepare($select_training_cards);
             echo "</div>";
         } else {
             echo "<h1>Nessuna scheda trovata per questo utente.</h1><br>
-            <div style='max-width: 15%; margin: auto'>
+            <div class = 'nuovaScheda'>
                 <a href='../new_training_card/new_training_card.html'><button class='input-button'>Inserisci una nuova scheda</button></a>
             </div>";
         }
@@ -107,96 +105,45 @@ $stm = $conn->prepare($select_training_cards);
         echo "Errore nella preparazione della query: " . $conn->error;
     }
     ?>
-    <button onClick="window.location.href = '../account.php'" class="btnBackToAccount">Torna indietro</button>
+    <a href="../account.php" class="btnBackToAccount">Torna indietro</a>
 
     <footer class="site-footer">
-      <div class="footer-container">
+        <div class="footer-container">
         <div class="footer-section">
-          <h2 class="footer-title">MyGymStats</h2>
-          <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
-          <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+            <h2 class="footer-title">MyGymStats</h2>
+            <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
+            <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+            <p class="footer-text quote">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
-
+    
         <div class="footer-section">
-          <h3 class="footer-subtitle">Naviga</h3>
-          <ul class="footer-links">
+            <h3 class="footer-subtitle">Naviga</h3>
+            <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="./gamification/gamification.html">Gamification</a></li>
-            <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="./faq/faq.html">FAQ</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-            <li><a href="./contatti/contatti.html">Contatti</a></li>
-          </ul>
+            <li><a href="../../gamification/gamification.html">Gamification</a></li>
+            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../../faq/faq.html">FAQ</a></li>
+            <li><a href="#" data-access="../../account.php">Progressi</a></li>
+            <li><a href="../../contatti/contatti.html">Contatti</a></li>
+            </ul>
         </div>
-
+    
         <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
+            <h3 class="footer-subtitle">Contattaci</h3>
+            <p class="footer-text">
             Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
-          </p>
+            </p>
         </div>
-      </div>
-
-      <div class="footer-bottom">
-        &copy; 2025 MyGymStats. Tutti i diritti riservati.
-      </div>
+        </div>
+    
+        <div class="footer-bottom">
+        &copy; <span id="currentYear"></span> MyGymStats. Tutti i diritti riservati.
+        </div>
     </footer>
 
-    <script>
-        var expirationText = document.querySelectorAll('.expiration');
-
-        // Ottieni la data di oggi
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); // Rimuove l'orario per un confronto solo sulla data
-
-        expirationText.forEach(element => {
-            // Converti expiration in un oggetto Date
-            var expirationDate = new Date(element.innerHTML);
-
-            // Controllo che la scheda sia scaduta
-            if (expirationDate < today) {
-                console.log("Scheda scaduta");
-                element.style.color = "red"; // Evidenzia se scaduta
-            } else {
-                console.log("Scheda ancora valida");
-            }
-        });
-
-
-        function eliminazione(cardId) {
-            if (confirm("Vuoi davvero eliminare questa scheda di allenamento?")) {
-                // Effettua una richiesta fetch per eliminare la scheda
-                fetch(`./delete_training_card.php?id_card=${cardId}`, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert("Scheda eliminata con successo!");
-                            // Ricarica la pagina per aggiornare la lista
-                            // window.location.reload();
-                            // window.location.href=window.location.href
-                        } else {
-                            throw new Error('Errore nella cancellazione'.response);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Errore:', error);
-                        alert("Si è verificato un errore durante l'eliminazione");
-                    });
-            } else {
-                alert("Eliminazione annullata");
-            }
-        }
-
-        // Rende la funzione disponibile globalmente
-        window.eliminazione = eliminazione;
-    </script>
-    <script src="../../commonJS/commonScript.js"></script>
-    <script src="../../commonJS/commonNavbar.js"></script>
+    <script src = "all_training_card.js?v=1.1"></script>
+    <script src="../../commonJS/commonScript.js?v=1.1"></script>
+    <script src="../../commonJS/commonNavbar.js?v=1.1"></script>
 
 </body>
 

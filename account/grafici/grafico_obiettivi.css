@@ -1,0 +1,63 @@
+#chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  #goals {
+    width: 100%;
+  }
+
+  #center-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: sans-serif;
+    pointer-events: none;
+    z-index: 10;
+    display: none;
+  }
+
+  #center-info h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+    /* Cambiato da #333 a bianco */
+  }
+
+  #center-info p {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+    /* Cambiato da #666 a bianco */
+  }
+
+  /* CODICE PER L'OVERLAY DEI LAVORI IN CORSO */
+  .chart-wrapper {
+    position: relative;
+    opacity: 0.4; /* grigio trasparente per dare l'idea di "disattivato" */
+    pointer-events: none; /* disattiva interazione col grafico */
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.7); /* grigio scuro trasparente */
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+  }

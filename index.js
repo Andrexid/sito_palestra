@@ -4,6 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inizializza l'immagine profilo
     getUserPicProfile();
 
+    if (!localStorage.getItem('theme')) {
+      // Se non c'è un tema salvato, imposta 'dark' di default
+      localStorage.setItem('theme', 'dark');
+    }
+    applyTheme();
 
     const menu = document.querySelector(".nav-links");
     const profileBtn = document.getElementById("profile-pic");
@@ -63,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
             controllaAccesso(destination);
         });
     });
+
+    //scriviamo l'anno corrente nel footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 });
 
 function controllaAccesso(destination) {
@@ -75,9 +83,16 @@ function controllaAccesso(destination) {
 }
 
 function logout() {
-    alert("Logout effettuato!");
-    localStorage.removeItem("email");
-    window.location.href = "login-signup/login.html";
+  const conferma = confirm("⚠️ Stai per disconnetterti dal tuo account. Sei sicuro?");
+    
+  if (conferma) {
+      // Se l'utente conferma, fai il logout
+      alert("Logout effettuato!");
+      localStorage.clear();
+      window.location.href = "login-signup/login.html";
+  } else {
+    // Se annulla, non succede nulla
+  }
 }
 
 function getUserPicProfile(txt) {
@@ -127,12 +142,3 @@ function applyTheme() {
     }
     applyTheme();
   }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Quando la pagina carica
-    if (!localStorage.getItem('theme')) {
-      // Se non c'è un tema salvato, imposta 'dark' di default
-      localStorage.setItem('theme', 'dark');
-    }
-    applyTheme();
-  });
