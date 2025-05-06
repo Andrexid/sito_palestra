@@ -21,10 +21,17 @@ if (isset($_GET['id'])) {
         WHERE we.workout_plan_id = ?
     ";
     $stm2 = $conn->prepare($search_workout_exercises);
+
+    // Query info scheda
+    $search_info_card = "SELECT * FROM workout_exercises WHERE id = ? and workout_plan_id = ?";
+    $stm_info = $conn->prepare($search_info_card);
 } else {
     echo "Errore, id non trovato";
     exit;
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -130,6 +137,46 @@ if (isset($_GET['id'])) {
                     <input type='submit' disabled value='Salva Modifiche' class='principal_button-sm'>
                 </div>
             </form>";
+
+
+
+
+            echo "<h2 style='margin-top: 40px;'>📅 Storico Esercizi Registrati</h2>";
+
+            if ($result2->num_rows > 0) {
+                // Riavvolgi il risultato per riutilizzarlo
+                $stm2->bind_param("i", $card_id);
+                $stm2->execute();
+                $result2 = $stm2->get_result();
+
+                echo "<table border='1' class='table-single-card'>
+        <thead>
+            <tr>
+                <th>Esercizio</th>
+                <th>Set</th>
+                <th>Reps</th>
+                <th>Peso (kg)</th>
+                <th>Recupero (sec)</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>";
+
+                while ($exercise = $result2->fetch_assoc()) {
+                    echo "<tr>
+                        <td>{$exercise['name']}</td>
+                        <td>{$exercise['sets']}</td>
+                        <td>{$exercise['reps']}</td>
+                        <td>{$exercise['weight']}</td>
+                        <td>{$exercise['rest_time']}</td>
+                        <td>{$exercise['notes']}</td>
+                    </tr>";
+                }
+
+                echo "</tbody></table>";
+            } else {
+                echo "<p>Nessun esercizio registrato per questa scheda.</p>";
+            }
         } else {
             echo "<h1>Errore: Nessuna scheda trovata</h1>";
         }
@@ -141,41 +188,44 @@ if (isset($_GET['id'])) {
     }
     ?>
 
+
+
+
     <button onClick="window.location.href = 'all_training_card.php'" class="btnBackToAccount">Torna indietro</button>
 
 
     <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-section">
-          <h2 class="footer-title">MyGymStats</h2>
-          <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
-          <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-          <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h2 class="footer-title">MyGymStats</h2>
+                <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
+                <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+                <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Naviga</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./gamification/gamification.html">Gamification</a></li>
+                    <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
+                    <li><a href="./faq/faq.html">FAQ</a></li>
+                    <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
+                    <li><a href="./contatti/contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-subtitle">Contattaci</h3>
+                <p class="footer-text">
+                    Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
+                </p>
+            </div>
         </div>
 
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Naviga</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="./gamification/gamification.html">Gamification</a></li>
-            <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-            <li><a href="./faq/faq.html">FAQ</a></li>
-            <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-            <li><a href="./contatti/contatti.html">Contatti</a></li>
-          </ul>
+        <div class="footer-bottom">
+            &copy; 2025 MyGymStats. Tutti i diritti riservati.
         </div>
-
-        <div class="footer-section">
-          <h3 class="footer-subtitle">Contattaci</h3>
-          <p class="footer-text">
-            Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        &copy; 2025 MyGymStats. Tutti i diritti riservati.
-      </div>
     </footer>
 
 

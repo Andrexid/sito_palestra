@@ -90,7 +90,7 @@ $stm = $conn->prepare($select_training_cards);
                 </div> 
                 <br>
                 <a href='#' onclick='eliminazione(" . $row['id'] . ")'><button type='button' class='input-button'>Elimina Scheda</button></a>
-                <a href='./single_training_card.php?id=" . $row['id'] . "'><button class='secondary-button' type='button'>Visualizza scheda</button></a>
+                <a href='./single_training_card.php?id=" . $row['id'] . "'><button class='secondary-button' type='button'>Guarda i Progressi</button></a>
     
                 </div>";
                 $counter += 1;
