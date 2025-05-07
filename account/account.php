@@ -12,7 +12,7 @@ $user_id = $_SESSION['id'];
 $nome_utente = "";
 
 if ($user_id) {
-    $sql = "SELECT nome, cognome FROM utenti WHERE id = ?";
+    $sql = "SELECT nome, cognome, puntiEXP FROM utenti WHERE id = ?";
     $stmt = $conn->prepare($sql);
     if ($stmt) {
         $stmt->bind_param("i", $user_id);
@@ -24,6 +24,7 @@ if ($user_id) {
                 $nome = $row['nome'] ?? '';
                 $cognome = $row['cognome'] ?? '';
                 $nome_utente = htmlspecialchars(trim($nome . ' ' . $cognome));
+                $exp_points = (int)$row['puntiEXP'];
             }
         }
         $stmt->close();
@@ -48,7 +49,7 @@ if ($user_id) {
     <meta property="og:locale" content="it_IT">
     <link rel="canonical" href="https://www.mygymstats.com/account/account.php">
 
-    <link rel="stylesheet" href="account.css?v=1.93">
+    <link rel="stylesheet" href="account.css?v=1.95">
     <link rel="stylesheet" href="../commonCSS/commonNavbar.css">
     <link rel="stylesheet" href="../commonCSS/reset.css">
     <link rel="stylesheet" href="../commonCSS/buttons.css">
@@ -154,6 +155,7 @@ if ($user_id) {
                                 <h3>🚀 Prossimo Obiettivo:</h3>
                                 <img src="../img/badges/badge-2.jpg" id="thirdImg" class="locked bedge-img" alt="Badge Livello 4 Bloccato">
                                 <p id="thirdP">Livello 4 – Campione in Ascesa</p>
+                                <p id="finalMessage">CCC</p>
                             </div>
                         </div>
                     </div>
@@ -177,7 +179,10 @@ if ($user_id) {
                 <?php require_once 'grafici/grafico_allenamenti_mensili.php'; ?>
             </div>
         </section>
+        
     </main>
+
+    <div id="exp-data" data-exp="<?php echo $exp_points; ?>"></div>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -213,9 +218,9 @@ if ($user_id) {
         </div>
     </footer>
 
-    <script src="../commonJS/commonNavbar.js?v=1.2"></script>
-    <script src="account.js?v=1.2"></script>
-    <script src="../commonJS/commonScript.js?v=1.3"></script>
+    <script src="../commonJS/commonNavbar.js?v=1.4"></script>
+    <script src="account.js?v=2.93"></script>
+    <script src="../commonJS/commonScript.js?v=1.5"></script>
 </body>
 
 </html>

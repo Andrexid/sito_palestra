@@ -54,7 +54,7 @@ $conn->close();
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Menu di navigazione principale">
+    <!-- <nav class="navbar" aria-label="Menu di navigazione principale">
         <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">☰</button>
         <div class="logo">
             <a href="../../index.html">
@@ -78,7 +78,7 @@ $conn->close();
                 <a href="../../settings/settings.html">⚙️ Impostazioni</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <h1>Allenamento suddiviso per giorno</h1>
 
@@ -139,8 +139,8 @@ $conn->close();
         </div>
     </footer>
     
-    <script src="../../commonJS/commonScript.js"></script>
-    <script src="../../commonJS/commonNavbar.js"></script>
+    <script src="../../commonJS/commonScript.js?v=1.1"></script>
+    <script src="../../commonJS/commonNavbar.js?v=1.1"></script>
 
 </body>
 

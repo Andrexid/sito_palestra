@@ -105,8 +105,8 @@ session_start();
         </form>
     </main>
 
-    <script src="../commonJS/commonNavbar.js?v=1.1"></script>
-    <script src="../commonJS/commonScript.js?v=1.2"></script>
+    <script src="../commonJS/commonNavbar.js?v=1.2"></script>
+    <script src="../commonJS/commonScript.js?v=1.3"></script>
 </body>
 
 </html>

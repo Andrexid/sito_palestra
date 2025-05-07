@@ -2,28 +2,18 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("insertGoal").addEventListener('click', (event) => {
         alert('Ancora in lavorazione!!');
     });
+    
+    const expDiv = document.getElementById("exp-data");
+    const expPoints = parseInt(expDiv.dataset.exp);
+    console.log("EXP ricevuti:", expPoints);
+
+    // Salva i dati in sessionStorage
+    sessionStorage.setItem("EXP", expPoints);
+
+    // Aggiorna il DOM con i dati
+    getUserPicProfile();
+    drawBadges();
 });
-
-function getUserDataProfile() {
-    fetch("../profile/get_user_data_profile.php")
-        .then(response => response.text())
-        .then(text => {
-            const data = JSON.parse(text); // 👈 parsing corretto
-
-            if (data.error) {
-                console.error(data.error);
-                return;
-            }
-
-            // Salva i dati in sessionStorage
-            sessionStorage.setItem("EXP", data.puntiEXP);
-
-            // Aggiorna il DOM con i dati
-            getUserPicProfile();
-            drawBadges();
-        })
-        .catch(error => console.error("❌ Errore nel recupero dati:", error));
-}
 
 let badges = [
   "Il viaggio inizia", "Primo Passo", "Iniziato il Viaggio", 
@@ -52,21 +42,30 @@ function drawBadges() {
   }
 
   let levelUser = document.querySelector("#gamification-text");
+  levelUser.textContent = "1";
   levelUser.innerHTML = "Sei al <strong>Livello " + (positionThresholds + 1) + "</strong> 💪";
 
-  secondImg.src = `../img/badge-${(positionThresholds)}.jpg`;
+  secondImg.src = `../img/badges/badge-${(positionThresholds)}.jpg`;
   secondImg.alt = `${badges[(positionThresholds)]}`;
   secondImg.hidden = false;
   secondP.innerHTML = badges[(positionThresholds)];
 
-  thirdImg.src = `../img/badge-${(positionThresholds + 1)}.jpg`;
+  thirdImg.src = `../img/badges/badge-${(positionThresholds + 1)}.jpg`;
   thirdImg.alt = `${badges[(positionThresholds + 1)]}`;
   thirdImg.hidden = false;
   thirdP.innerHTML = badges[(positionThresholds + 1)];
   
-  if (positionThresholds == badges.length - 1){
-      thirdImg.hidden = true;
-  }
+  let finalMessage = document.querySelector("#finalMessage");
+
+    if (positionThresholds === badges.length - 1) {
+        thirdImg.hidden = true;
+        thirdP.textContent = ""; // oppure nascondi anche thirdP se non serve
+        finalMessage.style.display = "block";
+        finalMessage.textContent = "🎉 Hai sbloccato tutti i badge! Nuovi badge arriveranno presto!";
+    } else {
+        finalMessage.style.display = "none";
+    }
+
 
 
   let currentEXP = sessionStorage.getItem("EXP") ?? 0;

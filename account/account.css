@@ -404,6 +404,11 @@ body.dark-mode .container-img img {
   font-weight: var(--font-bold);
 }
 
+.exp-data, #finalMessage{
+  display: none;
+}
+
+
 /* ===== MOBILE OPTIMIZATION ===== */
 @media (max-width: 768px) {
   body {

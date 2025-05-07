@@ -117,6 +117,6 @@ function getUserPicProfile(){
     if(localStorage.getItem("imagePic")){
       accountPic.src = localStorage.getItem("imagePic");
     }else{
-      accountPic.src = "img/utente.png";
+      accountPic.src = "../img/utente.png";
     }
   }
