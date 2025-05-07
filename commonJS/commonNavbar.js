@@ -111,13 +111,12 @@ function getUserPicProfile(txt) {
     accountPic.src = txt;
 }
 
-function getUserPicProfileAccount(){
-    // Questa funzione verrà chiamata solo nelle sottocartelle dentro account
+function getUserPicProfile(){
     accountPic = document.getElementById("profile-pic");
-
+  
     if(localStorage.getItem("imagePic")){
-        accountPic.src = "../" + localStorage.getItem("imagePic");
+      accountPic.src = localStorage.getItem("imagePic");
     }else{
-        accountPic.src = "../img/utente.png";
+      accountPic.src = "img/utente.png";
     }
-}
+  }

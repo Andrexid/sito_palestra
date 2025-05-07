@@ -106,7 +106,11 @@ function getUserPicProfile(txt) {
 function getUserPicProfile(){
   accountPic = document.getElementById("profile-pic");
 
-  accountPic.src = localStorage.getItem("imagePic");
+  if(localStorage.getItem("imagePic")){
+    accountPic.src = localStorage.getItem("imagePic").replace("../", "");
+  }else{
+    accountPic.src = "img/utente.png";
+  }
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

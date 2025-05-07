@@ -72,7 +72,7 @@ a:hover {
     var(--primary-blue),
     var(--accent-orange)
   );
-  color: var(--light-card);
+  color: red;
   padding: 40px 20px;
   text-align: center;
   font-size: 2rem;

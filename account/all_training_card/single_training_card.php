@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Menu di navigazione principale">
+<nav class="navbar" aria-label="Menu di navigazione principale">
         <button class="hamburger-menu" aria-label="Apri Menu di Navigazione">
             ☰
         </button>
@@ -78,7 +78,6 @@ if (isset($_GET['id'])) {
             <div class="dropdown-menu" id="profile-menu">
                 <a href="../../profile/profile.html">👤 Profilo</a>
                 <a href="../../settings/settings.html">⚙️ Impostazioni</a>
-                <a href="javascript:void(0);" id="logout-btn">🚪 Logout</a>
             </div>
         </div>
     </nav>
@@ -94,50 +93,7 @@ if (isset($_GET['id'])) {
         $result2 = $stm2->get_result();
 
         if ($result->num_rows > 0) {
-            echo "<h1 style='margin-top: 30px'>Scheda Allenamento</h1>";
-
-            // Bottone per abilitare/disabilitare modifica
-            echo "<button class='unlock-button secondary-button' onclick='unLockInputs()'>Sblocca Modifica</button>";
-
-            echo "<form action='./refresh_workout_exercises.php' method='post' class='training-form'>
-                <input type='hidden' name='training_card_id' value='$card_id'>
-                <table border='1' class='table-single-card'>
-                    <thead>
-                        <tr>
-                            <th>Esercizio</th>
-                            <th>Sets</th>
-                            <th>Reps</th>
-                            <th>Peso (kg)</th>
-                            <th>Recupero (sec)</th>
-                            <th>Note</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-
-            while ($exercise = $result2->fetch_assoc()) {
-                echo "<tr>
-                    <td>{$exercise['name']}</td>
-                    <td><input type='number' disabled name='sets[{$exercise['id']}]' value='{$exercise['sets']}' class='input-text-dis'></td>
-                    <td><input type='number' disabled name='reps[{$exercise['id']}]' value='{$exercise['reps']}' class='input-text-dis'></td>
-                    <td><input type='number' disabled name='weight[{$exercise['id']}]' value='{$exercise['weight']}' class='input-text-dis'></td>
-                    <td><input type='number' disabled name='rest_time[{$exercise['id']}]' value='{$exercise['rest_time']}' class='input-text-dis'></td>
-                    <td><input type='text' disabled name='notes[{$exercise['id']}]' value='{$exercise['notes']}' class='input-text-dis'></td>
-                </tr>";
-            }
-
-            echo "</tbody>
-                </table>
-                
-                <!-- Bottone per salvare le modifiche -->
-                <div class='button-wrapper'>
-                    <input type='submit' disabled value='Salva Modifiche' class='principal_button-sm'>
-                </div>
-            </form>";
-
-
-
-
-            echo "<h2 style='margin-top: 40px;'>📅 Storico Esercizi Registrati</h2>";
+            echo "<h1>📅 Storico Esercizi Registrati</h1>";
 
             if ($result2->num_rows > 0) {
                 // Riavvolgi il risultato per riutilizzarlo
@@ -189,63 +145,42 @@ if (isset($_GET['id'])) {
 
     <footer class="site-footer">
         <div class="footer-container">
-            <div class="footer-section">
-                <h2 class="footer-title">MyGymStats</h2>
-                <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
-                <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
-                <p class="footer-text" style="margin-top: 10px; font-style: italic; font-weight: 600">“La costanza batte il talento, quando il talento non è costante.”</p>
-            </div>
-
-            <div class="footer-section">
-                <h3 class="footer-subtitle">Naviga</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="./gamification/gamification.html">Gamification</a></li>
-                    <li><a href="./chiSiamo/chisiamo.html">Chi siamo</a></li>
-                    <li><a href="./faq/faq.html">FAQ</a></li>
-                    <li><a href="#" onclick="controllaAccesso('account.php')">Progressi</a></li>
-                    <li><a href="./contatti/contatti.html">Contatti</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3 class="footer-subtitle">Contattaci</h3>
-                <p class="footer-text">
-                    Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
-                </p>
-            </div>
+        <div class="footer-section">
+            <h2 class="footer-title">MyGymStats</h2>
+            <p class="footer-text">Con MyGymStats puoi monitorare gli allenamenti, seguire i tuoi progressi e migliorarti ogni giorno con strumenti avanzati.</p>
+            <p class="footer-text">Allenati in modo intelligente, costante e motivato ogni giorno.</p>
+            <p class="footer-text quote">“La costanza batte il talento, quando il talento non è costante.”</p>
         </div>
-
+    
+        <div class="footer-section">
+            <h3 class="footer-subtitle">Naviga</h3>
+            <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="../../gamification/gamification.html">Gamification</a></li>
+            <li><a href="../../chiSiamo/chisiamo.html">Chi siamo</a></li>
+            <li><a href="../../faq/faq.html">FAQ</a></li>
+            <li><a href="#" data-access="../../account.php">Progressi</a></li>
+            <li><a href="../../contatti/contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    
+        <div class="footer-section">
+            <h3 class="footer-subtitle">Contattaci</h3>
+            <p class="footer-text">
+            Email: <a href="mailto:info@mygymstats.com">info@mygymstats.com</a>
+            </p>
+        </div>
+        </div>
+    
         <div class="footer-bottom">
-            &copy; 2025 MyGymStats. Tutti i diritti riservati.
+        &copy; <span id="currentYear"></span> MyGymStats. Tutti i diritti riservati.
         </div>
     </footer>
 
 
-    <script>
-        const inputs = document.querySelectorAll(".input-text-dis");
-        const unlockButton = document.querySelector(".unlock-button");
-        const submitButton = document.querySelector("input[type='submit']");
-
-        let isDisabled = true;
-
-        function unLockInputs() {
-            inputs.forEach(input => {
-                input.disabled = !input.disabled;
-            });
-
-            isDisabled = !isDisabled;
-
-            // Attiva/disattiva il bottone submit
-            submitButton.disabled = !submitButton.disabled;
-
-            // Cambia testo del bottone di sblocco
-            unlockButton.textContent = isDisabled ? "Sblocca Modifica" : "Blocca Modifica";
-        }
-    </script>
+    <script src = "single_training_card.js"></script>
     <script src="../../commonJS/commonScript.js"></script>
     <script src="../../commonJS/commonNavbar.js"></script>
-
 </body>
 
 </html>

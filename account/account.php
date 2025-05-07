@@ -147,12 +147,12 @@ if ($user_id) {
                         <div id="badge-container" class="badge-container">
                             <div>
                                 <h3>🏅 Il tuo Badge Attuale:</h3>
-                                <img src="../img/badge-1.jpg" id="secondImg" alt="Badge Attuale Livello 3" class="bedge-img">
+                                <img src="../img/badges/badge-1.jpg" id="secondImg" alt="Badge Attuale Livello 3" class="bedge-img">
                                 <p id="secondP">Livello 3 – Atleta Determinato</p>
                             </div>
                             <div>
                                 <h3>🚀 Prossimo Obiettivo:</h3>
-                                <img src="../img/badge-2.jpg" id="thirdImg" class="locked bedge-img" alt="Badge Livello 4 Bloccato">
+                                <img src="../img/badges/badge-2.jpg" id="thirdImg" class="locked bedge-img" alt="Badge Livello 4 Bloccato">
                                 <p id="thirdP">Livello 4 – Campione in Ascesa</p>
                             </div>
                         </div>

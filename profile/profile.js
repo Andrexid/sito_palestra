@@ -47,7 +47,11 @@ function getUserDataProfile() {
             sessionStorage.setItem("esercizioPiuFrequente", data.esercizioPiuFrequente);
 
             // Aggiorna il DOM con i dati
-            updateProfileUI(data.fotoProfilo);
+            if(data.fotoProfilo){
+                updateProfileUI(data.fotoProfilo);
+            }else{
+                updateProfileUI("../img/utente.png");
+            }
             drawBadges();
             calcolateBMI();
         })
@@ -249,12 +253,12 @@ function drawBadges() {
     let levelUser = document.querySelector("#gamification-text");
     levelUser.innerHTML = "Sei al <strong>Livello " + (positionThresholds + 1) + "</strong> 💪";
 
-    secondImg.src = `../img/badge-${(positionThresholds)}.jpg`;
+    secondImg.src = `../img/badges/badge-${(positionThresholds)}.jpg`;
     secondImg.alt = `${badges[(positionThresholds)]}`;
     secondImg.hidden = false;
     secondP.innerHTML = badges[(positionThresholds)];
 
-    thirdImg.src = `../img/badge-${(positionThresholds + 1)}.jpg`;
+    thirdImg.src = `../img/badges/badge-${(positionThresholds + 1)}.jpg`;
     thirdImg.alt = `${badges[(positionThresholds + 1)]}`;
     thirdImg.hidden = false;
     thirdP.innerHTML = badges[(positionThresholds + 1)];
