@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grafico Exp Settimanale</title>
-    <link rel="stylesheet" href="grafico_exp_settimanale.css">
-    <script src="../charts/apexcharts.js"></script>
+    <!-- <link rel="stylesheet" href="grafico_exp_settimanale.css"> -->
+    <!-- <script src="../charts/apexcharts.js"></script> -->
 </head>
 <body>
 <?php
@@ -49,6 +49,6 @@ require '../database/close-connessione.php';
      data-dati-settimana='<?= json_encode($dati_settimana) ?>'
      data-dati-scorsa='<?= json_encode($dati_scorsa) ?>'></div>
 
-<script src="grafico_exp_settimanale.js"></script>
+<!-- <script src="grafico_exp_settimanale.js"></script> -->
 </body>
 </html>

@@ -54,6 +54,14 @@ if ($user_id) {
     <link rel="stylesheet" href="../commonCSS/reset.css">
     <link rel="stylesheet" href="../commonCSS/buttons.css">
     <link rel="stylesheet" href="../commonCSS/footer.css">
+
+    <!-- GRAFICI -->
+    <link rel="stylesheet" href="grafici/grafico_exp_settimanale.css">
+    <link rel="stylesheet" href="grafici/grafico_allenamenti_mensili.css">
+    <link rel="stylesheet" href="grafici/grafico_obiettivi.css">
+
+    <script src="../charts/apexcharts.js"></script>
+
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"> -->
 </head>
 <body>
@@ -221,6 +229,11 @@ if ($user_id) {
     <script src="../commonJS/commonNavbar.js?v=1.4"></script>
     <script src="account.js?v=2.93"></script>
     <script src="../commonJS/commonScript.js?v=1.5"></script>
+
+    <!-- GRAFICI -->
+    <script src = "grafici/grafico_exp_settimanale.js"></script>
+    <script src = "grafici/grafico_allenamenti_mensili.js"></script>
+    <script src = "grafici/grafico_obiettivi.js"></script>
 </body>
 
 </html>

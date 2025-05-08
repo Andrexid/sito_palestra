@@ -34,13 +34,13 @@ while ($row = $result->fetch_assoc()) {
 $dati_js = array_values($allenamenti_mensili);
 ?>
 <head>
-    <link rel="stylesheet" href="grafico_allenamenti_mensili.css">
+    <!-- <link rel="stylesheet" href="grafico_allenamenti_mensili.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-    <script src="../charts/apexcharts.js"></script>
+    <!-- <script src="../charts/apexcharts.js"></script> -->
 </head>
 <body>
     <h3>Allenamenti mensili</h3>
     <div id="workoutChart" data-allenamenti='<?= json_encode($dati_js) ?>' ></div>
 
-    <script src = "grafico_allenamenti_mensili.js"></script>
+    <!-- <script src = "grafico_allenamenti_mensili.js"></script> -->
 </body>

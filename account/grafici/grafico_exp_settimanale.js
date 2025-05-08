@@ -88,3 +88,5 @@ document.addEventListener("DOMContentLoaded", function () {
     const chart_exp = new ApexCharts(chartDiv, options);
     chart_exp.render();
 });
+
+

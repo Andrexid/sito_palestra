@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grafico a torta - Obiettivi Fitness</title>
   <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-  <script src="../charts/apexcharts.js"></script>
+  <!-- <script src="../charts/apexcharts.js"></script> -->
 
-  <link rel="stylesheet" href="grafico_obiettivi.css">
+  <!-- <link rel="stylesheet" href="grafico_obiettivi.css"> -->
 </head>
 
 <body>
@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  <script src = "grafico_obiettivi.js"></script>
+  <!-- <script src = "grafico_obiettivi.js"></script> -->
 </body>
 
 </html>
