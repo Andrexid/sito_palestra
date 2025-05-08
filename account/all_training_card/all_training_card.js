@@ -27,34 +27,33 @@ expirationText.forEach(element => {
     }
 });
 
-
 function eliminazione(cardId) {
     if (confirm("Vuoi davvero eliminare questa scheda di allenamento?")) {
-        // Effettua una richiesta fetch per eliminare la scheda
-        fetch(`./delete_training_card.php?id_card=${cardId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("Scheda eliminata con successo!");
-                    // Ricarica la pagina per aggiornare la lista
-                    // window.location.reload();
-                    // window.location.href=window.location.href
-                } else {
-                    throw new Error('Errore nella cancellazione'.response);
-                }
-            })
-            .catch(error => {
-                console.error('Errore:', error);
-                alert("Si è verificato un errore durante l'eliminazione");
-            });
+        fetch(`./delete_training_card.php`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id_card: cardId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                window.location.reload(); // o aggiorna la lista dinamicamente
+            } else {
+                throw new Error(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Errore:', error);
+            alert("Si è verificato un errore durante l'eliminazione: " + error.message);
+        });
     } else {
         alert("Eliminazione annullata");
     }
 }
+
 
 // Rende la funzione disponibile globalmente
 window.eliminazione = eliminazione;
