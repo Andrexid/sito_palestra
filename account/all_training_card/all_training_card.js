@@ -32,7 +32,7 @@ function eliminazione(cardId) {
     if (confirm("Vuoi davvero eliminare questa scheda di allenamento?")) {
         // Effettua una richiesta fetch per eliminare la scheda
         fetch(`./delete_training_card.php?id_card=${cardId}`, {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 }
