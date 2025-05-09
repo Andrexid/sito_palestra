@@ -47,11 +47,16 @@ function getUserDataProfile() {
             sessionStorage.setItem("esercizioPiuFrequente", data.esercizioPiuFrequente);
 
             // Aggiorna il DOM con i dati
-            if(data.fotoProfilo){
-                updateProfileUI(data.fotoProfilo);
-            }else{
+            // if(data.fotoProfilo){
+            //     updateProfileUI(data.fotoProfilo);
+            // }else{
+            //     updateProfileUI("../img/utente.png");
+            // }
+            if(localStorage.getItem("imagePic")){
+                updateProfileUI("imagePic");
+              }else{
                 updateProfileUI("../img/utente.png");
-            }
+              }
             drawBadges();
             calcolateBMI();
         })
