@@ -35,9 +35,7 @@ try {
                     VALUES ('$name', '$surname', NULL, '$email', '$password_hash', '$sex', NULL, NULL)";
 
     if (!$conn->query($insert_new_user)) {
-        // throw new Exception("Errore durante la registrazione: " . $conn->error);
-        echo "Query fallita: " . $conn->error;
-        exit;
+        throw new Exception("Errore durante la registrazione: " . $conn->error);
     }
 
     // Inizializzazione sessione
@@ -48,9 +46,8 @@ try {
     $response["success"] = true;
     $response["message"] = "Registrazione effettuata con successo!";
 } catch (Exception $e) {
-    // $response["message"] = $e->getMessage();
-    echo "Eccezione: " . $e->getMessage();
-    exit;
+    $response["success"] = false;
+    $response["message"] = "Errore: " . $e->getMessage(); // <-- JSON valido
 }
 
 echo json_encode($response);
